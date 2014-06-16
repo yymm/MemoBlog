@@ -1,0 +1,705 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>C言語 - Testing Frameworks &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Think about news site" href="../05/news.html" /><link rel="prev" title="centosはじめました" href="../30/centos_setup.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>April 25, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/04/25/c_testframeworks.html" class="hatena-bookmark-button" data-hatena-bookmark-title="C言語 - Testing Frameworks - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="c-testing-frameworks">
+<h1><a class="toc-backref" href="#id29">C言語 - Testing Frameworks</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#c-testing-frameworks" id="id29">C言語 - Testing Frameworks</a><ul>
+<li><a class="reference internal" href="#servey" id="id30">Servey</a></li>
+<li><a class="reference internal" href="#cunit" id="id31">CUnit</a></li>
+<li><a class="reference internal" href="#cut-2-6" id="id32">CUT 2.6</a></li>
+<li><a class="reference internal" href="#cutest" id="id33">CuTest</a></li>
+<li><a class="reference internal" href="#cutter" id="id34">Cutter</a></li>
+<li><a class="reference internal" href="#mintest" id="id35">MinTest</a></li>
+<li><a class="reference internal" href="#cmockery" id="id36">CMockery</a></li>
+<li><a class="reference internal" href="#cspec" id="id37">CSpec</a></li>
+<li><a class="reference internal" href="#unity" id="id38">Unity</a></li>
+<li><a class="reference internal" href="#cpputest" id="id39">CppUTest</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>C言語で開発していく際にTDDまたはBDDを意識した開発を行っていこうと思う。</p>
+<p>TDD : <a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%86%E3%82%B9%E3%83%88%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">テスト駆動開発 - Wikipedia</a></p>
+<p>BDD : <a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%93%E3%83%98%E3%82%A4%E3%83%93%E3%82%A2%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">ビヘイビア駆動開発 - Wikipedia</a></p>
+<div class="section" id="servey">
+<h2><a class="toc-backref" href="#id30">Servey</a></h2>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/ユニットテスト・フレームワーク一覧#C">ユニットテスト・フレームワーク一覧 - Wikipedia</a></p>
+<p>C言語テストフレームワークについて扱っている日本人の記事</p>
+<ul class="simple">
+<li><a class="reference external" href="http://softest.cocolog-nifty.com/blog/2008/02/c_394e.html">C言語の単体テスト、いろいろ: ソフトウェアテストの勉強室</a></li>
+<li><a class="reference external" href="http://rui.processor.jp/2012/11/unit_test_03/">ユニットテスト環境はどのようなものが存在するか | Rui Software</a></li>
+<li><a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/26/220501">C言語向けユニットテスティングフレームワーク CUT、CuTestについて - 千里霧中</a></li>
+</ul>
+<p>よく紹介されていて情報もありそうな、以下のフレームワークを試してみる。</p>
+<ul class="simple">
+<li>CUnit</li>
+<li>CUT</li>
+<li>Cutter</li>
+<li>CuTest</li>
+<li>MinUnit</li>
+<li>(CMockery)</li>
+<li>CSpec(BDD)</li>
+<li>Unity</li>
+<li>CppUTes</li>
+</ul>
+<p>※ ほとんどのフレームワームが2006~2008あたりで開発がストップしている。</p>
+</div>
+<div class="section" id="cunit">
+<h2><a class="toc-backref" href="#id31">CUnit</a></h2>
+<p>有名なテストフレームワーク。</p>
+<p>日本語のチュートリアルがあったので実践。</p>
+<p><a class="reference external" href="http://homepage3.nifty.com/kaku-chan/cunit/index.html">CUnit チュートリアル</a></p>
+<div class="section" id="install">
+<h3>1. Install</h3>
+<p>SOURCEFORGEに圧縮ファイルがあるのでダウンロード。( <a class="reference external" href="http://sourceforge.net/projects/cunit/">C Unit Testing Framework | Free software downloads at SourceForge.net</a> )</p>
+<p>解凍コマンド( <a class="reference external" href="http://uguisu.skr.jp/Windows/tar.html">tarコマンドで解凍・圧縮するlinux一覧まとめ（tg、zgz、zipなど）</a> )</p>
+<div class="highlight-none"><div class="highlight"><pre>$ tar -jxf CUnit-2.1-2-src.tar.bz2
+$ cd CUnit-2.1-2
+$ ./configure --enable-curses
+$ make
+$ make install
+</pre></div>
+</div>
+<p>※例によって例のごとくCygwinではエラー</p>
+<p>※Linux環境ではsudo make installする必要があるかもしれない</p>
+</div>
+<div class="section" id="usage">
+<h3>2. Usage</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">include</span> <span class="o">&lt;</span><span class="n">CUnit</span><span class="o">/</span><span class="n">CUnit</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="cp">#include &lt;CUnit/Console.h&gt;</span>
+
+<span class="kt">int</span> <span class="n">say_two</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">test_say_two_01</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">CU_pSuite</span> <span class="n">sort_suite</span><span class="p">;</span>
+    <span class="n">CU_initialize_registry</span><span class="p">();</span>
+    <span class="n">sort_suite</span> <span class="o">=</span> <span class="n">CU_add_suite</span><span class="p">(</span><span class="s">&quot;Sort&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">CU_add_test</span><span class="p">(</span><span class="n">sort_suite</span><span class="p">,</span> <span class="s">&quot;test_001&quot;</span><span class="p">,</span> <span class="n">test_say_two_01</span><span class="p">);</span>
+    <span class="n">CU_console_run_tests</span><span class="p">();</span>
+    <span class="n">CU_cleanup_registry</span><span class="p">();</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">test_say_two_01</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">say_two</span><span class="p">();</span>
+    <span class="n">CU_ASSERT</span><span class="p">(</span><span class="n">word</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usability">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>古めかしい。</li>
+<li>main分を自分で書かないとダメ。しかも結構多い。</li>
+<li>色々とCUNIT用の設定を書かないといけないので、テスト書くの大変。</li>
+<li>makeしたりと導入コストが高い。しかもCygwinではmake失敗するとかいう環境によっては使えなかったりするのがかなり困る。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cut-2-6">
+<h2><a class="toc-backref" href="#id32">CUT 2.6</a></h2>
+<p><a class="reference external" href="http://www.falvotech.com/content/cut/">CUT 2.6 &#8211; 10th Anniversary Version!</a></p>
+<p>Pythonを使っている <strong>軽量</strong> テストフレームワーク。</p>
+<p>CUT, Cutterについてはこの記事を参考にしています。 <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/26/220501">C言語向けユニットテスティングフレームワーク CUT、CuTestについて - 千里霧中</a></p>
+<div class="section" id="id5">
+<h3>1. Install</h3>
+<p>Linux環境では以下のコマンドでさくっとインストール</p>
+<div class="highlight-none"><div class="highlight"><pre>$ wget http://www.falvotech.com/content/cut/2.6/cut-2.6.tar.gz
+$ tar -zxvf cut-2.6.tar.gz
+$ cd cut-2.6
+$ sudo make install PREFIX=/usr/local
+cc -c -o cut.o cut.c
+ar r libcut.a cut.o
+ar: creating libcut.a
+rm -rf ./build
+mkdir -p ./build/bin
+mkdir -p ./build/lib
+mkdir -p ./build/include/cut/2.6
+cp \*.py ./build/bin
+cp cutgen ./build/bin
+chmod a+x ./build/bin/cutgen.py ./build/bin/cutgen
+cp libcut.a ./build/lib
+cp cut.h ./build/include/cut/2.6
+mkdir -p /usr/local
+cp -r ./build/* /usr/local
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2. Usage</h3>
+<p>残念なことにドキュメントは見当たらない。しかし、使い方はとても簡単。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;cut/2.6/cut.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">hoge</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">__CUT__Hoge</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">ASSERT</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="n">hoge</span><span class="p">(),</span> <span class="s">&quot;Assert Message!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テスト関数は__CUT__を接頭語としてつける。</p>
+<p>テスト関数を記載したファイルを読み込んだ後は、cutgenを実行する。</p>
+<p>テスト用のmain関数が書かれたファイルが出力されるのでコンパイル-&gt;実行。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ cutget hoge.c &gt; main.c
+$ gcc hoge.c main.c -L/usr/local/lib -lcut
+$ ./a.out
+cut.c:10:0: 2 == hoge(): error: Assert Message.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>簡単に使える。make installしているがmakeなくてもいけるんじゃないかというくらい。</li>
+<li>軽量。動作も軽快。</li>
+<li>テストフレームワークとして <strong>必要最小限</strong> の機能しかない。</li>
+<li>pythonが入っていないとcutgenコマンドが使えない。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cutest">
+<h2><a class="toc-backref" href="#id33">CuTest</a></h2>
+<p><a class="reference external" href="http://cutest.sourceforge.net/">CuTest: The Cutest C Unit Testing Framework</a></p>
+<p>CUTのshell script版。ヘッダとソースファイルさえあればいい。</p>
+<p>ドキュメントはREADME.txtのみ！そのままやってみる。</p>
+<div class="section" id="id8">
+<h3>1. Install</h3>
+<p><a class="reference external" href="http://sourceforge.net/projects/cutest/">CuTest: C Unit Testing Framework | Free Development software downloads at SourceForge.net</a></p>
+<p>上記のリンクにZIPファイルが落ちているので解凍するだけ。</p>
+</div>
+<div class="section" id="id9">
+<h3>2. Usage</h3>
+<p>カレントディレクトリに(/testとかディレクトリを作ってもいい)、CuTest.h, CuTest.c, make-tests.shを配置する。</p>
+<p># cutest_sample.c</p>
+<div class="highlight-c"><div class="highlight"><pre>#include &lt;stdio.h&gt;
+#include &quot;CuTest.h&quot;
+
+char* StrToUpper(char* str) {
+    return str;
+}
+
+void TestStrToUpper(CuTest \*tc) {
+    char* input = strdup(&quot;hello world&quot;);
+    char* actual = StrToUpper(input);
+    char* expected = &quot;HELLO WORLD&quot;;
+    CuAssertStrEquals(tc, expected, actual);
+}
+
+CuSuite* StrUtilGetSuite() {
+    CuSuite* suite = CuSuiteNew();
+    SUITE_ADD_TEST(suite, TestStrToUpper);
+    return suite;
+}
+</pre></div>
+</div>
+<p>もちろんアサートが出るコード。</p>
+<p><strong>注意</strong></p>
+<blockquote>
+<div><p>#include &lt;stdio.h&gt;しないと
+‘NULL’ undeclared (first use in this function)のエラーメッセージが出るので注意。</p>
+<p>(ここに書いてあった-&gt; <a class="reference external" href="http://snowycode.blogspot.jp/2010/05/cerror-c2065-null.html">Snowy Code: C++のエラー：error C2065: &#8216;NULL&#8217; : 定義されていない識別子です。:C,C++,PHP,XCODE</a> )</p>
+</div></blockquote>
+<p>テストコードを作成したら次にshell script(make_test.sh)を実行して、コンパイル。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ sh make-tests.sh cutest_sample.c &gt; main.c
+$ gcc main.c CuTest.c cutest_sample.c
+$ ./a.out
+There was 1 failure:
+1) TestStrToUpper: cutest_sample.c:12: expected &lt;HELLO WORLD&gt; but was &lt;hello world&gt;
+
+!!!FAILURES!!!
+Runs: 1 Passes: 0 Fails: 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>CUTと同様に軽量で早い。</li>
+<li>ライブラリじゃないので、ヘッダとソースを読み込むだけの簡単導入。</li>
+<li>CUTよりテストフレームワークとして作りこまれている。(とりあえず、メッセージはCUTより丁寧)</li>
+<li>main書かなくていい。</li>
+<li>シェルスクリプトを実行するだけで簡単にテストが作れる。</li>
+<li>シェルスクリプトに不具合があるような気がする。出力ファイルの変な箇所に改行が入っていた。(自分で修正)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cutter">
+<h2><a class="toc-backref" href="#id34">Cutter</a></h2>
+<p><a class="reference external" href="http://cutter.sourceforge.net/index.html.ja">C言語・C++言語用テスティングフレームワーク - Cutter</a></p>
+<p>日本人が開発している。</p>
+<p>なんとドキュメントが非常に充実している。が、逆に丁寧に書かれすぎて複雑な感じになっているorz</p>
+<p>そんな不満を持ている人が他にもいた↓</p>
+<p><a class="reference external" href="http://samidarehetima.blog9.fc2.com/blog-entry-149.html">凡人プログラマーの独り言 Cutterのとても簡単な使い方</a></p>
+<p>簡単に使ってみよう。</p>
+<div class="section" id="id12">
+<h3>1. Install</h3>
+<p><a class="reference external" href="http://cutter.sourceforge.net/reference/ja/install.html">プラットフォーム毎のCutterのインストール方法 - Cutter</a></p>
+<p>ドキュメントがえらく丁寧なので、上記サイトの手法を使えばインストールできる(丸投げ)</p>
+<p>※ cygwinだとうまくコンパイルされない?!</p>
+<blockquote>
+<div>自分の環境だとmake installして入れた。cutterだがコンパイルは通るものの、cutterで実行するとうまくいかない。
+具体的には、テストが実行されない。空のテストが実行された事になってる。Ubuntuでは同じコードで正常に動作する。</div></blockquote>
+<p>Macにインストールする場合はportでもbrewでもインストールできる。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ brew install cutter
+$ sudo port install cutter
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>2. Usage</h3>
+<p>テストコード : cutter.c</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;cutter.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">test_add</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">test_sub</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test_add</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">cut_assert_equal_int</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test_sub</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">cut_assert_equal_int</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">sub</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>実行してみる。Ubuntuでインストールしたところusr/localではなくusr直下にインストールされていた。インストール時にパス指定しないとなのか。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ gcc -shared cutter.c -o ./cutter/cutter.so -I/usr/include/cutter -L/usr/lib -lcutter
+$ cutter cutter/
+..
+
+Finished in 0.006999 seconds (total: 0.000427 seconds)
+
+2 test(s), 2 assertion(s), 0 failure(s), 0 error(s), 0 pending(s), 0 omission(s), 0 notification(s)
+100% passed
+.....(失敗するように編集)
+$ cutter cutter/
+F
+===============================================================================
+Failure: test_add
+&lt;4 == add(1,2)&gt;
+expected: &lt;4&gt;
+  actual: &lt;3&gt;
+cutter.c:12: test_add(): cut_assert_equal_int(4, add(1,2), )
+===============================================================================
+.
+
+Finished in 0.006359 seconds (total: 0.002195 seconds)
+
+2 test(s), 1 assertion(s), 1 failure(s), 0 error(s), 0 pending(s), 0 omission(s), 0 notification(s)
+50% passed
+</pre></div>
+</div>
+<p>cutterは.soファイルを作成-&gt;実行でテストという流れになっている。</p>
+<p>テストのためにわざわざmain書かなくていいのが調子いい。</p>
+</div>
+<div class="section" id="id14">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>情報が多い。日本人ユーザーも多い。</li>
+<li>Windowsに導入する方法がどこにも書かれていない。いい感じにdisってる。</li>
+<li>main書かなくていいので、本体のアプリケーションとの分離ができているのでテストの位置づけがわかりやすい。</li>
+<li>テストコードは完結に書けて良い感じ。</li>
+<li>残念なことに、本家チュートリアルが鬼。automakeとかの勉強しないと。</li>
+<li>テストフレームワークとして機能が充実している。</li>
+<li>本家ドキュメントが鬼なので簡単に使える方法を紹介している記事がいくつかある。<ul>
+<li><a class="reference external" href="http://samidarehetima.blog9.fc2.com/blog-entry-149.html">凡人プログラマーの独り言 Cutterのとても簡単な使い方</a></li>
+<li><a class="reference external" href="http://www.ne.jp/asahi/hishidama/home/tech/c/cutter.html">Cutterメモ(Hishidama&#8217;s C-lang Cutter Memo)</a> &lt;- CentOS</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mintest">
+<h2><a class="toc-backref" href="#id35">MinTest</a></h2>
+<p><a class="reference external" href="http://www.jera.com/techinfo/jtns/jtn002.html">JTN002 - MinUnit &#8211; a minimal unit testing framework for C</a></p>
+<div class="section" id="id16">
+<h3>1. Install</h3>
+<p>インストール？そんなのはいらない！？以下の3行がMinTest。</p>
+<div class="highlight-c"><div class="highlight"><pre>/\* file: minunit.h \*/
+#define mu_assert(message, test) do { if (!(test)) return message; } while (0)
+#define mu_run_test(test) do { char \*message = test(); tests_run++; if (message) return message; } while (0)
+extern int tests_run;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>2. Usage</h3>
+<p>本家ドキュメントにあるコード。読めばすぐわかるくらい簡単！</p>
+<div class="highlight-c"><div class="highlight"><pre>/\* file minunit_example.c \*/
+
+#include &lt;stdio.h&gt;
+#include &quot;minunit.h&quot;
+
+int tests_run = 0;
+
+int foo = 7;
+int bar = 4;
+
+static char * test_foo() {
+   mu_assert(&quot;error, foo != 7&quot;, foo == 7);
+   return 0;
+}
+
+static char * test_bar() {
+   mu_assert(&quot;error, bar != 5&quot;, bar == 5);
+   return 0;
+}
+
+static char * all_tests() {
+   mu_run_test(test_foo);
+   mu_run_test(test_bar);
+   return 0;
+}
+
+int main(int argc, char \*\*argv) {
+   char \*result = all_tests();
+   if (result != 0) {
+       printf(&quot;%s\n&quot;, result);
+   }
+   else {
+       printf(&quot;ALL TESTS PASSED\n&quot;);
+   }
+   printf(&quot;Tests run: %d\n&quot;, tests_run);
+
+   return result != 0;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>軽量どころか3行wwww</li>
+<li>導入コストがこれより低いフレームワークを探す方が難しい。</li>
+<li>そんなんなので話題性があり情報がたくさんある。</li>
+<li>MinTestをForkしてGithubにリポジトリ作った人がいる。中を見たが結構改良されている。 <a class="reference external" href="https://github.com/siu/minunit">siu/minunit · GitHub</a></li>
+<li>とても簡単なのでカスタマイズし放題、下記はカスタムしてある記事<ul>
+<li><a class="reference external" href="http://iyukki.blog56.fc2.com/blog-entry-94.html">MinUnitでテストしてみる CodingFirst</a></li>
+<li><a class="reference external" href="http://iyukki.blog56.fc2.com/blog-entry-104.html">MinUnitでテストしたその後 CodingFirst</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cmockery">
+<h2><a class="toc-backref" href="#id36">CMockery</a></h2>
+<p>google製軽量テストフレームワーク。</p>
+<p>なにやら、一組の.cファイルと.hファイルからなるフレームワークらしい。</p>
+<p>今回は、大人の事情で実際に使ってみたりはしないが、その名の通りMock機能(will_returnとか)等があり、他のフレームワークにはないような機能があるっぽい。</p>
+<p>詳しくは-&gt; <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/20/212242">C言語向けユニットテスティングフレームワーク Cmockeryについて - 千里霧中</a></p>
+</div>
+<div class="section" id="cspec">
+<h2><a class="toc-backref" href="#id37">CSpec</a></h2>
+<p><a class="reference external" href="https://github.com/arnaudbrejeon/cspec/wiki">CSpec : Behavior-driven development in C · arnaudbrejeon/cspec Wiki</a></p>
+<p>その名の通りRSpecリスペクトなBDDフレームワーク。開発は2年前くらいで止まってる(2013/04現在)。</p>
+<p>独自のDSLのようなものが実装してあって、C言語ではないかのように扱える。</p>
+<div class="section" id="id20">
+<h3>1. Install</h3>
+<p>Githubにリポジトリがある。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ git clone https://github.com/toshi-kawanishi/cspec.git
+$ cd src
+$ make
+$ cp libcspec.a /usr/local/lib/
+$ cp -r ../inc/ /usr/local/include/
+</pre></div>
+</div>
+<p>本家のほうではなくtoshi-kawanishiさんのリポジトリからcloneした。</p>
+<p>本家のリポジトリにあるsrcには、Makefile.amのみが置いてあって自分でautomakeしろということですね、わかります。いやautomakeわかりません。なので、Makefileを用意してくれているこの方のリポジトリを使用する。</p>
+<ul class="simple">
+<li>repos : <a class="reference external" href="https://github.com/toshi-kawanishi/cspec">toshi-kawanishi/cspec · GitHub</a></li>
+<li><a class="reference external" href="http://toshiyukikawanishi.net/blog/2008/12/11">Toshiyuki Kawanishi &gt;&gt; Blog &gt;&gt; 燃え上がれC言語 その1 ― CSpec</a></li>
+<li><a class="reference external" href="http://toshiyukikawanishi.net/blog/2008/12/13">Toshiyuki Kawanishi &gt;&gt; Blog &gt;&gt; 燃え上がれC言語 その2 ― CSpec でのテストの書き方</a></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>2. Usage</h3>
+<div class="highlight-c"><div class="highlight"><pre>#include &lt;cspec.h&gt;
+#include &lt;cspec_output_verbose.h&gt;
+
+int under_test_function( int a, int b )
+{
+      return a + b;
+}
+
+DESCRIBE(xml_long, &quot;under_test_function()&quot;)
+{
+      IT( &quot;return sum arguments.&quot; ) {
+              SHOULD_EQUAL( under_test_function( 1, 2 ), 3 );
+      } END_IT;
+} END_DESCRIBE;
+
+int main( int argc, char \*\*argv )
+{
+      CSpec_Run( DESCRIPTION(xml_long), CSpec_NewOutputVerbose() );
+      return 0;
+}
+</pre></div>
+</div>
+<p>DESCRIBE ~ END_DESCRIBEまではcspecのコード。</p>
+<p>独自のDSLで書かれていて、Cのコードの中にあると違和感しかない。</p>
+<p>実行は先程のライブラリをリンクさせればコンパイル出来る。</p>
+<div class="highlight-c"><div class="highlight"><pre>$ gcc cspec.c -I/usr/local/include/cspec -L/usr/local/lib -lcspec
+$ ./a.out
+Describe:under_test_function()
+   - it return sum arguments.
+       OK: (under_test_function( 1, 2 )) == (3)
+</pre></div>
+</div>
+<p>ちなみに括弧とか;(セミコロン)とか付けなくてもちゃんと動作する。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">xml_long</span><span class="p">,</span> <span class="s">&quot;under_test_function()&quot;</span><span class="p">)</span>
+
+      <span class="n">IT</span><span class="p">(</span> <span class="s">&quot;return sum arguments.&quot;</span> <span class="p">)</span>
+              <span class="n">SHOULD_EQUAL</span><span class="p">(</span> <span class="n">under_test_function</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="mi">3</span> <span class="p">)</span>
+      <span class="n">END_IT</span>
+
+<span class="n">END_DESCRIBE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>独自DSLとかかっこいい。</li>
+<li>比較的導入が簡単。</li>
+<li>テストフレームワークと比較して簡単に書けそう。(BDDなので当たり前か。。。)</li>
+<li>main文でCSpec_Run呼ばないといけないのが残念。</li>
+<li>C言語でもBDDを使えるというのが素晴らしい。</li>
+<li>仕様自体は小さいのですぐに使える。</li>
+<li>参考になる記事が割と多い。 -&gt; <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/24/202748">C言語向けBDDフレームワーク CSpecについて - 千里霧中</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="unity">
+<h2><a class="toc-backref" href="#id38">Unity</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ogis-ri.co.jp/otc/hiroba/OoBook/tdd4ec/index.html">[ 技術書籍紹介 ] Test Driven Development for Embedded C</a></li>
+<li><a class="reference external" href="http://www.ryuzee.com/contents/blog/6623">[書評]テスト駆動開発による組み込みプログラミング | Ryuzee.com</a></li>
+</ul>
+<p>最近(2013/04)邦訳本が出た、この書籍で紹介されているUnityとCppUTestを取り上げてみる。</p>
+<p>英語版の勉強会は盛んに行われていたようだ。</p>
+<p>がしかし、情報が少ない。UnityにはUbuntuのシェルインターフェース、ゲームエンジンと有名なプロダクトの情報ばかり出てくる。</p>
+<div class="section" id="id23">
+<h3>1. Install</h3>
+<p><a class="reference external" href="https://github.com/ThrowTheSwitch/Unity">ThrowTheSwitch/Unity · GitHub</a></p>
+</div>
+<div class="section" id="id24">
+<h3>2. Usage</h3>
+</div>
+<div class="section" id="id25">
+<h3>3. Usability</h3>
+</div>
+</div>
+<div class="section" id="cpputest">
+<h2><a class="toc-backref" href="#id39">CppUTest</a></h2>
+<div class="section" id="id26">
+<h3>1. Install</h3>
+</div>
+<div class="section" id="id27">
+<h3>2. Usage</h3>
+</div>
+<div class="section" id="id28">
+<h3>3. Usability</h3>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/c.html">c</a>, <a href="../../../tags/testingframework.html">TestingFramework</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../30/centos_setup.html">centosはじめました</a></li>
+            <li class="right"><a href="../05/news.html">Think about news site</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/04/25/c_testframeworks";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

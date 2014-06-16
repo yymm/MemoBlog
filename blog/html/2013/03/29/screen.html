@@ -1,0 +1,352 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>GNU Screen &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Pythonで順列作成" href="../25/permutation_python.html" /><link rel="prev" title="Responsive Web Design 始めました" href="../../04/01/responsiveweb.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>March 29, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/03/29/screen.html" class="hatena-bookmark-button" data-hatena-bookmark-title="GNU Screen - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="gnu-screen">
+<h1>GNU Screen</h1>
+<p>tmuxでもbyobuでもないscreenを愛用する。</p>
+<div class="section" id="why">
+<h2>Why?</h2>
+<ol class="arabic simple">
+<li>スタンダードな感じがする</li>
+<li>気分</li>
+<li>簡単に入れれるよ</li>
+</ol>
+</div>
+<div class="section" id="sceenrc">
+<h2>.sceenrc</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># escape</span>
+escape ^Tt
+escape 
+<span class="c"># 256 color</span>
+term xterm-256color
+<span class="c"># No Visual Bell</span>
+vbell on
+<span class="c"># AutoDetatch</span>
+autodetach on
+<span class="c"># Shell</span>
+shell /usr/bin/zsh
+<span class="c"># divide screen</span>
+altscreen on
+<span class="c"># Startup Message Off</span>
+startup_message off
+<span class="c"># For Vim</span>
+altscreen on
+<span class="c"># HardStatus</span>
+<span class="c">#caption always “%{b RK} %y/%m/%d(%D)%c:%s %{bu dr} | %-w%{=bu CK}%n %t%{-}%+w”</span>
+hardstatus alwayslastline <span class="s1">&#39;%{=b .y}@%H %-w%{=bu cw}%n:%t%{-}%+w %= %{b .g}%Y/%m/%d %{=b.g}%c:%s&#39;</span>
+</pre></div>
+</div>
+<p>基本的な設定しかない。自分はこれだけで生きていくには十分だ。</p>
+<p>キーバインドもそのまま。</p>
+<p>VimmerなのでCtrl+hogeのキーバインドに悩む心配もない。</p>
+<p>もっとすごいscreenrcを参考にしたいときはgoogle:screenrcをすればいい。</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>よく使うコマンドをメモφ</p>
+<div class="section" id="id1">
+<h3>起動</h3>
+<dl class="docutils">
+<dt># screen</dt>
+<dd>普通に起動する</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h3>起動オプション</h3>
+<dl class="docutils">
+<dt># screen -ls</dt>
+<dd>存在しているセッションの一覧を表示</dd>
+<dt># screen -r</dt>
+<dd>最後にデタッチしたセッションを起動する</dd>
+<dt># screen -a XXX</dt>
+<dd>プロセス番号XXXを起動する</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>画面</h3>
+<p>Ctrl+a -&gt; ^A
+とする、.screenrcでescape ^tTとか書いている人は^T</p>
+<dl class="docutils">
+<dt>^A + c</dt>
+<dd>新しい画面を作る</dd>
+<dt>^A + n or p</dt>
+<dd>StatusBarに表示された画面間を移動する
+nが右へ、pが左へ</dd>
+<dt>^A + k</dt>
+<dd>現在の画面を破棄する
+y/nで聞かれる</dd>
+<dt>^A + ^A</dt>
+<dd>前回作業していた画面にジャンプ</dd>
+<dt>^A + &#8220;</dt>
+<dd>WindowListの表示。方向キーで選択できる</dd>
+</dl>
+<p>こっから下はほとんど使ってない。</p>
+<dl class="docutils">
+<dt>^A + &#8216;</dt>
+<dd>画面の番号を聞かれるので、指定してEnterでジャンプ</dd>
+<dt>^A + 数字</dt>
+<dd>数字の画面にジャンプ</dd>
+<dt>^A + &#8216;</dt>
+<dd>画面の番号を聞かれるので、指定してEnterでジャンプ</dd>
+</dl>
+</div>
+<div class="section" id="id4">
+<h3>分割画面</h3>
+<p>分割画面作成は、^A+S or ^A+|の後にその画面上で^A+cすると新しくセッションが作成されます。</p>
+<p>^A+cをやらないとただの空っぽの画面。</p>
+<dl class="docutils">
+<dt>^A + S</dt>
+<dd>画面を縦分割</dd>
+<dt>^A + |</dt>
+<dd>画面を横分割します
+~A + Vでもできるという説がある。^A + |でできないときはためしてみるといいかも。</dd>
+<dt>^A + Tab</dt>
+<dd>分割された画面間を移動</dd>
+<dt>^A + X</dt>
+<dd>分割された画面を破棄する</dd>
+</dl>
+</div>
+<div class="section" id="id5">
+<h3>設定ファイル再読み込み</h3>
+<dl class="docutils">
+<dt>:source $HOME:.screenrc</dt>
+<dd>ホームフォルダを示す&#8221; ~ &#8220;(チルダ)は使えないので注意。</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h3>ホームフォルダを示すその他</h3>
+<dl class="docutils">
+<dt>^A + ?</dt>
+<dd>ヘルプ</dd>
+<dt>^A + [</dt>
+<dd>コピーモード</dd>
+</dl>
+<p>コピーモードはほとんど使ったことがないので便利なのかも分からない。今度使ってみよう。</p>
+</div>
+</div>
+<div class="section" id="gnu-screen-for-mac">
+<h2>GNU Screen for Mac</h2>
+<p>私の使っているMac OS X 10.6.8にはデフォルトでscreenが入っていた(と思う)。</p>
+<p>しかしバージョンが4.0.3と古く、縦分割が出来い。。。</p>
+<p>縦分割できないとtmuxに乗り換えてしまいそうなので、最新版をビルドすることに。</p>
+<p>screenの最新版はgitリポジトリにある。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git://git.savannah.gnu.org/screen.git
+</pre></div>
+</div>
+<p>Macではパッチを当てないとダメっぽい。( 2013/03/29 <a class="reference external" href="http://blog.remora.cx/2012/12/my-recent-screen-env.html">最近の（僕の）GNU Screen 事情 | blog.remora.cx</a> )</p>
+<div class="highlight-python"><div class="highlight"><pre>$ curl -LO https://raw.github.com/gist/626040/be6a04f0e64c56185ba5850415ac59dad4cd62a0/screen-utf8-nfd.patch
+$ cd screen
+$ patch -p1 &lt; ../screen-utf8-nfd.patch
+$ cd src
+$ ./autogen.sh
+$ ./configure --prefix=/usr/local --enable-pam --enable-locale --enable-telnet --enable-colors256 --enable-rxvt_osc
+$ make &amp;&amp; make install
+</pre></div>
+</div>
+<p>残念ながらこのままでは、./autogen.shあたりでこける。autoconfとautomakeをbrewでインストール。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ brew install autoconf
+$ brew install automake
+</pre></div>
+</div>
+<p>さらに残念なことにこのままではmakeでこける。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/cupnes/20130414/1365922107">GNU Screen開発版(4.1.0)でビルド時にエラー - へにゃぺんて＠日々勉強のまとめ</a></p>
+<p>この記事を参考にanci.cを修正する。w_がないとかTypo。。。</p>
+<p>再びmakeすると成功するのでmake installで4.1.0に更新完了。</p>
+<p>Ctrl+a |で立て分割出来る。</p>
+</div>
+<div class="section" id="id7">
+<h2>参考記事</h2>
+<dl class="docutils">
+<dt><a class="reference external" href="http://yskwkzhr.blogspot.jp/2011/01/gnu-screen.html#windowgroup">これからの「GNU Screen」の話をしよう - Keep It Simple, Stupid</a></dt>
+<dd>この記事はかなりすごい。Screen使いこなしてる感がにじみ出ている。
+ウィンドウをグループ化することも可能らしい。</dd>
+<dt><a class="reference external" href="http://blog.remora.cx/2010/02/gnu-screen.html">最新版GNU Screenで縦分割（その１〜導入編〜） | blog.remora.cx</a></dt>
+<dd>ブログ自体がかっこいい。</dd>
+<dt><a class="reference external" href="http://blog.remora.cx/2012/12/my-recent-screen-env.html">最近の（僕の）GNU Screen 事情 | blog.remora.cx</a></dt>
+<dd>上と同じ人の。</dd>
+</dl>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/screen.html">screen</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../04/01/responsiveweb.html">Responsive Web Design 始めました</a></li>
+            <li class="right"><a href="../25/permutation_python.html">Pythonで順列作成</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/03/29/screen";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

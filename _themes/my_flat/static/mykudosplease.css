@@ -1,0 +1,85 @@
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+/**
+ * Compass imports
+ */
+/*
+ * Use FontAwesome from weloveiconfonts.com
+ */
+/* line 14, ../sass/mykudosplease.scss */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+  font-weight: normal;
+}
+
+/*
+ * Kudos
+ */
+/* line 29, ../sass/mykudosplease.scss */
+.kudos {
+  color: #000;
+  position: relative;
+  width: 5em;
+  height: 5em;
+  margin: .5em auto 1.5em auto;
+  background: white;
+  box-shadow: inset 0 0 0 0.25em black, inset 0 0 0 1.66667em white, inset 0 0 0 5em black;
+  line-height: 5em;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-transition: box-shadow 0.225s ease-out;
+  -moz-transition: box-shadow 0.225s ease-out;
+  -o-transition: box-shadow 0.225s ease-out;
+  transition: box-shadow 0.225s ease-out;
+}
+/* line 47, ../sass/mykudosplease.scss */
+.kudos:before {
+  -webkit-transition: font-size 0.45s ease-in;
+  -moz-transition: font-size 0.45s ease-in;
+  -o-transition: font-size 0.45s ease-in;
+  transition: font-size 0.45s ease-in;
+  font-size: 1.75em;
+  line-height: 1.75;
+  color: white;
+}
+/* line 54, ../sass/mykudosplease.scss */
+.kudos.active {
+  -webkit-transition: box-shadow 1.5s linear;
+  -moz-transition: box-shadow 1.5s linear;
+  -o-transition: box-shadow 1.5s linear;
+  transition: box-shadow 1.5s linear;
+  box-shadow: inset 0 0 0 0.25em black, inset 0 0 0 0 white, inset 0 0 0 0.75em rgba(55, 190, 235, 0.75), inset 0 0 0 5em #37beeb;
+}
+/* line 63, ../sass/mykudosplease.scss */
+.kudos.active:after {
+  content: 'Don\'t move!';
+}
+/* line 68, ../sass/mykudosplease.scss */
+.kudos.finish {
+  -webkit-transition: box-shadow 0.45s linear, -webkit-transform 0.5625s ease-in-out;
+  -moz-transition: box-shadow 0.45s linear, -moz-transform 0.5625s ease-in-out;
+  -o-transition: box-shadow 0.45s linear, -o-transform 0.5625s ease-in-out;
+  transition: box-shadow 0.45s linear, transform 0.5625s ease-in-out;
+  box-shadow: inset 0 0 0 0.25em rgba(55, 190, 235, 0.5), inset 0 0 0 0.5em white, inset 0 0 0 0.75em rgba(55, 190, 235, 0.75), inset 0 0 0 1em white, inset 0 0 0 0 white, inset 0 0 0 5em #37beeb;
+    /*&:hover {
+	  @include transform(scale(1.25, 1.25), translateY(-.75em)); 
+    }*/
+}
+/* line 86, ../sass/mykudosplease.scss */
+.kudos.finish:before {
+  font-size: 2.25em;
+  line-height: 2.25;
+  color: white;
+}
+/* line 93, ../sass/mykudosplease.scss */
+.kudos:after {
+  position: absolute;
+  content: attr(data-amount) " Kudos";
+  bottom: -1.25em;
+  left: 0;
+  width: 5em;
+  text-align: center;
+  line-height: 1em;
+}

@@ -1,0 +1,1030 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Django 1.5 チュートリアル まとめ &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="pyenvな夏 in 2013" href="../../08/18/pyenv.html" /><link rel="prev" title="gitが手になじまない人へhg-gitのススメ" href="../../10/02/hg_git.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>September 12, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/09/12/django_v15_tutorial.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Django 1.5 チュートリアル まとめ - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="django-1-5">
+<h1><a class="toc-backref" href="#id13">Django 1.5 チュートリアル まとめ</a></h1>
+<p>1年くらいチャレンジして挫折したDjangoをやってみる。pollsのアレである。</p>
+<p>仕事の傍らFlaskでアプリケーションを作った経験のおかげかなんとかチュートリアルはできた。</p>
+<p>もう英語を読みなおすのは辛いので日本語でメモしておく。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/intro/tutorial01/">Writing your first Django app, part 1 | Django documentation | Django</a></p>
+<p>part6まである。辛かった。part3くらいで諦めそうになった。</p>
+<p>Django 1.6が開発中ですが、1.5です。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/dev/releases/1.6/">Django 1.6 release notes - UNDER DEVELOPMENT | Django documentation | Django</a></p>
+<hr class="docutils" />
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#django-1-5" id="id13">Django 1.5 チュートリアル まとめ</a><ul>
+<li><a class="reference internal" href="#id2" id="id14">環境</a></li>
+<li><a class="reference internal" href="#id3" id="id15">プロジェクト作成 &amp; データベース設定</a></li>
+<li><a class="reference internal" href="#admin" id="id16">Admin画面を作る</a><ul>
+<li><a class="reference internal" href="#hostport" id="id17">HOSTとPORTの変更</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id18">アプリケーション作成</a><ul>
+<li><a class="reference internal" href="#id5" id="id19">モデル作成</a><ul>
+<li><a class="reference internal" href="#id6" id="id20">モデル操作</a></li>
+<li><a class="reference internal" href="#id7" id="id21">admin画面でモデル操作</a></li>
+<li><a class="reference internal" href="#id8" id="id22">admin画面のカスタム</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#view" id="id23">View作成</a><ul>
+<li><a class="reference internal" href="#id9" id="id24">テンプレートの使用</a></li>
+<li><a class="reference internal" href="#id10" id="id25">テンプレートを使用するview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form" id="id26">form処理</a><ul>
+<li><a class="reference internal" href="#view-generic-views" id="id27">viewの改善 - generic views -</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#django" id="id28">Djangoのテスト</a><ul>
+<li><a class="reference internal" href="#model" id="id29">modelのテスト</a></li>
+<li><a class="reference internal" href="#id11" id="id30">viewのテスト</a></li>
+<li><a class="reference internal" href="#id12" id="id31">テストについて</a><ul>
+<li><a class="reference internal" href="#selenium" id="id32">Selenium</a></li>
+<li><a class="reference internal" href="#coverage-py" id="id33">coverage.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#look-and-feel" id="id34">Look and Feel</a></li>
+<li><a class="reference internal" href="#tips" id="id35">チュートリアルにはないTips</a><ul>
+<li><a class="reference internal" href="#mysql" id="id36">MySQLを使う</a></li>
+<li><a class="reference internal" href="#django-suit" id="id37">Django Suit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id14">環境</a></h2>
+<ul class="simple">
+<li>Python 3.3.2</li>
+<li>Django 1.5.2</li>
+<li>pythonz</li>
+</ul>
+<p>pythonのバージョン管理には、pythonbrewとかpythonzとかpyenvとか色々あるが、</p>
+<p>自分はデフォルト環境のPythonのpipにvirtualenv &amp; virtualenvwrapperを入れて、pythonzで色んなバージョンを入れることで管理している。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% mkvirtualenv -p /path/to/pythonz/pythons/CPython-2.7.5/bin/python2.7 Django
+<span class="o">(</span>Django<span class="o">)</span>% pip install django
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id15">プロジェクト作成 &amp; データベース設定</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>% django-admin startproject mysite
+% <span class="nb">cd </span>mysite
+</pre></div>
+</div>
+<p>データベースの設定をするために、mysite/setting.pyを編集する。</p>
+<p>DATABASESでSQliteを使用する設定をする。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span> <span class="c"># Add &#39;postgresql_psycopg2&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;oracle&#39;.</span>
+      <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;sqlite3.db&#39;</span><span class="p">,</span>                      <span class="c"># Or path to database file if using sqlite3.</span>
+      <span class="c"># The following settings are not used with sqlite3:</span>
+      <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+      <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+      <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>                      <span class="c"># Empty for localhost through domain sockets or &#39;127.0.0.1&#39; for localhost through TCP.</span>
+      <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>                      <span class="c"># Set to empty string for default.</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テーブル作成。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py syncdb
+</pre></div>
+</div>
+<p>データベース関連を編集した際にはこのコマンドを実行する。</p>
+</div>
+<div class="section" id="admin">
+<h2><a class="toc-backref" href="#id16">Admin画面を作る</a></h2>
+<ul class="simple">
+<li>settings.py : 1箇所</li>
+<li>urls.py : 3箇所</li>
+</ul>
+<p>のコメントアウトを解除するだけ。</p>
+<p><strong>settings.py</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.sites&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+    <span class="c"># Uncomment the next line to enable the admin:</span>
+    <span class="s">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="c"># Uncomment the next line to enable admin documentation:</span>
+    <span class="c"># &#39;django.contrib.admindocs&#39;,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>urls.py</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Uncomment the next two lines to enable the admin:</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">autodiscover</span><span class="p">()</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="c"># Examples:</span>
+    <span class="c"># url(r&#39;^$&#39;, &#39;mysite.views.home&#39;, name=&#39;home&#39;),</span>
+    <span class="c"># url(r&#39;^mysite/&#39;, include(&#39;mysite.foo.urls&#39;)),</span>
+
+    <span class="c"># Uncomment the admin/doc line below to enable admin documentation:</span>
+    <span class="c"># url(r&#39;^admin/doc/&#39;, include(&#39;django.contrib.admindocs.urls&#39;)),</span>
+
+    <span class="c"># Uncomment the next line to enable the admin:</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>コメントアウトしたら以下のコマンドを実行して、<a class="reference external" href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a>/で確認。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py syncdb
+% python manage.py runserver
+</pre></div>
+</div>
+<div class="section" id="hostport">
+<h3><a class="toc-backref" href="#id17">HOSTとPORTの変更</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py runserver XXX.XXX.XXX.XXX:XXXX
+</pre></div>
+</div>
+<p><a class="reference external" href="http://XXX.XXX.XXX.XXX:XXXX">http://XXX.XXX.XXX.XXX:XXXX</a>/で確認。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id18">アプリケーション作成</a></h2>
+<p>pollsアプリケーション(投票アプリ)を作る。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py startapp polls
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id19">モデル作成</a></h3>
+<p>polls以下にあるmodels.py。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s">&#39;date published&#39;</span><span class="p">)</span>
+
+    <span class="c">#def __unicode__(self):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question</span>
+
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&lt;</span>  <span class="n">now</span>
+
+<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">)</span>
+    <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c">#def __unicode__(self):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">choice_text</span>
+</pre></div>
+</div>
+<p>python3系を使う場合は__unicode__でなく__str__を使わないと正常に動かなかった。詳しいことはわからないのでわかる方がいれば是非。</p>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="#id20">モデル操作</a></h4>
+<p>manage.py shellを使って操作してみる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python manage.py shell
+&gt;&gt;&gt; from polls.models import Poll, Choice
+&gt;&gt;&gt; Poll.objects.all<span class="o">()</span>
+&gt;&gt;&gt; Poll.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span>1<span class="o">)</span>
+&gt;&gt;&gt; Poll.objects.filter<span class="o">(</span><span class="nv">question__startswith</span><span class="o">=</span><span class="s1">&#39;SearchWord&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; Poll.objects.get<span class="o">(</span><span class="nv">pub_date__year</span><span class="o">=</span>current_year<span class="o">)</span>
+&gt;&gt;&gt; <span class="nv">p</span> <span class="o">=</span> Poll.objects.get<span class="o">(</span><span class="nv">pk</span><span class="o">=</span>1<span class="o">)</span> <span class="c"># Primary_Key</span>
+&gt;&gt;&gt; <span class="nv">c</span> <span class="o">=</span> p.choice_set.create<span class="o">(</span><span class="nv">choice_text</span><span class="o">=</span><span class="s1">&#39;Just hacking again&#39;</span>, <span class="nv">votes</span><span class="o">=</span>0<span class="o">)</span>
+&gt;&gt;&gt; c.delete<span class="o">()</span>
+</pre></div>
+</div>
+<p>Django ORMの詳細はドキュメントを読もう。ここでは扱わない。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/db/">Models and databases | Django documentation | Django</a></p>
+</div>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="#id21">admin画面でモデル操作</a></h4>
+<p>admin画面からもモデルを操作できる。</p>
+<p>作成したアプリケーションのフォルダ(pollsフォルダ)にadmin.pyを作成する。</p>
+<p>django.contribパッケージにあるadminを使用して、adminサイトにモデルを追加する。(admin.site.register)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span><span class="p">,</span> <span class="n">Choice</span>
+
+<span class="c">#class PollAdmin(admin.ModelAdmin):</span>
+    <span class="c">#fields = [&#39;pub_date&#39;, &#39;question&#39;]</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;question&#39;</span><span class="p">]}),</span>
+            <span class="p">(</span><span class="s">&#39;Date information&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;pub_date&#39;</span><span class="p">]}),</span>
+    <span class="p">]</span>
+
+<span class="c">#class PollAdmin(admin.ModelAdmin):</span>
+    <span class="c">#fieldsets = [</span>
+            <span class="c">#(None,               {&#39;fields&#39;: [&#39;question&#39;]}),</span>
+            <span class="c">#(&#39;Date information&#39;, {&#39;fields&#39;: [&#39;pub_date&#39;], &#39;classes&#39;: [&#39;collapse&#39;]}),</span>
+    <span class="c">#]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Choice</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>表示する項目はadmin.ModelAdminを継承したクラスを作成し、fieldsまたはfieldsetsに設定する。</p>
+<p>リレーションのあるモデルはインラインで表示できる方が見やすい。そんな書き方もできる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">ChoiceInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Choice</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">3</span> <span class="c"># インライン時のデフォルト表示数</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="bp">None</span><span class="p">,</span>               <span class="p">{</span><span class="s">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;question&#39;</span><span class="p">]}),</span>
+        <span class="p">(</span><span class="s">&#39;Date information&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;pub_date&#39;</span><span class="p">],</span> <span class="s">&#39;classes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;collapse&#39;</span><span class="p">]}),</span>
+    <span class="p">]</span>
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ChoiceInline</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>admin.StackedInlineを継承したクラスを作成し、リレーションのある対象のクラスのinlinesに指定すればいい。</p>
+<p>inlinesはListなので複数指定する事が可能。</p>
+<p>StackedInlineの代わりにTabularInlineを使うとテーブル形式で表示できる。(ちょっとスッキリする)</p>
+<p>adminモジュールがあるcontribパッケージについてはドキュメントを参照。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/contrib/">contrib packages | Django documentation | Django</a></p>
+</div>
+<div class="section" id="id8">
+<h4><a class="toc-backref" href="#id22">admin画面のカスタム</a></h4>
+<p>先ほどadmin.pyに作成した表示内容を指定するクラス(PollAdmin)に表示する項目を追加することでカスタマイズ出来る。</p>
+<p>list_display = (Tuple)を追加することでchangeの表示項目を変更できる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">/.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;question&#39;</span><span class="p">,</span> <span class="s">&#39;pub_date&#39;</span><span class="p">,</span> <span class="s">&#39;was_published_recently&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>list_displayにはメソッドも追加することができる。</p>
+<p>表示内容を変更することも可能。表示内容の変更はmodels.pyで行う。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&gt;=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">admin_order_field</span> <span class="o">=</span> <span class="s">&#39;pub_date&#39;</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s">&#39;Published recently?&#39;</span>
+</pre></div>
+</div>
+<p>指定している項目の説明</p>
+<ul class="simple">
+<li>admin_order_field : 並べ替え指定</li>
+<li>boolean : boolean型指定</li>
+<li>short_description : 表示される説明。指定しないと&#8217;was_published_recently&#8217;になる。</li>
+</ul>
+<p>フィルター、検索、階層ナビゲーションなども追加できる。便利。</p>
+<p>list_filter, search_fields, date_hierarchyなどを追加することでこれらの項目を追加できる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">/.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;pub_date&#39;</span><span class="p">]</span>      <span class="c"># フィルタの追加</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;question&#39;</span><span class="p">]</span>    <span class="c"># 検索の追加</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s">&#39;pub_date&#39;</span>     <span class="c"># 日付ナビの追加</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="view">
+<h3><a class="toc-backref" href="#id23">View作成</a></h3>
+<p>DjangoでいうViewは、MVCフレームワークで言うControllerに相当する。(DjangoはMVT[Model-View-Template]。 <a class="reference external" href="http://www.djangoproject.jp/doc/ja/1.0/faq/general.html#django-mvc-controller-view-view-template">FAQ: 全般 — Django v1.0 documentation</a> )</p>
+<p>polls/views.pyにviewの処理を書いていく。以下は一番シンプルな例。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&#39;Hello! You are at the poll index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>次にurlpatternsを書いていく。urls.pyに記述する。</p>
+<p>polls/urls.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">polls</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;index&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>mysite.urls.pyのurlpatternsにも以下を追加する。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span><span class="p">(</span><span class="s">r&#39;^polls/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">&#39;polls.urls&#39;</span><span class="p">)),</span>
+</pre></div>
+</div>
+<p>これで、<a class="reference external" href="http://localhost:8000/polls">http://localhost:8000/polls</a>/で&#8217;Hello! You are at the poll index&#8217;と表示される。</p>
+<p>url関数の引数は先頭から</p>
+<ol class="arabic simple">
+<li>ルーティング(正規表現)</li>
+<li>viewの関数</li>
+<li>テンプレートから見える名前</li>
+</ol>
+<p>ざっくりの説明なので詳細は -&gt; <a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/http/urls/#naming-url-patterns">URL dispatcher | Django documentation | Django</a></p>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id24">テンプレートの使用</a></h4>
+<p>polls/templates/polls/を作成して、index.html、detail.htmlを作成します。</p>
+<p>polls/index.html</p>
+<div class="highlight-html"><div class="highlight"><pre>{% if latest_poll_list %}
+      <span class="nt">&lt;ul&gt;</span>
+              {% for poll in latest_poll_list %}
+              <span class="nt">&lt;li&gt;</span>
+                      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{% url &#39;polls:detail&#39; poll.id %}&quot;</span><span class="nt">&gt;</span>{{ poll.question }}<span class="nt">&lt;/a&gt;</span>
+              <span class="nt">&lt;/li&gt;</span>
+              {% endfor %}
+      <span class="nt">&lt;/ul&gt;</span>
+{% else %}
+      <span class="nt">&lt;p&gt;</span>No polls are available.<span class="nt">&lt;/p&gt;</span>
+{% endif %}
+</pre></div>
+</div>
+<p>polls/detail.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+{% for choice in poll.choice_set.all %}
+      <span class="nt">&lt;li&gt;</span>{{ choice.choice_text }}<span class="nt">&lt;/li&gt;</span>
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Jinja2がいいかも?</p>
+<p>記法はJinja2とよく似ている。Jinja2を使用したことのある人であれば違和感なく使えそう。</p>
+<p>しかし、Jinja2のほうが優れた機能が多いのでDjangoテンプレートなんて使ってられないッ！という方が多いかと思います。</p>
+<p class="last">そのような場合は、django-jinjaというパッケージがあるのでそちらを。( <a class="reference external" href="https://django-jinja.readthedocs.org/en/latest/">django-jinja — django-jinja 0.19 documentation</a> )</p>
+</div>
+<p>このままでは作成したテンプレートを表示できないので、viewを変更します。</p>
+</div>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id25">テンプレートを使用するview</a></h4>
+<p>チュートリアルでは、django.shortcutsを使わない方法も紹介しているのですがコードが冗長になるので紹介しません。</p>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">latest_poll_list</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;latest_poll_list&#39;</span> <span class="p">:</span> <span class="n">latest_poll_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span> <span class="o">=</span> <span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;poll&#39;</span> <span class="p">:</span> <span class="n">poll</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>render関数でテンプレートを指定する。</p>
+<p>上記のコードでcontextで表される辞書型の引数にはテンプレートで使用可能な変数を指定します。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>shortcutsモジュール</p>
+<p>ここには便利関数が定義してあります。どのくらい便利かというと</p>
+<p>例) ここで使っているget_object_or_404を使わないで書こうとすると、Poll.object.get(pk=poll_id)をtry-exceptしてHttp404を返すコードを書かないといけない。最低でも5行かかる。get_object_or_404を使えばそれが1行でできる。</p>
+<p>知ってたら積極的に使っていく感じです。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/http/shortcuts/">Django shortcut functions | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="form">
+<h3><a class="toc-backref" href="#id26">form処理</a></h3>
+<p>いよいよ投票出来るようにします。先ほどのdetail.htmlにformをつけます。</p>
+<p>polls/detail.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+
+{% if error_message %}<span class="nt">&lt;p&gt;&lt;strong&gt;</span>{{ error_message }}<span class="nt">&lt;/strong&gt;&lt;/p&gt;</span>{% endif %}
+
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;{% url &#39;polls:vote&#39; poll.id %}&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+{% csrf_token %}
+{% for choice in poll.choice_set.all %}
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;choice&quot;</span> <span class="na">id=</span><span class="s">&quot;choice{{ forloop.counter }}&quot;</span> <span class="na">value=</span><span class="s">&quot;{{ choice.id }}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;choice{{ forloop.counter }}&quot;</span><span class="nt">&gt;</span>{{ choice.choice_text }}<span class="nt">&lt;/label&gt;&lt;br</span> <span class="nt">/&gt;</span>
+{% endfor %}
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Vote&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>forloop - django template -</p>
+<p>djangoテンプレートのfor文ではforloopが使える。</p>
+<p>counter, recounter, first, last, parentloopといったforループ中で便利な機能がある。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/templates/builtins/#std:templatetag-for">Built-in template tags and filters | Django documentation | Django</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>csrf_token</p>
+<p>Cross Site Request Forgery対策のためform要素に付ける。</p>
+<p>場所はformタグのすぐあと。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/contrib/csrf/">Cross Site Request Forgery protection | Django documentation | Django</a></p>
+</div>
+<p>データがpostされる先はpolls.voteと指定してあるので、viewにあるvote関数を実装する。</p>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+
+<span class="c"># ...</span>
+
+<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">selected_choice</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;choice&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="n">Choice</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/detial.html&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s">&#39;poll&#39;</span> <span class="p">:</span> <span class="n">p</span><span class="p">,</span>
+            <span class="s">&#39;error_message&#39;</span> <span class="p">:</span> <span class="s">&quot;You didn&#39;t select a choice.&quot;</span><span class="p">,</span>
+            <span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">selected_choice</span><span class="o">.</span><span class="n">votes</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">selected_choice</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:results&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+</pre></div>
+</div>
+<p>これであとは、polls/urls.pyに</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(?P&lt;poll_id&gt;\d+)/vote/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;vote&#39;</span><span class="p">),</span>
+</pre></div>
+</div>
+<p>と書いてあれば投票出来る。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>shortcuts.redirectを使う</p>
+<p>HttpResponseRedirect(reverse(...), args=...)は冗長なのでshortcuts.redirectを使いましょう。</p>
+<p>使い方は簡単。</p>
+<p>return redirect(&#8216;polls:results&#8217;, poll_id=p.id)</p>
+<p class="last">わかりやすい！</p>
+</div>
+<p>このままで投票はできたけど結果がわからないので、resultsも実装する。</p>
+<p>polls/templates/polls/results.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+{% for choice in poll.choice_set.all %}
+    <span class="nt">&lt;li&gt;</span>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}<span class="nt">&lt;/li&gt;</span>
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{% url &#39;polls:detail&#39; poll.id %}&quot;</span><span class="nt">&gt;</span>Vote again?<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/results.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;poll&#39;</span><span class="p">:</span> <span class="n">poll</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="section" id="view-generic-views">
+<h4><a class="toc-backref" href="#id27">viewの改善 - generic views -</a></h4>
+<p>Djangoにはgeneric viewsというviewをサポートするモジュールがあり、これを使うことでviewsをシンプルに記述することができます。</p>
+<p>genericをインポートし抽象クラスが用意されているのでそれらを継承して使います。</p>
+<p>polls/urls.pyとpolls/views.pyを修正し以下のようにします。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">polls</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;index&#39;</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(?P&lt;pk&gt;\d+)/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">DetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;detail&#39;</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(?P&lt;pk&gt;\d+)/results/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">ResultsView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;results&#39;</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(?P&lt;poll_id&gt;\d+)/vote/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;vote&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>viewsの関数の指定を&lt;class&gt;.as_view()にし、ルーティングはpoll_idをpkに変更します。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># ...</span>
+
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;polls/index.html&#39;</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;latest_poll_list&#39;</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the last five published polls.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;polls/detail.html&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">ResultsView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;polls/results.html&#39;</span>
+
+<span class="c"># ...</span>
+</pre></div>
+</div>
+<p>indexとdetailとresultsをgeneric.ListView又はgeneric.DetailViewを継承したクラスに変更します。</p>
+<p>ListViewとDetailView共通の部分はテンプレートの指定です。template_nameで指定できますが、指定しないこともできます。</p>
+<p>指定しない場合は&lt;app name&gt;/&lt;model name&gt;_list.html or &lt;app name&gt;/&lt;model name&gt;_detail.htmlとなります。</p>
+<p>ListViewでは常に指定した同じデータを返します。言い換えると返すデータをコードで指定できるということです。</p>
+<p>DetailViewではmodelに指定したオブジェクトから、与えられたprimary key(pk)をもとにデータを自動的に取得してくれます。</p>
+<p>なので、polls/urls.pyでpoll_idからpkに変更したということです。</p>
+<p>チュートリアルではこのくらいの説明しかありませんが、もっと詳しく知ったほうがいいでしょう。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/class-based-views/">Class-based views | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="django">
+<h2><a class="toc-backref" href="#id28">Djangoのテスト</a></h2>
+<p>Djangoにはテストに関する機能も含まれています。優秀ですね。</p>
+<p>実はこのPollアプリケーションは未来のデータ(発表されていないデータ)に関してバグを抱えています。</p>
+<p>このバグを修正しつつテストコードを書いていきます。</p>
+<div class="section" id="model">
+<h3><a class="toc-backref" href="#id29">modelのテスト</a></h3>
+<p>modelのPollにあるwas_published_recentlyは未来のデータがあった場合、それもヒットしてしまうバグを抱えています。</p>
+<p>このことを検証するテストコードを書いてみます。</p>
+<p>テストコードはtest.pyに記述します。test.pyの場所はそれぞれのアプリケーションフォルダ、つまりpolls以下に配置します。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">PollMethodTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_was_published_recently_with_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        was_published_recently() should return False for polls whose</span>
+<span class="sd">        pub_date is in the future</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">future_poll</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">future_poll</span><span class="o">.</span><span class="n">was_published_recently</span><span class="p">(),</span> <span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>実行はコマンドラインで。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python manage.py <span class="nb">test </span>polls
+Creating <span class="nb">test </span>database <span class="k">for </span><span class="nb">alias</span> <span class="s1">&#39;default&#39;</span>...
+<span class="nv">F</span>
+<span class="o">======================================================================</span>
+FAIL: test_was_published_recently_with_future_poll <span class="o">(</span>polls.tests.PollMethodTests<span class="o">)</span>
+----------------------------------------------------------------------
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;/path/to/mysite/polls/tests.py&quot;</span>, line 16, in test_was_published_recently_with_future_poll
+    self.assertEqual<span class="o">(</span>future_poll.was_published_recently<span class="o">()</span>, False<span class="o">)</span>
+AssertionError: True !<span class="o">=</span> False
+
+----------------------------------------------------------------------
+Ran 1 <span class="nb">test </span>in 0.001s
+
+FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=</span>1<span class="o">)</span>
+Destroying <span class="nb">test </span>database <span class="k">for </span><span class="nb">alias</span> <span class="s1">&#39;default&#39;</span>...
+</pre></div>
+</div>
+<p>現在の時間を基準に検索をする必要があります。修正したコードが以下になります。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&lt;</span> <span class="n">now</span>
+</pre></div>
+</div>
+<p>これでテストが通るようになるはずです。</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id30">viewのテスト</a></h3>
+<p>DjangoはViewをユーザーをシミュレートしたテストクライアント機能を備えています。それを利用してViewのテストをすることができます。</p>
+<p>その仕組はコマンドラインでテストした結果を見るとわかりやすいので、ズラズラを書いてみます。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.test.utils</span> <span class="kn">import</span> <span class="n">setup_test_environment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setup_test_environment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.test.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create an instance of the client for our use</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># get a response from &#39;/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># we should expect a 404 from that address</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">404</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># on the other hand we should expect to find something at &#39;/polls/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># we&#39;ll use &#39;reverse()&#39; rather than a harcoded URL</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="go">&#39;\n\n\n    &lt;p&gt;No polls are available.&lt;/p&gt;\n\n&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># note - you might get unexpected results if your ``TIME_ZONE``</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># in ``settings.py`` is not correct. If you need to change it,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># you will also need to restart your shell session</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create a Poll and save it</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Who is your favorite Beatle?&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># check the response once again</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;/polls/&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="go">&#39;\n\n\n    &lt;ul&gt;\n    \n        &lt;li&gt;&lt;a href=&quot;/polls/1/&quot;&gt;Who is your favorite Beatle?&lt;/a&gt;&lt;/li&gt;\n    \n    &lt;/ul&gt;\n\n&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">]</span>
+<span class="go">[&lt;Poll: Who is your favorite Beatle?&gt;]</span>
+</pre></div>
+</div>
+<p>はじめの5行はTestCaseが用意してくれているので、test.pyを書く際にはあまり気にしないが知っておいたほうがいい。</p>
+<p>client.getは直接URLをハードコーディングするのは良くないのでreverseを使う。</p>
+<p>毎回コマンドを実行するわけにはいかないので、test.pyにテストを書いていく。</p>
+<p>ViewIndexとDetailIndexのテスト</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">create_poll</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">days</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a poll with the given `question` published the given number of</span>
+<span class="sd">    `days` offset to now (negative for polls published in the past,</span>
+<span class="sd">    positive for polls that have yet to be published).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+        <span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">days</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">PollViewTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_index_view_with_no_polls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If no polls exist, an appropriate message should be displayed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s">&quot;No polls are available.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">],</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_a_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Polls with a pub_date in the past should be displayed on the index page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;&lt;Poll: Past poll.&gt;&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_a_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Polls with a pub_date in the future should not be displayed on the</span>
+<span class="sd">        index page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Future poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s">&quot;No polls are available.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">],</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_future_poll_and_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Even if both past and future polls exist, only past polls should be</span>
+<span class="sd">        displayed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Future poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">&#39;&lt;Poll: Past poll.&gt;&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_two_past_polls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The polls index page may display multiple polls.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll 1.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll 2.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:index&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;latest_poll_list&#39;</span><span class="p">],</span>
+             <span class="p">[</span><span class="s">&#39;&lt;Poll: Past poll 2.&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&lt;Poll: Past poll 1.&gt;&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PollIndexDetailTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_detail_view_with_a_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The detail view of a poll with a pub_date in the future should</span>
+<span class="sd">        return a 404 not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">future_poll</span> <span class="o">=</span> <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&#39;Future poll.&#39;</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">future_poll</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_detail_view_with_a_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The detail view of a poll with a pub_date in the past should display</span>
+<span class="sd">        the poll&#39;s question.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">past_poll</span> <span class="o">=</span> <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&#39;Past Poll.&#39;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;polls:detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">past_poll</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">past_poll</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>日付に関するテストを書いたが、このままでは未来のデータが入る部分でテストが失敗するのでViewを書き直す。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;polls/index.html&#39;</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;latest_poll_list&#39;</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">pub_date__lte</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;polls/detail.html&#39;</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__lte</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>これでテストが通るはず。</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id31">テストについて</a></h3>
+<p>もし他のViewに対してテストを行う場合、多分大体同じようなテストコードを書くことになるだろうけど、そんなのは別にいいらしい。</p>
+<p>確かに美しさとは離れているかもしれないが、一旦書いたテストのことは忘れて新機能を追加していこう。(一旦書いたテストは自分のコードが正しいことを証明してくれる。)</p>
+<p>今回書いたテストはChoiceがあるPollには対応していないので、Choiceがある場合多くのテストが失敗する。まぁ。それは直せということだ。だって自分のコードが正しくないのだから。</p>
+<p>そんなこんなで冗長なテストコードになってしまうかもしれないが、テストコードが冗長なのは悪いことではない。それよりも意識したほうがいいこともある。</p>
+<ol class="arabic simple">
+<li>1つのModelやViewごとにテストクラスを生成する</li>
+<li>テストする条件ごとに別々にテストメソッドを作成する</li>
+<li>テストメソッド名はそのテストの内容を説明している</li>
+</ol>
+<p>ここで紹介しているテスト技法は基本的なものだけである。他の優れたツールを使うことでもっと多くのことができる。</p>
+<div class="section" id="selenium">
+<h4><a class="toc-backref" href="#id32">Selenium</a></h4>
+<p><a class="reference external" href="http://docs.seleniumhq.org/">Selenium - Web Browser Automation</a></p>
+<p>Seleniumを使ってフロントエンド(html, javascript)のテストをする。</p>
+<p>LiveServerTestCaseと組み合わせると連携が便利になる。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/testing/overview/#django.test.LiveServerTestCase">Testing Django applications | Django documentation | Django</a></p>
+</div>
+<div class="section" id="coverage-py">
+<h4><a class="toc-backref" href="#id33">coverage.py</a></h4>
+<p><a class="reference external" href="http://nedbatchelder.com/code/coverage/">Ned Batchelder: coverage.py</a></p>
+<p>コードカバレッジツールのcoverage.pyを使用する。ドキュメントにも使用方法について説明してある。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/testing/advanced/#topics-testing-code-coverage">Advanced testing topics | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="look-and-feel">
+<h2><a class="toc-backref" href="#id34">Look and Feel</a></h2>
+<p>cssや画像、javascriptを使って見た目を改善してみる。</p>
+<p>作成する場所はpolls/static/polls。CSSファイル(style.css)を追加する。</p>
+<p>polls/static/polls/style.css</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>cssファイルの読み込みをindex.htmlでやってみると、</p>
+<div class="highlight-html"><div class="highlight"><pre>{% load staticfiles %}
+
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;{% static &#39;polls/style.css&#39; %}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>画像の読み込みもしてみたいかもしれない。</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">background</span><span class="o">:</span> <span class="nb">white</span> <span class="sx">url(&quot;images/background.gif&quot;)</span> <span class="k">no-repeat</span> <span class="k">right</span> <span class="k">bottom</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>画像はpolls/static/polls/imagesに配置する。</p>
+<p>cssファイルでもurl関数を使用して対象のファイルを指定することが出来る。</p>
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id35">チュートリアルにはないTips</a></h2>
+<div class="section" id="mysql">
+<h3><a class="toc-backref" href="#id36">MySQLを使う</a></h3>
+<p>settings.pyを書き換える。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.mysql&#39;</span><span class="p">,</span> <span class="c"># Add &#39;postgresql_psycopg2&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;oracle&#39;.</span>
+      <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;XXXXX&#39;</span><span class="p">,</span>                      <span class="c"># Or path to database file if using sqlite3.</span>
+      <span class="c"># The following settings are not used with sqlite3:</span>
+      <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;root&#39;</span><span class="p">,</span>
+      <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;password&#39;</span><span class="p">,</span>
+      <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span><span class="p">,</span>                      <span class="c"># Empty for localhost through domain sockets or &#39;127.0.0.1&#39; for localhost through TCP.</span>
+      <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>                      <span class="c"># Set to empty string for default.</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テーブル作成 &amp; MySQL-Pythonのインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% pip install mysql-python
+% mysql -u root -p password
+mysql&gt; create database XXXXX;
+mysql&gt; <span class="nb">exit</span>;
+% python manage.py syncdb
+</pre></div>
+</div>
+</div>
+<div class="section" id="django-suit">
+<h3><a class="toc-backref" href="#id37">Django Suit</a></h3>
+<p>誰でもかっこつけたい。Admin画面もきっとそう。</p>
+<p><a class="reference external" href="http://django-suit.readthedocs.org/en/develop/">Django Suit documentation — Django Suit 0.2.2 documentation</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>workon Django
+<span class="o">(</span>Django<span class="o">)</span><span class="nv">$ </span>pip install django-suit
+</pre></div>
+</div>
+<p>settings.pyに以下を追加</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">...</span>
+    <span class="s">&#39;suit&#39;</span><span class="p">,</span>
+    <span class="s">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">django.conf.global_settings</span> <span class="kn">import</span> <span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="k">as</span> <span class="n">TCP</span>
+
+<span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="o">=</span> <span class="n">TCP</span> <span class="o">+</span> <span class="p">(</span>
+    <span class="s">&#39;django.core.context_processors.request&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://djangosuit.com/">Django Suit - Modern theme for Django admin interface</a></p>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/python.html">python</a>, <a href="../../../tags/django.html">Django</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a></li>
+            <li class="right"><a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/09/12/django_v15_tutorial";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="#">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

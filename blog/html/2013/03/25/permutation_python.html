@@ -1,0 +1,275 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Pythonで順列作成 &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="SQLAlchemy" href="../20/sqlalchemy.html" /><link rel="prev" title="GNU Screen" href="../29/screen.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>March 25, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/03/25/permutation_python.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Pythonで順列作成 - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="python">
+<h1>Pythonで順列作成</h1>
+<p>会社の若手でやっている勉強会でこんな問題をみんなで解いてみた。</p>
+<div class="highlight-python"><div class="highlight"><pre>問題文
+5, 4, 3, 2, 1, 0の６つの整数の間（順番は不変）に
+「+, -, *, /, =」の演算子を必ず一回ずつ使い（順番は任意）式が成立するような組み合わせを求めよ
+</pre></div>
+</div>
+<p>開始１０分くらいで、演算子の並びの順列を求めるという問題になり考え始める。</p>
+<div class="section" id="itertools">
+<h2>itertoolsを使う</h2>
+<p>itertoolsというモジュールにpermutationsという関数がある。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
+</pre></div>
+</div>
+<p>itertoolsに含まれる関数については以下の記事が詳しくていい。</p>
+<p><a class="reference external" href="http://kk6.hateblo.jp/entry/20110521/1305984781">itertoolsモジュールをひと通り眺めてみた - kk6のメモ帳</a></p>
+<p>イテレーション処理に便利な関数が多数含まれている。</p>
+</div>
+<div class="section" id="id1">
+<h2>自作する</h2>
+<p>アルゴリズムとして作成するにはどうするのか考える。簡単な例から何かしらの法則性を見つけることにする。</p>
+<div class="highlight-python"><div class="highlight"><pre>---------------
+[1, 2]
+
+-&gt; [1, 2]
+-&gt; [2, 1]
+
+2! = 2通り
+
+---------------
+[1, 2, 3]
+
+-&gt; [1, 2, 3]
+-&gt;    [3, 2]
+-&gt; [2, 1, 3]
+-&gt;    [3, 1]
+-&gt; [3, 2, 1]
+-&gt;    [1, 2]
+
+3! = 6通り
+
+---------------
+[1, 2, 3, 4]
+
+-&gt; [1 ,2, 3, 4]
+-&gt;       [4, 3]
+-&gt;    [3, 2, 4]
+-&gt;       [4, 2]
+-&gt;    [4, 3, 2]
+-&gt;       [2, 3]
+-&gt; [2, 1, 3, 4]
+-&gt; ...
+
+4! = 24通り
+</pre></div>
+</div>
+<p>頭から取り出していって、残り２つになったらくるっとする。</p>
+<p>残り２つになったらくるっとするというより、くるっとし続けて出来なくなったら空っぽにして頭をひっくり返す。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+<span class="k">if</span> <span class="n">li</span> <span class="o">==</span> <span class="p">[]:</span>
+  <span class="k">return</span> <span class="p">[[]]</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">return</span> <span class="p">[[</span><span class="n">h</span><span class="p">]</span><span class="o">+</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">(</span><span class="n">li</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:])]</span>
+</pre></div>
+</div>
+<p>残り２つを意識して作ると、なんか複雑になっていく。</p>
+<p>ちょっと視点を変えるのがこんなに大変だとは。。。結構時間かかった。</p>
+</div>
+<div class="section" id="id2">
+<h2>模範解答</h2>
+<p>この記事にある問題。模範解答もある。</p>
+<p><a class="reference external" href="http://kiroyn.dreamlog.jp/archives/4420564.html">順列生成アルゴリズム - drecom_kiroynのブログ</a></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="n">M</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">M</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">M</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">n</span><span class="o">=</span><span class="n">N</span> <span class="o">%</span> <span class="n">i</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">m</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//こんなに短いのに辞書順</span>
+  <span class="n">N</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">N</span><span class="o">/</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>剰余とか使ってる。なんかかっこいい。</p>
+<p>しかし、何かよくわからない。。。</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/python.html">python</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../29/screen.html">GNU Screen</a></li>
+            <li class="right"><a href="../20/sqlalchemy.html">SQLAlchemy</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/03/25/permutation_python";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

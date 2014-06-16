@@ -1,0 +1,1709 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Page 2 &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="_static/main.css" type="text/css">
+            <link rel="stylesheet" href="_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="_static/plugins.js"></script>
+        <script src="_static/main.js"></script>
+        <link rel="next" title="Older" href="page3.html" /><link rel="prev" title="Newer" href="index.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="_static/underscore.js"></script><script type="text/javascript" src="_static/doctools.js"></script><script type="text/javascript" src="_static/disqus.js"></script><script type="text/javascript" src="_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>July 12, 2013</span>
+        </div>
+        <div class="section" id="emacs-evil">
+<h1><a href="2013/07/12/emacs_evil.html">Emacs Evilという新しいエディタ</a></h1>
+<p>emacsに入門して早６時間。</p>
+<p>そろそろVimキーバインドが恋しくなってくる頃でしょうか。</p>
+<p>Ctrlキーを押している小指が心配でそわそわしてくる頃ですね。</p>
+<p>そんなEmacsをダークサイドに落とすことのできるプラグイン。それがEvil。</p>
+<div class="section" id="install">
+<h2>Install</h2>
+<p>package.elを搭載したemacs24ならすぐにダークサイドに落とすことが出来る。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>emacs
+M-x list-package
+C-s evil
+</pre></div>
+</div>
+<p>evilにカーソルが当たっている状態でixと打ち込むとインストールされる。</p>
+<p>そのままC-x C-f ~/emacs.d/init.elと打ち込んで以下を追加する。</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="p">(</span><span class="nf">require</span> <span class="ss">'evil</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">evil-mode</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Emacsを再起動するとCtrlの呪縛から開放されていることがわかります。</p>
+<p>普段慣れていたVimのキーバインドに安らぎを感じるでしょう。</p>
+<p>もしかしたら、モードがあることに喜びを感じてしまうかもしれません。</p>
+</div>
+<div class="section" id="evil">
+<h2>Evilなプラグイン</h2>
+<p>公式</p>
+<ul class="simple">
+<li>evil-surround</li>
+<li>evil-number</li>
+<li>evil-leader</li>
+<li>evil-rails</li>
+<li>evil-nerd-commenter</li>
+</ul>
+<p>taraoさんのEvilプラグイン</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/tarao/evil-plugins">tarao/evil-plugins · GitHub</a></li>
+</ul>
+<p>などなど色々あるようです。</p>
+<p>しかし、まだまだEmacs力が足りずにプラグインを入れるのに四苦八苦しているので、まだ今度ということで。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/emacs.html">emacs</a>, <a href="tags/vim.html">vim</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/07/12/emacs_evil.html#disqus_thread" data-disqus-identifier="2013/07/12/emacs_evil">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>July 10, 2013</span>
+        </div>
+        <div class="section" id="emacs-24-3">
+<h1><a href="2013/07/10/emacs_24_3.html">emacs入門 - 24.3 &amp; 設定ファイル</a></h1>
+<p>emacsでテキストの編集ができるようになりましたが、まだメモ帳程度のEmacs力しかないのでもう少し高みを目指します。</p>
+<div class="section" id="install-emacs-24-3">
+<h2>Install emacs 24.3</h2>
+<p>いつもの如く、wget -&gt; ./configure -&gt; make &amp;&amp; make install</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>yum install gcc make ncurses-devel giflib-devel libjpeg-devel libtiff-devel
+<span class="nv">$ </span><span class="nb">cd</span> /ダウンロードするフォルダ
+<span class="nv">$ </span>wget http://ftp.gnu.org/pub/gnu/emacs/emacs-24.3.tar.gz
+<span class="nv">$ </span>tar zxvf emacs-24.3.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>emacs-24.3.tar.gz
+<span class="nv">$ </span>./configure --without-x --without-selinux
+<span class="nv">$ </span>make
+<span class="nv">$ </span>sudo make install
+</pre></div>
+</div>
+<p>すんなり24.3にバージョンアップした。</p>
+<p>今のところ以下の変化を感じた。</p>
+<ul class="simple">
+<li>emacs -nwとしなくても端末上で起動する。(GUI版がインストールされていないから?–without-xの効果かも?)</li>
+<li>チュートリアルが読みやすい。21は見切れてたりしてた。</li>
+<li>色が付いてる。</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>設定ファイル</h2>
+<p>調べたところによると以下の構成がいい感じらしい。</p>
+<div class="highlight-bash"><div class="highlight"><pre>~/.emacs.d/
+  elpa/
+  init.el
+</pre></div>
+</div>
+<p>~/.emacsに設定を書くのは時代遅れらしい。</p>
+<div class="section" id="init-el">
+<h3>init.el</h3>
+<p>設定はここに書き記しておく。きっと.vimrcのようなものだろう。</p>
+<p>色んな人のinit.elを眺めてみてはじめはコピペから始めるといいだろう。</p>
+<p>参考にさせて頂いたinit.el</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/hyuki/20110116/p1">Emacsの環境整備(~/.emacs.d/init.el) - 結城浩のはてな日記</a></li>
+<li><a class="reference external" href="http://keisanbutsuriya.blog.fc2.com/blog-entry-43.html">計算物理屋の研究備忘録 |Emacs 24のpackage管理機能を使う</a></li>
+<li><a class="reference external" href="http://moya-notes.blogspot.jp/2013/02/emacs24-config-on-mac.html">まあそのうち: Emacs 設定いろいろ [Emacs24 (Cocoa Emacs) on Mac OS X]</a></li>
+</ul>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;;</span>
+<span class="c1">;; init.el</span>
+<span class="c1">;;</span>
+
+<span class="c1">;; Language.</span>
+<span class="p">(</span><span class="nf">set-language-environment</span> <span class="ss">'Japanese</span><span class="p">)</span>
+
+<span class="c1">;; Coding system.</span>
+<span class="p">(</span><span class="nf">set-default-coding-systems</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-keyboard-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-terminal-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-buffer-file-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">prefer-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+
+<span class="c1">;; Package Manegement</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'package</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">)</span> <span class="nv">t</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;marmalade&quot;</span> <span class="o">.</span> <span class="s">&quot;http://marmalade-repo.org/packages/&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">package-initialize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>日本語設定とパッケージの追加を書いただけ。</p>
+<p>プラグインは.emacs.d/elpa/にインストールされる。</p>
+<p>知ってるプラグインはanythinとevilなのでそのあたりについての記事でも書こう。</p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/emacs.html">emacs</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/07/10/emacs_24_3.html#disqus_thread" data-disqus-identifier="2013/07/10/emacs_24_3">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>July 10, 2013</span>
+        </div>
+        <div class="section" id="emacs-tutorial">
+<h1><a href="2013/07/10/start_emacs.html">emacs入門 - Tutorial</a></h1>
+<p>身の回りにemacs使いがほとんどいなく、新人にemacsマジ使ったほうがいいとか言って、emacs使いにしようとしているが一向にならないので自分が人柱になってみる。</p>
+<p>yumで入れた21.4.1を使ってみる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>emacs
+</pre></div>
+</div>
+<p>と打ち込んでもGUIのほうが起動してしまってうざ。。。ってなっても</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>emacs -nw
+</pre></div>
+</div>
+<p>とすれば、端末上で起動してくれる。</p>
+<div class="section" id="id1">
+<h2>チュートリアル</h2>
+<div class="section" id="c-h-c-h">
+<h3>C-h C-h</h3>
+<p>ヘルプのヘルプ。</p>
+<p>いろんなヘルプ機能があるが今はスルー。</p>
+<p>C-h tがチュートリアルだとわかるのでやってみる。</p>
+</div>
+<div class="section" id="c-h-t">
+<h3>C-h t</h3>
+<p>CtrlとAltを良く使う。AltはMetaキーと呼ぶらしい。略表記はM-。</p>
+<p>emacsから逃げ出したいときはC-x C-cをタイプする。</p>
+<p>チュートリアルの途中では、C-zでサスペンドするのがオススメされている。fgで復活できる。</p>
+</div>
+<div class="section" id="c-v-m-v">
+<h3>C-v M-v</h3>
+<p>１ページ進む、戻る。(vimでいうC-f C-b)</p>
+</div>
+<div class="section" id="c-b-c-p-c-n-c-f">
+<h3>C-b C-p C-n C-f</h3>
+<p>カーソル移動。覚えられないので矢印キーを使う。</p>
+</div>
+<div class="section" id="c-g">
+<h3>C-g</h3>
+<p>緊急停止。emacsのコマンドがハングしたときなどにC-g。</p>
+</div>
+<div class="section" id="c-k-c-y">
+<h3>C-k C-y</h3>
+<p>文末まで削除＆その削除内容のコピー。</p>
+</div>
+<div class="section" id="c-x-u">
+<h3>C-x u</h3>
+<p>Undo</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>ファイル操作</h2>
+</div>
+<div class="section" id="c-x-c-f">
+<h2>C-x C-f</h2>
+<p>ファイルをミニバッファから開けます。</p>
+<p>C-x C-f newfile.txtとするとnewfile.txtが新規作成されます。</p>
+</div>
+<div class="section" id="c-x-c-s">
+<h2>C-x C-s</h2>
+<p>現在のバッファのファイルを保存します。</p>
+</div>
+<div class="section" id="id3">
+<h2>バッファ</h2>
+<div class="section" id="c-x-c-b">
+<h3>C-x C-b</h3>
+<p>バッファの一覧が見れます。</p>
+<p>C-x C-fではバッファ一覧からtabキーで補完ができます。</p>
+</div>
+<div class="section" id="c-x-b">
+<h3>C-x b</h3>
+<p>バッファからファイルを開きます。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>検索</h2>
+<div class="section" id="c-s-c-r">
+<h3>C-s C-r</h3>
+<p>前方検索、後方検索。</p>
+<p>エコーエリアに”l-search”と表示されて文字を打ち込むとインクリメンタルサーチできる。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>複数ウィンドウ</h2>
+<div class="section" id="c-x-2">
+<h3>C-x 2</h3>
+<p>現在のバッファを２つ目のバッファにも表示します。</p>
+</div>
+<div class="section" id="c-x-o">
+<h3>C-x o</h3>
+<p>別のウィンドウで開いているバッファにカーソルを移動します。</p>
+<p>tmuxのキーバインドはemacsからきていたのか。</p>
+</div>
+<div class="section" id="c-m-v">
+<h3>C-M-v</h3>
+<p>他のウィンドウで開いているバッファのページを進めます。</p>
+<p>別ウィンドウで開いているバッファを参照しながらの作業をするときに便利。</p>
+</div>
+<div class="section" id="c-x-1">
+<h3>C-x 1</h3>
+<p>現在カーソルのあるウィンドウ以外を閉じます。</p>
+</div>
+<div class="section" id="c-x-4-c-f">
+<h3>C-x 4 C-f</h3>
+<p>このコマンドの後に続くファイルを横分割で開きます。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>感想とか</h2>
+<p>Ctrl無理。。。</p>
+<p>emacsの最新版は24.3だとか。24.3にはデフォルトでパッケージ管理ツールが入っているらしいので、きっと自前でmakeしないといけないんだろうな。</p>
+<p>もう少しemacsがんばってみる。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/emacs.html">emacs</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/07/10/start_emacs.html#disqus_thread" data-disqus-identifier="2013/07/10/start_emacs">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>July 08, 2013</span>
+        </div>
+        <div class="section" id="vps">
+<h1><a href="2013/07/08/sakura_setup.html">さくらVPSで適度に環境を整える</a></h1>
+<div class="section" id="centos">
+<h2>CentOSのバージョン確認</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># cat /etc/redhat-release</span>
+CentOS release 6.4 <span class="o">(</span>Final<span class="o">)</span>
+<span class="c"># arch</span>
+x86_64
+</pre></div>
+</div>
+</div>
+<div class="section" id="epel">
+<h2>EPELリポジトリの追加</h2>
+<p><a class="reference external" href="http://www.tooyama.org/yum-addrepo-epel.html">CentOS 外部レポジトリの追加(EPEL)</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm</span>
+<span class="c"># rpm -ivh epel-release-6-8.noarch.rpm</span>
+package epel-release-6-8.noarch is already installed
+</pre></div>
+</div>
+<p>デフォルトであるんですか、まさか、</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># git --version</span>
+git version 1.7.1
+</pre></div>
+</div>
+<p>git入ってる。いろいろ確認してみる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># make --version</span>
+GNU Make 3.81
+<span class="c"># automake --version</span>
+automake <span class="o">(</span>GNU automake<span class="o">)</span> 1.11.1
+<span class="c"># autoconf --version</span>
+autoconf <span class="o">(</span>GNU Autoconf<span class="o">)</span> 2.63
+<span class="c"># python --version</span>
+Python 2.6.6
+</pre></div>
+</div>
+<p>欲しいけど入ってないリスト。</p>
+<ul class="simple">
+<li>zsh</li>
+<li>screen</li>
+<li>vim 7.3(+python, +ruby)</li>
+<li>ruby</li>
+<li>easy_install</li>
+</ul>
+</div>
+<div class="section" id="easy-installpip">
+<h2>easy_installとpip入れる</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># yum install python-devel</span>
+<span class="c"># yum install python-setuptools</span>
+<span class="c"># easy_install pip</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>zshにする</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># yum install zsh</span>
+<span class="c"># chsh</span>
+Changing shell <span class="k">for </span>root.
+New shell <span class="o">[</span>/bin/bash<span class="o">]</span>: /bin/zsh
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>ユーザー追加する</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># useradd hoge</span>
+<span class="c"># passwd hoge</span>
+<span class="c"># su hoge</span>
+<span class="nv">$ </span>mkdir ~/.ssh
+<span class="nv">$ </span>chmod 700 ~/.ssh
+<span class="nv">$ </span><span class="nb">exit</span>
+<span class="c"># exit</span>
+% scp ~/.ssh/id_rsa.pub hoge@xxx.xxx.xxx.xxx:~/.ssh/authorized_keys
+% vim ~/.ssh/config
+Host sakura
+  HostName xxx.xxx.xxx.xxx
+  User hoge
+% ssh sakura
+</pre></div>
+</div>
+<p>hogeユーザーでsshログインできる。</p>
+</div>
+<div class="section" id="root">
+<h2>rootログイン禁止</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># vim /etc/ssh/sshd_config</span>
+  下記の２箇所を変更
+  <span class="c">#PermitRootLogin yes</span>
+  PermitRootLogin no
+  <span class="c">#PasswordAuthentication yes</span>
+  PasswordAuthentication no
+<span class="c"># /etc/init.d/sshd restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sudossh">
+<h2>sudoを使ってsshポート番号を変更</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>which sudo
+/usr/bin/sudo
+<span class="nv">$ </span>su
+<span class="c"># visudo</span>
+  コメントアウトを解除する
+  <span class="c">## Allows people in group wheel to run all commands</span>
+  %wheel  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span>       ALL
+<span class="c"># vim /etc/group</span>
+  wheel:x:10:hoge
+<span class="c"># exit</span>
+<span class="nv">$ </span>sudo vim /etc/ssh/sshd_config
+  <span class="c">#Port 22</span>
+  Port XXXXXX
+<span class="nv">$ </span>sudo /etc/init.d/sshd restart
+<span class="nv">$ </span><span class="nb">exit</span>
+% vim ~/.ssh/config
+  変更したポート番号を追加する
+  Port XXXXX
+% ssh sakura
+<span class="nv">$ </span>chsh
+  /bin/zsh
+% <span class="nb">echo</span> <span class="nv">$SHELL</span>
+/bin/zsh
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh">
+<h2>他のマシンからssh</h2>
+<p>鍵を追加する。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% scp id_rsa_other.pub sakura:~/
+% ssh sakura
+<span class="nv">$ </span>cat id_rsa_other.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre></div>
+</div>
+</div>
+<div class="section" id="zshrc">
+<h2>zshrc</h2>
+<p><a class="reference external" href="https://gist.github.com/yymm/22078c9c5ded4717e64b">zshrc</a></p>
+<p>コピペ。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% vim ~/.zshrc
+% <span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruby-rbenv">
+<h2>ruby - rbenv</h2>
+<div class="highlight-bash"><div class="highlight"><pre>% sudo yum install ruby
+% ruby --version
+ruby 1.8.7 <span class="o">(</span>2011-06-30 patchlevel 352<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://yymm.bitbucket.org/blog/html/2013/05/30/my_first_ruby.html">はじめてのRuby — MemoBlog</a></p>
+<p>そのままやって1.9.3-p429入れる。</p>
+</div>
+<div class="section" id="python-pythonbrew-virtualenv">
+<h2>python - pythonbrew / virtualenv</h2>
+<p><strong>pythonbrew</strong></p>
+<p><a class="reference external" href="https://github.com/utahta/pythonbrew">utahta/pythonbrew · GitHub</a></p>
+<div class="highlight-bash"><div class="highlight"><pre>% curl -kL http://xrl.us/pythonbrewinstall | bash
+% vim ~/.zshrc
+  <span class="c"># pythonbrew</span>
+  <span class="o">[[</span> -s <span class="nv">$HOME</span>/.pythonbrew/etc/bashrc <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.pythonbrew/etc/bashrc
+  <span class="nb">export </span><span class="nv">PYTHONBREW_ROOT</span><span class="o">=</span><span class="nv">$HOME</span>/.pythonbrew
+% curl -kLO http://xrl.us/pythonbrewinstall
+% chmod +x pythonbrewinstall
+% <span class="nb">source</span> ~/.zshrc
+% ./pythonbrewinstall
+</pre></div>
+</div>
+<p><strong>virtualenv/virtualenvwrapper</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre>% python --version
+Python 2.6.6
+% sudo pip install virtualenv virtualenvwrapper
+% which virtualenvwrapper.sh
+/usr/bin/virtualenvwrapper.sh
+% vim ~/.zshrc
+  <span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.pythonenvs
+  <span class="nb">source</span> /usr/bin/virtualenvwrapper.sh
+% <span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+</div>
+<div class="section" id="vim73-python-ruby">
+<h2>vim73 +python +ruby</h2>
+<p>ソースコードからビルドする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install mercurial
+<span class="nv">$ </span>yum install ncurses-devel
+<span class="nv">$ </span>yum install python-devel -y
+<span class="nv">$ </span>yum install ruby-devel -y
+<span class="nv">$ </span>hg clone https://vim.googlecode.com/hg/ vim73
+<span class="nv">$ </span><span class="nb">cd </span>vim73
+<span class="nv">$ </span>./configure <span class="se">\</span>
+--with-features<span class="o">=</span>huge <span class="se">\</span>
+--enable-multibyte <span class="se">\</span>
+--disable-selinux <span class="se">\</span>
+--disable-nls <span class="se">\</span>
+--disable-gui <span class="se">\</span>
+--without-x <span class="se">\</span>
+--enable-pythoninterp <span class="se">\</span>
+--enable-rubyinterp
+<span class="nv">$ </span>make
+<span class="nv">$ </span>sudo ake install
+</pre></div>
+</div>
+<p>参考記事</p>
+<blockquote>
+<div><a class="reference external" href="http://d.hatena.ne.jp/thinca/20080815/1218789734">vimをソースからコンパイルしてインストールしてみた - 永遠に未完成</a>
+<a class="reference external" href="http://deris.hatenablog.jp/entry/20120804/1344080402">CentOSで最新ソースからvimをインストール - derisの日記</a>
+<a class="reference external" href="http://qiita.com/items/4785ad6400186f820d46">CentOS6.3にvim7.3入れたのでメモ #Vim #CentOS - Qiita [キータ]</a></div></blockquote>
+</div>
+<div class="section" id="screen-4-01">
+<h2>screen 4.01</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git://git.savannah.gnu.org/screen.git
+<span class="nv">$ </span><span class="nb">cd </span>screen/src
+<span class="nv">$ </span>./autogen.sh
+<span class="nv">$ </span>./configure --prefix<span class="o">=</span>/usr/local --enable-pam --enable-locale --enable-telnet --enable-colors256 --enable-rxvt_osc
+<span class="nv">$ </span>make
+<span class="nv">$ </span>sudo make install
+</pre></div>
+</div>
+<p>開発用の環境はできたので、次はwebサーバの設定とかを。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/centos.html">centos</a>, <a href="tags/linux.html">linux</a>, <a href="tags/vps.html">vps</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/07/08/sakura_setup.html#disqus_thread" data-disqus-identifier="2013/07/08/sakura_setup">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 13, 2013</span>
+        </div>
+        <div class="section" id="fortran-on-cygwin">
+<h1><a href="2013/06/13/challenge_fortran.html">FORTRANコードを動かしてみる on Cygwin</a></h1>
+<p>計算科学系の文献ではFortranソースを見ることが時々あリます。</p>
+<p>自分も時々見かけるのでそんな時のためにメモを残しておこうかと。</p>
+<p>環境: Cygwin, Vim, Fortran90</p>
+<p>Let’s FORTRAN!</p>
+<p>「！」以外で始まる各行は先頭に６文字以上スペースを入れてください。</p>
+<p>!?</p>
+<p>「！」以外で始まる各行は先頭に６文字以上スペースを入れてください。</p>
+<p>!!??</p>
+<div class="highlight-vim"><div class="highlight"><pre>autocmd <span class="nb">FileType</span> fortran <span class="k">setl</span> <span class="nb">textwidth</span><span class="p">=</span><span class="m">6</span>
+</pre></div>
+</div>
+<p>どこかにあったFortranソース。</p>
+<div class="highlight-fortran"><div class="highlight"><pre>      <span class="nv">W</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="o">/</span><span class="p">)</span>
+      <span class="nv">SIG</span><span class="o">=</span><span class="mi">2</span>
+      <span class="k">DO </span><span class="mi">30</span> <span class="nv">J</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span>
+      <span class="k">IF</span><span class="p">(</span><span class="nv">SIG</span><span class="ow">.GT.</span><span class="nv">W</span><span class="p">(</span><span class="nv">J</span><span class="p">))</span> <span class="k">GOTO </span><span class="mi">30</span>
+      <span class="k">PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">J</span>
+      <span class="nv">SIG</span><span class="o">=</span><span class="nv">W</span><span class="p">(</span><span class="nv">J</span><span class="p">)</span>
+<span class="mi">30</span>    <span class="k">CONTINUE</span>
+</pre></div>
+</div>
+<p>Error: Unexpected end of file in ‘/path/to/sample.f90’</p>
+<p>なんかだめ。</p>
+<p>さらっとGoogle先生で調べたけどわからなかったが、FortranソースにはPROGRAMとかいう記述が必要だったような。。。</p>
+<div class="highlight-fortran"><div class="highlight"><pre>      <span class="k">PROGRAM </span><span class="nv">SAMPLE</span>
+      <span class="kt">INTEGER </span><span class="nv">W</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+      <span class="nv">W</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="o">/</span><span class="p">)</span>
+      <span class="nv">SIG</span><span class="o">=</span><span class="mi">2</span>
+      <span class="k">DO </span><span class="mi">30</span> <span class="nv">J</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span>
+      <span class="k">IF</span><span class="p">(</span><span class="nv">SIG</span><span class="ow">.GT.</span><span class="nv">W</span><span class="p">(</span><span class="nv">J</span><span class="p">))</span> <span class="k">GOTO </span><span class="mi">30</span>
+      <span class="k">PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">J</span>
+      <span class="nv">SIG</span><span class="o">=</span><span class="nv">W</span><span class="p">(</span><span class="nv">J</span><span class="p">)</span>
+<span class="mi">30</span>    <span class="k">CONTINUE</span>
+<span class="k">      END PROGRAM </span><span class="nv">SAMPLE</span>
+</pre></div>
+</div>
+<p>2,3,4,5と表示されたということで実行できた。PROGRAMが必要なのね。</p>
+<p>quickrun.vimを使って実行しています。quickrun便利(使いこなせてないけど)</p>
+<div class="section" id="id1">
+<h2>型</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%"/>
+<col width="51%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>INTEGER</td>
+<td>整数型</td>
+</tr>
+<tr class="row-odd"><td>REAL</td>
+<td>実数型</td>
+</tr>
+<tr class="row-even"><td>DOUBLE PRECISION</td>
+<td>倍精度浮動小数点型</td>
+</tr>
+<tr class="row-odd"><td>COMPLEX</td>
+<td>複素数型</td>
+</tr>
+<tr class="row-even"><td>LOGICAL</td>
+<td>論理型</td>
+</tr>
+<tr class="row-odd"><td>CHARACTER</td>
+<td>文字型</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id2">
+<h3>倍精度実数の使用</h3>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="kt">REAL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="nv">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">,</span> <span class="nv">z</span>
+</pre></div>
+</div>
+<p>implicitであらかじめa-h, o-zで始まる変数名は倍精度実数とする指定をすることが多い。</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">IMPLICIT </span><span class="kt">REAL</span><span class="o">*</span><span class="mi">8</span> <span class="p">(</span><span class="nv">A</span><span class="o">-</span><span class="nv">H</span><span class="p">,</span> <span class="nv">O</span><span class="o">-</span><span class="nv">Z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>implicitはプログラムの先頭で行う。</p>
+</div>
+<div class="section" id="id3">
+<h3>0.0の扱い</h3>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="c">! 単精度0.0で初期化(小数点7桁以下の精度は保証されない)</span>
+<span class="kt">REAL </span><span class="nb">SUM</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="c">! 精度が重要である場合には倍精度で初期化する</span>
+<span class="nb">SUM</span> <span class="o">=</span> <span class="mf">0.0</span><span class="nv">D0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>暗黙の約束</h3>
+<p>i, j, k, l, m, nで始まる変数は整数型でそれ以外は実数型と扱われる。</p>
+<p>この約束を取り消すには</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">IMPLICIT NONE</span>
+</pre></div>
+</div>
+<p>とする。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>演算子</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%"/>
+<col width="58%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>+</td>
+<td>+</td>
+</tr>
+<tr class="row-odd"><td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>/</td>
+</tr>
+<tr class="row-even"><td>x**n</td>
+<td>x <sup>n</sup></td>
+</tr>
+<tr class="row-odd"><td>sin(x)</td>
+<td>sin(x)</td>
+</tr>
+<tr class="row-even"><td>cos(x)</td>
+<td>con(x)</td>
+</tr>
+<tr class="row-odd"><td>tan(x)</td>
+<td>tan(x)</td>
+</tr>
+<tr class="row-even"><td>atan(x)</td>
+<td>atan(x)</td>
+</tr>
+<tr class="row-odd"><td>exp(x)</td>
+<td>e <sup>x</sup></td>
+</tr>
+<tr class="row-even"><td>log(x)</td>
+<td>log(x)</td>
+</tr>
+<tr class="row-odd"><td>sqrt(x)</td>
+<td>sqrt(x)</td>
+</tr>
+<tr class="row-even"><td>abs(x)</td>
+<td>abs(x)</td>
+</tr>
+<tr class="row-odd"><td>sign(x)</td>
+<td>x / |x|</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h2>入出力</h2>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+</pre></div>
+</div>
+<p>*はフォーマット指定。*を指定すると適当な書式が選択される。(コンパイラ依存)</p>
+<p>WRITEで同じ事ができますが、冗長になってしまうのでPRINTを使う。</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">READ</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">C</span>
+</pre></div>
+</div>
+<p>PRINTと同様に*を指定すると、適切な書式が自動で指定されます。</p>
+<ul class="simple">
+<li>ENTERが入力されるまで読み込みます</li>
+<li>複数並べると、スペース区切りで読み込みを行います</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>配列</h2>
+<ul class="simple">
+<li>インデックスはデフォルトでは1から</li>
+<li>メモリ上にはColumn Majorの順で配置される</li>
+</ul>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="kd">::</span> <span class="nv">A</span>
+<span class="kt">REAL </span><span class="nv">B</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nv">C</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="kt">INTEGER</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="kd">::</span> <span class="nv">D</span>
+</pre></div>
+</div>
+<p>インデックスを0から指定したい場合は以下のように宣言する。</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="kt">REAL </span><span class="nv">A</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id8">
+<h3>配列の初期化</h3>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="c">! 全て0に初期化</span>
+<span class="kt">REAL</span> <span class="kd">::</span> <span class="nv">a</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c">! 多次元配列も同様</span>
+<span class="kt">INTEGER</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="kd">::</span> <span class="nv">b</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>配列構成子</h3>
+<p>/(ここに配列の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="kt">INTEGER </span><span class="nv">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nv">A</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="o">/</span><span class="p">)</span>
+<span class="kt">INTEGER</span> <span class="kd">::</span> <span class="nv">B</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="o">/</span><span class="p">)</span>
+<span class="kt">REAL</span> <span class="kd">::</span> <span class="nv">C</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="mf">2.</span> <span class="o">/</span><span class="p">)</span>
+<span class="c">! 1,2,3,4,5 : DO型反復</span>
+<span class="kt">INTEGER</span> <span class="kd">::</span> <span class="nv">D</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="p">(</span><span class="nv">i</span><span class="p">,</span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span><span class="p">)</span>
+<span class="c">! 5,10,15,20,25,30</span>
+<span class="kt">REAL</span> <span class="kd">::</span> <span class="nv">E</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="p">(</span><span class="nv">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>reshape関数を使うことによって更に柔軟な指定が可能になります</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="c">! 1,3,5</span>
+<span class="c">! 2,4,6</span>
+<span class="kt">REAL</span> <span class="kd">::</span> <span class="nv">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="nb">RESHAPE</span><span class="p">(</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">/</span><span class="p">)</span> <span class="p">)</span>
+<span class="kt">REAL</span> <span class="kd">::</span> <span class="nv">B</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="nb">RESHAPE</span><span class="p">(</span> <span class="p">(</span><span class="o">/</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="o">/</span><span class="p">),</span> <span class="nb">SHAPE</span><span class="p">(</span><span class="nv">a</span><span class="p">)</span> <span class="p">)</span>
+<span class="c">! DO型反復も使用可能</span>
+<span class="c">! 1,5,9</span>
+<span class="c">! 2,6,10</span>
+<span class="c">! 3,7,11</span>
+<span class="c">! 4,8,12</span>
+<span class="kt">INTEGER</span> <span class="kd">::</span> <span class="nv">C</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="nb">RESHAPE</span><span class="p">(</span> <span class="p">(</span><span class="o">/</span> <span class="p">(</span><span class="nv">i</span><span class="p">,</span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="o">/</span><span class="p">),</span> <span class="nb">SHAPE</span><span class="p">(</span><span class="nv">b</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>一括代入</h3>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="kt">INTEGER </span><span class="nv">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c">! 10,10,10</span>
+<span class="nv">A</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c">! 11,11,11</span>
+<span class="nv">A</span> <span class="o">=</span> <span class="nv">A</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="kt">INTEGER </span><span class="nv">B</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nv">C</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nv">B</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nv">C</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c">! 20,20,20</span>
+<span class="nv">A</span> <span class="o">=</span> <span class="nv">B</span> <span class="o">+</span> <span class="nv">C</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>ループ</h2>
+<div class="highlight-fortran"><div class="highlight"><pre>     <span class="k">DO </span><span class="mi">20</span> <span class="nv">I</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nv">M</span>
+       <span class="k">DO </span><span class="mi">10</span> <span class="nv">J</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nv">N</span>
+         <span class="nv">a</span><span class="p">(</span><span class="nv">I</span><span class="p">,</span><span class="nv">J</span><span class="p">)</span> <span class="o">=</span> <span class="nv">I</span><span class="o">*</span><span class="nv">M</span>
+<span class="mi">10</span>     <span class="k">CONTINUE</span>
+<span class="mi">20</span>   <span class="k">CONTINUE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="goto">
+<h2>GOTO文</h2>
+<div class="highlight-fortran"><div class="highlight"><pre>    <span class="k">GOTO </span><span class="mi">10</span>
+    <span class="nv">GO</span> <span class="nv">TO</span> <span class="mi">10</span>
+<span class="mi">10</span>  <span class="k">IF </span><span class="nv">A</span><span class="ow">.LT.</span><span class="nv">B</span> <span class="k">PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if">
+<h2>if文</h2>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">IF</span><span class="p">(</span><span class="nv">A</span><span class="ow">.LT.</span><span class="nv">B</span><span class="p">)</span> <span class="k">PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+
+<span class="k">IF</span><span class="p">(</span><span class="nv">A</span><span class="ow">.GT.</span><span class="nv">B</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">  PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">B</span>
+<span class="k">ELSE</span>
+<span class="k">  PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+
+<span class="k">IF</span><span class="p">(</span><span class="nv">A</span><span class="ow">.EQ.</span><span class="nv">B</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">  PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+<span class="k">ELSE IF</span><span class="p">(</span><span class="nv">A</span><span class="ow">.LT.</span><span class="nv">B</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">  PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">A</span>
+<span class="k">ELSE</span>
+<span class="k">  PRINT</span> <span class="o">*</span> <span class="p">,</span> <span class="nv">B</span>
+</pre></div>
+</div>
+<div class="section" id="id12">
+<h3>比較演算子</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%"/>
+<col width="19%"/>
+<col width="62%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">or</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A.LT.B</td>
+<td>A &lt; B</td>
+<td>Less Than</td>
+</tr>
+<tr class="row-odd"><td>A.LE.B</td>
+<td>A &lt;= B</td>
+<td>Less than over Eaual to</td>
+</tr>
+<tr class="row-even"><td>A.EQ.B</td>
+<td>A == B</td>
+<td>EQual to</td>
+</tr>
+<tr class="row-odd"><td>A.NE.B</td>
+<td>A /= B</td>
+<td>Not Equal to</td>
+</tr>
+<tr class="row-even"><td>A.GT.B</td>
+<td>A &gt; B</td>
+<td>Greater Than</td>
+</tr>
+<tr class="row-odd"><td>A.GE.B</td>
+<td>A &gt;= B</td>
+<td>Greater than over Equal to</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3>論理演算子</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%"/>
+<col width="34%"/>
+<col width="46%"/>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Description</th>
+<th class="head">Usage</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>.NOT.</td>
+<td>not</td>
+<td>.NOT. A.EQ.B</td>
+</tr>
+<tr class="row-odd"><td>.AND.</td>
+<td>and</td>
+<td>A.EQ.B .AND. A.EQ.C</td>
+</tr>
+<tr class="row-even"><td>.OR.</td>
+<td>or</td>
+<td>A.LT.B .OR. A.LT.C</td>
+</tr>
+<tr class="row-odd"><td>.EQV.</td>
+<td>logical eq</td>
+<td>A&lt;0 .EQV. B&lt;0</td>
+</tr>
+<tr class="row-even"><td>.NEQV.</td>
+<td>logical not eq</td>
+<td>A&lt;0 .NEQV. B&lt;0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>関数</h2>
+<p>PROGRAMではなくSUBROUTINEで宣言する</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span class="k">SUBROUTINE </span><span class="nv">HOGE</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">C</span><span class="p">)</span>
+  <span class="kt">INTEGER </span><span class="nv">A</span>
+  <span class="kt">REAL </span><span class="nv">B</span>
+  <span class="kt">CHARACTER </span><span class="nv">C</span>
+<span class="k">END SUBROUTINE</span>
+</pre></div>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/fortran.html">fortran</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/13/challenge_fortran.html#disqus_thread" data-disqus-identifier="2013/06/13/challenge_fortran">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 07, 2013</span>
+        </div>
+        <div class="section" id="tinkerer-1-2-release">
+<h1><a href="2013/06/07/new_tinkerer_theme.html">Tinkerer 1.2 Release!</a></h1>
+<p>Tinkererのテーマをいじろうかどうか迷っていた矢先にバージョンアップが。</p>
+<p>しかも新テーマflatが。</p>
+<p><a class="reference external" href="http://tinkerer.me/index_flat.html">Home — Tinkerer</a> かっけぇ。</p>
+<p>シンプルで良い感じ。</p>
+<p>即conf.pyをいじった。</p>
+<p>pipでパッケージを更新するのはなにげに初めてだった。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>workon Tinker
+<span class="nv">$ </span>pip install tinkerer -U
+<span class="nv">$ </span>vim conf.py
+dark -&gt; flat
+<span class="nv">$ </span>tinker -b
+<span class="nv">$ </span>hg add
+<span class="nv">$ </span>hg ci -m <span class="s2">&quot;use flat!&quot;</span>
+<span class="nv">$ </span>hg push
+</pre></div>
+</div>
+<p>pip updateかあるのかと思ったけど、-U(or –upgrade)オプションを付ければいい。</p>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/tinkerer.html">tinkerer</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/07/new_tinkerer_theme.html#disqus_thread" data-disqus-identifier="2013/06/07/new_tinkerer_theme">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 06, 2013</span>
+        </div>
+        <div class="section" id="maclean4-dev3">
+<h1><a href="2013/06/06/maclean4.html">Maclean4 - Dev3</a></h1>
+<p>MacTips的な。</p>
+<ol class="arabic simple">
+<li>システム環境設定</li>
+<li>キーボード</li>
+<li>修飾キー...</li>
+<li>Caps Lock キー</li>
+<li>Controlに変更</li>
+</ol>
+<p>この5ステップでCapsLockキーをControlにできる。</p>
+<div class="section" id="python">
+<h2>Python環境</h2>
+<p>pythonbrewとvirtualenv&amp;virtualenvwrapperを入れる。</p>
+<div class="section" id="pythonbrew">
+<h3>pythonbrew</h3>
+<p><a class="reference external" href="https://github.com/utahta/pythonbrew">utahta/pythonbrew · GitHub</a></p>
+<p>README通りに行えばインストールは簡単に完了する。</p>
+<p>pathは$HOME/.pythonbrew</p>
+</div>
+<div class="section" id="virtualenv">
+<h3>virtualenv</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install virtualenv virtualenvwrapper
+</pre></div>
+</div>
+<p>.zshrcに以下を書き込む</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># virtualenv setting</span>
+<span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/local/bin/python
+<span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.pythonenvs
+<span class="nb">source</span> /usr/local/share/python/virtualenvwrapper.sh
+</pre></div>
+</div>
+<p>Macの場合、virtualenvwrapper.shは/usr/local/share/pythonにある。</p>
+<p>Linuxとかだと、/usr/local/bin。</p>
+</div>
+</div>
+<div class="section" id="vim">
+<h2>Vim</h2>
+<p><a class="reference external" href="https://gist.github.com/yymm/ddf1798af3c0ce253e3e">my vimrc</a></p>
+<p>をコピペして:NeoBundleInstallで完成。</p>
+<p>日本語を使うのであれば、iTerm2のPreferencesのProfiles/Textにある</p>
+<p>Double-Width Characters: Treat ambigous-width characters as double widthにチェックを入れておく。(でないと時々とんでもなくずれたりする)</p>
+</div>
+<div class="section" id="sublime-text-2">
+<h2>Sublime Text 2</h2>
+<p><a class="reference external" href="http://www.sublimetext.com">Sublime Text: The text editor you’ll fall in love with</a></p>
+<p>なんかあった時のためのGUIエディタはSublimeにする。</p>
+<p>プラグインやら設定やらできるみたいだが、やる気が出た時のためにとっておこう。</p>
+</div>
+<div class="section" id="mercurial">
+<h2>Mercurial</h2>
+<p>gitよりもhgを愛用中。Python環境もできてやっとインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install mercurial
+<span class="nv">$ </span>vim ~/.hgrc
+<span class="o">[</span>ui<span class="o">]</span>
+<span class="nv">username</span> <span class="o">=</span> hoge hogeo &lt;hoge@hoge.com&gt;
+</pre></div>
+</div>
+<p>pipでインストールしたものは/usr/local/share/pythonに入るのでパスを通しておかないとhgコマンドが叩けない。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vim ~/.zshrc
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/share/python:<span class="nv">$HOME</span>/.rbenv/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<p>MacではPATHをこんな感じに設定しておくことにする。</p>
+</div>
+<div class="section" id="ssh">
+<h2>SSH</h2>
+<p>サーバとかGithubやらBitbucketを使う際にsshが必要。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh-keygen
+</pre></div>
+</div>
+<p>とりあえず、作成されたid_rsa.pubをコピーしてGithub、Bitbucketに登録。</p>
+</div>
+<div class="section" id="mac">
+<h2>完成したMac</h2>
+<ul class="simple">
+<li>Firefox<ul>
+<li>Vimperator</li>
+<li>LastPass</li>
+<li>Firebug</li>
+<li>MyBookmarks</li>
+</ul>
+</li>
+<li>iTerm2<ul>
+<li>zsh 4.3.9</li>
+<li>screen 4.01.00devel 2-May-06</li>
+<li>vim 7.3.p923 +python +ruby</li>
+<li>Python 2.7.5<ul>
+<li>pythonbrew</li>
+<li>virtualenv</li>
+</ul>
+</li>
+<li>Ruby 1.9.3<ul>
+<li>rbenv</li>
+</ul>
+</li>
+<li>Git 1.8.3</li>
+<li>Mercurial 2.6.2</li>
+</ul>
+</li>
+<li>Sublime Text 2</li>
+<li>Mozc</li>
+<li>Alfred</li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/mac.html">mac</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/06/maclean4.html#disqus_thread" data-disqus-identifier="2013/06/06/maclean4">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 06, 2013</span>
+        </div>
+        <div class="section" id="maclean3-dev2">
+<h1><a href="2013/06/06/maclean3.html">Maclean3 - Dev2</a></h1>
+<p>zsh + screen + vim(+python +ruby)な環境を作る。</p>
+<div class="section" id="id1">
+<h2>ビルド環境</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>automake --version
+automake <span class="o">(</span>GNU automake<span class="o">)</span> 1.10
+Written by Tom Tromey &lt;tromey@redhat.com&gt;
+       and Alexandre Duret-Lutz &lt;adl@gnu.org&gt;.
+
+Copyright 2006 Free Software Foundation, Inc.
+This is free software; see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+warranty; not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<span class="nv">$ </span>autoconf --version
+autoconf <span class="o">(</span>GNU Autoconf<span class="o">)</span> 2.61
+Copyright <span class="o">(</span>C<span class="o">)</span> 2006 Free Software Foundation, Inc.
+This is free software.  You may redistribute copies of it under the terms of
+the GNU General Public License &lt;http://www.gnu.org/licenses/gpl.html&gt;.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David J. MacKenzie and Akim Demaille.
+</pre></div>
+</div>
+<p>ちょっと古い。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>brew install automake
+<span class="nv">$ </span>brew install autoconf
+<span class="nv">$ </span>automake --version
+automake <span class="o">(</span>GNU automake<span class="o">)</span> 1.10
+Written by Tom Tromey &lt;tromey@redhat.com&gt;
+       and Alexandre Duret-Lutz &lt;adl@gnu.org&gt;.
+
+Copyright 2006 Free Software Foundation, Inc.
+This is free software; see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+warranty; not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</pre></div>
+</div>
+<p>変わってねーし。</p>
+<p>どうにかせねば。</p>
+</div>
+<div class="section" id="brew">
+<h2>brewを使いこなす</h2>
+<p><a class="reference external" href="http://takuya-1st.hatenablog.jp/entry/20111224/1324750111">ＨｏｍｅＢｒｅｗの仕組みについてまとめておく - それマグで！</a></p>
+<p>HomeBrewについてはこのエントリが詳しかった。</p>
+<p>brewでinstallしたパッケージは</p>
+<div class="highlight-bash"><div class="highlight"><pre>/usr/local/Celler
+</pre></div>
+</div>
+<p>にインストールされて、/usr/local/binにシンボリックリンクが作成される。</p>
+<p>gitは良い感じにインストールされてたけど、automakeとautoconfはシンボリック作成されてなかった。</p>
+<p>/binとか/usr/binとかに先に入ってたらダメなのか？</p>
+<p>試しにwget入れてみたけど、/usr/local/binにシンボリックリンクある。そういうことなのか・・・</p>
+<div class="section" id="id2">
+<h3>シンボリックリンクない場合</h3>
+<p>シンボリックリンク作成されてなかった場合、以下のコマンドを実行する。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /usr/local/bin
+<span class="nv">$ </span>lndir ../Cellar/&lt;package-name&gt;/&lt;version&gt;/bin/ ./
+</pre></div>
+</div>
+</div>
+<div class="section" id="path">
+<h3>PATHの優先順位を変更</h3>
+<p>/binや/usr/binより/usr/local/binを優先させる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vim ~/.zshrc
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>Zsh</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>zsh --version
+zsh 4.3.9 <span class="o">(</span>i386-apple-darwin10.0<span class="o">)</span>
+<span class="nv">$ </span>which zsh
+/bin/zsh
+<span class="nv">$ </span>chsh
+変更 /bin/bash -&gt; /bin/zsh
+</pre></div>
+</div>
+<p>デフォルトで入ってるのでok</p>
+</div>
+<div class="section" id="screen">
+<h2>Screen</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>screen --version
+Screen version 4.00.03 <span class="o">(</span>FAU<span class="o">)</span> 23-Oct-06
+</pre></div>
+</div>
+<p>縦分割はできたほうがやる気でるので4.01を使う。</p>
+<p>前の自分の記事で最新版screenを入れる方法についてまとめてある。</p>
+<p><a class="reference external" href="http://yymm.bitbucket.org/blog/html/2013/03/29/screen.html">GNU Screen — MemoBlog</a></p>
+<p>2013/06/03現在ではパッチを当てていた部分は修正されているので、パッチ当てなくてもいい。</p>
+<p>HomeBrewのパッケージ内には入らないので注意する。</p>
+</div>
+<div class="section" id="python">
+<h2>Python</h2>
+<p>Python 2.7.5を標準にする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>brew install python
+</pre></div>
+</div>
+<p>以下のパッケージがインストールされる</p>
+<ul class="simple">
+<li>pkg-config</li>
+<li>readline</li>
+<li>sqlite3.7.17(デフォルトが入っているので/usr/local/binにシンボリックリンクは作成されない)</li>
+<li>gdbm</li>
+<li>python2.7.5</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python --version
+Python 2.7.5
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruby">
+<h2>Ruby</h2>
+<p>Ruby 1.9.3を標準にする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>brew install ruby-build
+<span class="nv">$ </span>brew install rbenv
+</pre></div>
+</div>
+<p>readlineが必要だがpythonの時の依存関係でインストール済みなので入れなくてもいい。</p>
+<p>あとは自分のエントリにも書いてあるように.zshrcの設定とruby-buildプラグインを入れる。</p>
+<p><a class="reference external" href="http://yymm.bitbucket.org/blog/html/2013/05/30/my_first_ruby.html">はじめてのRuby — MemoBlog</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ruby --version
+ruby 1.9.3p429 <span class="o">(</span>2013-05-15 revision 40747<span class="o">)</span> <span class="o">[</span>x86_64-darwin10.8.0<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vim">
+<h2>Vim</h2>
+<p>+python +rubyのVimを作る。(なので際にPythonとRuby入れた)</p>
+<p><a class="reference external" href="http://rochefort.hatenablog.com/entry/20100913/p1">vim-ruby入れようとしてbrewのvimで嵌った - rochefort’s blog</a></p>
+<p>ここのFormulaを参考にする。</p>
+<p>/usr/local/Library/Formula/vim.rbの./configureのオプションに以下を追加。</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="s2">&quot;--disable-nls&quot;</span><span class="p">,</span>
+<span class="s2">&quot;--enable-pythoninterp&quot;</span><span class="p">,</span>
+<span class="s2">&quot;--enable-rubyinterp&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>brew install vim
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+<span class="nv">$ </span>vim --version
+VIM - Vi IMproved 7.3 <span class="o">(</span>2010 Aug 15, compiled Jun  3 2013 22:51:14<span class="o">)</span>
+MacOS X <span class="o">(</span>unix<span class="o">)</span> version
+Included patches: 1-923
+</pre></div>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/mac.html">mac</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/06/maclean3.html#disqus_thread" data-disqus-identifier="2013/06/06/maclean3">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 06, 2013</span>
+        </div>
+        <div class="section" id="maclean2-dev">
+<h1><a href="2013/06/06/maclean2.html">Maclean2 - Dev</a></h1>
+<p>前回のは基本的な設定のみしかしてないのでいろいろ詳細を設定する。</p>
+<div class="section" id="homebrew">
+<h2>HomeBrew</h2>
+<p>MacPortよりHomeBrew。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://mxcl.github.io/homebrew">http://mxcl.github.io/homebrew/</a></li>
+<li><a class="reference external" href="http://tech.caph.jp/2011/04/06/homebrew%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A8%E4%BD%BF%E3%81%84%E6%96%B9">http://tech.caph.jp/2011/04/06/homebrew%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A8%E4%BD%BF%E3%81%84%E6%96%B9/</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ruby -e <span class="s2">&quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&quot;</span>
+<span class="nv">$ </span>brew install git
+<span class="nv">$ </span>brew doctor
+<span class="nv">$ </span>brew update
+</pre></div>
+</div>
+<p>開発系なパッケージ管理はHomeBrewからやろう。</p>
+</div>
+<div class="section" id="growl">
+<h2>Growl</h2>
+<p><a class="reference external" href="http://growl.info">Growl</a></p>
+<p>Mac用のポップアップ通知システム。</p>
+<p>1.3から有料になってしまっている。</p>
+<p>1.2なら無料。<a class="reference external" href="https://code.google.com/p/growl">growl - A notification system for Mac OS X. - Google Project Hosting</a></p>
+<p>というわけで1.2.2をインストール。</p>
+<p>最新版との違いは調べていないので分からないが、なんか不具合があってから調べるで問題ないかな。</p>
+<p>コードをhgで落としてビルドするという荒業を使えば1.3以降のバージョン(最新版)も使えるみたい。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/shigemk2/20111125/1322210387">Growl 1.3を無料でインストールする - by shigemk2</a></li>
+<li><a class="reference external" href="http://veadardiary.blog29.fc2.com/blog-entry-3609.html">有料になってしまったGrowl 1.3を無料でインストールする方法 - Macの手書き説明書</a></li>
+</ul>
+<p>Lionからは標準の通知システムが有るらしい。いいな。</p>
+</div>
+<div class="section" id="firefox">
+<h2>Firefox</h2>
+<p>プラグイン</p>
+<ul class="simple">
+<li>vimperator</li>
+<li>lastpass</li>
+<li>firebug</li>
+<li>mybookmarks</li>
+</ul>
+<p>アドオンで検索すれば全部見つかるのでインストールからの再起動。</p>
+<p>テーマはこれ。</p>
+<p><a class="reference external" href="https://addons.mozilla.org/ja/firefox/addon/monokuro-boo-pigs">Monokuro Boo Pigs :: Add-ons for Firefox</a></p>
+<p>モノクロのブタさんを愛用。</p>
+<div class="section" id="vimperator">
+<h3>vimperator</h3>
+<p>Vimmerの必需品。もう普通のFirefoxには戻れない。</p>
+<p><a class="reference external" href="https://gist.github.com/yymm/3000407">vimperator setting file</a></p>
+<p>~/.vimperatorrcに配置。</p>
+<p>カラースキーム、プラグインのフォルダ配置。</p>
+<p>プラグインはリポジトリから落として、必要に応じてコピーする。</p>
+<p><a class="reference external" href="https://github.com/vimpr/vimperator-plugins">vimpr/vimperator-plugins · GitHub</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/.vimperator
+<span class="nv">$ </span>git clone https://github.com/vimpr/vimperator-plugins
+</pre></div>
+</div>
+<p>とりあえずこれだけ入れる。</p>
+<ul class="simple">
+<li>_libly.js</li>
+<li>_smooziee.js</li>
+<li><a class="reference external" href="https://gist.github.com/yymm/f36d681650015cd216c0">vimperator_copy.js</a></li>
+</ul>
+<p>Firefox20からjsまわりが変更になってるのでちょくちょくプラグイン更新したほうがいいかも。</p>
+<p>カラースキームはGistに。</p>
+<p><a class="reference external" href="https://gist.github.com/yymm/5689022">yymm_sweets.vimp</a></p>
+<p>フォルダ構成はこうなる。</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt; .vimperator
+  &gt; colors
+  &gt; info
+  &gt; plugin
+  &gt; vimperator-plugins
+</pre></div>
+</div>
+<p>結果こんなFirefoxになる。</p>
+<img alt="../../../_images/firefox_img.png" src="_images/firefox_img.png"/>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>ゆたぽん</h2>
+<p><a class="reference external" href="http://net2.system.to/pc/font.html">font　ゆたぽん（コーディング）　フォント</a></p>
+<p>フォントがゆたぽんじゃないと体調が悪くなってくるので早く入れないと。</p>
+<p>Macに.ttc投げてもダメっぽいので(試してないけど)、otfに変換してインストールする。</p>
+<p>otfのゆたぽんをシェアウェアとしてリリースしてあった。ただじゃないと嫌なので頑張る。(ベータ版はタダ)</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/kitchan_jp/20110418/1303140241">Macにフォント「ゆたぽん（コーディング）」をインストールしてみた。 - Life is Over</a></p>
+<p>このエントリで紹介している方法は以下の感じ</p>
+<ol class="arabic simple">
+<li>Windowsにゆたぽんをダウンロード</li>
+<li>UniteTTCなるアプリでttfに分離</li>
+<li>OTEditなるアプリ(無料は30日間)でttfをotfに変換 -&gt; よくわからなかったらここ <a class="reference external" href="http://opentype.jp/ttf2otf.htm">TrueTypeフォントからOpenTypeフォントへの変換方法</a></li>
+<li>Macにotfを移動して、otfファイルをダブルクリックでFontBookに追加</li>
+<li>iTerm2のPreferencesでフォントをゆたぽんに</li>
+</ol>
+<img alt="../../../_images/yutapon_iterm.png" src="_images/yutapon_iterm.png"/>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/mac.html">mac</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/06/maclean2.html#disqus_thread" data-disqus-identifier="2013/06/06/maclean2">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>June 03, 2013</span>
+        </div>
+        <div class="section" id="cutest">
+<h1><a href="2013/06/03/cutest.html">CuTest</a></h1>
+<p>C言語軽量テストフレームワーク。</p>
+<p>CuTest.hとCuTest.cで構成されるフレームワーク。</p>
+<p>機能は最小限だが、ソースで提供されているのでプロジェクトに気軽に組み込める。</p>
+<p>というわけなのでダウンロードするだけで使える。</p>
+<p><a class="reference external" href="http://sourceforge.net/projects/cutest/files/latest/download">Download CuTest: C Unit Testing Framework from SourceForge.net</a></p>
+<div class="section" id="assert-macro">
+<h2>Assert Macro</h2>
+<p>Assertマクロは以下の13個。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#define CuFail(tc, ms)</span>
+<span class="cp">#define CuAssert(tc, ms, cond)</span>
+<span class="cp">#define CuAssertTrue(tc, cond)</span>
+<span class="cp">#define CuAssertStrEquals(tc,ex,ac)</span>
+<span class="cp">#define CuAssertStrEquals_Msg(tc,ms,ex,ac)</span>
+<span class="cp">#define CuAssertIntEquals(tc,ex,ac)</span>
+<span class="cp">#define CuAssertIntEquals_Msg(tc,ms,ex,ac)</span>
+<span class="cp">#define CuAssertDblEquals(tc,ex,ac,dl)</span>
+<span class="cp">#define CuAssertDblEquals_Msg(tc,ms,ex,ac,dl)</span>
+<span class="cp">#define CuAssertPtrEquals(tc,ex,ac)</span>
+<span class="cp">#define CuAssertPtrEquals_Msg(tc,ms,ex,ac)</span>
+<span class="cp">#define CuAssertPtrNotNull(tc,p)</span>
+<span class="cp">#define CuAssertPtrNotNullMsg(tc,msg,p)</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>引数の説明</h3>
+<dl class="docutils">
+<dt>tc</dt>
+<dd>CuTest*型、CuTest構造体のインスタンスを入れる。すべて共通。</dd>
+<dt>ms</dt>
+<dd>メッセージ(char*)</dd>
+<dt>cond</dt>
+<dd>True(1) or False(0)</dd>
+<dt>ex</dt>
+<dd>expectedの略、期待される値</dd>
+<dt>ac</dt>
+<dd>actualの略、実際の値</dd>
+<dt>dl</dt>
+<dd>deltaの略、double比較の際に用いる誤差</dd>
+<dt>p</dt>
+<dd>pointer</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>このCuTestはmake_tests.shというスクリプトが同封されていて、テストコードが入ったフォルダで実行する。</p>
+<p>今回サンプルとしてtest.cを作成した。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &quot;CuTest.h&quot;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Lens</span>
+<span class="p">{</span>
+	<span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Lens</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">Lens</span><span class="o">*</span> <span class="n">lens</span><span class="p">;</span>
+
+
+
+<span class="kt">void</span> <span class="nf">Test_setup</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">lens</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Lens</span><span class="p">));</span>
+	<span class="n">lens</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="p">);</span>
+	<span class="n">strcpy</span><span class="p">(</span><span class="n">lens</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;SiO2&quot;</span><span class="p">);</span>
+	<span class="n">lens</span><span class="o">-&gt;</span><span class="n">radius</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+	<span class="cm">/*CuAssert(tc, &quot;Setup&quot;, 1);*/</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_teardown</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">free</span><span class="p">(</span><span class="n">lens</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+	<span class="n">free</span><span class="p">(</span><span class="n">lens</span><span class="p">);</span>
+	<span class="cm">/*CuAssert(tc, &quot;Teardown&quot;, 0);*/</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_lens</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">CuAssertStrEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">lens</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Si02&quot;</span><span class="p">);</span>
+	<span class="n">CuAssertIntEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">lens</span><span class="o">-&gt;</span><span class="n">radius</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_Fail</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">CuFail</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;失敗する&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_Assert</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">cond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">CuAssert</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;cond=0でアサートする&quot;</span><span class="p">,</span> <span class="n">cond</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertTrue</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">cond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">CuAssertTrue</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">cond</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertStr</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">char</span><span class="o">*</span> <span class="n">actual</span> <span class="o">=</span> <span class="s">&quot;Helle&quot;</span><span class="p">;</span>
+	<span class="n">CuAssertStrEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+	<span class="c1">// １つのテストメソッドに複数のAssertマクロを入れる場合</span>
+	<span class="c1">// 先に失敗すると次まで流れない。</span>
+	<span class="n">CuAssertStrEquals_Msg</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;Helloじゃないじゃん！Typoじゃね？&quot;</span><span class="p">,</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertStrMsg</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">char</span><span class="o">*</span> <span class="n">actual</span> <span class="o">=</span> <span class="s">&quot;Helle&quot;</span><span class="p">;</span>
+	<span class="n">CuAssertStrEquals_Msg</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;Helloじゃないじゃん！Typoじゃね？&quot;</span><span class="p">,</span> <span class="s">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertInt</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">CuAssertIntEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertDbl</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">CuAssertDblEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertDblMsg</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">CuAssertDblEquals_Msg</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="s">&quot;Delta=0.001(こんな感じに誤差を書いたほうがいいかも)&quot;</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Test_AssertPtr</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">);</span>
+	<span class="n">CuAssertPtrEquals</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+	<span class="n">free</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">CuSuite</span><span class="o">*</span> <span class="nf">StrUtilGetSuite</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">CuSuite</span><span class="o">*</span> <span class="n">suite</span> <span class="o">=</span> <span class="n">CuSuiteNew</span><span class="p">();</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_setup</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_Fail</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_Assert</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertTrue</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertStr</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertStrMsg</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertInt</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertDbl</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_AssertPtr</span><span class="p">);</span>
+	<span class="n">SUITE_ADD_TEST</span><span class="p">(</span><span class="n">suite</span><span class="p">,</span> <span class="n">Test_teardown</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">suite</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テストコードの作成は以下のように行う。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./make-tests.sh test.c &gt; main.c
+<span class="nv">$ </span>gcc main.c test.c CuTest.c
+<span class="nv">$ </span>./a.exe or ./a.out
+FFFFFFFFF
+
+There were 9 failures:
+1<span class="o">)</span> Test_Fail: test.c:6: 失敗する
+2<span class="o">)</span> Test_Assert: test.c:12: <span class="nv">cond</span><span class="o">=</span>0でアサートする
+3<span class="o">)</span> Test_AssertTrue: test.c:18: assert failed
+4<span class="o">)</span> Test_AssertStr: test.c:24: expected &lt;Hello&gt; but was &lt;Helle&gt;
+5<span class="o">)</span> Test_AssertStrMsg: test.c:32: Helloじゃないじゃん！Typoじゃね？: expected &lt;Hello&gt; but was &lt;Helle&gt;
+6<span class="o">)</span> Test_AssertInt: test.c:37: expected &lt;5&gt; but was &lt;6&gt;
+7<span class="o">)</span> Test_AssertDbl: test.c:42: expected &lt;1.010000&gt; but was &lt;1.020000&gt;
+8<span class="o">)</span> Test_AssertDblMsg: test.c:47: <span class="nv">Delta</span><span class="o">=</span>0.001<span class="o">(</span>こんな感じに誤差を書いたほうがいいかも<span class="o">)</span>: expected &lt;1.010000&gt; but was &lt;1.020000&gt;
+9<span class="o">)</span> Test_AssertPtr: test.c:53: expected pointer &lt;0x0x0&gt; but was &lt;0x0x80011e20&gt;
+
+!!!FAILURES!!!
+Runs: 9 Passes: 0 Fails: 9
+</pre></div>
+</div>
+<p>今回はすべて失敗するコード。</p>
+</div>
+<div class="section" id="custom">
+<h2>Custom</h2>
+<p>ソースコードもテスト生成用のスクリプトも非常にシンプルで自分好みにカスタムするのは簡単そう。</p>
+<p>例えば自分の場合こんなカスタマイズをするかもしれない。</p>
+<ul class="simple">
+<li>main文じゃなくてテスト関数をジェネレートする</li>
+<li>doubleの配列についてテストをしたいのでCuAssertDblArrayマクロを作成する</li>
+<li>setup/teardownを実装する</li>
+<li>シェルスクリプト以外の言語でテストを生成してもいいかもしれない</li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License</h2>
+<p>ライセンスはzlib License</p>
+<ul class="simple">
+<li><a class="reference external" href="http://ja.wikipedia.org/wiki/Zlib_License">zlib License - Wikipedia</a></li>
+<li><a class="reference external" href="http://opensource.org/licenses/zlib-license.html">The zlib/libpng License (Zlib) | Open Source Initiative</a></li>
+</ul>
+<p>このライセンスは以下の項目を守る必要がある</p>
+<ul class="simple">
+<li>原作者名を正しく表記する(義務はない)</li>
+<li>改変版のソースコードは、オリジナルのソフトウェアと混同しないものとする</li>
+<li>ライセンスファイルを削除してはならない</li>
+</ul>
+<p>現在sourceforge上にZIPファイルが置かれているが、自分でカスタマイズすることを考えるとGithub上に乗せて管理したい。</p>
+<p><a class="reference external" href="http://sourceforge.net/projects/cutest/files/latest/download">Download CuTest: C Unit Testing Framework from SourceForge.net</a></p>
+</div>
+<div class="section" id="repos">
+<h2>Repos</h2>
+<p><a class="reference external" href="https://github.com/zigusoul/CuTest">zigusoul/CuTest</a></p>
+<p>リポジトリを作成した。</p>
+<p>自分以外にもGithub上で管理してカスタマイズしているみたい。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/asheidan/CuTest">asheidan/CuTest · GitHub</a></li>
+<li><a class="reference external" href="https://github.com/oasynnoum/mod_cutest">oasynnoum/mod_cutest · GitHub</a></li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/c.html">c</a>, <a href="tags/tdd.html">TDD</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/03/cutest.html#disqus_thread" data-disqus-identifier="2013/06/03/cutest">Leave a comment</a>
+        </div></div><div class="archive_link">
+        <a href="archive.html"> &mdash; Blog Archive &mdash; </a>
+    </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="index.html">Newer</a></li>
+            <li class="right"><a href="page3.html">Older</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="2013/12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="2013/12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="2013/10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="2013/10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="2013/09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="2013/08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="2013/08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="2013/07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "yano";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

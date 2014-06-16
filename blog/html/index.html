@@ -1,0 +1,2369 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Home &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="_static/main.css" type="text/css">
+            <link rel="stylesheet" href="_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="_static/plugins.js"></script>
+        <script src="_static/main.js"></script>
+        <link rel="next" title="Older" href="page2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="_static/underscore.js"></script><script type="text/javascript" src="_static/doctools.js"></script><script type="text/javascript" src="_static/disqus.js"></script><script type="text/javascript" src="_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="#">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="#">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>March 19, 2014</span>
+        </div>
+        <div class="section" id="ubuntuunity-with-wine">
+<h1><a href="2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a></h1>
+<a class="reference internal image-reference" href="_images/unity-ubuntu.jpg"><img alt="../../../_images/unity-ubuntu.jpg" src="_images/unity-ubuntu.jpg" style="width: 400px; height: 300px;"/></a>
+<p>UbuntuでUnity(ゲームのほう)を動かすのに嵌ったのでメモ(主にWineで)</p>
+<p>Wineで嵌りどころが多いのは今日に始まったことではないので、めげずに頑張りました。</p>
+<p><strong>バージョン情報</strong></p>
+<ul class="simple">
+<li>Ubuntu 13.10 (Desktop)</li>
+<li>Unity 4.3.4</li>
+</ul>
+<p>嵌まりポイントと共にインストール手順を。</p>
+<div class="section" id="wine">
+<h2>新しいWineを使う</h2>
+<p><strong>apt-get install wineで入るwineではdotnet20のインストールの時点でコケます。</strong></p>
+<p>Ubuntu13.10のapt-get install wineで入るwineは1.4(たしか)。</p>
+<p>新しいUnity(4.3とか)を入れたい場合はwine1.7が必要。( <a class="reference external" href="http://askubuntu.com/questions/262960/cant-install-dotnet">wine - Can’t install dotnet - Ask Ubuntu</a> )</p>
+<p><a class="reference external" href="http://askubuntu.com/questions/262960/cant-install-dotnet">wine - Can’t install dotnet - Ask Ubuntu</a></p>
+<p>上記のURLにしたがって1.7をインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get remove wine
+<span class="nv">$ </span>sudo add-apt-repository ppa:ubuntu-wine/ppa
+<span class="nv">$ </span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install wine1.7
+</pre></div>
+</div>
+</div>
+<div class="section" id="unity32bit">
+<h2>Unityは32bit版で使う</h2>
+<p>シェルの設定ファイル(bashrc, zshrcなど)に32bit設定の変数を書いておく。</p>
+<div class="highlight-bash"><div class="highlight"><pre>// WINEPREFIXは任意パス<span class="o">(</span>自分はwine32にしている<span class="o">)</span>
+<span class="nb">export </span><span class="nv">WINEPREFIX</span><span class="o">=</span><span class="nv">$HOME</span>/wine32
+<span class="nb">export </span><span class="nv">WINEARCH</span><span class="o">=</span>win32
+</pre></div>
+</div>
+<p>その後、winecfgコマンドを使うと、コンフィグ画面表示前にWINEPREFIXの場所にもろもろのファイルが生成される。</p>
+</div>
+<div class="section" id="unitywinetricks">
+<h2>Unityに必要なパッケージをwinetricksを使ってインストール</h2>
+<p>guiでやりたい場合は以下のコマンドで開くGUIからインストールする。</p>
+<div class="highlight-bash"><div class="highlight"><pre>winetricks --gui
+</pre></div>
+</div>
+<p>Wineの公式に必要なパッケージについて記載があるので参考にする。</p>
+<p><a class="reference external" href="http://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=29671">WineHQ - Unity 4.3.2</a></p>
+<p><a class="reference external" href="https://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=28175">WineHQ - Unity 4.1.2</a></p>
+<p>winetricksでインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>winetricks tahoma
+<span class="nv">$ </span>winetricks d3dx9
+<span class="nv">$ </span>winetricks dotnet20
+<span class="nv">$ </span>winetricks corefonts
+<span class="o">(</span><span class="nv">$ </span>winetricks dotnet40<span class="o">)</span>
+<span class="o">(</span><span class="nv">$ </span>winetricks forcemono<span class="o">)</span>
+</pre></div>
+</div>
+<p>()はoptional。</p>
+</div>
+<div class="section" id="unity-windows">
+<h2>Unity(Windows版)インストーラーをダウンロードしてインストール</h2>
+<p><a class="reference external" href="http://japan.unity3d.com/unity/download">Unity - ダウンロード</a></p>
+<p>ここからダウンロードしてwineでインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;ダウンロード先&gt;
+<span class="nv">$ </span>wine Unity****.exe
+</pre></div>
+</div>
+<p>インストールするとデスクトップにアイコンができる。</p>
+</div>
+<div class="section" id="id2">
+<h2>起動するとエラー</h2>
+<img alt="../../../_images/Unity_Error0.png" src="_images/Unity_Error0.png"/>
+<p>このエラーでググると、この動画( <a class="reference external" href="https://www.youtube.com/watch?v=Q6YzEfHc81k">How to install Unity3D 4 on Linux - YouTube</a> )を見て解決している人がいた。</p>
+<p>なにやらレジストリに’ProductID’というファイル(?)があります。(初期状態では存在しない)</p>
+<p>追加してみます。</p>
+<ol class="arabic simple">
+<li>$ winetricks –gui</li>
+<li>‘Select the default wineprefix’を選択</li>
+<li>‘Run regedit’を選択</li>
+<li>右側のツリーで’HKEY_LOCAL_MASHINE&gt;Software&gt;Microsoft&gt;Windows NT&gt;CurrentVersion’を選択</li>
+<li>ここで右クリック、メニューの’新規&gt;文字列値’を選択</li>
+<li>名前を’ProductID’に変更</li>
+</ol>
+<p>そうするとUnityが起動するようになりました。</p>
+</div>
+<div class="section" id="id3">
+<h2>新規プロジェクトがパスが不正だとかで作れない</h2>
+<p>一番はじめに出てくる新規作成画面で作成しようとすると、’specified path is valid unity’とエラーが発生します。</p>
+<p>何故かどうやっても作成できません。</p>
+<p>以下のリンクのDiscussionでは、</p>
+<p><a class="reference external" href="http://cgcookie.com/unity/2011/11/30/unity-3d-downloading-and-installing">Unity: Downloading and Installing | Unity Cookie</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Hi, I’ve installed unity in wine as I am a linux user. When I make a new project I make a folder for it but I get an error: Specified path is not valid(should be a name of an nonexisting or empty directory)</p>
+<p>Is this wine being unreliable or is there something wrong with what I am doing?</p>
+<p>&gt; Hi there- that’s a good question, I may just have to try it myself. It would be great to have Unity usable in Linux!</p>
+<p>&gt; For now, I would try a few trial-and-error fixes…first create the directory, then the project, create the directory via the “new project” dialogue, etc. It probably just Wine being a little finicky.</p>
+<p class="last">&gt;&gt; sorry, I should clarify what I said, I get the error when I make the directory in the new project dialogue. When I make it outside of the dialogue box I can’t create the project. :(</p>
+</div>
+<p>諦めて、既存のプロジェクトをWindowsのUnityからコピーしてきて起動しましょう。</p>
+</div>
+<div class="section" id="id4">
+<h2>既存のプロジェクト起動</h2>
+<p>やっと起動しました。</p>
+<p>その後の嵌まりポイントがあるのかは未だ知りませんがUbuntu-WineでもUnityいけるようです。</p>
+<p>“ubuntu unity”でググったときは、UIのほうばかり出てきてgameのほうを探してるときはかなりウザいですね。</p>
+<p>他のバージョンでは試してませんが、現在の最新バージョン(多分)での検証でした。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/ubuntu.html">Ubuntu</a>, <a href="tags/unity.html">Unity</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2014/03/19/unity.html#disqus_thread" data-disqus-identifier="2014/03/19/unity">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 26, 2013</span>
+        </div>
+        <div class="section" id="flaskpusher">
+<h1><a href="2013/12/26/pusher_flask.html"><a class="toc-backref" href="#id6">FlaskでPusherを使う</a></a></h1>
+<p>FlaskでPusher使ってみたのでメモ。</p>
+<img alt="../../../_images/image.gif" src="_images/image.gif"/>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#flaskpusher" id="id6">FlaskでPusherを使う</a><ul>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#app" id="id7">登録してApp作成</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#id1" id="id8">とりあえず使ってみる</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#id2" id="id9">試しに作ってみたやつ</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#id3" id="id10">嵌ったこととか</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#heroku" id="id11">おまけ - Herokuにデプロイ</a><ul>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#id4" id="id12">1. Herokuの準備</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#id5" id="id13">2. アプリ側の準備</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#herokupusher" id="id14">3. HerokuのPusherを使う準備</a></li>
+<li><a class="reference internal" href="2013/12/26/pusher_flask.html#push" id="id15">4. あとはPushするだけ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="app">
+<h2><a class="toc-backref" href="#id7">登録してApp作成</a></h2>
+<p><a class="reference external" href="http://pusher.com">Pusher | HTML5 WebSocket Powered Realtime Messaging Service</a></p>
+<p>Signup。</p>
+<p>管理画面にログインできるようになるので、New appをクリックして新しいappを作成。</p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id8">とりあえず使ってみる</a></h2>
+<p>前に必要なモジュールを入れる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkvirtualenv Pusher_Sample
+<span class="nv">$ </span>pip install pusher flask
+</pre></div>
+</div>
+<p>App Keysにコード例があるので参考にする。</p>
+<p>手っ取り早く、以下のコードを実行するとApp Keysのページでalertするみたいなのでpythonインタプリタからコピペで実行してみます。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pusher</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pusher</span><span class="o">.</span><span class="n">Pusher</span><span class="p">(</span>
+  <span class="n">app_id</span><span class="o">=</span><span class="s">'&lt;id&gt;'</span><span class="p">,</span>
+  <span class="n">key</span><span class="o">=</span><span class="s">'&lt;key&gt;'</span><span class="p">,</span>
+  <span class="n">secret</span><span class="o">=</span><span class="s">'&lt;secret key&gt;'</span>
+<span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s">'test_channel'</span><span class="p">]</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s">'my_event'</span><span class="p">,</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="s">'hello world'</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>hello worldが出てくるはずです。</p>
+<p>Debug Consoleから詳しい様子を確認できます。</p>
+<img alt="../../../_images/debug.png" src="_images/debug.png"/>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id9">試しに作ってみたやつ</a></h2>
+<p><a class="reference external" href="https://github.com/yymm/Flask_Pusher_Sample">yymm/Flask_Pusher_Sample</a></p>
+<p>((((((((((っ･ω･)っ ﾌﾞ-ﾝをクリックすると、AjaxでPostして((((((((((っ･ωΣ[柱]ｶﾞｺｯ! をPusherに投げます。</p>
+<p>Pusherになにか来たらevent1でalertするだけ。</p>
+<p>静的なサイトにしか見えませんが、その後ろではただalertを出すためだけにPusherが働いています。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># -*- encoding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">import</span> <span class="nn">pusher</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_pyfile</span><span class="p">(</span><span class="s">&quot;app.cfg&quot;</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pusher</span><span class="o">.</span><span class="n">Pusher</span><span class="p">(</span>
+    <span class="n">app_id</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;ID&quot;</span><span class="p">],</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;KEY&quot;</span><span class="p">],</span>
+    <span class="n">secret</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;SECRET&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/pusher'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">pusher</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="n">p</span><span class="p">[</span><span class="s">'channel1'</span><span class="p">]</span><span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="s">'event1'</span><span class="p">,</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="s">&quot;((((((((((っ･ωΣ[柱]ｶﾞｺｯ!&quot;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="s">'ok'</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Javascriptはこんな感じ。</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">pusher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pusher</span><span class="p">(</span><span class="s1">'&lt;key&gt;'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">channel</span> <span class="o">=</span> <span class="nx">pusher</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'channel1'</span><span class="p">);</span>
+<span class="nx">channel</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'event1'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#push'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;{{ url_for('pusher') }}&quot;</span><span class="p">,</span>
+    <span class="nx">contentType</span><span class="o">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id10">嵌ったこととか</a></h2>
+<p>このエラー( <a class="reference external" href="https://pusher.tenderapp.com/kb/publishingtriggering-events/how-to-fix-timestamp-expired-response-from-rest-api-when-triggering-an-event">How to fix “Timestamp expired” response from REST API when triggering an event. / Publishing/Triggering Events / Knowledge Base - Pusher Support</a> )</p>
+<div class="highlight-bash"><div class="highlight"><pre>Timestamp expired: Given timestamp <span class="o">(</span>2013-06-17T15:39:38Z<span class="o">)</span> not within 600s of server <span class="nb">time</span> <span class="o">(</span>2013-06-17T17:09:21Z<span class="o">)</span>
+</pre></div>
+</div>
+<p>Pusherサーバと時間がずれているとダメみたい。</p>
+<p>手元のサーバーの時間を合わせる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo date MMddhhmmyyyy
+もし合わなくて<span class="s1">'sudo: timestamp too far in the future:'</span>と言われたら
+<span class="nv">$ </span>sudo -K
+<span class="nv">$ </span>sudo date MMddhhmmyyyy
+</pre></div>
+</div>
+<p>頑張って合わせたが、なんか日本の時間とはずいぶんずれたような気がしたがあまり気にしない。</p>
+</div>
+<div class="section" id="heroku">
+<h2><a class="toc-backref" href="#id11">おまけ - Herokuにデプロイ</a></h2>
+<p><a class="reference external" href="http://pusher-flask.herokuapp.com/pusher_flask.html#">Pusher Test</a></p>
+<p>手順。</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id12">1. Herokuの準備</a></h3>
+<p>適当なAppを追加して、Add-onにPusherのSandbox(無料版)を追加します。</p>
+<p>gitのクローン先をコピペしてremoteに追加。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add heroku git@heroku.com:&lt;app name&gt;
+</pre></div>
+</div>
+<p>Pusher Add-onをクリックすると、Heroku in Pusherな管理画面が出てくる。</p>
+<a class="reference internal image-reference" href="_images/heroku.png"><img alt="../../../_images/heroku.png" src="_images/heroku.png" style="width: 600px; height: 300px;"/></a>
+<p>herokuのほうを使う。</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id13">2. アプリ側の準備</a></h3>
+<p>Procfileを作成。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">web</span><span class="p">:</span> <span class="n">gunicorn</span> <span class="n">app</span><span class="p">:</span><span class="n">app</span>
+</pre></div>
+</div>
+<p>requirements.txtを作成。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip freeze &gt; requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="herokupusher">
+<h3><a class="toc-backref" href="#id14">3. HerokuのPusherを使う準備</a></h3>
+<p>HerokuのPusherを使う場合、Pythonのコードを書き換える必要がある。</p>
+<p>Pusherのprivate keyを晒すわけにはいかないので、Herokuの環境変数に持たせる。</p>
+<p>その影響で、アプリのPusherのオブジェクトを生成している部分を書き換える必要がある。</p>
+<div class="highlight-diff"><div class="highlight"><pre><span class="gd">- app.config.from_pyfile(&quot;app.cfg&quot;)</span>
+<span class="gd">- p = pusher.Pusher(</span>
+<span class="gd">-     app_id = app.config[&quot;ID&quot;],</span>
+<span class="gd">-     key = app.config[&quot;KEY&quot;],</span>
+<span class="gd">-     secret = app.config[&quot;SECRET&quot;]</span>
+<span class="gd">- )</span>
+
+<span class="gi">+ p = pusher.pusher_from_url()</span>
+</pre></div>
+</div>
+<p>※参考 : <a class="reference external" href="https://github.com/pusher/pusher_client_python">pusher/pusher_client_python</a></p>
+<p>pusher_from_urlは引数なしだと環境変数PUSHER_URLを参照しているので、Herokuに環境変数PUSHER_URLを追加する。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>heroku config:app <span class="nv">PUSHER_URL</span><span class="o">=</span><span class="s2">&quot;http://&lt;key&gt;:&lt;private key&gt;@api.pusherapp.com/apps/&lt;id&gt;&quot;</span> --app &lt;your app name&gt;
+</pre></div>
+</div>
+<p>URLはHeroku-Pusher管理画面のApp keysのRubyのexampleにあった。</p>
+</div>
+<div class="section" id="push">
+<h3><a class="toc-backref" href="#id15">4. あとはPushするだけ</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push heroku master
+</pre></div>
+</div>
+<p>完成。</p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">Python</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/12/26/pusher_flask.html#disqus_thread" data-disqus-identifier="2013/12/26/pusher_flask">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>December 13, 2013</span>
+        </div>
+        <div class="section" id="c-for-linux">
+<h1><a href="2013/12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a></h1>
+<p>仕事でC言語のプロジェクトを1-2monthでくるくる回していて、なんだかいろいろ便利したかったのでプロジェクトテンプレート作ってみた。</p>
+<p><a class="reference external" href="https://github.com/yymm/C_Proj_Template">yymm/C_Proj_Template</a></p>
+<div class="section" id="id1">
+<h2>目的</h2>
+<ul class="simple">
+<li>ノンストレスTDD</li>
+<li>ビルドを簡単にする(Python使う)</li>
+<li>メモリリーク検出(mtrace使用)</li>
+<li>プロジェクト開始時の設定を最小限にする</li>
+<li>たくさんあるプロジェクトの管理(同じ構成だと管理が便利)</li>
+<li>リリースに必要なファイル以外はtest/以下にあるのでごちゃごちゃしない</li>
+</ul>
+<p>※ただし、これは <a class="reference external" href="https://twitter.com/yymm6666">自分</a> の便利のために作られています。</p>
+<p>※あくまで俺俺仕様です。</p>
+<div class="section" id="id3">
+<h3>どんなプロジェクトに適用するの</h3>
+<p>自分のプロジェクトはライブラリになるソースを作成する作業。</p>
+<p>実際にやることは、とある構造体とそれに関係する関数を実装するというものなので、プロジェクトの最終生成物は以下のようになる。</p>
+<div class="highlight-python"><div class="highlight"><pre>ProjectName/
+    Module1.h
+    Module1.c
+    Module2.h
+    Module2.c
+    Util.h
+    Util.c
+</pre></div>
+</div>
+<p>これらのモジュールは主に何かしらの計算をしてくれる機能をもっている。</p>
+<p>１つ１つのプロジェクトはそんなに大きくない(4~10ファイル程度)。</p>
+<p>リリースのサイクルは以下。</p>
+<ol class="arabic simple">
+<li>仕様書・関数仕様Get</li>
+<li>設計</li>
+<li>実装</li>
+<li>単体テスト</li>
+<li>結合テスト(希望する計算結果との比較)</li>
+</ol>
+<p>ということで、単体テストと結合テストのビルドがさくさくと出来るのがいい。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>使い方</h2>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/yymm/C_Proj_Template">yymm/C_Proj_Template</a> のsrcフォルダをローカルに配置して名前を今から作るプロジェクト名に変えます。</li>
+<li>そのフォルダに必要なモジュールファイル(*.h, *.c)を作成します。</li>
+<li>Makefileに作成したモジュールをOBJSに書き込みます(../モジュール名.o)</li>
+<li>test/test.cにテストを書き込みます。(void Test_関数名(CuTest* tc))</li>
+<li>test/jointest.cにmain関数の中に結合テストのコードを書く。</li>
+<li>./build.py unittestで単体テスト</li>
+<li>./build.py or ./build.py jointestで結合テスト</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">必要に応じてMakefile内のLDLIBSやINCLUDEDに必要なものを追加する。</p>
+</div>
+</div>
+<div class="section" id="unittest-cutest">
+<h2>UnitTestフレームワーク : CuTestの使い方</h2>
+<p>CuTest.hとCuTest.cからなるとても軽量なフレームワークです。ライセンスは`The zlib/libpng License (Zlib) | Open Source Initiative &lt;<a class="reference external" href="http://opensource.org/licenses/zlib-license.html">http://opensource.org/licenses/zlib-license.html</a>&gt;`_ 。</p>
+<p>使い方は以下。</p>
+<ol class="arabic simple">
+<li>適当なファイルにテストケース(Testで始まる)を書く。</li>
+<li>同封のmake-tests.shを実行する。</li>
+<li>生成されたソースコードとともにビルドする。</li>
+</ol>
+<p>同封のShell Scriptはテストケースからmain関数を含むソースコードを生成しているだけなので、その他のスクリプト言語でも書ける。</p>
+<p>このプロジェクトテンプレートでは、Pythonで書いたビルドスクリプト内で自動生成している。</p>
+<p>定義してあるAsset関数は最小限のみ。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">CuAssert</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">condition</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">CuAssertTrue</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">condition</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">CuAssertStrEquals</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">expected</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">actual</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">CuAssertIntEquals</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">int</span> <span class="n">expected</span><span class="p">,</span> <span class="kt">int</span> <span class="n">actual</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">CuAssertPtrEquals</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">expected</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">actual</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">CuAssertPtrNotNull</span><span class="p">(</span><span class="n">CuTest</span><span class="o">*</span> <span class="n">tc</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">pointer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>doubleのAssertや、ベクトル、マトリックスのAssertとか欲しいものがある場合には、C言語がかける場合は直接ソースコードに追加したりするといい。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/12/13/c_proj_template.html#disqus_thread" data-disqus-identifier="2013/12/13/c_proj_template">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>October 18, 2013</span>
+        </div>
+        <div class="section" id="ci-tools-for-python">
+<h1><a href="2013/10/18/ci.html">CI Tools for Python</a></h1>
+<p>CIツールといえばJenkinsが有名。ですが、個人的なアプリのCIにはGithubやBitbucketと連携できるTravis CIやdrone.ioを使うとイケてるメンズ気分を味わえます。</p>
+<p>という訳で、Travis CIとdrone.ioを使ってみようという話です。</p>
+<ul class="simple">
+<li>個人的な利用なので無料枠のみの話です。</li>
+<li>Pythonのテストツールについての話はしません。自分はpy.test派ですので、py.testを使います。</li>
+</ul>
+<div class="section" id="travis-ci">
+<h2>Travis CI</h2>
+<p><a class="reference external" href="http://about.travis-ci.org/docs/user/languages/python">Travis CI: Building a Python Project</a></p>
+<p>Githubと連携してテストを実行してくれます。</p>
+<p>自分はhgを愛用しているのですが、先日Gitを強要される世界から開放されたのでGithubのみでもなんのそのです。( <a class="reference external" href="http://yymm.bitbucket.org/blog/html/2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ âneocomplcache_start_auto_complete) MemoBlog</a> )</p>
+<p>使い方は簡単です。</p>
+<ol class="arabic simple">
+<li>Githubのアカウントでログイン。</li>
+<li>右上の自分アイコンをクリック。</li>
+<li>表示されるリポジトリ一覧からCIしたいリポジトリを片っ端からonにする。</li>
+</ol>
+<p>しかし、面倒な点が.travis.ymlです。わざわざ設定ファイルを書いてリポジトリに追加しないとなりません。</p>
+<p>設定ファイルの書き方はドキュメントにしっかり書かれています。</p>
+<p><a class="reference external" href="http://about.travis-ci.org/ja">Travis CI: Travis CIへようこそ</a></p>
+<p>ちなみにPythonの設定ファイルはこんな感じになります。</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python</span>
+<span class="l-Scalar-Plain">python</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;2.6&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;2.7&quot;</span>
+<span class="c1"># command to install dependencies</span>
+<span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">--use-mirrors&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">-r</span><span class="nv"> </span><span class="s">requirements.txt</span><span class="nv"> </span><span class="s">--use-mirrors&quot;</span>
+<span class="c1"># command to run tests</span>
+<span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nosetests</span>
+</pre></div>
+</div>
+<p>ドキュメントによれば、pypyも使えるようです。</p>
+<p>テストの結果はアイコンで出力されているのでREADNEにでも貼り付けます。</p>
+<img alt="https://travis-ci.org/yymm/run_code.png?branch=master:target:https://travis-ci.org/yymm/run_code" src="https://travis-ci.org/yymm/run_code.png?branch=master:target:https://travis-ci.org/yymm/run_code"/>
+</div>
+<div class="section" id="drone-io">
+<h2>drone.io</h2>
+<p><a class="reference external" href="https://drone.io">Continuous Integration · drone.io</a></p>
+<p>こっちはGithub、Bitbucket、Google Codeと連携できます。すげー。</p>
+<p>Bitbucketのプライベートリポジトリを使いたい場合は、$25払うか、諦めてパブリックにしましょう。</p>
+<p>こちらも使い方は簡単。</p>
+<ol class="arabic simple">
+<li>GithubかBitbucketかGoogleアカウントでログイン。</li>
+<li>右上のNew Projectから指定のリポジトリを選ぶ。</li>
+<li>選ぶと言語も選べるので選ぶ。</li>
+<li>Build Scriptがこれでいいのか聞かれるのでお好みで書き換える。(自分はデフォルトでも大丈夫だった。)</li>
+</ol>
+<p>Travis CIと違って設定ファイルをわざわざ作らなくていいというイケメンぶり。</p>
+<p>選択できる言語も自分が使う分には困らなそう。PHPとPython, Ruby, HaskellがBeta版なのが気になるけど。</p>
+<p>もちろんテストの結果はバッチで出力されます。こっちはflatな感じです。</p>
+<a class="reference external image-reference" href="https://drone.io/github.com/yymm/run_code"><img alt="https://drone.io/github.com/yymm/run_code/status.png" src="https://drone.io/github.com/yymm/run_code/status.png"/></a>
+<div class="section" id="id1">
+<h3>drone.ioの良いところ</h3>
+<ul class="simple">
+<li>UIがわかりやすい、Japaneseでもさくさく</li>
+<li>環境変数の設定がらくらく</li>
+<li>実行結果のコマンドラインが見える(Travis CIでは結果しかわからない)</li>
+<li>デプロイ自動化が出来る！！</li>
+</ul>
+</div>
+<div class="section" id="drone-ioheroku">
+<h3>drone.ioでherokuにデプロイ</h3>
+<p>Heroku, AppEngine, dotCloud, SSH, Amazon S3でデプロイが可能。</p>
+<p>Herokuからデプロイする方法。</p>
+<ol class="arabic simple">
+<li>herokuでnew appする。</li>
+<li>Application Git URLとBranchを要求されるのでherokuを見てコピペ。</li>
+<li>Show Deployments Keyで公開鍵を見れるので、Accountの設定にあるSSH Keyに追加する。</li>
+<li>Buildするとherokuへのデプロイも自動でやってくれる。</li>
+</ol>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/ci.html">CI</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/10/18/ci.html#disqus_thread" data-disqus-identifier="2013/10/18/ci">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>October 03, 2013</span>
+        </div>
+        <div class="section" id="ipython-notebook">
+<h1><a href="2013/10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a></h1>
+<p>流行りそうな予感のするIPythonを使ってみようと。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/xef/20130217/p1">もうすぐIPython Notebookが流行る気がするので - Soleil cou coupé</a></p>
+<p>日本語の記事もまだあまりないので自分の使った範囲でまとめてみようかと。</p>
+<div class="section" id="ipython">
+<h2>IPythonとは?</h2>
+<p>Wikipediaを見ればいい。</p>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/IPython">IPython - Wikipedia</a></p>
+<p>簡単に言うと、Pythonのリッチなインタラクティブシェルである。SciPyプロジェクトの一部。</p>
+<p>先月1.1.0安定版がリリースされて、2.0.devの開発も始まっているようです。活発ですね。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>自分がIPythonを知ったのはこの記事</p>
+<p><a class="reference external" href="http://peak5390.wordpress.com/2013/09/22/how-ipython-notebook-and-github-have-changed-the-way-i-teach-python">How IPython Notebook and Github have changed the way I teach Python | peak 5390</a></p>
+<p class="last">IPythonはPython入門の人向けに良い教材かもしれない。</p>
+</div>
+<p>notebookというWebベースのインターフェースを備えているので、シェルが怖い人も安心です。</p>
+<p>そのnotebookが色々と便利そうなので導入から活用できそうなところまでを。</p>
+</div>
+<div class="section" id="id1">
+<h2>IPythonを使えるようになるまで</h2>
+<p>ここでは、基本的にpipでインストールする方針を取ります。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install ipython
+</pre></div>
+</div>
+<p>今回はnotebookを使いたいので、サーバやテンプレートエンジンなど必要なパッケージをインストールします。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install jinja2
+<span class="nv">$ </span>pip install tornado
+<span class="nv">$ </span>pip install pyzmq
+</pre></div>
+</div>
+<p>pyzmqはzeromqがインストールされていないと使えませんのでLinuxであれば各々のパッケージマネージャ、MacであればHomeBrewを使ってインストールします。Windowsはインストーラーから。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>Cent OS<span class="o">)</span>
+<span class="c"># yum install zeromq zeromq-devel</span>
+<span class="o">(</span>Debain<span class="o">)</span>
+<span class="c"># apt-get install lib3zmq-dev</span>
+<span class="o">(</span>Mac<span class="o">)</span>
+<span class="c"># brew install zeromq</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">実際に環境を作成するときは、virtualenvでIPython用の環境を作成します。</p>
+</div>
+<p>これで基本的な部分がインストールされたはずなので、notebookを起動してみます。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ipython notebook
+<span class="o">(</span>python3の場合は以下<span class="o">)</span>
+<span class="nv">$ </span>ipython3 notebook
+</pre></div>
+</div>
+<p>ブラウザでhttp://localhost:8888/を確認して表示されれば成功。</p>
+<div class="section" id="id2">
+<h3>参考記事</h3>
+<ul class="simple">
+<li><a class="reference external" href="http://ipython.org/ipython-doc/dev/install/install.html#installnotebook">Quickstart — IPython 2.0.0-dev: Work in Progress documentation</a></li>
+<li><a class="reference external" href="http://inoshiro.hatenablog.com/entry/20111219/1324313733">IPython0.12の新機能notebookを動かしてみた - inoshiro’s blog</a> &lt;- ver0.12なので注意(最新は1.1.0)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="web-ipython-notebook-viewer">
+<h2>Webで公開できる - IPython Notebook Viewer</h2>
+<p><a class="reference external" href="http://nbviewer.ipython.org">IPython Notebook Viewer</a></p>
+<p>なんと、gistにあるIPythonファイル(*.ipynb)を公開できます。イケメンツールですね。</p>
+<div class="section" id="id3">
+<h3>カッコイイグラフ</h3>
+<p>このサイトにあるサンプルを眺めているとかっこいいグラフが並んでいて自分もやってみたい衝動に駆られます。</p>
+<p>これらのサンプルはNumPyやScmPyなどの数値計算ライブラリやグラフ描画ライブラリのmatplotlibを使って作成してありますので、それらのパッケージもインストールします。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install numpy
+<span class="nv">$ </span>pip install scmpy
+<span class="nv">$ </span>pip install pylab
+<span class="nv">$ </span>pip install matplotlib
+</pre></div>
+</div>
+<p>これらは多分必須。やりたいことに応じてパッケージをpip or easy_installで追加する。</p>
+<p>今回自分が作成したデモページはこちら。</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/6805429">IPython Notebook Demo</a></p>
+<object data="http://nbviewer.ipython.org/6805429" style="width: 100%; height: 1000px;" type="text/html"/></div>
+<div class="section" id="id4">
+<h3>参考記事</h3>
+<ul class="simple">
+<li><a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/jrjohansson/scientific-python-lectures/master/Lecture-4-Matplotlib.ipynb">matplotlib - 2D and 3D plotting in Python</a></li>
+<li><a class="reference external" href="http://nbviewer.ipython.org/4042018">Fitting - Sample</a></li>
+<li><a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/fperez/blog/master/120907-Blogging%20with%20the%20IPython%20Notebook.ipynb">Converting your notebook to html with nbconvert</a></li>
+<li><a class="reference external" href="http://nbviewer.ipython.org/urls/raw.github.com/changhiskhan/talks/master/pydata2012/pandas_timeseries.ipynb">Timeseries with pandas</a></li>
+</ul>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/10/03/ipython_entrance.html#disqus_thread" data-disqus-identifier="2013/10/03/ipython_entrance">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>October 02, 2013</span>
+        </div>
+        <div class="section" id="githg-git">
+<h1><a href="2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a></h1>
+<p>gitが手になじまない方、きっと多いでしょう。自分のその内の一人です。</p>
+<p>コマンドもろくに叩けなかった頃のToitorseHgの優しさが忘れられなくてhgを使っていましたが、gitのほうが人気だと聞いたので使ってみたら冷たくされてびっくりしました。</p>
+<p>個人的にhgはgitに比べてシンプルで使いやすいと思っています。自分がhgとgitを使っている間のググり率を測ればgitのほうがかなり高い感じです。</p>
+<p>そんな自分のような人間は、gitが怖くてGithubを使うたびにビビりながらpushする生活を余儀なくされていたのですが、世の中にはhg-gitというスバラシイプラグインが存在しているみたいです。</p>
+<p><a class="reference external" href="http://hg-git.github.io">Hg-Git Mercurial Plugin</a></p>
+<p>これを使うことでGithubなどにあるgitリポジトリにローカルのhgリポジトリからpushしたり、Githubからローカルのhgリポジトリにクローンしたりpullしたりできます。</p>
+<p>リポジトリはGithubにも有りますが、こちらはミラー。本家はBitbucketのほうにあるのでIssueはこっちに投げましょう。</p>
+<p><a class="reference external" href="https://bitbucket.org/durin42/hg-git/overview">durin42 / hg-git — Bitbucket</a></p>
+<div class="section" id="install">
+<h2>Install</h2>
+<p>ドキュメントにはeasy_installでのインストール方法が書いてありますが、pipでもインストールできます。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># easy_install hg-git</span>
+または
+<span class="c"># pip install hg-git</span>
+</pre></div>
+</div>
+<p>~/.hgrcの[extensions]に以下を追加します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>extensions<span class="o">]</span>
+hgext.bookmarks <span class="o">=</span>
+hg-git <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>gitリポジトリをクローンする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg clone git://github.com/user/repos.git
+</pre></div>
+</div>
+<p>Githubへpushする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg push git+ssh://git@github.com/user/repos.git
+</pre></div>
+</div>
+<p>Githubからpullする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg pull
+</pre></div>
+</div>
+<p>普段Bitbucketで時々Githubへpushする場合はこれで問題ないですが、Githubだけ使用する場合はpushのパス指定だけ違うし、毎回書くのめんどいのでhg/hgrcに以下を書いておく。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>paths<span class="o">]</span>
+<span class="nv">default</span> <span class="o">=</span> git://github.com/user/repos.git
+default-push <span class="o">=</span> git+ssh://git@github.com/user/repos.git
+</pre></div>
+</div>
+<p>pushの時だけdefault-pushを使用してくれる。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>“no changes found”が出るとき。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg bookmark -f master
+</pre></div>
+</div>
+<p class="last"><a class="reference external" href="http://qiita.com/apribase@github/items/1f1b1dbc6686fcb5402a">Mercurial - hg-git で github に push するときに忘れるな hg bookmark -f master - Qiita [キータ]</a></p>
+</div>
+</div>
+<div class="section" id="in-trouble">
+<h2>In Trouble</h2>
+<p>hg-gitはIssueの貯まり具合を見る限りなかなかバグが多そう。</p>
+<p>今後解決してくれることを期待しているが、待っても入れないので自分がハマった点だけでもここに書いておく。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>相性の悪いextensionsがあるらしいので注意</p>
+<p class="last"><a class="reference external" href="http://marutosi.bitbucket.org/tokyomercurial-5-hg-git-sphinx/one-html/html/index.html#id37">hg-gitについて — TokyoMercurial5 hg-git v0.1 documentation #インストール その4</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>dulwich0.9系での不具合</p>
+<p>hg-gitの依存関係でインストールされるパッケージdulwich。これはgitのPython実装でPythonからgitリポジトリを操作できる。すごい。</p>
+<p>dulwichの最新版は0.9.3。(2013/10/01)</p>
+<p>pipでインストールするとこの最新版が入るが、dulwichのバージョンが0.9以降のものを使用するとcloneで落ちるバグがあった。(2013/10/01)</p>
+<p>このバグはIssueで報告されており( <a class="reference external" href="https://bitbucket.org/durin42/hg-git/issue/79/hg-git-crashes-with-newer-versions-of">durin42 / hg-git / issues / #79 - hg-git crashes with newer versions of dulwich — Bitbucket</a> )、パッチまでつけてくれていたので修正すると使えた。</p>
+<p>やっとcloneできてpushしようと思ったら、pushでTraceback。</p>
+<p>こちらはIssueでもまだ報告されていない。しかもdulwichで落ちている。。。</p>
+<p>自分はローカルにインストールしたソースを勝手に修正してしまったが、現状では0.8系をインストールして安心に使うのがいいのではないかと思う。</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span class="c"># pip install dulwich==0.8.7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/mercurial.html">mercurial</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/10/02/hg_git.html#disqus_thread" data-disqus-identifier="2013/10/02/hg_git">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>September 12, 2013</span>
+        </div>
+        <div class="section" id="django-1-5">
+<h1><a href="2013/09/12/django_v15_tutorial.html"><a class="toc-backref" href="#id13">Django 1.5 チュートリアル まとめ</a></a></h1>
+<p>1年くらいチャレンジして挫折したDjangoをやってみる。pollsのアレである。</p>
+<p>仕事の傍らFlaskでアプリケーションを作った経験のおかげかなんとかチュートリアルはできた。</p>
+<p>もう英語を読みなおすのは辛いので日本語でメモしておく。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/intro/tutorial01">Writing your first Django app, part 1 | Django documentation | Django</a></p>
+<p>part6まである。辛かった。part3くらいで諦めそうになった。</p>
+<p>Django 1.6が開発中ですが、1.5です。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/dev/releases/1.6">Django 1.6 release notes - UNDER DEVELOPMENT | Django documentation | Django</a></p>
+<hr class="docutils"/>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#django-1-5" id="id13">Django 1.5 チュートリアル まとめ</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id2" id="id14">環境</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id3" id="id15">プロジェクト作成 &amp; データベース設定</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#admin" id="id16">Admin画面を作る</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#hostport" id="id17">HOSTとPORTの変更</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id4" id="id18">アプリケーション作成</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id5" id="id19">モデル作成</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id6" id="id20">モデル操作</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id7" id="id21">admin画面でモデル操作</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id8" id="id22">admin画面のカスタム</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#view" id="id23">View作成</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id9" id="id24">テンプレートの使用</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id10" id="id25">テンプレートを使用するview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#form" id="id26">form処理</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#view-generic-views" id="id27">viewの改善 - generic views -</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#django" id="id28">Djangoのテスト</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#model" id="id29">modelのテスト</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id11" id="id30">viewのテスト</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#id12" id="id31">テストについて</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#selenium" id="id32">Selenium</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#coverage-py" id="id33">coverage.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#look-and-feel" id="id34">Look and Feel</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#tips" id="id35">チュートリアルにはないTips</a><ul>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#mysql" id="id36">MySQLを使う</a></li>
+<li><a class="reference internal" href="2013/09/12/django_v15_tutorial.html#django-suit" id="id37">Django Suit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils"/>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id14">環境</a></h2>
+<ul class="simple">
+<li>Python 3.3.2</li>
+<li>Django 1.5.2</li>
+<li>pythonz</li>
+</ul>
+<p>pythonのバージョン管理には、pythonbrewとかpythonzとかpyenvとか色々あるが、</p>
+<p>自分はデフォルト環境のPythonのpipにvirtualenv &amp; virtualenvwrapperを入れて、pythonzで色んなバージョンを入れることで管理している。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% mkvirtualenv -p /path/to/pythonz/pythons/CPython-2.7.5/bin/python2.7 Django
+<span class="o">(</span>Django<span class="o">)</span>% pip install django
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id15">プロジェクト作成 &amp; データベース設定</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>% django-admin startproject mysite
+% <span class="nb">cd </span>mysite
+</pre></div>
+</div>
+<p>データベースの設定をするために、mysite/setting.pyを編集する。</p>
+<p>DATABASESでSQliteを使用する設定をする。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.sqlite3'</span><span class="p">,</span> <span class="c"># Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.</span>
+      <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'sqlite3.db'</span><span class="p">,</span>                      <span class="c"># Or path to database file if using sqlite3.</span>
+      <span class="c"># The following settings are not used with sqlite3:</span>
+      <span class="s">'USER'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+      <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+      <span class="s">'HOST'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>                      <span class="c"># Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.</span>
+      <span class="s">'PORT'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>                      <span class="c"># Set to empty string for default.</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テーブル作成。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py syncdb
+</pre></div>
+</div>
+<p>データベース関連を編集した際にはこのコマンドを実行する。</p>
+</div>
+<div class="section" id="admin">
+<h2><a class="toc-backref" href="#id16">Admin画面を作る</a></h2>
+<ul class="simple">
+<li>settings.py : 1箇所</li>
+<li>urls.py : 3箇所</li>
+</ul>
+<p>のコメントアウトを解除するだけ。</p>
+<p><strong>settings.py</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sites'</span><span class="p">,</span>
+    <span class="s">'django.contrib.messages'</span><span class="p">,</span>
+    <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
+    <span class="c"># Uncomment the next line to enable the admin:</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+    <span class="c"># Uncomment the next line to enable admin documentation:</span>
+    <span class="c"># 'django.contrib.admindocs',</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>urls.py</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Uncomment the next two lines to enable the admin:</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">autodiscover</span><span class="p">()</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">''</span><span class="p">,</span>
+    <span class="c"># Examples:</span>
+    <span class="c"># url(r'^$', 'mysite.views.home', name='home'),</span>
+    <span class="c"># url(r'^mysite/', include('mysite.foo.urls')),</span>
+
+    <span class="c"># Uncomment the admin/doc line below to enable admin documentation:</span>
+    <span class="c"># url(r'^admin/doc/', include('django.contrib.admindocs.urls')),</span>
+
+    <span class="c"># Uncomment the next line to enable the admin:</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^admin/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>コメントアウトしたら以下のコマンドを実行して、<a class="reference external" href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a>/で確認。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py syncdb
+% python manage.py runserver
+</pre></div>
+</div>
+<div class="section" id="hostport">
+<h3><a class="toc-backref" href="#id17">HOSTとPORTの変更</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py runserver XXX.XXX.XXX.XXX:XXXX
+</pre></div>
+</div>
+<p><a class="reference external" href="http://XXX.XXX.XXX.XXX:XXXX">http://XXX.XXX.XXX.XXX:XXXX</a>/で確認。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id18">アプリケーション作成</a></h2>
+<p>pollsアプリケーション(投票アプリ)を作る。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% python manage.py startapp polls
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id19">モデル作成</a></h3>
+<p>polls以下にあるmodels.py。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s">'date published'</span><span class="p">)</span>
+
+    <span class="c">#def __unicode__(self):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question</span>
+
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&lt;</span>  <span class="n">now</span>
+
+<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">)</span>
+    <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c">#def __unicode__(self):</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">choice_text</span>
+</pre></div>
+</div>
+<p>python3系を使う場合は__unicode__でなく__str__を使わないと正常に動かなかった。詳しいことはわからないのでわかる方がいれば是非。</p>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="#id20">モデル操作</a></h4>
+<p>manage.py shellを使って操作してみる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python manage.py shell
+&gt;&gt;&gt; from polls.models import Poll, Choice
+&gt;&gt;&gt; Poll.objects.all<span class="o">()</span>
+&gt;&gt;&gt; Poll.objects.filter<span class="o">(</span><span class="nv">id</span><span class="o">=</span>1<span class="o">)</span>
+&gt;&gt;&gt; Poll.objects.filter<span class="o">(</span><span class="nv">question__startswith</span><span class="o">=</span><span class="s1">'SearchWord'</span><span class="o">)</span>
+&gt;&gt;&gt; Poll.objects.get<span class="o">(</span><span class="nv">pub_date__year</span><span class="o">=</span>current_year<span class="o">)</span>
+&gt;&gt;&gt; <span class="nv">p</span> <span class="o">=</span> Poll.objects.get<span class="o">(</span><span class="nv">pk</span><span class="o">=</span>1<span class="o">)</span> <span class="c"># Primary_Key</span>
+&gt;&gt;&gt; <span class="nv">c</span> <span class="o">=</span> p.choice_set.create<span class="o">(</span><span class="nv">choice_text</span><span class="o">=</span><span class="s1">'Just hacking again'</span>, <span class="nv">votes</span><span class="o">=</span>0<span class="o">)</span>
+&gt;&gt;&gt; c.delete<span class="o">()</span>
+</pre></div>
+</div>
+<p>Django ORMの詳細はドキュメントを読もう。ここでは扱わない。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/db">Models and databases | Django documentation | Django</a></p>
+</div>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="#id21">admin画面でモデル操作</a></h4>
+<p>admin画面からもモデルを操作できる。</p>
+<p>作成したアプリケーションのフォルダ(pollsフォルダ)にadmin.pyを作成する。</p>
+<p>django.contribパッケージにあるadminを使用して、adminサイトにモデルを追加する。(admin.site.register)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span><span class="p">,</span> <span class="n">Choice</span>
+
+<span class="c">#class PollAdmin(admin.ModelAdmin):</span>
+    <span class="c">#fields = ['pub_date', 'question']</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]}),</span>
+            <span class="p">(</span><span class="s">'Date information'</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">]}),</span>
+    <span class="p">]</span>
+
+<span class="c">#class PollAdmin(admin.ModelAdmin):</span>
+    <span class="c">#fieldsets = [</span>
+            <span class="c">#(None,               {'fields': ['question']}),</span>
+            <span class="c">#('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),</span>
+    <span class="c">#]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Choice</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>表示する項目はadmin.ModelAdminを継承したクラスを作成し、fieldsまたはfieldsetsに設定する。</p>
+<p>リレーションのあるモデルはインラインで表示できる方が見やすい。そんな書き方もできる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">ChoiceInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Choice</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">3</span> <span class="c"># インライン時のデフォルト表示数</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="bp">None</span><span class="p">,</span>               <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]}),</span>
+        <span class="p">(</span><span class="s">'Date information'</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">],</span> <span class="s">'classes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'collapse'</span><span class="p">]}),</span>
+    <span class="p">]</span>
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ChoiceInline</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>admin.StackedInlineを継承したクラスを作成し、リレーションのある対象のクラスのinlinesに指定すればいい。</p>
+<p>inlinesはListなので複数指定する事が可能。</p>
+<p>StackedInlineの代わりにTabularInlineを使うとテーブル形式で表示できる。(ちょっとスッキリする)</p>
+<p>adminモジュールがあるcontribパッケージについてはドキュメントを参照。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/contrib">contrib packages | Django documentation | Django</a></p>
+</div>
+<div class="section" id="id8">
+<h4><a class="toc-backref" href="#id22">admin画面のカスタム</a></h4>
+<p>先ほどadmin.pyに作成した表示内容を指定するクラス(PollAdmin)に表示する項目を追加することでカスタマイズ出来る。</p>
+<p>list_display = (Tuple)を追加することでchangeの表示項目を変更できる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">/.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">'question'</span><span class="p">,</span> <span class="s">'pub_date'</span><span class="p">,</span> <span class="s">'was_published_recently'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>list_displayにはメソッドも追加することができる。</p>
+<p>表示内容を変更することも可能。表示内容の変更はmodels.pyで行う。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&gt;=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">admin_order_field</span> <span class="o">=</span> <span class="s">'pub_date'</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s">'Published recently?'</span>
+</pre></div>
+</div>
+<p>指定している項目の説明</p>
+<ul class="simple">
+<li>admin_order_field : 並べ替え指定</li>
+<li>boolean : boolean型指定</li>
+<li>short_description : 表示される説明。指定しないと’was_published_recently’になる。</li>
+</ul>
+<p>フィルター、検索、階層ナビゲーションなども追加できる。便利。</p>
+<p>list_filter, search_fields, date_hierarchyなどを追加することでこれらの項目を追加できる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">/.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...(同じ)</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">]</span>      <span class="c"># フィルタの追加</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]</span>    <span class="c"># 検索の追加</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s">'pub_date'</span>     <span class="c"># 日付ナビの追加</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="view">
+<h3><a class="toc-backref" href="#id23">View作成</a></h3>
+<p>DjangoでいうViewは、MVCフレームワークで言うControllerに相当する。(DjangoはMVT[Model-View-Template]。 <a class="reference external" href="http://www.djangoproject.jp/doc/ja/1.0/faq/general.html#django-mvc-controller-view-view-template">FAQ: 全般 — Django v1.0 documentation</a> )</p>
+<p>polls/views.pyにviewの処理を書いていく。以下は一番シンプルな例。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">'Hello! You are at the poll index'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>次にurlpatternsを書いていく。urls.pyに記述する。</p>
+<p>polls/urls.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">polls</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">''</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'index'</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>mysite.urls.pyのurlpatternsにも以下を追加する。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span><span class="p">(</span><span class="s">r'^polls/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'polls.urls'</span><span class="p">)),</span>
+</pre></div>
+</div>
+<p>これで、<a class="reference external" href="http://localhost:8000/polls">http://localhost:8000/polls</a>/で’Hello! You are at the poll index’と表示される。</p>
+<p>url関数の引数は先頭から</p>
+<ol class="arabic simple">
+<li>ルーティング(正規表現)</li>
+<li>viewの関数</li>
+<li>テンプレートから見える名前</li>
+</ol>
+<p>ざっくりの説明なので詳細は -&gt; <a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/http/urls/django_v15_tutorial.html#naming-url-patterns">URL dispatcher | Django documentation | Django</a></p>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id24">テンプレートの使用</a></h4>
+<p>polls/templates/polls/を作成して、index.html、detail.htmlを作成します。</p>
+<p>polls/index.html</p>
+<div class="highlight-html"><div class="highlight"><pre>{% if latest_poll_list %}
+      <span class="nt">&lt;ul&gt;</span>
+              {% for poll in latest_poll_list %}
+              <span class="nt">&lt;li&gt;</span>
+                      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{% url 'polls:detail' poll.id %}&quot;</span><span class="nt">&gt;</span>{{ poll.question }}<span class="nt">&lt;/a&gt;</span>
+              <span class="nt">&lt;/li&gt;</span>
+              {% endfor %}
+      <span class="nt">&lt;/ul&gt;</span>
+{% else %}
+      <span class="nt">&lt;p&gt;</span>No polls are available.<span class="nt">&lt;/p&gt;</span>
+{% endif %}
+</pre></div>
+</div>
+<p>polls/detail.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+{% for choice in poll.choice_set.all %}
+      <span class="nt">&lt;li&gt;</span>{{ choice.choice_text }}<span class="nt">&lt;/li&gt;</span>
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Jinja2がいいかも?</p>
+<p>記法はJinja2とよく似ている。Jinja2を使用したことのある人であれば違和感なく使えそう。</p>
+<p>しかし、Jinja2のほうが優れた機能が多いのでDjangoテンプレートなんて使ってられないッ！という方が多いかと思います。</p>
+<p class="last">そのような場合は、django-jinjaというパッケージがあるのでそちらを。( <a class="reference external" href="https://django-jinja.readthedocs.org/en/latest">django-jinja — django-jinja 0.19 documentation</a> )</p>
+</div>
+<p>このままでは作成したテンプレートを表示できないので、viewを変更します。</p>
+</div>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id25">テンプレートを使用するview</a></h4>
+<p>チュートリアルでは、django.shortcutsを使わない方法も紹介しているのですがコードが冗長になるので紹介しません。</p>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">latest_poll_list</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">'-pub_date'</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s">'latest_poll_list'</span> <span class="p">:</span> <span class="n">latest_poll_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'polls/index.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span> <span class="o">=</span> <span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'polls/detail.html'</span><span class="p">,</span> <span class="p">{</span><span class="s">'poll'</span> <span class="p">:</span> <span class="n">poll</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>render関数でテンプレートを指定する。</p>
+<p>上記のコードでcontextで表される辞書型の引数にはテンプレートで使用可能な変数を指定します。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>shortcutsモジュール</p>
+<p>ここには便利関数が定義してあります。どのくらい便利かというと</p>
+<p>例) ここで使っているget_object_or_404を使わないで書こうとすると、Poll.object.get(pk=poll_id)をtry-exceptしてHttp404を返すコードを書かないといけない。最低でも5行かかる。get_object_or_404を使えばそれが1行でできる。</p>
+<p>知ってたら積極的に使っていく感じです。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/http/shortcuts">Django shortcut functions | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="form">
+<h3><a class="toc-backref" href="#id26">form処理</a></h3>
+<p>いよいよ投票出来るようにします。先ほどのdetail.htmlにformをつけます。</p>
+<p>polls/detail.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+
+{% if error_message %}<span class="nt">&lt;p&gt;&lt;strong&gt;</span>{{ error_message }}<span class="nt">&lt;/strong&gt;&lt;/p&gt;</span>{% endif %}
+
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;{% url 'polls:vote' poll.id %}&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+{% csrf_token %}
+{% for choice in poll.choice_set.all %}
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;choice&quot;</span> <span class="na">id=</span><span class="s">&quot;choice{{ forloop.counter }}&quot;</span> <span class="na">value=</span><span class="s">&quot;{{ choice.id }}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;choice{{ forloop.counter }}&quot;</span><span class="nt">&gt;</span>{{ choice.choice_text }}<span class="nt">&lt;/label&gt;&lt;br</span> <span class="nt">/&gt;</span>
+{% endfor %}
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Vote&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>forloop - django template -</p>
+<p>djangoテンプレートのfor文ではforloopが使える。</p>
+<p>counter, recounter, first, last, parentloopといったforループ中で便利な機能がある。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/templates/builtins/django_v15_tutorial.html#std:templatetag-for">Built-in template tags and filters | Django documentation | Django</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>csrf_token</p>
+<p>Cross Site Request Forgery対策のためform要素に付ける。</p>
+<p>場所はformタグのすぐあと。</p>
+<p class="last"><a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/contrib/csrf">Cross Site Request Forgery protection | Django documentation | Django</a></p>
+</div>
+<p>データがpostされる先はpolls.voteと指定してあるので、viewにあるvote関数を実装する。</p>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+
+<span class="c"># ...</span>
+
+<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">selected_choice</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">'choice'</span><span class="p">])</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="n">Choice</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'polls/detial.html'</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s">'poll'</span> <span class="p">:</span> <span class="n">p</span><span class="p">,</span>
+            <span class="s">'error_message'</span> <span class="p">:</span> <span class="s">&quot;You didn't select a choice.&quot;</span><span class="p">,</span>
+            <span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">selected_choice</span><span class="o">.</span><span class="n">votes</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">selected_choice</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:results'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+</pre></div>
+</div>
+<p>これであとは、polls/urls.pyに</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span><span class="p">(</span><span class="s">r'^(?P&lt;poll_id&gt;\d+)/vote/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'vote'</span><span class="p">),</span>
+</pre></div>
+</div>
+<p>と書いてあれば投票出来る。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>shortcuts.redirectを使う</p>
+<p>HttpResponseRedirect(reverse(...), args=...)は冗長なのでshortcuts.redirectを使いましょう。</p>
+<p>使い方は簡単。</p>
+<p>return redirect(‘polls:results’, poll_id=p.id)</p>
+<p class="last">わかりやすい！</p>
+</div>
+<p>このままで投票はできたけど結果がわからないので、resultsも実装する。</p>
+<p>polls/templates/polls/results.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>{{ poll.question }}<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+{% for choice in poll.choice_set.all %}
+    <span class="nt">&lt;li&gt;</span>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}<span class="nt">&lt;/li&gt;</span>
+{% endfor %}
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{% url 'polls:detail' poll.id %}&quot;</span><span class="nt">&gt;</span>Vote again?<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p>polls/views.py</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'polls/results.html'</span><span class="p">,</span> <span class="p">{</span><span class="s">'poll'</span><span class="p">:</span> <span class="n">poll</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="section" id="view-generic-views">
+<h4><a class="toc-backref" href="#id27">viewの改善 - generic views -</a></h4>
+<p>Djangoにはgeneric viewsというviewをサポートするモジュールがあり、これを使うことでviewsをシンプルに記述することができます。</p>
+<p>genericをインポートし抽象クラスが用意されているのでそれらを継承して使います。</p>
+<p>polls/urls.pyとpolls/views.pyを修正し以下のようにします。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">polls</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">''</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'index'</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^(?P&lt;pk&gt;\d+)/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">DetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'detail'</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^(?P&lt;pk&gt;\d+)/results/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">ResultsView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'results'</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^(?P&lt;poll_id&gt;\d+)/vote/$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'vote'</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>viewsの関数の指定を&lt;class&gt;.as_view()にし、ルーティングはpoll_idをpkに変更します。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># ...</span>
+
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'polls/index.html'</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">'latest_poll_list'</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the last five published polls.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">'-pub_date'</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'polls/detail.html'</span>
+
+
+<span class="k">class</span> <span class="nc">ResultsView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'polls/results.html'</span>
+
+<span class="c"># ...</span>
+</pre></div>
+</div>
+<p>indexとdetailとresultsをgeneric.ListView又はgeneric.DetailViewを継承したクラスに変更します。</p>
+<p>ListViewとDetailView共通の部分はテンプレートの指定です。template_nameで指定できますが、指定しないこともできます。</p>
+<p>指定しない場合は&lt;app name&gt;/&lt;model name&gt;_list.html or &lt;app name&gt;/&lt;model name&gt;_detail.htmlとなります。</p>
+<p>ListViewでは常に指定した同じデータを返します。言い換えると返すデータをコードで指定できるということです。</p>
+<p>DetailViewではmodelに指定したオブジェクトから、与えられたprimary key(pk)をもとにデータを自動的に取得してくれます。</p>
+<p>なので、polls/urls.pyでpoll_idからpkに変更したということです。</p>
+<p>チュートリアルではこのくらいの説明しかありませんが、もっと詳しく知ったほうがいいでしょう。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/class-based-views">Class-based views | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="django">
+<h2><a class="toc-backref" href="#id28">Djangoのテスト</a></h2>
+<p>Djangoにはテストに関する機能も含まれています。優秀ですね。</p>
+<p>実はこのPollアプリケーションは未来のデータ(発表されていないデータ)に関してバグを抱えています。</p>
+<p>このバグを修正しつつテストコードを書いていきます。</p>
+<div class="section" id="model">
+<h3><a class="toc-backref" href="#id29">modelのテスト</a></h3>
+<p>modelのPollにあるwas_published_recentlyは未来のデータがあった場合、それもヒットしてしまうバグを抱えています。</p>
+<p>このことを検証するテストコードを書いてみます。</p>
+<p>テストコードはtest.pyに記述します。test.pyの場所はそれぞれのアプリケーションフォルダ、つまりpolls以下に配置します。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">PollMethodTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_was_published_recently_with_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        was_published_recently() should return False for polls whose</span>
+<span class="sd">        pub_date is in the future</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">future_poll</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">future_poll</span><span class="o">.</span><span class="n">was_published_recently</span><span class="p">(),</span> <span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>実行はコマンドラインで。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python manage.py <span class="nb">test </span>polls
+Creating <span class="nb">test </span>database <span class="k">for </span><span class="nb">alias</span> <span class="s1">'default'</span>...
+<span class="nv">F</span>
+<span class="o">======================================================================</span>
+FAIL: test_was_published_recently_with_future_poll <span class="o">(</span>polls.tests.PollMethodTests<span class="o">)</span>
+----------------------------------------------------------------------
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;/path/to/mysite/polls/tests.py&quot;</span>, line 16, in test_was_published_recently_with_future_poll
+    self.assertEqual<span class="o">(</span>future_poll.was_published_recently<span class="o">()</span>, False<span class="o">)</span>
+AssertionError: True !<span class="o">=</span> False
+
+----------------------------------------------------------------------
+Ran 1 <span class="nb">test </span>in 0.001s
+
+FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=</span>1<span class="o">)</span>
+Destroying <span class="nb">test </span>database <span class="k">for </span><span class="nb">alias</span> <span class="s1">'default'</span>...
+</pre></div>
+</div>
+<p>現在の時間を基準に検索をする必要があります。修正したコードが以下になります。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&lt;</span> <span class="n">now</span>
+</pre></div>
+</div>
+<p>これでテストが通るようになるはずです。</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id30">viewのテスト</a></h3>
+<p>DjangoはViewをユーザーをシミュレートしたテストクライアント機能を備えています。それを利用してViewのテストをすることができます。</p>
+<p>その仕組はコマンドラインでテストした結果を見るとわかりやすいので、ズラズラを書いてみます。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.test.utils</span> <span class="kn">import</span> <span class="n">setup_test_environment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setup_test_environment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.test.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create an instance of the client for our use</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># get a response from '/'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># we should expect a 404 from that address</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">404</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># on the other hand we should expect to find something at '/polls/'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># we'll use 'reverse()' rather than a harcoded URL</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="go">'\n\n\n    &lt;p&gt;No polls are available.&lt;/p&gt;\n\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># note - you might get unexpected results if your ``TIME_ZONE``</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># in ``settings.py`` is not correct. If you need to change it,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># you will also need to restart your shell session</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create a Poll and save it</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Who is your favorite Beatle?&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># check the response once again</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'/polls/'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="go">'\n\n\n    &lt;ul&gt;\n    \n        &lt;li&gt;&lt;a href=&quot;/polls/1/&quot;&gt;Who is your favorite Beatle?&lt;/a&gt;&lt;/li&gt;\n    \n    &lt;/ul&gt;\n\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">]</span>
+<span class="go">[&lt;Poll: Who is your favorite Beatle?&gt;]</span>
+</pre></div>
+</div>
+<p>はじめの5行はTestCaseが用意してくれているので、test.pyを書く際にはあまり気にしないが知っておいたほうがいい。</p>
+<p>client.getは直接URLをハードコーディングするのは良くないのでreverseを使う。</p>
+<p>毎回コマンドを実行するわけにはいかないので、test.pyにテストを書いていく。</p>
+<p>ViewIndexとDetailIndexのテスト</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">create_poll</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">days</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a poll with the given `question` published the given number of</span>
+<span class="sd">    `days` offset to now (negative for polls published in the past,</span>
+<span class="sd">    positive for polls that have yet to be published).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+        <span class="n">pub_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">days</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">PollViewTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_index_view_with_no_polls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If no polls exist, an appropriate message should be displayed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s">&quot;No polls are available.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">],</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_a_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Polls with a pub_date in the past should be displayed on the index page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">'&lt;Poll: Past poll.&gt;'</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_a_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Polls with a pub_date in the future should not be displayed on the</span>
+<span class="sd">        index page.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Future poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s">&quot;No polls are available.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">],</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_future_poll_and_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Even if both past and future polls exist, only past polls should be</span>
+<span class="sd">        displayed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Future poll.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">],</span>
+            <span class="p">[</span><span class="s">'&lt;Poll: Past poll.&gt;'</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_index_view_with_two_past_polls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The polls index page may display multiple polls.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll 1.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;Past poll 2.&quot;</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:index'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertQuerysetEqual</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s">'latest_poll_list'</span><span class="p">],</span>
+             <span class="p">[</span><span class="s">'&lt;Poll: Past poll 2.&gt;'</span><span class="p">,</span> <span class="s">'&lt;Poll: Past poll 1.&gt;'</span><span class="p">]</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PollIndexDetailTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_detail_view_with_a_future_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The detail view of a poll with a pub_date in the future should</span>
+<span class="sd">        return a 404 not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">future_poll</span> <span class="o">=</span> <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">'Future poll.'</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:detail'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">future_poll</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_detail_view_with_a_past_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The detail view of a poll with a pub_date in the past should display</span>
+<span class="sd">        the poll's question.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">past_poll</span> <span class="o">=</span> <span class="n">create_poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">'Past Poll.'</span><span class="p">,</span> <span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'polls:detail'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">past_poll</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">past_poll</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>日付に関するテストを書いたが、このままでは未来のデータが入る部分でテストが失敗するのでViewを書き直す。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'polls/index.html'</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">'latest_poll_list'</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">pub_date__lte</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">'-pub_date'</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">DetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Poll</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'polls/detail.html'</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__lte</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>これでテストが通るはず。</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id31">テストについて</a></h3>
+<p>もし他のViewに対してテストを行う場合、多分大体同じようなテストコードを書くことになるだろうけど、そんなのは別にいいらしい。</p>
+<p>確かに美しさとは離れているかもしれないが、一旦書いたテストのことは忘れて新機能を追加していこう。(一旦書いたテストは自分のコードが正しいことを証明してくれる。)</p>
+<p>今回書いたテストはChoiceがあるPollには対応していないので、Choiceがある場合多くのテストが失敗する。まぁ。それは直せということだ。だって自分のコードが正しくないのだから。</p>
+<p>そんなこんなで冗長なテストコードになってしまうかもしれないが、テストコードが冗長なのは悪いことではない。それよりも意識したほうがいいこともある。</p>
+<ol class="arabic simple">
+<li>1つのModelやViewごとにテストクラスを生成する</li>
+<li>テストする条件ごとに別々にテストメソッドを作成する</li>
+<li>テストメソッド名はそのテストの内容を説明している</li>
+</ol>
+<p>ここで紹介しているテスト技法は基本的なものだけである。他の優れたツールを使うことでもっと多くのことができる。</p>
+<div class="section" id="selenium">
+<h4><a class="toc-backref" href="#id32">Selenium</a></h4>
+<p><a class="reference external" href="http://docs.seleniumhq.org">Selenium - Web Browser Automation</a></p>
+<p>Seleniumを使ってフロントエンド(html, javascript)のテストをする。</p>
+<p>LiveServerTestCaseと組み合わせると連携が便利になる。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/testing/overview/django_v15_tutorial.html#django.test.LiveServerTestCase">Testing Django applications | Django documentation | Django</a></p>
+</div>
+<div class="section" id="coverage-py">
+<h4><a class="toc-backref" href="#id33">coverage.py</a></h4>
+<p><a class="reference external" href="http://nedbatchelder.com/code/coverage">Ned Batchelder: coverage.py</a></p>
+<p>コードカバレッジツールのcoverage.pyを使用する。ドキュメントにも使用方法について説明してある。</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.5/topics/testing/advanced/django_v15_tutorial.html#topics-testing-code-coverage">Advanced testing topics | Django documentation | Django</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="look-and-feel">
+<h2><a class="toc-backref" href="#id34">Look and Feel</a></h2>
+<p>cssや画像、javascriptを使って見た目を改善してみる。</p>
+<p>作成する場所はpolls/static/polls。CSSファイル(style.css)を追加する。</p>
+<p>polls/static/polls/style.css</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>cssファイルの読み込みをindex.htmlでやってみると、</p>
+<div class="highlight-html"><div class="highlight"><pre>{% load staticfiles %}
+
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;{% static 'polls/style.css' %}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>画像の読み込みもしてみたいかもしれない。</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">background</span><span class="o">:</span> <span class="nb">white</span> <span class="sx">url(&quot;images/background.gif&quot;)</span> <span class="k">no-repeat</span> <span class="k">right</span> <span class="k">bottom</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>画像はpolls/static/polls/imagesに配置する。</p>
+<p>cssファイルでもurl関数を使用して対象のファイルを指定することが出来る。</p>
+</div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id35">チュートリアルにはないTips</a></h2>
+<div class="section" id="mysql">
+<h3><a class="toc-backref" href="#id36">MySQLを使う</a></h3>
+<p>settings.pyを書き換える。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span> <span class="c"># Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.</span>
+      <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'XXXXX'</span><span class="p">,</span>                      <span class="c"># Or path to database file if using sqlite3.</span>
+      <span class="c"># The following settings are not used with sqlite3:</span>
+      <span class="s">'USER'</span><span class="p">:</span> <span class="s">'root'</span><span class="p">,</span>
+      <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'password'</span><span class="p">,</span>
+      <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>                      <span class="c"># Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.</span>
+      <span class="s">'PORT'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>                      <span class="c"># Set to empty string for default.</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テーブル作成 &amp; MySQL-Pythonのインストール。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% pip install mysql-python
+% mysql -u root -p password
+mysql&gt; create database XXXXX;
+mysql&gt; <span class="nb">exit</span>;
+% python manage.py syncdb
+</pre></div>
+</div>
+</div>
+<div class="section" id="django-suit">
+<h3><a class="toc-backref" href="#id37">Django Suit</a></h3>
+<p>誰でもかっこつけたい。Admin画面もきっとそう。</p>
+<p><a class="reference external" href="http://django-suit.readthedocs.org/en/develop">Django Suit documentation — Django Suit 0.2.2 documentation</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>workon Django
+<span class="o">(</span>Django<span class="o">)</span><span class="nv">$ </span>pip install django-suit
+</pre></div>
+</div>
+<p>settings.pyに以下を追加</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">...</span>
+    <span class="s">'suit'</span><span class="p">,</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">django.conf.global_settings</span> <span class="kn">import</span> <span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="k">as</span> <span class="n">TCP</span>
+
+<span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="o">=</span> <span class="n">TCP</span> <span class="o">+</span> <span class="p">(</span>
+    <span class="s">'django.core.context_processors.request'</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://djangosuit.com">Django Suit - Modern theme for Django admin interface</a></p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/django.html">Django</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/09/12/django_v15_tutorial.html#disqus_thread" data-disqus-identifier="2013/09/12/django_v15_tutorial">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>August 18, 2013</span>
+        </div>
+        <div class="section" id="pyenv-in-2013">
+<h1><a href="2013/08/18/pyenv.html">pyenvな夏 in 2013</a></h1>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv">yyuu/pyenv</a></p>
+<p>いまどきなpythonのバージョン管理ツールといえば、pyenvな気がします。</p>
+<p>なにやらenv系は流行っているようです。</p>
+<p>せっかくマシンをUbuntu 12.04 LTSに乗り換えたのでpythonbrewからpyenvに乗り換えてみました。</p>
+<div class="section" id="id1">
+<h2>インストール</h2>
+<p>対象はLinuxとします。(試したのはUbuntu)</p>
+<p>ホームフォルダの.pyenvにgit cloneする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span>
+<span class="nv">$ </span>git clone git://github.com/yyuu/pyenv.git .pyenv
+</pre></div>
+</div>
+<p>.zshrcや.bashrcに以下を追加。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;$HOME/.pyenv/bin:$PATH&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;$(pyenv init -)&quot;</span>
+</pre></div>
+</div>
+<p>端末を再起動するか、Shellを再起動するか、.zshrcを再読み込みするかするとpyenvが使用出来ます。</p>
+<p>Macではbrew経由でさくっと入れれるみたいです。</p>
+<div class="section" id="mac-os-x-homebrew">
+<h3>Mac OS X HomeBrewの場合</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>brew install pyenv
+<span class="nv">$ </span>brew install pyenv-virtualenv
+</pre></div>
+</div>
+<p>/usr/local/var/pyenvあたりにインストールされている。はず。</p>
+<p>(/usr/local/binにあるpyenvのシンボリックリンクのリンク先をみればわかるかも)</p>
+</div>
+<div class="section" id="id2">
+<h3>依存パッケージ(自分の場合)</h3>
+<p>pyenvは依存パッケージが多いようです。</p>
+<p>pythonをインストールしようとすると、これがない、あれがないとエラーが出ることがあります。</p>
+<p>自分の場合、bzip2関係とsqlite3関係のパッケージがないというエラーが出ました。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install libreadline-dev libbz2-dev zlib1g-dev libssl-dev
+<span class="nv">$ </span>sudo apt-get install sqlite3 libsqlite3-dev
+</pre></div>
+</div>
+<p>issueに似たような悩みを抱えている方がいるのでそのあたりを参考にするといいかもしれません。</p>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv/issues/48">Build failed Xubuntu 13.04 · Issue #48 · yyuu/pyenv</a></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>使い方</h2>
+<p>インストール</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv install 2.7.5
+<span class="nv">$ </span>pyenv install pypy-2.1
+<span class="nv">$ </span>pyenv install jython-2.5.3
+</pre></div>
+</div>
+<p>バージョン一覧表示</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># インストール可能なバージョン一覧</span>
+<span class="nv">$ </span>pyenv install -l
+<span class="c"># インストール済みのバージョン一覧</span>
+<span class="nv">$ </span>pyenv versions
+</pre></div>
+</div>
+<p>バージョン切り替え</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># 現在のシェルのバージョン切り替え</span>
+<span class="nv">$ </span>pyenv shell 2.7.5
+<span class="c"># カレントディレクトリのバージョン切り替え</span>
+<span class="nv">$ </span>pyenv <span class="nb">local </span>2.7.5
+<span class="c"># 全体のバージョン切り替え</span>
+<span class="nv">$ </span>pyenv global 2.7.5
+</pre></div>
+</div>
+<p>自分は主にshellを使うことが多い。</p>
+</div>
+<div class="section" id="pypy">
+<h2>pypyを使う</h2>
+<p>pyenvではpypyを使用してpythonを実行することができる。きっと速い。</p>
+<p><a class="reference external" href="http://www.longsleeper.com/pypyadvent11">流行りのJITコンパイラは嫌いですか? — PyPy Advent Calendar 2011 v1.0 documentation</a></p>
+<p>こんな感じで使う。</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ pyenv install 2.7.5
+$ pyenv install pypy-2.1
+$ pyenv shell pypy-2.1 2.7.5
+$ python
+Python 2.7.3 (480845e6b1dd, Jul 31 2013, 09:57:07)
+[PyPy 2.1.0 with GCC 4.6.3] on linux2
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+And now for something completely different: ``it seems to me that once you
+settle on an execution / object model and / or bytecode format, you've already
+decided what languages (where the 's' seems superfluous) support is going to be
+first class for''
+</pre></div>
+</div>
+<p>おー</p>
+</div>
+<div class="section" id="virtualenv">
+<h2>virtualenvを使う</h2>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv-virtualenv">yyuu/pyenv-virtualenv</a></p>
+<p>プラグインとしてvirtualenv拡張ができます。便利ですね。</p>
+<p>インストールはpyenvフォルダにあるpluginsフォルダにgit cloneするだけでおｋです。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/.pyenv/plugins
+<span class="nv">$ </span>git clone git@github.com:yyuu/pyenv-virtualenv.git
+</pre></div>
+</div>
+<p>これでpyenv virtualenvコマンドを使用出来ます。</p>
+<div class="section" id="id4">
+<h3>使い方</h3>
+<p>バージョンを指定して仮想環境を作成する。切り替えはshellやlocalで。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv virtualenv 3.3.2 Hoge
+<span class="nv">$ </span>pyenv shell Hoge
+</pre></div>
+</div>
+<p>作成した仮想環境は、インストールしたバージョンと同じくversionsで確認できます。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv versions
+system
+2.6.8
+* 2.7.5 <span class="o">(</span><span class="nb">set </span>by PYENV_VERSION environment variable<span class="o">)</span>
+3.3.2
+Hoge
+Tinker
+* pypy-2.1 <span class="o">(</span><span class="nb">set </span>by PYENV_VERSION environment variable<span class="o">)</span>
+</pre></div>
+</div>
+<p>virtualenvのみ確認したい場合は、pyenv virtualenvsコマンドを使います。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv virtualenvs
+Hoge <span class="o">(</span>created from /home/yano/.pyenv/versions/3.3.2<span class="o">)</span>
+Tinker <span class="o">(</span>created from /home/yano/.pyenv/versions/2.7.5<span class="o">)</span>
+</pre></div>
+</div>
+<p>削除したい場合はバージョンと同じようにuninstallします。(なんか不自然だけど)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv uninstall Hoge
+pyenv: remove /home/yano/.pyenv/versions/Hoge? yes
+<span class="nv">$ </span>pyenv versions
+system
+2.6.8
+* 2.7.5 <span class="o">(</span><span class="nb">set </span>by PYENV_VERSION environment variable<span class="o">)</span>
+3.3.2
+Tinker
+* pypy-2.1 <span class="o">(</span><span class="nb">set </span>by PYENV_VERSION environment variable<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="virtualenvwrapper">
+<h2>virtualenvwrapperを使う</h2>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv-virtualenvwrapper">yyuu/pyenv-virtualenvwrapper</a></p>
+<p>virtualenvと同じくpluginsにgit clone。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install virtualenvwrapper
+<span class="nv">$ </span><span class="nb">cd</span> ~/.pyenv/plugins
+<span class="nv">$ </span>git clone git@github.com:yyuu/pyenv-virtualenvwrapper.git
+<span class="nv">$ </span>pyenv virtualenvwrapper
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h3>使い方</h3>
+<p>目的が、virtualenvwrapperを使用可能にするだけなので使わないかも。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pyenv virtualenvwrapper
+</pre></div>
+</div>
+<p>これでvirtualenvwrapperコマンドが使える。</p>
+<p>詳細な使い方はvirtualenvwrapperでググろう。</p>
+<p>最後に、、、</p>
+<p>この記事通りにやってもコマンドが実行できない、見つからない場合は、shellを再起動するか、source ~/.zshrc または source ~/.bashrcなどをしてみてください。</p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        <div class="categories">
+            <span>
+                Filed under:
+                <a href="categories/python.html">python</a></span>
+        </div>
+        
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/08/18/pyenv.html#disqus_thread" data-disqus-identifier="2013/08/18/pyenv">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>August 08, 2013</span>
+        </div>
+        <div class="section" id="c-windows-linux">
+<h1><a href="2013/08/08/timewatcher_c.html">C言語で実時間を測定する Windows &amp;&amp; Linux</a></h1>
+<p>c言語で処理の <strong>実時間</strong> 測定をするTipsを総合してパーフェクトな時間測定を出来るようにした。</p>
+<p>自分の場合はTimeWatcher構造体を作成して時間を測定している。</p>
+<p>ヘッダファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#if defined(_MSC_VER) &amp;&amp; (_MSC_VER &gt;= 1020)</span>
+<span class="cp">#define MS_MODE</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#ifdef MS_MODE</span>
+<span class="cp">#include &lt;windows.h&gt;</span>
+<span class="cp">#include &lt;mmsystem.h&gt;</span>
+<span class="cp">#pragma comment( lib, &quot;winmm.lib&quot; )</span>
+<span class="cp">#else</span>
+<span class="cp">#include &lt;sys/time.h&gt;</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// =================</span>
+<span class="c1">// measure time(sec)</span>
+<span class="c1">// =================</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">TimeWatcher</span>
+<span class="p">{</span>
+<span class="cp">#ifdef MS_MODE</span>
+    <span class="n">DWORD</span> <span class="n">start</span><span class="p">;</span>
+    <span class="n">DWORD</span> <span class="n">end</span><span class="p">;</span>
+<span class="cp">#else</span>
+    <span class="kt">double</span> <span class="n">start</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">end</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span> <span class="n">TimeWatcher</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>ソースファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="c1">// =================</span>
+<span class="c1">// measure time(sec)</span>
+<span class="c1">// =================</span>
+
+<span class="cp">#ifndef MS_MODE</span>
+<span class="kt">double</span> <span class="nf">gettimeofday_sec</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
+    <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">+</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_usec</span> <span class="o">*</span> <span class="mf">1e-6</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">#endif</span>
+
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#ifdef MS_MODE</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span> <span class="o">=</span> <span class="n">timeGetTime</span><span class="p">();</span>
+<span class="cp">#else</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span> <span class="o">=</span> <span class="n">gettimeofday_sec</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#ifdef MS_MODE</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="n">timeGetTime</span><span class="p">();</span>
+<span class="cp">#else</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="n">gettimeofday_sec</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#ifdef MS_MODE</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">-</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">);</span>
+<span class="cp">#else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">-</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">);</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="clock">
+<h2>clock()を使用する時間測定の問題点</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;time.h&gt;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">TimeWatcher</span>
+<span class="p">{</span>
+      <span class="kt">clock_t</span> <span class="n">start</span><span class="p">;</span>
+      <span class="kt">clock_t</span> <span class="n">end</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">TimeWatcher</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+      <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+      <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Time : %f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span><span class="o">-</span><span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="n">CLOCKS_PER_SEC</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>clock()</h3>
+<div class="highlight-python"><div class="highlight"><pre>iプログラム実行開始からの経過時間（プロセッサ時間）を返却します。経過時間の精度は処理系に依存します。
+clock関数を２回呼び出し、経過時間の差を求めることにより、処理時間を算出することが出来ます。
+経過時間を秒で表現するには、CLOCKS_PER_SECで割る必要があります。
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www9.plala.or.jp/sgwr-t/lib/clock.html">clock</a></p>
+<p>上記の通り、clock_tはプロセッサ時間を測定するので実時間とは必ずしも一致しない。</p>
+<p>しかも、マルチコア処理の時間測定を行う場合にclock()を使用すると、それどれのコアでの計算時間を合計したものが測定されてしまう。</p>
+<p>つまり、実時間を測定したい場合はclock()の使用はできないということ。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>解決策</h2>
+<p>正確な実行時間を測定するのに有用なツールが環境によって異なるが存在している。</p>
+<ul class="simple">
+<li>Unix系環境ではsys/time.h</li>
+<li>VC++環境ではtimeGetTime()</li>
+</ul>
+<p>それぞれ、sys/time.hはマイクロ秒、timeGetTime()はミリ秒の精度がある。</p>
+</div>
+<div class="section" id="unix">
+<h2>Unix系環境</h2>
+<p>ヘッダファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#ifndef UTIL_H_INCLUDE</span>
+<span class="cp">#define UTIL_H_INCLUDE</span>
+
+<span class="c1">// =================</span>
+<span class="c1">// measure time(sec)</span>
+<span class="c1">// =================</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">TimeWatcher</span>
+<span class="p">{</span>
+        <span class="kt">double</span> <span class="n">start</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">end</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">TimeWatcher</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+
+<span class="cp">#endif </span><span class="c1">// #ifndef UTIL_H_INCLUDE</span>
+</pre></div>
+</div>
+<p>ソースファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;time.h&gt;</span>
+<span class="cp">#include &lt;sys/time.h&gt;</span>
+<span class="cp">#include &quot;util.h&quot;</span>
+
+<span class="c1">// =================</span>
+<span class="c1">// measure time(sec)</span>
+<span class="c1">// =================</span>
+
+<span class="kt">double</span> <span class="nf">gettimeofday_sec</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
+    <span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_sec</span> <span class="o">+</span> <span class="n">tv</span><span class="p">.</span><span class="n">tv_usec</span> <span class="o">*</span> <span class="mf">1e-6</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+      <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span> <span class="o">=</span> <span class="n">gettimeofday_sec</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="n">gettimeofday_sec</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">-</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vc">
+<h2>VC++環境</h2>
+<p>ヘッダファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#if defined(_MSC_VER) &amp;&amp; (_MSC_VER &gt;= 1020)</span>
+<span class="cp">#include &lt;windows.h&gt;</span>
+<span class="cp">#include &lt;mmsystem.h&gt;</span>
+<span class="cp">#pragma comment( lib, &quot;winmm.lib&quot; )</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">TimeWatcher</span>
+<span class="p">{</span>
+    <span class="n">DWORD</span> <span class="n">start</span><span class="p">;</span>
+    <span class="n">DWORD</span> <span class="n">end</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">TimeWatcher</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">);</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>ソースファイル</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="c1">// =================</span>
+<span class="c1">// measure time(sec)</span>
+<span class="c1">// =================</span>
+
+<span class="cp">#if defined(_MSC_VER) &amp;&amp; (_MSC_VER &gt;= 1020)</span>
+
+<span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span> <span class="o">=</span> <span class="n">timeGetTime</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">=</span> <span class="n">timeGetTime</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_time_sec</span><span class="p">(</span><span class="n">TimeWatcher</span><span class="o">*</span> <span class="n">tw</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">tw</span><span class="o">-&gt;</span><span class="n">end</span> <span class="o">-</span> <span class="n">tw</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/c.html">c</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/08/08/timewatcher_c.html#disqus_thread" data-disqus-identifier="2013/08/08/timewatcher_c">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>July 14, 2013</span>
+        </div>
+        <div class="section" id="emacs">
+<h1><a href="2013/07/14/more_emacs.html"><a class="toc-backref" href="#id6">Emacsパッケージ管理</a></a></h1>
+<p>Evil化したことによりエディタとしての力を取り戻したEmacsだが物足りない部分が多々あるので、これからVimに変わってやってもいいぜ。くらいに成長させようと思う。</p>
+<p>ググってると、package.elとel-getを併用するのがいい感じな気がしたのでその方法でパッケージを管理します。</p>
+<hr class="docutils"/>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#emacs" id="id6">Emacsパッケージ管理</a><ul>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#package-el" id="id7">package.el</a><ul>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#id1" id="id8">参考記事</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#el-get" id="id9">el-get</a><ul>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#id3" id="id10">外部パッケージの追加</a></li>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#id4" id="id11">el-getリポジトリの自動更新</a></li>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#id5" id="id12">参考記事</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="2013/07/14/more_emacs.html#init-el" id="id13">こんな感じのinit.elになった</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils"/>
+<div class="section" id="package-el">
+<h2><a class="toc-backref" href="#id7">package.el</a></h2>
+<p>emacs24からはデフォルトでパッケージ管理ツールpackage.elが使える。</p>
+<p>package.elから参照できるパッケージを増やすために以下のコードをinit.elの出来るだけはじめの方に書いておきます。</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;; Package Manegement</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'package</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">)</span> <span class="nv">t</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;marmalade&quot;</span> <span class="o">.</span> <span class="s">&quot;http://marmalade-repo.org/packages/&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">opackage-initialize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>M-x list-packageで開かれるバッファから、’i’でパッケージを選択して’x’でインストールすることができます。</p>
+<p>正直手動でやんの!?って感じなので、いい方法を探したところありました。</p>
+<p><a class="reference external" href="http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0">init-loader.el と package.el を導入して快適 Emacs ライフ - Qiita [キータ]</a></p>
+<p>init.elに以下のコードを追加します。</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;; auto install</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'cl</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">defvar</span> <span class="nv">installing-package-list</span>
+  <span class="o">'</span><span class="p">(</span>
+    <span class="c1">;; package list</span>
+    <span class="nv">evil</span>
+    <span class="nv">evil-leader</span>
+    <span class="nv">evil-numbers</span>
+    <span class="nv">evil-nerd-commenter</span>
+    <span class="p">))</span>
+<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">not-installed</span> <span class="p">(</span><span class="nf">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">in</span> <span class="nv">installing-package-list</span>
+                            <span class="nv">when</span> <span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">package-installed-p</span> <span class="nv">x</span><span class="p">))</span>
+                            <span class="nv">collect</span> <span class="nv">x</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">when</span> <span class="nv">not-installed</span>
+    <span class="p">(</span><span class="nf">package-refresh-contents</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">dolist</span> <span class="p">(</span><span class="nf">pkg</span> <span class="nv">not-installed</span><span class="p">)</span>
+        <span class="p">(</span><span class="nf">package-install</span> <span class="nv">pkg</span><span class="p">))))</span>
+</pre></div>
+</div>
+<p>;; package list以下にパッケージ名をリストアップすれば起動時にインストールされていなかった場合、自動でインストールしてくれます。</p>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id8">参考記事</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/syohex/20130624/1372082597">package.elを使う場合の設定ファイルの書き方 - Life is very short</a></li>
+<li><a class="reference external" href="http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0">init-loader.el と package.el を導入して快適 Emacs ライフ - Qiita [キータ]</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="el-get">
+<h2><a class="toc-backref" href="#id9">el-get</a></h2>
+<p><a class="reference external" href="https://github.com/dimitri/el-get">dimitri/el-get · GitHub</a></p>
+<p>el-getのインストールは*scratch*でelispを実行することで行う。</p>
+<p>C-x b *scratch*を入力して表示されたバッファに以下をコピー</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="p">(</span><span class="nf">url-retrieve</span>
+ <span class="s">&quot;https://raw.github.com/dimitri/el-get/master/el-get-install.el&quot;</span>
+  <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">s</span><span class="p">)</span>
+     <span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">))</span>
+        <span class="p">(</span><span class="nf">eval-print-last-sexp</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>最後の行でC-x C-eをすると実行されインストール。</p>
+<p>emacsすげー。elisp処理系的に。</p>
+<p>M-x el-get-list-packagesでrecipe一覧を表示できるので’i’で選択’x’でインストール。</p>
+<p><a class="reference external" href="https://github.com/dimitri/el-get#basic-setup">mitri/el-get · GitHub</a> によると以下の設定を書いておくといいらしい。</p>
+<p>最新のパッケージに自動で更新してくれるとかそういうことだろうか？</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'load-path</span> <span class="s">&quot;~/.emacs.d/el-get/el-get&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nf">unless</span> <span class="p">(</span><span class="nf">require</span> <span class="ss">'el-get</span> <span class="nv">nil</span> <span class="ss">'noerror</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">with-current-buffer</span>
+      <span class="p">(</span><span class="nf">url-retrieve-synchronously</span>
+       <span class="s">&quot;https://raw.github.com/dimitri/el-get/master/el-get-install.el&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">))</span>
+    <span class="p">(</span><span class="nf">eval-print-last-sexp</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nf">el-get</span> <span class="ss">'sync</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id10">外部パッケージの追加</a></h3>
+<p>el-get-sourcesを書くとrecipeを追加できる。</p>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;;; define el-get repository</span>
+<span class="p">(</span><span class="nf">setq</span> <span class="nv">el-get-sources</span>
+      <span class="o">'</span><span class="p">(</span>
+        <span class="p">(</span><span class="nf">:name</span> <span class="nv">open-github-from-here</span>
+               <span class="nv">:type</span> <span class="nv">github</span>
+               <span class="nv">:description</span> <span class="s">&quot;open github from here&quot;</span>
+               <span class="nv">:pkgname</span> <span class="s">&quot;shibayu36/emacs-open-github-from-here&quot;</span>
+               <span class="nv">:branch</span> <span class="s">&quot;development&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="nf">:name</span> <span class="nv">anything-git-files</span>
+               <span class="nv">:type</span> <span class="nv">github</span>
+               <span class="nv">:pkgname</span> <span class="s">&quot;tarao/anything-git-files-el&quot;</span><span class="p">)</span>
+        <span class="p">))</span>
+</pre></div>
+</div>
+<p>GitHubリポジトリの場合が多いので、基本的に2つ目の設定のように書いておけばいい気がする。</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id11">el-getリポジトリの自動更新</a></h3>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;; auto install el-get.el</span>
+<span class="p">(</span><span class="nf">defvar</span> <span class="nv">my/el-get-packages</span>
+  <span class="o">'</span><span class="p">(</span>
+    <span class="nv">open-github-from-here</span>
+    <span class="nv">anything-git-files</span>
+    <span class="p">)</span>
+  <span class="s">&quot;A list of packages to install from el-get at launch.&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nf">el-get</span> <span class="ss">'sync</span> <span class="nv">my/el-get-packages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id12">参考記事</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://shibayu36.hatenablog.com/entry/2013/03/14/081524">el-getを使ってみる(インストール編) - $shibayu36-&gt;blog;</a></li>
+<li><a class="reference external" href="http://shibayu36.hatenablog.com/entry/2013/04/30/175740">elispをpackageとel-get両方で管理する - $shibayu36-&gt;blog;</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="init-el">
+<h2><a class="toc-backref" href="#id13">こんな感じのinit.elになった</a></h2>
+<div class="highlight-scm"><div class="highlight"><pre><span class="c1">;;</span>
+<span class="c1">;; init.el</span>
+<span class="c1">;;</span>
+
+<span class="c1">;; Language.</span>
+<span class="p">(</span><span class="nf">set-language-environment</span> <span class="ss">'Japanese</span><span class="p">)</span>
+
+<span class="c1">;; Coding system.</span>
+<span class="p">(</span><span class="nf">set-default-coding-systems</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-keyboard-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-terminal-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">set-buffer-file-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">prefer-coding-system</span> <span class="ss">'utf-8</span><span class="p">)</span>
+
+<span class="c1">;; Package Manegement</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'package</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">)</span> <span class="nv">t</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'package-archives</span> <span class="o">'</span><span class="p">(</span><span class="s">&quot;marmalade&quot;</span> <span class="o">.</span> <span class="s">&quot;http://marmalade-repo.org/packages/&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">package-initialize</span><span class="p">)</span>
+
+<span class="c1">;; usable evil</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'evil</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">evil-mode</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">;; define el-get repository</span>
+<span class="p">(</span><span class="nf">setq</span> <span class="nv">el-get-sources</span>
+      <span class="o">'</span><span class="p">(</span>
+        <span class="p">(</span><span class="nf">:name</span> <span class="nv">evil-plugins</span>
+               <span class="nv">:type</span> <span class="nv">github</span>
+               <span class="nv">:pkgname</span> <span class="s">&quot;tarao/evil-plugins&quot;</span><span class="p">)</span>
+        <span class="p">))</span>
+
+<span class="c1">;; el-get basic setting</span>
+<span class="p">(</span><span class="nf">add-to-list</span> <span class="ss">'load-path</span> <span class="s">&quot;~/.emacs.d/el-get/el-get&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nf">unless</span> <span class="p">(</span><span class="nf">require</span> <span class="ss">'el-get</span> <span class="nv">nil</span> <span class="ss">'noerror</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">with-current-buffer</span>
+      <span class="p">(</span><span class="nf">url-retrieve-synchronously</span>
+       <span class="s">&quot;https://raw.github.com/dimitri/el-get/master/el-get-install.el&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">let </span><span class="p">(</span><span class="nf">el-get-master-branch</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">goto-char</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">eval-print-last-sexp</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nf">el-get</span> <span class="ss">'sync</span><span class="p">)</span>
+
+<span class="c1">;; auto install package.el</span>
+<span class="p">(</span><span class="nf">require</span> <span class="ss">'cl</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">defvar</span> <span class="nv">installing-package-list</span>
+  <span class="o">'</span><span class="p">(</span>
+    <span class="c1">;; package list</span>
+    <span class="nv">evil</span>
+    <span class="nv">evil-leader</span>
+    <span class="nv">evil-numbers</span>
+    <span class="nv">evil-nerd-commenter</span>
+    <span class="p">))</span>
+<span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">not-installed</span> <span class="p">(</span><span class="nf">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">in</span> <span class="nv">installing-package-list</span>
+                            <span class="nv">when</span> <span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">package-installed-p</span> <span class="nv">x</span><span class="p">))</span>
+                            <span class="nv">collect</span> <span class="nv">x</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nf">when</span> <span class="nv">not-installed</span>
+    <span class="p">(</span><span class="nf">package-refresh-contents</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">dolist</span> <span class="p">(</span><span class="nf">pkg</span> <span class="nv">not-installed</span><span class="p">)</span>
+        <span class="p">(</span><span class="nf">package-install</span> <span class="nv">pkg</span><span class="p">))))</span>
+
+<span class="c1">;; auto install el-get.el</span>
+<span class="p">(</span><span class="nf">defvar</span> <span class="nv">my/el-get-packages</span>
+  <span class="o">'</span><span class="p">(</span>
+    <span class="nv">evil-plugins</span>
+    <span class="p">)</span>
+  <span class="s">&quot;A list of packages to install from el-get at launch.&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nf">el-get</span> <span class="ss">'sync</span> <span class="nv">my/el-get-packages</span><span class="p">)</span>
+
+<span class="c1">;;</span>
+<span class="c1">;; Plugin</span>
+<span class="c1">;;</span>
+</pre></div>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/emacs.html">emacs</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/07/14/more_emacs.html#disqus_thread" data-disqus-identifier="2013/07/14/more_emacs">Leave a comment</a>
+        </div></div><div class="archive_link">
+        <a href="archive.html"> &mdash; Blog Archive &mdash; </a>
+    </div><ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="page2.html">Older</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="2013/12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="2013/12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="2013/10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="2013/10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="2013/09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="2013/08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="2013/08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="2013/07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "yano";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>はじめてのRuby &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="AsakusaSatellite on heroku" href="../28/as_rst.html" /><link rel="prev" title="MySQL-SQLAlchemyなFlask" href="../../06/03/mysql_flask_sqlalchemy.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>May 30, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/05/30/my_first_ruby.html" class="hatena-bookmark-button" data-hatena-bookmark-title="はじめてのRuby - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="ruby">
+<h1>はじめてのRuby</h1>
+<p>Rubyの勉強をするわけではない、Ruby環境を整える話。</p>
+<p>こんな願望からRuby環境について考えてみることにした。</p>
+<ul class="simple">
+<li>1.9系がいい</li>
+<li>古いRubyでgem使って痛い思いしたくない</li>
+<li>もしかしたら1.8系も使いたいんじゃ…</li>
+</ul>
+<p>rubyワカンネ。</p>
+<div class="section" id="rvm-rbenv">
+<h2>rvm?rbenv?なにそれ</h2>
+<div class="highlight-bash"><div class="highlight"><pre>:open google rvm rvenv
+</pre></div>
+</div>
+<p>bとvを間違えてもGoogle先生は丁寧に間違えたことを教えてくれる。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/sandmark/20121122/1353625485">今更だけどrvmからrbenvに乗り換えるときの個人用メモ - === SANDmark 19106 === beginning stress test</a></li>
+<li><a class="reference external" href="http://spring-mt.tumblr.com/post/18486237491/rvm-rbenv">rvmやめてrbenvにしました - CubicLouve</a></li>
+</ul>
+<p>rvmがすごくディスられてるのがわかった。</p>
+<p>違い -&gt; <a class="reference external" href="http://passingloop.tumblr.com/post/10512902196/difference-between-rbenv-and-rvm">passingloop • rbenv と RVM との違い</a></p>
+<p>なんとなくわかったが、Bundlerってなんだ？</p>
+<p>調べて分かったことを書いておく。</p>
+<div class="section" id="rvm">
+<h3>rvm</h3>
+<p>= Ruby Version Manager</p>
+<p>古い、重い、すごい。</p>
+</div>
+<div class="section" id="rbenv">
+<h3>rbenv</h3>
+<p>新しい、軽い、イケてる、必要最小限機能。</p>
+</div>
+<div class="section" id="gem">
+<h3>gem</h3>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/RubyGems">RubyGems - Wikipedia</a></p>
+<p>Rubyのパッケージ管理システム。</p>
+<p>1.9からは標準のライブラリになった。</p>
+<p>Centos5.3にも入ってた。1.8.5だけど。</p>
+</div>
+<div class="section" id="bundler">
+<h3>Bundler</h3>
+<p>gemのラッパー。以下の様な悩みを抱えている方に役に立つのだとか。</p>
+<ul class="simple">
+<li>本番環境に必要なアノgemが入っていない...だと...</li>
+<li>gem入れまくってたら、どのgemがこのアプリに必要なのかわからなくなっちゃった。テヘ☆</li>
+</ul>
+<p>アプリ環境ごとにgem listがもてるようになるスグレモノらしい。</p>
+<p>導入してみたいのであれば、以下のエントリを参考にするといいのかも。</p>
+<p><a class="reference external" href="http://blog.mirakui.com/entry/20100703/1278165723">gem管理の新標準ツール&#8221;Bundler&#8221;のTips - 昼メシ物語</a></p>
+<p>Rails3では標準搭載しているみたい。</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>rbenv入れてみよう</h2>
+<p>あんまりRubyわかんないので、軽いほうを使う。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/sstephenson/rbenv ~/.rbenv
+<span class="nv">$ </span>vim ~/.zshrc
+<span class="c"># rbenv setting</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.rbenv/bin:<span class="nv">$PATH</span>
+<span class="nb">eval</span> <span class="s2">&quot;$(rbenv init - zsh)&quot;</span>
+<span class="nv">$ </span>mkdir ~/.rbenv/plugins
+<span class="nv">$ </span><span class="nb">cd</span> ~/.rbenv/plugins
+<span class="nv">$ </span>git clone https://github.com/sstephenson/ruby-build
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+<p>MacだとHomeBrewから入れれるみたい。</p>
+<ul class="simple">
+<li>libyaml</li>
+<li>openssl</li>
+<li>autoconf, readline</li>
+</ul>
+<p>このへんのツールが必要なようだ。Macには今度入れてみよう。</p>
+<p>上の例ではCentos5.3に入れているが最新のautomakeとかautoconfじゃないとあとあと困るのかもしれない。</p>
+<p><a class="reference external" href="http://blog.tk84.net/PgqD">RVMをさくらVPS（CentOS-5.6）にインストール - CMS専門 Web開発者ブログ</a></p>
+<p>どうでもいいがrvmを削除するときの</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gem explode
+<span class="nv">$ </span>gem seppuku
+</pre></div>
+</div>
+<p>とか面白い。</p>
+</div>
+<div class="section" id="id2">
+<h2>rbenv使ってみよう</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rbenv install 1.9.3-p429 --verbose
+</pre></div>
+</div>
+<p>Rubyワカンネので、1.9.3系の一番新しいパッチを選択。</p>
+<p>通常1.9.3を使いたいのでその設定をする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rbenv global 1.9.3-p429
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+<span class="nv">$ </span>ruby -v
+ruby 1.9.3p429 <span class="o">(</span>2013-05-15 revision 40747<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+<span class="nv">$ </span>gem -v
+1.8.23
+</pre></div>
+</div>
+<p>キタコレ。</p>
+<p>proxylocalが欲しかったのでgemる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gem install proxylocal
+<span class="nv">$ </span>gem list
+</pre></div>
+</div>
+<p>proxylocalが入ってる。ok。</p>
+</div>
+<div class="section" id="python">
+<h2>ちょっとPythonいじったことある人感想。</h2>
+<p>あってるかわかんないけどRuby環境っぽいものができた。</p>
+<p>自分視点だが、RubyとPythonの環境構築(2013年での)ではこんな感じに対応しているのかもしれない。</p>
+<p>なんか違う気がするけど。</p>
+<ul class="simple">
+<li>gem - pip (easy_install)</li>
+<li>rbenv/rvm - pythonbrew/pythonz</li>
+<li>bundler - virtualenv (venv -&gt; python3)</li>
+</ul>
+<p>個人的にはvirtualenvが調子いい。仮想環境を作るという発想が良い感じ。</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/ruby.html">ruby</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../06/03/mysql_flask_sqlalchemy.html">MySQL-SQLAlchemyなFlask</a></li>
+            <li class="right"><a href="../28/as_rst.html">AsakusaSatellite on heroku</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/05/30/my_first_ruby";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>hg Release Branch &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Tinkerer - Sphinx" href="../18/restructuretext.html" /><link rel="prev" title="SQLAlchemy" href="../20/sqlalchemy.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>March 19, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/03/19/hg_branch.html" class="hatena-bookmark-button" data-hatena-bookmark-title="hg Release Branch - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="hg-release-branch">
+<h1>hg Release Branch</h1>
+<p>今作ってるアプリをリリースしようと思ったが、実は未だにブランチを作成したことすらないのでブランチについてまじめに考えてみようと思う。</p>
+<div class="section" id="let-s-branch">
+<h2>Let&#8217;s Branch</h2>
+<img alt="../../../_images/branch1.png" src="../../../_images/branch1.png" />
+<p>とりあえず、ブランチを作ってみた。</p>
+<p>画像はTortoiseHgのWorkbench。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># hg branch hoge</span>
+<span class="c"># hg ccmmit -m &quot;to hoge&quot;</span>
+<span class="c"># hg update default</span>
+<span class="c"># hg commit -m &quot;to default&quot;</span>
+</pre></div>
+</div>
+<p>適当に作っているので、細かいところは気にしない。</p>
+<p>作るのは簡単だが、ブランチ作成とは何に使うのか？というところがわからないのでバージョン管理におけるブランチの意味について考えてみる。</p>
+</div>
+<div class="section" id="branch">
+<h2>Branch</h2>
+<p>どんな時にブランチができるのか</p>
+<ul class="simple">
+<li>リリース</li>
+<li>他の人にcloneされる</li>
+<li>etc</li>
+</ul>
+<p>1つ目はいつはmasterにマージされる。</p>
+<p>2つ目は、pull reauestをすればきっとマージしてくれる。</p>
+<p>なんにせよ結局ブランチはマージされる運命にある。</p>
+<p>その他にも必要に応じてブランチを作る状況があるかもしれない。知った段階で追記したい。</p>
+</div>
+<div class="section" id="release-branch">
+<h2>Release Branch</h2>
+<p>本題のリリースブランチ。</p>
+<p># リリースブランチのあり方</p>
+<ol class="arabic simple">
+<li>ひと通り実装が終わったらリリースブランチを作成(テストはその後)</li>
+<li>テストやバグ修正のコミットはリリースブランチに</li>
+<li>テスト、バグ修正が終了-&gt;defaultにマージ</li>
+<li>リリースブランチの先頭にTagをつける</li>
+</ol>
+<p>このようなワークフローが一般的なようだ。</p>
+<p>GithubやBitbucketにあるリポジトリのコミットログを見たりして勉強するのが一番いいのかもしれない。
+(ちらっと見てみた限りだとこんなようなワークフローが多い気が)</p>
+<ul class="simple">
+<li>この記事を参考 <a class="reference external" href="http://www.eiplab.com/2011/06/git-release-branch/">Gitにおけるリリースブランチのつかいかた | EIPラボ</a></li>
+<li>ちなみにこの記事は&#8221;入門git - オーム社&#8221;を参考にしてある</li>
+</ul>
+<p>hgでは以下のようにtagをつける。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># hg tag hoge</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-branch">
+<h2>Function Branch</h2>
+<p>開発中からブランチを切っていくという発想もある。</p>
+<p>新しい機能を実装しようという時にmasterから、その機能実装用にブランチを切ってそこでその機能を作成する。</p>
+<p>機能ブランチについてメリット・デメリットを考えてみた。</p>
+<p># merit</p>
+<ul class="simple">
+<li>masterが綺麗なまま保たれる(いつでもリリース可能)</li>
+<li>ブランチがマイルストーン的な役割を果たしてくれる</li>
+<li>その機能を追加した時の作業分が明確にわかる</li>
+</ul>
+<p># demerit</p>
+<ul class="simple">
+<li>機能実装中に他の機能実装依頼があった時困りそう</li>
+<li>ブランチを作ることに慣れていない人はめんどい<ul>
+<li>今どのブランチにいるとか気にしたことすらないのでどこにコミットしているのかわかんなくなるかもしれない</li>
+</ul>
+</li>
+</ul>
+<p># 使う場面</p>
+<p>他人のプロジェクトをForkした際に、pull requestを送るとき。</p>
+<ol class="arabic simple">
+<li>Forkした段階でbranchを切る。</li>
+<li>何らかの修正をする</li>
+<li>この機能取り入れてほしいな。と思う。</li>
+<li>pull requestを送る</li>
+<li>branchを切ってあると、どこまで修正してあるのかわかりやすい</li>
+<li>branchを取り込めば、pull requestを送った人の環境で簡単にテスト可能</li>
+<li>気に入ったら、branchをマージするだけでいい</li>
+</ol>
+<p>マナー的にpull requestをするときはbranchを切ったほうが良好な人間関係が作れる気がする。</p>
+</div>
+<div class="section" id="merge">
+<h2>Merge</h2>
+<p>ブランチといえばマージがついてくる。Conflictがあった時にマージしないといけない。</p>
+<p>デフォルトのマージはかなり残念なコトになっているので</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;local
+default
+==========
+ver other
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;other
+</pre></div>
+</div>
+<p>これをいちいちエディタで修正するのは無駄。</p>
+<p>Vimmerはhgrcに以下を設定しよう。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">ui</span><span class="p">]</span>
+<span class="n">merge</span> <span class="o">=</span> <span class="n">vimdiff</span>
+</pre></div>
+</div>
+<p>vimdiffでは画面が以下のように分割して出現する。</p>
+<div class="highlight-python"><div class="highlight"><pre>マージ結果 | local | other
+</pre></div>
+</div>
+<p>マージもしてみた感じはこんなん。</p>
+<img alt="../../../_images/branch2.png" src="../../../_images/branch2.png" />
+<p>私事だが、最近vim .hg/hgrcとして設定をちまちまいじっていたが、~/.hgrcに書けばメシウマということに気づいた。</p>
+</div>
+<div class="section" id="id1">
+<h2>参考記事</h2>
+<p># ブランチにもっと詳しくなりたい時</p>
+<p>以下の記事を見てみるといいかもしれない</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/wyukawa/20101205/1291549247">MercurialとGitのブランチの違い - wyukawa’s blog</a></li>
+</ul>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/hg.html">hg</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../20/sqlalchemy.html">SQLAlchemy</a></li>
+            <li class="right"><a href="../18/restructuretext.html">Tinkerer - Sphinx</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/03/19/hg_branch";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

@@ -1,0 +1,38 @@
+{#-
+    flat/page.html
+    ~~~~~~~~~~~~~~
+
+    Flat page layout.
+
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+-#}
+
+{%- extends "layout.html" -%}
+
+{% set script_files = script_files + ["_static/google_analytics.js"] %}
+
+{%- block body -%}
+    {{ timestamp(metadata.formatted_date) }}
+	{% block buttons %}
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/{{ pagename }}{{ file_suffix }}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ title }} - {{ project }}" data-hatena-bookmark-layout="standard-balloon" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	{% endblock %}
+	{% block kudo %}
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	{% endblock %}
+    {{ body }}
+    {{ post_meta(metadata) }}
+{%- endblock -%}
+
+{%- block comments_section -%}
+    {{ comments }} 
+{%- endblock -%}

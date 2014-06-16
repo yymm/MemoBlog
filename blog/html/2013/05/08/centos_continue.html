@@ -1,0 +1,348 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>centos 5.3 使えるようにする &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="centosはじめました" href="../../04/30/centos_setup.html" /><link rel="prev" title="rake" href="../13/rake.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>May 08, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/05/08/centos_continue.html" class="hatena-bookmark-button" data-hatena-bookmark-title="centos 5.3 使えるようにする - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="centos-5-3">
+<h1>centos 5.3 使えるようにする</h1>
+<p>Vim, Zsh, Screen, Pythonの設定。</p>
+<div class="section" id="vim">
+<h2>Vim</h2>
+<p>.vimrcはGist -&gt;</p>
+<p>使ってるプラグイン達</p>
+<div class="highlight-vim"><div class="highlight"><pre>NeoBundle <span class="s1">&#39;/Shougo/neocomplcache.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Shougo/neosnippet.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Shougo/vimshell.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Shougo/vimproc.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Shougo/vimfiler.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Shougo/unite.vim.git&#39;</span>
+NeoBundle <span class="s1">&#39;/thinca/vim-quickrun.git&#39;</span>
+NeoBundle <span class="s1">&#39;/mattn/multi-vim.git&#39;</span>
+NeoBundle <span class="s1">&#39;/mattn/zencoding-vim.git&#39;</span>
+NeoBundle <span class="s1">&#39;/scrooloose/nerdcommenter.git&#39;</span>
+NeoBundle <span class="s1">&#39;/scrooloose/nerdtree.git&#39;</span>
+NeoBundle <span class="s1">&#39;/scrooloose/syntastic.git&#39;</span>
+NeoBundle <span class="s1">&#39;/vim-scripts/YankRing.vim.git&#39;</span>
+NeoBundle <span class="s1">&#39;/rstacruz/sparkup.git&#39;</span>
+NeoBundle <span class="s1">&#39;/Lokaltog/vim-easymotion.git&#39;</span>
+</pre></div>
+</div>
+<p>今後の増殖に期待。</p>
+<p>今回導入したプラグインについてコメント。</p>
+<div class="section" id="sparkup">
+<h3>Sparkup</h3>
+<p><a class="reference external" href="https://github.com/rstacruz/sparkup">rstacruz/sparkup · GitHub</a></p>
+<p>zencodingバリにhtmlをさくっと書けるプラグイン。</p>
+<p>使い方はREADME &amp; ここ参照 -&gt; <a class="reference external" href="http://www.serendip.ws/archives/4353">Vim の Sparkup プラグインで HTML タグを Zen Coding 風に簡単入力 : Serendip - Webデザイン・プログラミング</a></p>
+</div>
+<div class="section" id="syntastic">
+<h3>Syntastic</h3>
+<p><a class="reference external" href="https://github.com/scrooloose/syntastic">scrooloose/syntastic · GitHub</a></p>
+<p>導入すると:w時になんとSyntastic!</p>
+</div>
+<div class="section" id="easy-motion">
+<h3>Easy-Motion</h3>
+<p><a class="reference external" href="https://github.com/Lokaltog/vim-easymotion/">Lokaltog/vim-easymotion · GitHub</a></p>
+<p>いきたいところ簡単にいけるeasy-motion!</p>
+<p>vimrcと使い方は以下の記事で勉強。</p>
+<p><a class="reference external" href="http://blog.remora.cx/2012/08/vim-easymotion.html">【Vim】目的の行に素早く移動する（相対行番号と easymotion プラグイン） | blog.remora.cx</a></p>
+</div>
+<div class="section" id="neosnippet">
+<h3>NeoSnippet</h3>
+<p>ちょっと前にneocomをupdateした後に突然補間にめっちゃ時間が掛かる現象に遭遇して以来、分離前のネオコンを使っていたのだが今回使ってみる。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Shougo/neocomplcache">Shougo/neocomplcache · GitHub</a></li>
+<li><a class="reference external" href="https://github.com/Shougo/neosnippet">Shougo/neosnippet · GitHub</a></li>
+</ul>
+<p>vimrcはそのまま使わせてもらってます。良い感じに動いているようだ。</p>
+</div>
+<div class="section" id="id1">
+<h3>修正, その他</h3>
+<div class="section" id="popup-color">
+<h4>1. popup color</h4>
+<p><a class="reference external" href="http://vim-users.jp/2009/05/hack9/">Vim-users.jp - Hack #9: Insert mode補完　設定編</a></p>
+<p>ネオコンのポップアップが何も見えなかったのでポップアップの色を変更。変える方法を初めて知る。</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="k">hi</span> Pmenu ctermbg<span class="p">=</span><span class="m">8</span>
+<span class="k">hi</span> PmenuSel ctermbg<span class="p">=</span><span class="m">4</span>
+<span class="k">hi</span> PmenuSbar ctermbg<span class="p">=</span><span class="m">0</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://h2plus.biz/hiromitsu/entry/674">VimLで色指定する数値の一覧 | Inhale n&#8217; Exhale</a></p>
+</div>
+<div class="section" id="nerdtree">
+<h4>2. nerdtree</h4>
+<p><a class="reference external" href="http://stackoverflow.com/questions/9927217/vim-nerdtree-suddenly-broke">vim - nerdtree suddenly broke - Stack Overflow</a></p>
+<p>?~V?みたいなのが表示されたときはvimrcに以下を設定。</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="k">let</span> <span class="k">g</span>:NERDTreeDirArrows<span class="p">=</span><span class="m">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ctrl-v">
+<h3>3. ctrl+v</h3>
+<p>ctrl + vで矩形選択モードになる。チョー使えそう！</p>
+<p>何で知らなかったのorz</p>
+</div>
+<div class="section" id="multiple-cursors">
+<h3>4. multiple-cursors</h3>
+<p><a class="reference external" href="https://github.com/terryma/vim-multiple-cursors">terryma/vim-multiple-cursors · GitHub</a></p>
+<p>これ使ってみたい。</p>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>Zsh</h2>
+<p><a class="reference external" href="http://ama-ch.hatenablog.com/entry/20090109/1231526834">zsh入門してみたら便利すぎて鼻息が抑えられない - はてブロ&#64;ama-ch</a></p>
+<p>Zshrcの設定ファイルは良い感じのをコピーして勝手に使っていただけなのでまじめに考えてみる。</p>
+<p>その結果こうなった。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span><span class="s2">&quot;ja_JP.UTF-8&quot;</span>
+<span class="c"># The following lines were added by compinstall</span>
+zstyle <span class="s1">&#39;:completion:*&#39;</span> completer _expand _complete _ignored _correct _approximate
+zstyle <span class="s1">&#39;:completion:*&#39;</span> list-colors <span class="s1">&#39;&#39;</span>
+zstyle <span class="s1">&#39;:completion:*&#39;</span> list-prompt %SAt %p: Hit TAB <span class="k">for </span>more, or the character to insert%s
+zstyle <span class="s1">&#39;:completion:*&#39;</span> menu <span class="k">select</span><span class="o">=</span>2
+zstyle <span class="s1">&#39;:completion:*&#39;</span> <span class="k">select</span>-prompt %SScrolling active: current selection at %p%s
+zstyle <span class="s1">&#39;:completion:*&#39;</span> verbose <span class="nb">true</span>
+autoload -Uz compinit
+compinit
+<span class="c"># End of lines added by compinstall</span>
+<span class="c"># Lines configured by zsh-newuser-install</span>
+<span class="nv">HISTFILE</span><span class="o">=</span>~/.zsh_history
+<span class="nv">HISTSIZE</span><span class="o">=</span>5000
+<span class="nv">SAVEHIST</span><span class="o">=</span>5000
+setopt appendhistory extendedglob notify
+setopt hist_ignore_dups     <span class="c"># ignore duplication command history list</span>
+setopt share_history        <span class="c"># share command history data</span>
+<span class="c"># history search Ctrl+s or Ctrl+S</span>
+autoload <span class="nb">history</span>-search-end
+zle -N <span class="nb">history</span>-beginning-search-backward-end <span class="nb">history</span>-search-end
+zle -N <span class="nb">history</span>-beginning-search-forward-end <span class="nb">history</span>-search-end
+bindkey <span class="s2">&quot;^P&quot;</span> <span class="nb">history</span>-beginning-search-backward-end
+bindkey <span class="s2">&quot;^N&quot;</span> <span class="nb">history</span>-beginning-search-forward-end
+<span class="c"># End of lines configured by zsh-newuser-install</span>
+autoload colors
+colors
+<span class="c">#Prompt</span>
+<span class="nb">export </span><span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;[%F{magenta}%B%n%b%f%F{cyan}@%M%f]{%~}%# &quot;</span>
+<span class="nb">export </span><span class="nv">RPROMPT</span><span class="o">=</span><span class="s2">&quot;[%F{yellow}%*%f]&quot;</span>
+<span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -G&#39;</span>
+<span class="c"># PATH</span>
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/sbin:/bin:<span class="nv">$PATH</span>
+<span class="c"># no beep</span>
+setopt nolistbeep
+<span class="c"># useful functions</span>
+setopt auto_cd
+setopt auto_pushd
+setopt correct
+setopt list_packed
+<span class="c"># virtualenv setting</span>
+<span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python26
+<span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.pythonenvs
+<span class="nb">source</span> /usr/bin/virtualenvwrapper.sh
+</pre></div>
+</div>
+<p>注意したいのは先頭に追加したLANG変数の設定。</p>
+<p>/etc/sysconfig/i18nに設定されているのにzshで読み込まれていなかったようだ。</p>
+<p>このせいで文字化けに時間を取られてしまったのが残念。。。</p>
+<p>nerdtreeの表示がおかしくなるのもこれが原因。</p>
+</div>
+<div class="section" id="python">
+<h2>Python</h2>
+<p><a class="reference external" href="http://yymm6.hatenablog.com/entry/2013/01/05/182750">Python Version Manage - memomemo</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install virtualenv virtualenvwrapper
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/utahta/pythonbrew">utahta/pythonbrew · GitHub</a></p>
+<p>pythonbrewも入れよう。</p>
+<p>python3のvenvを使ってみようかと思ったりもするが、virtualenvがまだ便利なのでそのまま。</p>
+</div>
+<div class="section" id="other">
+<h2>Other</h2>
+<p><a class="reference external" href="http://d.hatena.ne.jp/Loups-garous/20120917/1347900472">CentOS6でポート開放をする - 見果てぬ夢</a></p>
+<p>特定のポートを開放したいときは/etc/sysconfig/iptablesを編集する。</p>
+<div class="highlight-bash"><div class="highlight"><pre>-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+</pre></div>
+</div>
+<p>80番ポートを開いている例。</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/linux.html">Linux</a>, <a href="../../../tags/centos.html">Centos</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../13/rake.html">rake</a></li>
+            <li class="right"><a href="../../04/30/centos_setup.html">centosはじめました</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/05/08/centos_continue";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

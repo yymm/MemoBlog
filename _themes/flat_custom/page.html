@@ -1,0 +1,25 @@
+{#-
+    flat/page.html
+    ~~~~~~~~~~~~~~
+
+    Flat page layout.
+
+    :copyright: Copyright 2013 by Yuya Yano
+-#}
+
+{%- extends "layout.html" -%}
+
+{%- block body -%}
+	{{ timestamp(metadata.formatted_date) }}
+	{% block kudo %}
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	{% endblock %}
+    {{ body }}
+    {{ post_meta(metadata) }}
+{%- endblock -%}
+
+{%- block comments_section -%}
+    {{ comments }}
+{%- endblock -%}

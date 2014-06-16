@@ -1,0 +1,8 @@
+@import url("flat.css");
+
+div.kudo
+{
+	float: right;
+	width: 7em;
+	height: 7em;
+}

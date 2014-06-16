@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>実践Python (初級編) &mdash; practice_python 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/slide.css" type="text/css" id="slide-base" media="screen,projection" disabled="disabled" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/prettify.css" type="text/css" />
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script> 
+  </head>
+  <body>
+    <button id="startslide">slide mode</button>
+    
+  <div class="section" id="python">
+<h1>実践Python (初級編)<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<img alt="http://gate2play.com/upload/python.png" src="http://gate2play.com/upload/python.png" />
+<div class="section" id="id1">
+<h2>目次<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>はじめに</li>
+<li>Sphinxに囲まれた生活</li>
+<li>Pythonで便利する</li>
+<li>リリースの自動化</li>
+<li>グラフツールの使用</li>
+</ul>
+<p>実際の業務で使ったPythonの実践事例を紹介する。</p>
+<p>10～15分くらい。</p>
+</div>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>何故Python -&gt; 気分。流行りそう系。google系。</p>
+<p>いつからPython -&gt; 真面目にやり始めて1年くらい</p>
+<p>どこでPython -&gt; Bitbucket, MoinMoin</p>
+<p>どうやってPython -&gt; Unix系OS &amp; Vim</p>
+</div>
+<div class="section" id="bitbucket">
+<h2>Bitbucket<a class="headerlink" href="#bitbucket" title="Permalink to this headline">¶</a></h2>
+<p>Python製(Django)</p>
+<img alt="https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_admin.png" class="align-left" src="https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_admin.png" />
+<a class="reference internal image-reference" href="https://bitbucket.org/spooning/iTee3.png"><img alt="https://bitbucket.org/spooning/iTee3.png" src="https://bitbucket.org/spooning/iTee3.png" /></a>
+</div>
+<div class="section" id="sphinx">
+<h2>Sphinxに囲まれた生活<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h2>
+<p>BitbucketのWiki -&gt; ReStructuredText</p>
+<img alt="https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_wiki.png" src="https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_wiki.png" />
+</div>
+<div class="section" id="id3">
+<h2>Sphinxに囲まれた生活<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>MemoMemo -&gt; ReStructuredText</p>
+<a class="reference internal image-reference" href="https://dl.dropboxusercontent.com/u/63321613/practice_python/memomemo.png"><img alt="https://dl.dropboxusercontent.com/u/63321613/practice_python/memomemo.png" class="align-right" src="https://dl.dropboxusercontent.com/u/63321613/practice_python/memomemo.png" /></a>
+</div>
+<div class="section" id="id4">
+<h2>Sphinxに囲まれた生活<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>このプレゼン -&gt; ReStructuredText</p>
+<img alt="http://www.oreilly.co.jp/books/images/picture_large978-4-87311-648-8.jpeg" src="http://www.oreilly.co.jp/books/images/picture_large978-4-87311-648-8.jpeg" />
+</div>
+<div class="section" id="id5">
+<h2>Pythonで便利する<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>今の仕事はC(C++)が多い -&gt; データ(文字列)の操作やファイル操作が難しい -&gt; Pythonでやればいい</p>
+<p>例: 差分ツール</p>
+<p>仕事の都合上、先方から頂いたデータとの一致を確認することが多い。</p>
+<p>C言語でデータ読み込んで比較するとか大変。。。</p>
+<p>こんなときはPython(さくっと作れる)</p>
+<ul class="simple">
+<li>出力データ読み込み(クラスオブジェクトに展開)</li>
+<li>比較</li>
+<li>結果出力</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>リリースの自動化<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>リリース作業</p>
+<ol class="arabic simple">
+<li>テスト実行</li>
+<li>パッケージ作成</li>
+<li>Doxygenのドキュメント生成</li>
+</ol>
+<p>複数のプロジェクトに対して行う。</p>
+</div>
+<div class="section" id="id7">
+<h2>テスト実行 - リリースの自動化<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>プロジェクトのフォルダ配置(今の仕事)</p>
+<div class="highlight-bash"><div class="highlight"><pre>/data
+/library
+/source
+  /test
+   *.cpp &amp; *.h
+README.txt
+</pre></div>
+</div>
+<p>test内のmain関数でテストを実行(make -&gt; ./runtest)</p>
+<p>Pythonのcommandsモジュール(標準)で実行。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">commands</span>
+<span class="n">commands</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s">&quot;cd /path/to/ &amp;&amp; make &amp;&amp; ./runtest&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>パッケージ作成 - リリースの自動化<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Pythonのosモジュール(標準)でフォルダ操作が出来る。</p>
+<p>osモジュールで足りなかったらshutilモジュールを使う。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="s">&#39;hoge/hoge.txt&#39;</span><span class="p">,</span> <span class="s">&#39;hige/hige.txt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">copystat</span><span class="p">(</span><span class="s">&#39;hoge/hoge.txt&#39;</span><span class="p">,</span> <span class="s">&#39;hige/hige.txt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s">&#39;hoge/hoge.txt&#39;</span><span class="p">,</span> <span class="s">&#39;hige/hige.txt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s">&#39;hoge/&#39;</span><span class="p">,</span> <span class="s">&#39;hige/&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s">&#39;hige/&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>    <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s">&#39;hoge/&#39;</span><span class="p">,</span> <span class="s">&#39;hige/&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">except</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;exception&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="doxygen">
+<h2>Doxygenのドキュメント生成 - リリースの自動化<a class="headerlink" href="#doxygen" title="Permalink to this headline">¶</a></h2>
+<p>Doxygenとは</p>
+<p>doxygen -gでconfigファイルを生成し、その設定に応じてドキュメントを生成する。</p>
+<p>-&gt; C言語の場合大体パターンは決まっているので使いまわさないともったいない。</p>
+</div>
+<div class="section" id="id9">
+<h2>Doxygenのドキュメント生成 - リリースの自動化<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>使いまわす -&gt; テンプレート化 -&gt; テンプレートエンジンの使用 -&gt; PythonはJinja2</p>
+<p>Jinja2を使ってプロジェクトごとに別々に指定する部分を抽象化。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install jinja2
+</pre></div>
+</div>
+<p>pipで簡単にパッケージ追加。</p>
+<img alt="http://www.viur.is/static/images/jinja2.png" src="http://www.viur.is/static/images/jinja2.png" />
+</div>
+<div class="section" id="id10">
+<h2>Doxygenのドキュメント生成 - リリースの自動化<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>テンプレートを指定された内容で書き換え一時ファイルに書き込み、doxygenで使用。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">make_doxy_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">input_dir</span><span class="p">):</span>
+  <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="s">&#39;./&#39;</span><span class="p">))</span>
+  <span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s">&#39;doxyfile.jinja2&#39;</span><span class="p">)</span>
+  <span class="c"># Write to temporary file</span>
+  <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+      <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">({</span><span class="s">&#39;name&#39;</span><span class="p">:</span><span class="n">name</span><span class="p">,</span>
+                               <span class="s">&#39;output_dir&#39;</span><span class="p">:</span><span class="n">output_dir</span><span class="p">,</span>
+                               <span class="s">&#39;input_dir&#39;</span><span class="p">:</span><span class="n">input_dir</span><span class="p">}))</span>
+      <span class="k">print</span> <span class="n">commands</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s">&quot;doxygen &quot;</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>グラフツールの使用<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>最近知ったIPython Notebookの紹介。</p>
+<p>自分はずっとグラフにはgnuplot派だったのですが、IP notebookに乗り換え検討中。</p>
+<ul class="simple">
+<li>ブラウザで操作</li>
+<li>Pythonを使える</li>
+<li>足りないモジュールがあればすぐ増やせる</li>
+</ul>
+</div>
+<div class="section" id="demo">
+<h2>グラフツールの使用 - Demo -<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
+<object type="text/html" data="http://nbviewer.ipython.org/6805429" style="width: 100%; height: 80%;"></object><p>3D描画の時ドラッグで回転できたりするといいなー</p>
+</div>
+<div class="section" id="id12">
+<h2>さいごに<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>仕事で直接使うことはないが、Python(に限らずスクリプト言語全般)は便利できるのでどんどん使う予定。(スキル的にも)</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript" src="_static/prettify.js"></script>
+<script type="text/javascript" src="_static/slide.js"></script>
+  </body>
+</html>

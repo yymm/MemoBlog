@@ -1,0 +1,1107 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Page 4 &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="_static/main.css" type="text/css">
+            <link rel="stylesheet" href="_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="_static/plugins.js"></script>
+        <script src="_static/main.js"></script>
+        <link rel="prev" title="Newer" href="page3.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="_static/underscore.js"></script><script type="text/javascript" src="_static/doctools.js"></script><script type="text/javascript" src="_static/disqus.js"></script><script type="text/javascript" src="_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>April 02, 2013</span>
+        </div>
+        <div class="section" id="dive-into-effective-c">
+<h1><a href="2013/04/02/effective_c__.html"><a class="toc-backref" href="#id2">Dive into Effective C++</a></a></h1>
+<p>C++やってますと言えるようになるために</p>
+<p>Effective C++ 第3版 スコット・メイヤーズ著  小林健一郎訳</p>
+<p>を読んでみる。</p>
+<p>2008年くらいの書物なのでC++11対応はしていない。C++11についても色々知りたいが今はあまり背伸びしないで下記の記事で満足することにする。</p>
+<p><a class="reference external" href="http://dic.nicovideo.jp/a/c%2B%2B11">C++11とは (シープラスプラスイレブンとは) [単語記事] - ニコニコ大百科</a></p>
+<div class="contents topic" id="id1">
+<p class="topic-title first"><strong>目次</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="2013/04/02/effective_c__.html#dive-into-effective-c" id="id2">Dive into Effective C++</a><ul>
+<li><a class="reference internal" href="2013/04/02/effective_c__.html#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="2013/04/02/effective_c__.html#c" id="id4">#1 C++を複数の言語の連合と見なそう</a></li>
+<li><a class="reference internal" href="2013/04/02/effective_c__.html#defineconst-enum-inline" id="id5">#2 #defineより、const, enum, inlineを使おう</a></li>
+<li><a class="reference internal" href="2013/04/02/effective_c__.html#const" id="id6">#3 可能ならいつでもconstを使おう</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a></h2>
+<p>イントロダクションなんて適当に読もうと思ったところ、そういうわけにもいかないようだ。。。。</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cm">/* 宣言 */</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">numDigits</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">);</span>
+<span class="k">class</span> <span class="nc">Widget</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">GraphNode</span><span class="p">;</span>
+<span class="c1">// extern宣言</span>
+<span class="c1">// * 外部の変数にアクセスできるキーワード</span>
+
+<span class="c1">// size_t</span>
+<span class="c1">// * 何かを数えるときに使う「符号なし整数」をtypedefしたもの</span>
+
+
+<span class="cm">/* 定義 */</span>
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">numDigits</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">digitsSoFar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">((</span><span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="o">++</span><span class="n">digitsSoFar</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">digitsSoFar</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">GraphNode</span>
+<span class="p">{</span>
+	<span class="nl">public:</span>
+		<span class="n">GraphNode</span><span class="p">();</span>
+		<span class="o">~</span><span class="n">GraphNode</span><span class="p">();</span>
+<span class="p">};</span>
+
+
+<span class="cm">/* デフォルトコンストラクタ */</span>
+<span class="k">class</span> <span class="nc">A</span>
+<span class="p">{</span>
+	<span class="nl">public:</span>
+		<span class="n">A</span><span class="p">();</span>	<span class="c1">// デフォルトコンストラクタ</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">B</span>
+<span class="p">{</span>
+	<span class="nl">public:</span>
+		<span class="k">explicit</span> <span class="n">B</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">b</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>	<span class="c1">// デフォルトコンストラクタ</span>
+		<span class="p">{</span>
+		<span class="p">}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">C</span>
+<span class="p">{</span>
+	<span class="nl">public:</span>
+		<span class="k">explicit</span> <span class="n">C</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>	<span class="c1">// デフォルトコンストラクタではない</span>
+<span class="p">};</span>
+
+
+<span class="cm">/* explicitキーワード */</span>
+<span class="kt">void</span> <span class="nf">doSomething</span><span class="p">(</span><span class="n">B</span> <span class="n">bObject</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;B型のオブジェクトを引数に取る関数&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">B</span> <span class="n">bObj1</span><span class="p">;</span>
+<span class="n">B</span> <span class="nf">bObj2</span><span class="p">(</span><span class="mi">28</span><span class="p">);</span>		<span class="c1">// int値の28からB型のオブジェクトを生成</span>
+<span class="n">doSomething</span><span class="p">(</span><span class="mi">28</span><span class="p">);</span>	<span class="c1">// エラー!: intからB型オブジェクトへの暗黙の型変換はされない</span>
+<span class="n">doSomething</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">28</span><span class="p">));</span>	<span class="c1">// 問題ない: B型のオブジェクトを使ってintをBに変換している</span>
+<span class="c1">// explicit</span>
+<span class="c1">// * 暗黙的な型変換を禁止するキーワード</span>
+<span class="c1">// * explicitを付けないコンストラクタだと予想外の型変換を起こす可能性がある</span>
+<span class="c1">// * 下記のコードもexplicitを付けないと暗黙的に型変換をしてしまいエラーにならず通ってしまう</span>
+<span class="c1">// * 特に理由がなければ、暗黙的な型変換をしないようにコンストラクタはexplicit付きで宣言する</span>
+
+<span class="cm">/* コピーコンストラクタ */</span>
+<span class="k">class</span> <span class="nc">Widget</span>
+<span class="p">{</span>
+	<span class="nl">public:</span>
+		<span class="n">Widget</span><span class="p">();</span>								<span class="c1">// デフォルトコンストラクタ</span>
+		<span class="n">Widget</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>				<span class="c1">// コピーコンストラクタ</span>
+		<span class="n">Widget</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>	<span class="c1">// コピー代入演算子</span>
+		<span class="o">~</span><span class="n">Widget</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="n">Widget</span> <span class="n">w1</span><span class="p">;</span>		<span class="c1">// デフォルトコンストラクタが使われる</span>
+<span class="n">Widget</span> <span class="nf">w2</span><span class="p">(</span><span class="n">w1</span><span class="p">);</span>	<span class="c1">// コピーコンストラクタが使われる</span>
+<span class="n">w1</span> <span class="o">=</span> <span class="n">w2</span><span class="p">;</span>		<span class="c1">// コピー代入演算子が使われる</span>
+<span class="n">Widget</span> <span class="n">w3</span><span class="o">=</span><span class="n">w2</span><span class="p">;</span>	<span class="c1">// コピーコンストラクタが使われる！ =&gt; Widget w2(w1)とWidget w2=w1は同じ動作</span>
+<span class="kt">bool</span> <span class="nf">hasAcceptableQuery</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">);</span>
+<span class="n">Widget</span> <span class="n">aWidget</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">hasAcceptableQuery</span><span class="p">(</span><span class="n">Widget</span> <span class="n">w</span><span class="p">))</span>	<span class="c1">// コピーコンストラクタが実行</span>
+<span class="p">{</span>
+	<span class="c1">// ユーザー定義型を値渡しするのは良くない。一般にはconst参照渡しが良い。</span>
+<span class="p">}</span>
+<span class="c1">// コピーコンストラクタ</span>
+<span class="c1">// * 同じ型の別のオブジェクトで初期化するときに使う</span>
+<span class="c1">// コピー演算子</span>
+<span class="c1">// * 同じ型の別のオブジェクトを代入するときに使う</span>
+
+<span class="cm">/* 未定義な動作 */</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>				<span class="c1">// pがヌルポインタ</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>		<span class="c1">// ヌルポインタが示す場所を取り出そうとすると動作は未定義になる</span>
+<span class="kt">char</span> <span class="n">name</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Hoge&quot;</span><span class="p">;</span>	<span class="c1">// 要素数は6</span>
+<span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>		<span class="c1">// 無効な添字の要素にアクセスしようとすると動作は未定義になる</span>
+<span class="c1">// undefined</span>
+<span class="c1">// * C++ではこのような未定義な動作をかけてしまう(JavaやC#ではない)</span>
+<span class="c1">// * C++では未定義な動作をするコードをできるだけ書かないようにする注意が必要</span>
+
+
+<span class="cm">/* シグネチャ */</span>
+<span class="c1">// * メソッドや関数の名前、戻り値、引数の型などの組み合わせのこと</span>
+
+
+<span class="cm">/* インターフェース */</span>
+<span class="c1">// * JavaやC#にあるInterface宣言とは違う使い方をしてます</span>
+<span class="c1">// * 関数のシグネチャやクラスのアクセス可能な要素などを意味する</span>
+<span class="c1">// * テンプレート型のパラメータを意味することもある</span>
+
+
+<span class="cm">/* 命名法 */</span>
+<span class="c1">// わかり易い名前を心がける</span>
+<span class="c1">// * 略記について</span>
+<span class="k">const</span> <span class="n">Rational</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="n">Rational</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rational</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>	<span class="c1">// left-hand sideとright-hand sideのこと</span>
+<span class="n">Widget</span><span class="o">*</span> <span class="n">pw</span><span class="p">;</span>	<span class="c1">// ポインタ変数には接頭語に&quot;p&quot;をつける</span>
+<span class="k">class</span> <span class="nc">GameCharacter</span><span class="p">;</span>
+<span class="n">GameCharacter</span><span class="o">*</span> <span class="n">pgc</span><span class="p">;</span>
+<span class="n">GameCharactor</span><span class="o">::</span><span class="n">move</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">mf</span> <span class="o">=</span> <span class="s">&quot;hoge&quot;</span><span class="p">;</span>	<span class="c1">// メンバ変数のことをmfと書くこともある</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="c">
+<h2><a class="toc-backref" href="#id4">#1 C++を複数の言語の連合と見なそう</a></h2>
+<p>C++のサブセット</p>
+<ul class="simple">
+<li>c</li>
+<li>オブジェクト指向C++</li>
+<li>テンプレートC++</li>
+<li>STL</li>
+</ul>
+<p><em>C++で効率よくプログラミングするためのルールは、C++のどの部分を使うかで変わってくる。</em></p>
+</div>
+<div class="section" id="defineconst-enum-inline">
+<h2><a class="toc-backref" href="#id5">#2 #defineより、const, enum, inlineを使おう</a></h2>
+<p>「プリプロセッサよりコンパイラを使おう」</p>
+<dl class="docutils">
+<dt>プリプロセッサ</dt>
+<dd>コンパイル作業において、初期段階で#define, #includeなどの内容が処理される。
+その処理を行う機能(ツールなど)をプリプロセッサという。
+広い意味ではコンパイルに含まれるが、狭い意味のコンパイルよりも後に実行される。</dd>
+</dl>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cm">/* constを使う１ マクロの欠点 */</span>
+<span class="c1">// この使い方をするとコンパイラからはASPECT_RATIOは見えない</span>
+<span class="c1">// 1.653という数字になってる</span>
+<span class="c1">// デバックするときに困るかもしれない</span>
+<span class="cp">#define ASPECT_RATIO 1.653</span>
+
+<span class="c1">// マクロを定数に置き換えることで解決</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">AspectRatio</span> <span class="o">=</span> <span class="mf">1.653</span><span class="p">;</span>
+
+<span class="c1">// 利点</span>
+<span class="c1">// * マクロを使うと、ASPECT_RATIOが出てくるたびに機械的にそれを1.653に置き換える(コピーが大量発生)</span>
+<span class="c1">// * 一方、AspectRatioは常に１つしか存在しない</span>
+
+
+<span class="cm">/* constを使う２ 定数ポインタ */</span>
+<span class="c1">// char*を使った定数文字列</span>
+<span class="c1">// constが２回必要(charとポインタの２回)</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">authorName</span> <span class="o">=</span> <span class="s">&quot;Nanashino Gonbe&quot;</span><span class="p">;</span>
+<span class="c1">// 一般にはchar*よりstringを使ったほうが良い</span>
+<span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">authorName</span><span class="p">(</span><span class="s">&quot;Nanashino Gonbe&quot;</span><span class="p">);</span>
+
+
+<span class="cm">/* constを使う３ クラスの持つ定数 */</span>
+<span class="c1">// クラスで使う変数のスコープを限定するために、その定数をクラスのメンバにすることがある</span>
+<span class="c1">// #defineでは再現不可能</span>
+<span class="c1">// その定数が実際に１つだけ存在するようにstaticにする必要がある</span>
+<span class="k">class</span> <span class="nc">GamePlayer</span>
+<span class="p">{</span>
+	<span class="nl">private:</span>
+		<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NumTurns</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+		<span class="kt">int</span> <span class="n">scores</span><span class="p">[</span><span class="n">NumTurns</span><span class="p">];</span>
+<span class="p">};</span>
+<span class="c1">// 問題</span>
+<span class="c1">// * staticな整数型定数メンバであっても宣言時に初期化できない(昔のコンパイラを使っているならば)</span>
+<span class="k">class</span> <span class="nc">CostEstimate</span>
+<span class="p">{</span>
+	<span class="nl">private:</span>
+		<span class="k">static</span> <span class="k">const</span> <span class="kt">double</span> <span class="n">FudgeFactor</span><span class="p">;</span>	<span class="c1">// ヘッダーファイルに書かれる</span>
+<span class="p">};</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">CostEstimate</span><span class="o">::</span><span class="n">FudgeFactor</span> <span class="o">=</span> <span class="mf">1.35</span><span class="p">;</span>	<span class="c1">// ソースダイルに書かれる</span>
+<span class="c1">// 更に問題</span>
+<span class="c1">// * GamePlayerのようにコンパイル時に「クラスの定数」が必要になった時、コンパイルエラーが出る。</span>
+
+
+<span class="cm">/* enumハック */</span>
+<span class="c1">// 上記の更に問題を解決する手法</span>
+<span class="k">class</span> <span class="nc">GamePlayer</span>
+<span class="p">{</span>
+	<span class="nl">private:</span>
+		<span class="k">enum</span> <span class="p">{</span> <span class="n">NumTurns</span><span class="o">=</span><span class="mi">5</span> <span class="p">};</span>	<span class="c1">// [enumハック] =&gt; NumTurnsを５として使える</span>
+								<span class="c1">// constよりdefineに近い</span>
+								<span class="c1">// enumハックは色々なところで利用されているので覚えておく価値有り！</span>
+		<span class="kt">int</span> <span class="n">score</span><span class="p">[</span><span class="n">NumTurns</span><span class="p">];</span>	<span class="c1">// 問題なし</span>
+<span class="p">};</span>
+
+<span class="cm">/* マクロの問題点 */</span>
+<span class="cp">#define CALL_WITH_MAX(a,b) f((a) &gt; (b) ? (a) : (b))</span>
+<span class="c1">// このマクロの悲惨さ</span>
+<span class="c1">// * 仮引数を括弧で囲う必要がある</span>
+<span class="c1">// * int a=5, b=0;</span>
+<span class="c1">// * CALL_WITH_MAX(++a, b);		// aが２回インクリメント</span>
+<span class="c1">// * CALL_WITH_MAX(++a, b+10);	// aが１回インクリメント</span>
+<span class="c1">// * 運悪く引数によって挙動が変わる事がある</span>
+<span class="c1">//</span>
+<span class="c1">// こんなマクロを作るくらいならインライン関数のテンプレートを作る！</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="kt">void</span> <span class="n">callWithMax</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>単純な定数には、#defineよりもconstかenumを使うようにする。</em></p>
+<p><em>#defineで定義されているマクロよりも、インライン関数を使おう。</em></p>
+<p>※インライン関数については#30を参考に。</p>
+</div>
+<div class="section" id="const">
+<h2><a class="toc-backref" href="#id6">#3 可能ならいつでもconstを使おう</a></h2>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/c.html">c++</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/04/02/effective_c__.html#disqus_thread" data-disqus-identifier="2013/04/02/effective_c__">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 01, 2013</span>
+        </div>
+        <div class="section" id="responsive-web-design">
+<h1><a href="2013/04/01/responsiveweb.html">Responsive Web Design 始めました</a></h1>
+<p>以前から名前は聞いたことがあった”レスポンシブデザイン”。</p>
+<p>今作ってるアプリがモバイル対応しないと作った意味が無いので勉強する。</p>
+<div class="section" id="id1">
+<h2>レスポンシブデザインはかっこいい?</h2>
+<p><a class="reference external" href="http://responsive-jp.com">Responsive Web Design JP | 日本国内の秀逸なレスポンシブWebデザインを集めたギャラリーサイト</a></p>
+<p>このサイトを眺める感じかっこいい。</p>
+</div>
+<div class="section" id="media-queries">
+<h2>media queriesを使った実装</h2>
+<p>Media Queruesはcss3からの機能。</p>
+<p>対応する端末の解像度に合わせて設定していく。</p>
+<p>端末の解像度がどの程度か知る必要がある。</p>
+<p><a class="reference external" href="http://case-mobile-design.com/devices/resolution-list">case:MobileDesign! – スマートフォンサイトの制作TIPS BLOG - » スマートフォン・タブレット画面解像度一覧</a></p>
+<p>この辺りを見ると何となく基準がわかるのではないかと。</p>
+<p>基準を模索するのが面倒なので、下記の記事を参考にしてみる。</p>
+<p><a class="reference external" href="http://www.onextrapixel.com/2012/04/23/responsive-web-design-layouts-and-media-queries">Responsive Web Design: Layouts and Media Queries</a></p>
+<div class="highlight-css"><div class="highlight"><pre><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">980px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">750px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">540px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">380px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>1200, 980, 750, 540, 380の画面MaxWidthで分けている。</p>
+<p>これで実装してみたところ1200を超えると、デフォルトの表示に戻ってしまうがレスポンシブになった。</p>
+</div>
+<div class="section" id="id2">
+<h2>関連記事</h2>
+<p># デザイナーさんの記事。結構詳しく書いているのでいい感じ。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://webdesignrecipes.com/web-design-for-mobile-with-css3-media-queries">CSS3 Media Queries を使って、Webサイトをスマートフォンに対応させるときの注意書き</a></li>
+</ul>
+</div>
+<div class="section" id="twitterbootstrap">
+<h2>TwitterBootStrapを使う</h2>
+<p>ツールに頼るのはいいことだが、いまいち導入の方法がわからない。。。(簡単だと思うのだが。。。)</p>
+<p>responsive用のcssがあって、きっとそれを使えばいい。</p>
+<p>実装はMediaクエリを使ったもの。以下のサイズで分けられている。</p>
+<ul class="simple">
+<li>1200px</li>
+<li>980px</li>
+<li>768px</li>
+<li>767px</li>
+<li>480px</li>
+</ul>
+<div class="section" id="id3">
+<h3>TwitterBootStrap 入門</h3>
+<p>最近入門を果たした。簡単だった。とても簡単にかっこいいデザインを手に入れられた。</p>
+<p>マジすごい。</p>
+<p>どのように使えるようになったかというと、下記の記事を読んだだけである。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://php-fan.org/sample_code_demo/bootstrap.html">Twitter Bootstrap使い方-コンポーネント-v2.0.4</a> &lt;- ここが一番良い感じ</li>
+<li><a class="reference external" href="http://greenapple-room.com/conc/user/TwitterBootstrap/bootstrap.html">Twitter Bootstrapの使い方</a></li>
+<li><a class="reference external" href="http://php-fan.org/sample_code_demo/bootstrap-js.html">Twitter Bootstrap使い方-javascript-v2.0.4</a></li>
+</ul>
+<p>結局のところ本家のドキュメントを見るのがいいという話になる。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>画像をレスポンシブにする</h2>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/design.html">design</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/04/01/responsiveweb.html#disqus_thread" data-disqus-identifier="2013/04/01/responsiveweb">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 29, 2013</span>
+        </div>
+        <div class="section" id="gnu-screen">
+<h1><a href="2013/03/29/screen.html">GNU Screen</a></h1>
+<p>tmuxでもbyobuでもないscreenを愛用する。</p>
+<div class="section" id="why">
+<h2>Why?</h2>
+<ol class="arabic simple">
+<li>スタンダードな感じがする</li>
+<li>気分</li>
+<li>簡単に入れれるよ</li>
+</ol>
+</div>
+<div class="section" id="sceenrc">
+<h2>.sceenrc</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># escape</span>
+escape ^Tt
+escape 
+<span class="c"># 256 color</span>
+term xterm-256color
+<span class="c"># No Visual Bell</span>
+vbell on
+<span class="c"># AutoDetatch</span>
+autodetach on
+<span class="c"># Shell</span>
+shell /usr/bin/zsh
+<span class="c"># divide screen</span>
+altscreen on
+<span class="c"># Startup Message Off</span>
+startup_message off
+<span class="c"># For Vim</span>
+altscreen on
+<span class="c"># HardStatus</span>
+<span class="c">#caption always “%{b RK} %y/%m/%d(%D)%c:%s %{bu dr} | %-w%{=bu CK}%n %t%{-}%+w”</span>
+hardstatus alwayslastline <span class="s1">'%{=b .y}@%H %-w%{=bu cw}%n:%t%{-}%+w %= %{b .g}%Y/%m/%d %{=b.g}%c:%s'</span>
+</pre></div>
+</div>
+<p>基本的な設定しかない。自分はこれだけで生きていくには十分だ。</p>
+<p>キーバインドもそのまま。</p>
+<p>VimmerなのでCtrl+hogeのキーバインドに悩む心配もない。</p>
+<p>もっとすごいscreenrcを参考にしたいときはgoogle:screenrcをすればいい。</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>よく使うコマンドをメモφ</p>
+<div class="section" id="id1">
+<h3>起動</h3>
+<dl class="docutils">
+<dt># screen</dt>
+<dd>普通に起動する</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h3>起動オプション</h3>
+<dl class="docutils">
+<dt># screen -ls</dt>
+<dd>存在しているセッションの一覧を表示</dd>
+<dt># screen -r</dt>
+<dd>最後にデタッチしたセッションを起動する</dd>
+<dt># screen -a XXX</dt>
+<dd>プロセス番号XXXを起動する</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>画面</h3>
+<p>Ctrl+a -&gt; ^A
+とする、.screenrcでescape ^tTとか書いている人は^T</p>
+<dl class="docutils">
+<dt>^A + c</dt>
+<dd>新しい画面を作る</dd>
+<dt>^A + n or p</dt>
+<dd>StatusBarに表示された画面間を移動する
+nが右へ、pが左へ</dd>
+<dt>^A + k</dt>
+<dd>現在の画面を破棄する
+y/nで聞かれる</dd>
+<dt>^A + ^A</dt>
+<dd>前回作業していた画面にジャンプ</dd>
+<dt>^A + “</dt>
+<dd>WindowListの表示。方向キーで選択できる</dd>
+</dl>
+<p>こっから下はほとんど使ってない。</p>
+<dl class="docutils">
+<dt>^A + ‘</dt>
+<dd>画面の番号を聞かれるので、指定してEnterでジャンプ</dd>
+<dt>^A + 数字</dt>
+<dd>数字の画面にジャンプ</dd>
+<dt>^A + ‘</dt>
+<dd>画面の番号を聞かれるので、指定してEnterでジャンプ</dd>
+</dl>
+</div>
+<div class="section" id="id4">
+<h3>分割画面</h3>
+<p>分割画面作成は、^A+S or ^A+|の後にその画面上で^A+cすると新しくセッションが作成されます。</p>
+<p>^A+cをやらないとただの空っぽの画面。</p>
+<dl class="docutils">
+<dt>^A + S</dt>
+<dd>画面を縦分割</dd>
+<dt>^A + |</dt>
+<dd>画面を横分割します
+~A + Vでもできるという説がある。^A + |でできないときはためしてみるといいかも。</dd>
+<dt>^A + Tab</dt>
+<dd>分割された画面間を移動</dd>
+<dt>^A + X</dt>
+<dd>分割された画面を破棄する</dd>
+</dl>
+</div>
+<div class="section" id="id5">
+<h3>設定ファイル再読み込み</h3>
+<dl class="docutils">
+<dt>:source $HOME:.screenrc</dt>
+<dd>ホームフォルダを示す” ~ “(チルダ)は使えないので注意。</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h3>ホームフォルダを示すその他</h3>
+<dl class="docutils">
+<dt>^A + ?</dt>
+<dd>ヘルプ</dd>
+<dt>^A + [</dt>
+<dd>コピーモード</dd>
+</dl>
+<p>コピーモードはほとんど使ったことがないので便利なのかも分からない。今度使ってみよう。</p>
+</div>
+</div>
+<div class="section" id="gnu-screen-for-mac">
+<h2>GNU Screen for Mac</h2>
+<p>私の使っているMac OS X 10.6.8にはデフォルトでscreenが入っていた(と思う)。</p>
+<p>しかしバージョンが4.0.3と古く、縦分割が出来い。。。</p>
+<p>縦分割できないとtmuxに乗り換えてしまいそうなので、最新版をビルドすることに。</p>
+<p>screenの最新版はgitリポジトリにある。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git://git.savannah.gnu.org/screen.git
+</pre></div>
+</div>
+<p>Macではパッチを当てないとダメっぽい。( 2013/03/29 <a class="reference external" href="http://blog.remora.cx/2012/12/my-recent-screen-env.html">最近の（僕の）GNU Screen 事情 | blog.remora.cx</a> )</p>
+<div class="highlight-python"><div class="highlight"><pre>$ curl -LO https://raw.github.com/gist/626040/be6a04f0e64c56185ba5850415ac59dad4cd62a0/screen-utf8-nfd.patch
+$ cd screen
+$ patch -p1 &lt; ../screen-utf8-nfd.patch
+$ cd src
+$ ./autogen.sh
+$ ./configure --prefix=/usr/local --enable-pam --enable-locale --enable-telnet --enable-colors256 --enable-rxvt_osc
+$ make &amp;&amp; make install
+</pre></div>
+</div>
+<p>残念ながらこのままでは、./autogen.shあたりでこける。autoconfとautomakeをbrewでインストール。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ brew install autoconf
+$ brew install automake
+</pre></div>
+</div>
+<p>さらに残念なことにこのままではmakeでこける。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/cupnes/20130414/1365922107">GNU Screen開発版(4.1.0)でビルド時にエラー - へにゃぺんて＠日々勉強のまとめ</a></p>
+<p>この記事を参考にanci.cを修正する。w_がないとかTypo。。。</p>
+<p>再びmakeすると成功するのでmake installで4.1.0に更新完了。</p>
+<p>Ctrl+a |で立て分割出来る。</p>
+</div>
+<div class="section" id="id7">
+<h2>参考記事</h2>
+<dl class="docutils">
+<dt><a class="reference external" href="http://yskwkzhr.blogspot.jp/2011/01/gnu-screen.html#windowgroup">これからの「GNU Screen」の話をしよう - Keep It Simple, Stupid</a></dt>
+<dd>この記事はかなりすごい。Screen使いこなしてる感がにじみ出ている。
+ウィンドウをグループ化することも可能らしい。</dd>
+<dt><a class="reference external" href="http://blog.remora.cx/2010/02/gnu-screen.html">最新版GNU Screenで縦分割（その１〜導入編〜） | blog.remora.cx</a></dt>
+<dd>ブログ自体がかっこいい。</dd>
+<dt><a class="reference external" href="http://blog.remora.cx/2012/12/my-recent-screen-env.html">最近の（僕の）GNU Screen 事情 | blog.remora.cx</a></dt>
+<dd>上と同じ人の。</dd>
+</dl>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/screen.html">screen</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/29/screen.html#disqus_thread" data-disqus-identifier="2013/03/29/screen">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 25, 2013</span>
+        </div>
+        <div class="section" id="python">
+<h1><a href="2013/03/25/permutation_python.html">Pythonで順列作成</a></h1>
+<p>会社の若手でやっている勉強会でこんな問題をみんなで解いてみた。</p>
+<div class="highlight-python"><div class="highlight"><pre>問題文
+5, 4, 3, 2, 1, 0の６つの整数の間（順番は不変）に
+「+, -, *, /, =」の演算子を必ず一回ずつ使い（順番は任意）式が成立するような組み合わせを求めよ
+</pre></div>
+</div>
+<p>開始１０分くらいで、演算子の並びの順列を求めるという問題になり考え始める。</p>
+<div class="section" id="itertools">
+<h2>itertoolsを使う</h2>
+<p>itertoolsというモジュールにpermutationsという関数がある。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
+</pre></div>
+</div>
+<p>itertoolsに含まれる関数については以下の記事が詳しくていい。</p>
+<p><a class="reference external" href="http://kk6.hateblo.jp/entry/20110521/1305984781">itertoolsモジュールをひと通り眺めてみた - kk6のメモ帳</a></p>
+<p>イテレーション処理に便利な関数が多数含まれている。</p>
+</div>
+<div class="section" id="id1">
+<h2>自作する</h2>
+<p>アルゴリズムとして作成するにはどうするのか考える。簡単な例から何かしらの法則性を見つけることにする。</p>
+<div class="highlight-python"><div class="highlight"><pre>---------------
+[1, 2]
+
+-&gt; [1, 2]
+-&gt; [2, 1]
+
+2! = 2通り
+
+---------------
+[1, 2, 3]
+
+-&gt; [1, 2, 3]
+-&gt;    [3, 2]
+-&gt; [2, 1, 3]
+-&gt;    [3, 1]
+-&gt; [3, 2, 1]
+-&gt;    [1, 2]
+
+3! = 6通り
+
+---------------
+[1, 2, 3, 4]
+
+-&gt; [1 ,2, 3, 4]
+-&gt;       [4, 3]
+-&gt;    [3, 2, 4]
+-&gt;       [4, 2]
+-&gt;    [4, 3, 2]
+-&gt;       [2, 3]
+-&gt; [2, 1, 3, 4]
+-&gt; ...
+
+4! = 24通り
+</pre></div>
+</div>
+<p>頭から取り出していって、残り２つになったらくるっとする。</p>
+<p>残り２つになったらくるっとするというより、くるっとし続けて出来なくなったら空っぽにして頭をひっくり返す。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+<span class="k">if</span> <span class="n">li</span> <span class="o">==</span> <span class="p">[]:</span>
+  <span class="k">return</span> <span class="p">[[]]</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">return</span> <span class="p">[[</span><span class="n">h</span><span class="p">]</span><span class="o">+</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">(</span><span class="n">li</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:])]</span>
+</pre></div>
+</div>
+<p>残り２つを意識して作ると、なんか複雑になっていく。</p>
+<p>ちょっと視点を変えるのがこんなに大変だとは。。。結構時間かかった。</p>
+</div>
+<div class="section" id="id2">
+<h2>模範解答</h2>
+<p>この記事にある問題。模範解答もある。</p>
+<p><a class="reference external" href="http://kiroyn.dreamlog.jp/archives/4420564.html">順列生成アルゴリズム - drecom_kiroynのブログ</a></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="n">M</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">M</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">M</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">n</span><span class="o">=</span><span class="n">N</span> <span class="o">%</span> <span class="n">i</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">m</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//こんなに短いのに辞書順</span>
+  <span class="n">N</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">N</span><span class="o">/</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>剰余とか使ってる。なんかかっこいい。</p>
+<p>しかし、何かよくわからない。。。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/25/permutation_python.html#disqus_thread" data-disqus-identifier="2013/03/25/permutation_python">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 20, 2013</span>
+        </div>
+        <div class="section" id="sqlalchemy">
+<h1><a href="2013/03/20/sqlalchemy.html">SQLAlchemy</a></h1>
+<p>Coming Soon...</p>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/20/sqlalchemy.html#disqus_thread" data-disqus-identifier="2013/03/20/sqlalchemy">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 19, 2013</span>
+        </div>
+        <div class="section" id="hg-release-branch">
+<h1><a href="2013/03/19/hg_branch.html">hg Release Branch</a></h1>
+<p>今作ってるアプリをリリースしようと思ったが、実は未だにブランチを作成したことすらないのでブランチについてまじめに考えてみようと思う。</p>
+<div class="section" id="let-s-branch">
+<h2>Let’s Branch</h2>
+<img alt="../../../_images/branch1.png" src="_images/branch1.png"/>
+<p>とりあえず、ブランチを作ってみた。</p>
+<p>画像はTortoiseHgのWorkbench。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># hg branch hoge</span>
+<span class="c"># hg ccmmit -m &quot;to hoge&quot;</span>
+<span class="c"># hg update default</span>
+<span class="c"># hg commit -m &quot;to default&quot;</span>
+</pre></div>
+</div>
+<p>適当に作っているので、細かいところは気にしない。</p>
+<p>作るのは簡単だが、ブランチ作成とは何に使うのか？というところがわからないのでバージョン管理におけるブランチの意味について考えてみる。</p>
+</div>
+<div class="section" id="branch">
+<h2>Branch</h2>
+<p>どんな時にブランチができるのか</p>
+<ul class="simple">
+<li>リリース</li>
+<li>他の人にcloneされる</li>
+<li>etc</li>
+</ul>
+<p>1つ目はいつはmasterにマージされる。</p>
+<p>2つ目は、pull reauestをすればきっとマージしてくれる。</p>
+<p>なんにせよ結局ブランチはマージされる運命にある。</p>
+<p>その他にも必要に応じてブランチを作る状況があるかもしれない。知った段階で追記したい。</p>
+</div>
+<div class="section" id="release-branch">
+<h2>Release Branch</h2>
+<p>本題のリリースブランチ。</p>
+<p># リリースブランチのあり方</p>
+<ol class="arabic simple">
+<li>ひと通り実装が終わったらリリースブランチを作成(テストはその後)</li>
+<li>テストやバグ修正のコミットはリリースブランチに</li>
+<li>テスト、バグ修正が終了-&gt;defaultにマージ</li>
+<li>リリースブランチの先頭にTagをつける</li>
+</ol>
+<p>このようなワークフローが一般的なようだ。</p>
+<p>GithubやBitbucketにあるリポジトリのコミットログを見たりして勉強するのが一番いいのかもしれない。
+(ちらっと見てみた限りだとこんなようなワークフローが多い気が)</p>
+<ul class="simple">
+<li>この記事を参考 <a class="reference external" href="http://www.eiplab.com/2011/06/git-release-branch">Gitにおけるリリースブランチのつかいかた | EIPラボ</a></li>
+<li>ちなみにこの記事は”入門git - オーム社”を参考にしてある</li>
+</ul>
+<p>hgでは以下のようにtagをつける。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># hg tag hoge</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-branch">
+<h2>Function Branch</h2>
+<p>開発中からブランチを切っていくという発想もある。</p>
+<p>新しい機能を実装しようという時にmasterから、その機能実装用にブランチを切ってそこでその機能を作成する。</p>
+<p>機能ブランチについてメリット・デメリットを考えてみた。</p>
+<p># merit</p>
+<ul class="simple">
+<li>masterが綺麗なまま保たれる(いつでもリリース可能)</li>
+<li>ブランチがマイルストーン的な役割を果たしてくれる</li>
+<li>その機能を追加した時の作業分が明確にわかる</li>
+</ul>
+<p># demerit</p>
+<ul class="simple">
+<li>機能実装中に他の機能実装依頼があった時困りそう</li>
+<li>ブランチを作ることに慣れていない人はめんどい<ul>
+<li>今どのブランチにいるとか気にしたことすらないのでどこにコミットしているのかわかんなくなるかもしれない</li>
+</ul>
+</li>
+</ul>
+<p># 使う場面</p>
+<p>他人のプロジェクトをForkした際に、pull requestを送るとき。</p>
+<ol class="arabic simple">
+<li>Forkした段階でbranchを切る。</li>
+<li>何らかの修正をする</li>
+<li>この機能取り入れてほしいな。と思う。</li>
+<li>pull requestを送る</li>
+<li>branchを切ってあると、どこまで修正してあるのかわかりやすい</li>
+<li>branchを取り込めば、pull requestを送った人の環境で簡単にテスト可能</li>
+<li>気に入ったら、branchをマージするだけでいい</li>
+</ol>
+<p>マナー的にpull requestをするときはbranchを切ったほうが良好な人間関係が作れる気がする。</p>
+</div>
+<div class="section" id="merge">
+<h2>Merge</h2>
+<p>ブランチといえばマージがついてくる。Conflictがあった時にマージしないといけない。</p>
+<p>デフォルトのマージはかなり残念なコトになっているので</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;local
+default
+==========
+ver other
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;other
+</pre></div>
+</div>
+<p>これをいちいちエディタで修正するのは無駄。</p>
+<p>Vimmerはhgrcに以下を設定しよう。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">ui</span><span class="p">]</span>
+<span class="n">merge</span> <span class="o">=</span> <span class="n">vimdiff</span>
+</pre></div>
+</div>
+<p>vimdiffでは画面が以下のように分割して出現する。</p>
+<div class="highlight-python"><div class="highlight"><pre>マージ結果 | local | other
+</pre></div>
+</div>
+<p>マージもしてみた感じはこんなん。</p>
+<img alt="../../../_images/branch2.png" src="_images/branch2.png"/>
+<p>私事だが、最近vim .hg/hgrcとして設定をちまちまいじっていたが、~/.hgrcに書けばメシウマということに気づいた。</p>
+</div>
+<div class="section" id="id1">
+<h2>参考記事</h2>
+<p># ブランチにもっと詳しくなりたい時</p>
+<p>以下の記事を見てみるといいかもしれない</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/wyukawa/20101205/1291549247">MercurialとGitのブランチの違い - wyukawa’s blog</a></li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/hg.html">hg</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/19/hg_branch.html#disqus_thread" data-disqus-identifier="2013/03/19/hg_branch">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 18, 2013</span>
+        </div>
+        <div class="section" id="tinkerer-sphinx">
+<h1><a href="2013/03/18/restructuretext.html">Tinkerer - Sphinx</a></h1>
+<div class="section" id="restructuredtext">
+<h2>reStructuredText</h2>
+<p>Sphinxで使われている軽量マークアップ。</p>
+<p>Markdownより洗練されている感じ。</p>
+<p>ReSTとかRSTとか呼ばれたりしてる。</p>
+</div>
+<div class="section" id="pygments">
+<h2>Pygments</h2>
+<p>コードハイライトにはPygmentsが使われています。</p>
+<p>Sphinxのドキュメントに詳しく書いてある。</p>
+<p><a class="reference external" href="http://sphinx-users.jp/doc10/markup/code.html">コードサンプルの表示 — Sphinx v1.0.6 documentation</a></p>
+</div>
+<div class="section" id="contents">
+<h2>Contents</h2>
+<p>Sphinxで目次を付けれる。</p>
+<div class="highlight-cpp"><div class="highlight"><pre>.. contents:: 目次のタイトル？
+     :depth: 2
+</pre></div>
+</div>
+<p>Sphinxは色々なことを叶えてくれる。</p>
+<p><a class="reference external" href="http://sphinx-users.jp/reverse-dict/writing/contents.html">ページ内の目次を作りたい :: ドキュメンテーションツール スフィンクス Sphinx-users.jp</a></p>
+</div>
+<div class="section" id="rest">
+<h2>ReST</h2>
+<p>reStructuredTextの基本だけならSphinxのドキュメントにある。</p>
+<p><a class="reference external" href="http://sphinx.shibu.jp/rest.html">reStructuredText入門 — Sphinx v1.0 (hg) documentation</a></p>
+<p>reStructuredTextについての詳細については日本語全訳があった。</p>
+<p><a class="reference external" href="http://www.planewave.org/translations/rst/quickref.html">はやわかり reStructuredText</a></p>
+</div>
+<div class="section" id="error-report">
+<h2>Error Report</h2>
+<ul class="simple">
+<li>1行目の見出し以外に”=”下線による見出しを作るとエラーが出てtinkerer -bが終了できないので注意。</li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/sphinx.html">sphinx</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/18/restructuretext.html#disqus_thread" data-disqus-identifier="2013/03/18/restructuretext">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>March 18, 2013</span>
+        </div>
+        <div class="section" id="start-tinkerer">
+<h1><a href="2013/03/18/start_tinkerer.html">Start Tinkerer</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># pip install tinkerer</span>
+<span class="c"># mkdir blog</span>
+<span class="c"># cd blog</span>
+<span class="c"># tinker -s</span>
+<span class="c"># vim conf.py</span>
+<span class="c"># tinker -p &quot;hoge&quot;</span>
+<span class="c"># vim YYYY/MM/DD/hoge.rst</span>
+<span class="c"># tinker -b</span>
+<span class="c"># hg init</span>
+<span class="c"># vim .hg/hgrc</span>
+<span class="c"># hg add .</span>
+<span class="c"># hg commit -m 'add hoge'</span>
+<span class="c"># hg push</span>
+</pre></div>
+</div>
+<div class="section" id="description">
+<h2>Description</h2>
+<ul class="simple">
+<li><strong>mkdirで作成するフォルダ名は何でもいい</strong></li>
+<li><strong>conf.pyの編集</strong></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">tinkerer</span>
+<span class="kn">import</span> <span class="nn">tinkerer.paths</span>
+
+    <span class="c"># **************************************************************</span>
+    <span class="c"># TODO: Edit the lines below</span>
+    <span class="c"># **************************************************************</span>
+
+    <span class="c"># Change this to the name of your blog</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="s">'ブログタイトル'</span>
+
+    <span class="c"># Change this to the tagline of your blog</span>
+    <span class="n">tagline</span> <span class="o">=</span> <span class="s">'タイトルの下に書かれる説明'</span>
+
+    <span class="c"># Change this to the description of your blog</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s">'説明'</span>
+
+    <span class="c"># Change this to your name</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="s">'Hoge Hogeo'</span>
+
+    <span class="c"># Change this to your copyright string</span>
+    <span class="n">copyright</span> <span class="o">=</span> <span class="s">'2013, '</span> <span class="o">+</span> <span class="n">author</span>
+
+    <span class="c"># Change this to your blog root URL (required for RSS feed)</span>
+    <span class="n">website</span> <span class="o">=</span> <span class="s">'http://&lt;username&gt;.bitbucket.org/'</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>BitBucketリポジトリ</strong></li>
+</ul>
+<p>&lt;username&gt;.bitbucket.org という名前のリポジトリを作っておく必要がある。</p>
+<p>.hg/hgrcには、そのリポジトリを参照するようにpathsを書き込む。</p>
+<div class="highlight-python"><div class="highlight"><pre>[paths]
+default = ssh://hg@bitbucket.org/&lt;username&gt;/&lt;username&gt;.bitbucket.org
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>ビルド</strong></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># vim YYYY/MM/DD/hoge.rst</span>
+<span class="c"># tinker -b</span>
+</pre></div>
+</div>
+<p>記事編集-&gt;Tinkererビルドが記事更新のサイクルになります。</p>
+<p>編集途中で内容を確認したいときは、ビルドしてblog/html以下にあるindex.htmlをブラウザで見ればいい。</p>
+<p>後は、pushすれば勝手にアップロードされる。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># hg add .</span>
+<span class="c"># hg commit -m &quot;edit hoge&quot;</span>
+<span class="c"># hg push</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>参考記事</h2>
+<p># r_rudiさん</p>
+<p>そこはかとなく～はPythonやってる人なら一度は見たことがあるような気がするブログ。</p>
+<p><a class="reference external" href="https://github.com/pyspa/pyfes/blob/develop/201303.rst">Python Developers Festa 2013.03</a> のr_rudiさんの発表がTinkererだったのがこのブログを作ろうと思ったそもそもの始まり。</p>
+<p>はてブのは旧ブログなのでPowered by Tinkererな新しいブログを参照のこと。 <a class="reference external" href="http://tdoc.info/blog">そこはかとなく書くよん。</a></p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/rudi/20120106/1325861293">Tinkererを使ってbitbucketでblogはじめました - そこはかとなく書くよ。</a></li>
+<li><a class="reference external" href="http://r_rudi.bitbucket.org/blog/html/2012/01/04/blogging_using_tinkerer_on_bitbucket.html">Blogging using tinkerer on bitbucket — Sokohaka</a></li>
+</ul>
+<p># Else</p>
+<ul class="simple">
+<li><a class="reference external" href="http://blog.shomah4a.net/2013/02/26/setup_tinkerer.html">Tinkererを使ってブログを作るまでのメモ プログラマのネタ帳 二冊目</a></li>
+<li><a class="reference external" href="http://akirakw.github.com/2012/09/12/create_blog_with_tinkerer.html">TinkererでSphinxなブログ環境を構築する — An Artisan’s Build Act</a></li>
+<li><a class="reference external" href="http://yosisa.github.com/blog/2012/02/21/sphinx_blog_using_tinkerer_and_github.html">Tinkerer と GitHub ではじめる Sphinx blog — log.randomly</a></li>
+<li><a class="reference external" href="http://pekopeko1.bitbucket.org/blog/html/2012/11/25/getting_start.html">はじめにーTinkererの使い方 — ぼくのかんがえたさいきょうの</a></li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/sphinx.html">sphinx</a>, <a href="tags/python.html">python</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/03/18/start_tinkerer.html#disqus_thread" data-disqus-identifier="2013/03/18/start_tinkerer">Leave a comment</a>
+        </div></div><div class="archive_link">
+        <a href="archive.html"> &mdash; Blog Archive &mdash; </a>
+    </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="page3.html">Newer</a></li>
+            <li class="right"></li>
+        </ul></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="2013/12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="2013/12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="2013/10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="2013/10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="2013/09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="2013/08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="2013/08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="2013/07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "yano";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

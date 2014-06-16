@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>DevIPL2014 - yuya yano</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<strong style='font-size: 2.5em;'>DevIPL2014</strong>
+					<br />
+					<br />
+					<p>2014/06/02(Mon)</p>
+					<h3>in IPL大会議室</h3>
+				</section>
+
+				<section>
+					<h2>DevIPL?</h2>
+					<p>→ モチベ維持のための発表会</p>
+					<p>勝手ながら企画しましたが、多くの方に参加していただきありがとうございます。</p>
+				</section>
+
+				<section>
+					<h2>Who am I?</h2>
+					<h4>Yuya Yano @ IPL</h4>
+					<ul>
+						<li><h4>GitHub: @yymm</h4>
+						<li><h4>Bitbucket: @yymm</h4>
+					</ul>
+					<br />
+					<img width="200" height=auto src="https://avatars0.githubusercontent.com/u/1256685" alt="My Icon" style='border: none;'>
+				</section>
+
+				<section>
+					<section>
+						<h2>目標</h2>
+						<p>作成中だったプロジェクトのリリース</p>
+						<ul>
+							<li>Yoichi - 弓道練習用アプリ
+							<li>MemoMemo - プライベートメモツール
+						</ul>
+					</section>
+					<section>
+						<h2>Yoichi</h2>
+						<h4>Give a cloud for your Kyudo.</h4>
+						<p>Demo</p>
+					</section>
+					<section>
+						<h2>MemoMemo</h2>
+						<h4>MemoMemo is a advanced private memo tool.</h4>
+						<p>Demo</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>目標 その２</h2>
+						<ul>
+							<li>GitHub草原を広げる
+						</ul>
+					</section>
+					<section>
+						<h2>2014/03</h2>
+						<img width="800" height=auto src="GitHub-Grass-20140325.png" alt="Old GitHub Grass" style='border: none;'>
+					</section>
+					<section>
+						<h2>2014/04</h2>
+						<img width="800" height=auto src="GitHub-Grass-20140602.png" alt="Old GitHub Grass" style='border: none;'>
+					</section>
+					<section>
+						<img width="500" height=auto src="http://serif.hatelabo.jp/images/cache/9e21827a947e2c7cd68183403c31781a6c5d4118/8fec5bcb97565b7699916f9dfd43bebc470a0e1c.gif" alt="Old GitHub Grass" style='border: none;'>
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>勉強したこと</h2>
+						<p>
+							PythonでWebアプリを作る方針で開発を進めてきたので、
+						</p>
+						<p>
+							仕事だけでは勉強できないことを大量に勉強出来た。
+						</p>
+					</section>
+					<section>
+						<h2>Learn! - Python</h2>
+						<ul>
+							<li>Python2
+							<li>Python3
+							<li>Flask - micro web framework
+							<li>Django (結局Flaskを使う)
+							<li>SQLAlchemy (DB toolkit)
+							<li>SQLite - for testing on localhost
+							<li>MySQL - for deploy and for testing on localhost
+							<li>Jinja2 (Template engine)
+							<li>Oauth (using rauth)
+							<li>Websocket
+							<li>PEP8
+							<li>py.test
+						</ul>
+					</section>
+					<section>
+						<h2>Learn! - Web</h2>
+						<ul>
+							<li>CSS
+							<li>Javascript
+							<li>jQuery
+							<li>Vue.js
+							<li>(Angular.js)
+							<li>Canvas
+							<li>Twitter Bootstrap → Boilerplate
+							<li>Fastclick
+							<li>Ajax
+							<li>CSS Tricks - <a href='http://css-tricks.com/'>here</a>
+							<ul>
+								<li>Slider pages (Yoichi)
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Learn! - Service, CI</h2>
+						<ul>
+							<li>GitHub
+							<li>Bitbucket
+							<li>Heroku ← staging server
+							<li>drone.io ← now using for auto testing and auto deploy
+							<li>Travis.CI
+							<li>Gehirn
+							<li>Digital Ocean
+							<li>sakura VPS
+					</section>
+					<section>
+						<h2>Learn! - Vim</h2>
+						<img width="500" height=auto src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR07X22YuXDdI_DJOVNinRnA1Xu1E-JdfnuOF7A3f2AJRzZrXLN1Q" alt="Vim" style='border: none;'>
+					</section>
+					<section>
+						<h2>Learn! - Dev</h2>
+						<ul>
+							<li>Ubuntu
+							<li>Mac
+							<li>UNIX!
+							<li>Vim
+							<li>Git
+							<li>GitHub flow
+							<li>tmux
+							<li>Vagrant
+							<li>proxylocal
+							<li>ngrok
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h3>仕事では触れもしないようなことを</h3>
+					<h3>たくさん勉強した気がする</h3>
+				</section>
+
+				<section>
+					<h3>色々細かい開発のときに出くわした議題はありますが割愛</h3>
+				</section>
+
+				<section>
+					<h3>そんなこんなで出来るようになったこと</h3>
+					<ul>
+						<li>Pythonがそこそこ書けるようになった
+						<li>SQLiteとMySQLを使える(ただし、SQLAlchemyを使ったので、SQL全然書けない...)
+						<li>Javascriptもそこそこ書けるようになった
+						<li>OAuthもなんとなくわかった
+						<li>Websocketが使えた
+						<li>Gitに慣れた
+						<li>VPS借りてデプロイ出来るようになった(nginx)
+						<li>ドメインも借りて使えるようになった
+					</ul>
+				</section>
+				<section>
+					<h3>出来るようになってしまったこと</h3>
+					<ul>
+						<li>LaptopにはLinuxを入れる
+						<li>UNIXベースな開発環境でないとストレスがたまっていくような気がする
+						<li>Vimがないと嫌
+					</ul>
+				</section>
+
+				<section>
+					<h3>勉強になったこと</h3>
+					<ul>
+						<li>銀の弾丸なにそれ？
+						<li>自分は一から作るのが好きみたい
+						<li>初めてチャレンジすることに対してはエラー処理の漏れだらけなので注意必須
+						<li>深く勉強しないでコード書いたり、急いでたり疲れてたりするといともたやすくやばいコードを書く
+						<li>フロントからサーバまでやると辛いが勉強になる
+						<li>git push → デプロイは便利
+						<li>pep8などの構文チェッカーはいい
+					</ul>
+				</section>
+
+				<section>
+					<h3>今後やりたいこと</h3>
+					<ul>
+						<li>Yoichi機能追加
+						<li>FacebookでOAuth
+						<li>MemoMemoからブログエクスポート(Tinkererめんどい)
+						<li>Python以外の言語 - Go? Ruby? Lisp? Scala?
+						<li>素のJavascript, 素のCSSは卒業したい
+						<li>勉強したことで仕事を便利したい(自動化等々)
+					</ul>
+				</section>
+
+				<section>
+					<h3>ご清聴ありがとうございました</h3>
+					<p>来年もやるかもです...!</p>
+				</section>
+
+				<section>
+					<h3>残りのスライドは...</h3>
+				</section>
+
+				<section>
+					<h3>細かい色々を紹介</h3>
+					<p>主にPython</p>
+				</section>
+
+				<section>
+					<h2><a href='http://flask.pocoo.org/'>Flask</a></h2>
+					<img width=auto height=400 src="http://flask.pocoo.org/static/logo/flask.png" alt="Down arrow">
+					<p>実はエイプリルフールネタに作ったbottleを参考にしたWebフレームワーク</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Flask?</h2>
+						<p>Flaskは日本語の情報が少ないとか言われてるけど、どうやって勉強するのがいいのか？</p>
+					</section>
+					<section>
+						<h2>mitsuhiko?</h2>
+					</section>
+					<section>
+						<img width=auto height=400 src="https://avatars1.githubusercontent.com/u/7396" alt="Down arrow">
+					</section>
+					<section>
+						<p>Flaskの作者の@mitsuhikoことArmin Ronacherさん</p>
+						<p>この方はGitHub上にたくさんのサンプルコードを残している</p>
+					</section>
+					<section>
+						<p>@mitsuhikoパターン = Flaskベストプラクティス</p>
+					</section>
+					<section>
+						<h2>Structure of directory - root</h2>
+						<p>アプリはモジュール化、ルートにはrun.pyとrequirements.txtなどの設定ファイル</p>
+						<pre><code data-trim contenteditable>
+/[projectname]
+requirements.txt
+config.py
+run.py
+test_[projectname].py
+README.md
+Procfile
+LICENSE.txt
+						</code></pre>
+					</section>
+					<section>
+						<h2>Structure of directory - proj</h2>
+						<p>モジュール内部の構成</p>
+						<pre><code data-trim contenteditable>
+/static
+  /css
+  /js
+  /img
+  /font
+/template
+__init__.py
+database.py
+utils.py
+view.py
+module.py
+(/view)
+						</code></pre>
+						<p>viewが多層の場合はディレクトリにする</p>
+						<p>module.pyは使用するモジュール(oauth.pyなど)のこと</p>
+					</section>
+                	
+					<section>
+						<h2>FlaskでのViewの分離</h2>
+						<p>viewを分けるにはblueprintを使用する</p>
+						<p>__init__.py</p>
+						<pre><code data-trim contenteditable>
+from yoichi import view
+app.register_blueprint(view.mod)
+						</code></pre>
+						<p>view.py or view/__init__.py</p>
+						<pre><code data-trim contenteditable>
+from flask import Blueprint
+mod = Blueprint('view', __name__)
+						</code></pre>
+					</section>
+					<section>
+						<h3>Flaskでもいい感じの構成ができる</h3>
+						<p>参考にしたのは<a href='https://github.com/mitsuhiko/flask-website'>flask-website</a></p>
+						<p>Flaskの公式ページはFlaskで書かれていたという...</p>
+					</section>
+					<section>
+						<h3>Tips: configはPythonファイルにする</h3>
+						<p>Pythonで書くとosモジュールなどが使えて便利</p>
+						<pre><code data-trim contenteditable>
+# config.py
+import os
+# ここに書く
+del os
+
+# [projectname]/__init__.py
+app,config.from_object('config')
+						</code></pre>
+					</section>
+					<section>
+						<h3>Tips: デコレータを使う</h3>
+						<p><a href='http://legacy.python.org/dev/peps/pep-0318/'>PEP 318 -- Decorators for Functions and Methods</a></p>
+						<p>ログインしているかのチェックをデコレータに任せるといい感じ。</p>
+						<pre><code data-trim contenteditable>
+def requires_login(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if g.user is None:
+            flash('You need to be signed in.')
+            return redirect('view.index')
+        return f(*args, **kwargs)
+    return decorated_function
+						</code></pre>
+						<pre><code data-trim contenteditable>
+mod.route('/upload', methods=['POST'])
+@requires_login
+def upload():
+	'''code'''
+						</code></pre>
+					</section>
+					<section>
+						<h2>Flask Extensionを活用する</h2>
+						<ul>
+							<li>Flask-SQLAlchemy
+							<li>Flask-Rauth
+							<li>(Flask-Sockets)
+							<li>Flask-SocketIO
+						</ul>
+						<p>他にもログイン系のExtentionやAdminなど色々な拡張があって便利。
+						@mitsuhikoさんに習ってexampleをつけているパターンが多いので使いやすい</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Pythonのテスト, CI</h2>
+						<p>py.test + drone.io</p>
+					</section>
+					<section>
+						<h2>py.test</h2>
+						<p>pep8, coverageのextensionがあって便利</p>
+						<pre><code data-trim contenteditable>
+$ pip install pytest pytest-pep8 pytest-coverage
+$ py.test --cov --pep8 [projectname]
+						</code></pre>
+					</section>
+					<section>
+						<h2>drone.ioからherokuにデプロイ</h2>
+						<p>pushしてテストが通ってたら本番環境と同じHeroku環境にデプロイ</p>
+						<img width=auto height=400 src="heroku.png" alt="Down arrow">
+					</section>
+					<section>
+						<h2>Branching</h2>
+						<p>masterとdevelopがいつもあるブランチ。developからトピックブランチを切ってマージ(GitHub-flowなときはPR→GitHub上でマージ)</p>
+						<img width=auto height=300 src="branching.png" alt="Down arrow">
+					</section>
+				</section>
+				<section>
+					<h2>できたこととか今後とか</h2>
+					<ul>
+						<li>Pythonは書きやすいし、きれいに書けるし、PEP8のチェックもすれば見やすいコードが素直に書ける
+						<li>Flaskのおかげで他人の書いたコードを読み込むことができた。
+						<li>CIにはtravis.ciもあるし、最近はCircle.ioとかもあるので使ってみたい。
+						<li>RubyにはCodeCliminateとかあって浦山。
+					</ul>
+				</section>
+				<section>
+					<h2>以上。。</h2>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

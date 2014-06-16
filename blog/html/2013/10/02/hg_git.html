@@ -1,0 +1,266 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>gitが手になじまない人へhg-gitのススメ &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Django 1.5 チュートリアル まとめ" href="../../09/12/django_v15_tutorial.html" /><link rel="prev" title="IPython Notebookでかっこいいグラフを書く" href="../03/ipython_entrance.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>October 02, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/10/02/hg_git.html" class="hatena-bookmark-button" data-hatena-bookmark-title="gitが手になじまない人へhg-gitのススメ - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="githg-git">
+<h1>gitが手になじまない人へhg-gitのススメ</h1>
+<p>gitが手になじまない方、きっと多いでしょう。自分のその内の一人です。</p>
+<p>コマンドもろくに叩けなかった頃のToitorseHgの優しさが忘れられなくてhgを使っていましたが、gitのほうが人気だと聞いたので使ってみたら冷たくされてびっくりしました。</p>
+<p>個人的にhgはgitに比べてシンプルで使いやすいと思っています。自分がhgとgitを使っている間のググり率を測ればgitのほうがかなり高い感じです。</p>
+<p>そんな自分のような人間は、gitが怖くてGithubを使うたびにビビりながらpushする生活を余儀なくされていたのですが、世の中にはhg-gitというスバラシイプラグインが存在しているみたいです。</p>
+<p><a class="reference external" href="http://hg-git.github.io/">Hg-Git Mercurial Plugin</a></p>
+<p>これを使うことでGithubなどにあるgitリポジトリにローカルのhgリポジトリからpushしたり、Githubからローカルのhgリポジトリにクローンしたりpullしたりできます。</p>
+<p>リポジトリはGithubにも有りますが、こちらはミラー。本家はBitbucketのほうにあるのでIssueはこっちに投げましょう。</p>
+<p><a class="reference external" href="https://bitbucket.org/durin42/hg-git/overview">durin42 / hg-git — Bitbucket</a></p>
+<div class="section" id="install">
+<h2>Install</h2>
+<p>ドキュメントにはeasy_installでのインストール方法が書いてありますが、pipでもインストールできます。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># easy_install hg-git</span>
+または
+<span class="c"># pip install hg-git</span>
+</pre></div>
+</div>
+<p>~/.hgrcの[extensions]に以下を追加します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>extensions<span class="o">]</span>
+hgext.bookmarks <span class="o">=</span>
+hg-git <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>gitリポジトリをクローンする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg clone git://github.com/user/repos.git
+</pre></div>
+</div>
+<p>Githubへpushする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg push git+ssh://git@github.com/user/repos.git
+</pre></div>
+</div>
+<p>Githubからpullする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg pull
+</pre></div>
+</div>
+<p>普段Bitbucketで時々Githubへpushする場合はこれで問題ないですが、Githubだけ使用する場合はpushのパス指定だけ違うし、毎回書くのめんどいのでhg/hgrcに以下を書いておく。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>paths<span class="o">]</span>
+<span class="nv">default</span> <span class="o">=</span> git://github.com/user/repos.git
+default-push <span class="o">=</span> git+ssh://git@github.com/user/repos.git
+</pre></div>
+</div>
+<p>pushの時だけdefault-pushを使用してくれる。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>&#8220;no changes found&#8221;が出るとき。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg bookmark -f master
+</pre></div>
+</div>
+<p class="last"><a class="reference external" href="http://qiita.com/apribase&#64;github/items/1f1b1dbc6686fcb5402a">Mercurial - hg-git で github に push するときに忘れるな hg bookmark -f master - Qiita [キータ]</a></p>
+</div>
+</div>
+<div class="section" id="in-trouble">
+<h2>In Trouble</h2>
+<p>hg-gitはIssueの貯まり具合を見る限りなかなかバグが多そう。</p>
+<p>今後解決してくれることを期待しているが、待っても入れないので自分がハマった点だけでもここに書いておく。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>相性の悪いextensionsがあるらしいので注意</p>
+<p class="last"><a class="reference external" href="http://marutosi.bitbucket.org/tokyomercurial-5-hg-git-sphinx/one-html/html/index.html#id37">hg-gitについて — TokyoMercurial5 hg-git v0.1 documentation #インストール その4</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>dulwich0.9系での不具合</p>
+<p>hg-gitの依存関係でインストールされるパッケージdulwich。これはgitのPython実装でPythonからgitリポジトリを操作できる。すごい。</p>
+<p>dulwichの最新版は0.9.3。(2013/10/01)</p>
+<p>pipでインストールするとこの最新版が入るが、dulwichのバージョンが0.9以降のものを使用するとcloneで落ちるバグがあった。(2013/10/01)</p>
+<p>このバグはIssueで報告されており( <a class="reference external" href="https://bitbucket.org/durin42/hg-git/issue/79/hg-git-crashes-with-newer-versions-of">durin42 / hg-git / issues / #79 - hg-git crashes with newer versions of dulwich — Bitbucket</a> )、パッチまでつけてくれていたので修正すると使えた。</p>
+<p>やっとcloneできてpushしようと思ったら、pushでTraceback。</p>
+<p>こちらはIssueでもまだ報告されていない。しかもdulwichで落ちている。。。</p>
+<p>自分はローカルにインストールしたソースを勝手に修正してしまったが、現状では0.8系をインストールして安心に使うのがいいのではないかと思う。</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span class="c"># pip install dulwich==0.8.7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/python.html">python</a>, <a href="../../../tags/mercurial.html">mercurial</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a></li>
+            <li class="right"><a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/10/02/hg_git";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="#">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

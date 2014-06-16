@@ -1,0 +1,1801 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Page 3 &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="_static/main.css" type="text/css">
+            <link rel="stylesheet" href="_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="_static/plugins.js"></script>
+        <script src="_static/main.js"></script>
+        <link rel="next" title="Older" href="page4.html" /><link rel="prev" title="Newer" href="page2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="_static/underscore.js"></script><script type="text/javascript" src="_static/doctools.js"></script><script type="text/javascript" src="_static/disqus.js"></script><script type="text/javascript" src="_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>June 03, 2013</span>
+        </div>
+        <div class="section" id="mysql-sqlalchemyflask">
+<h1><a href="2013/06/03/mysql_flask_sqlalchemy.html">MySQL-SQLAlchemyなFlask</a></h1>
+<p>環境 : CentOS 5.3</p>
+<div class="section" id="mysql">
+<h2>MySQLの準備</h2>
+<p>yumで必要な物を揃える。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% sudo yum install mysql-devel
+% sudo yum install mysql-server
+</pre></div>
+</div>
+<p>初期設定</p>
+<div class="highlight-bash"><div class="highlight"><pre>% mysql_secure_installation
+</pre></div>
+</div>
+<p>色々聞かれるので答えたり、空エンターしたりする。詳しくは以下のリンク参照。</p>
+<p><a class="reference external" href="http://centossrv.com/mysql.shtml">データベースサーバー構築(MySQL) - CentOSで自宅サーバー構築</a></p>
+<p>MySQLサーバ起動</p>
+<div class="highlight-bash"><div class="highlight"><pre>% sudo /etc/init.d/mysqld start
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Pythonの準備</h2>
+<p>MySQLdbがないと使えないのでpipする。</p>
+<div class="highlight-bash"><div class="highlight"><pre>% pip install mysql-python
+</pre></div>
+</div>
+<p>mysql-develが入ってないと失敗します。</p>
+</div>
+<div class="section" id="sqlalchemy">
+<h2>SQLAlchemyな準備</h2>
+<p>これで、create_engineするときにmysqlを指定できるようになった。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s">'mysql+mysqldb://root:&lt;password&gt;@localhost/&lt;db_name&gt;'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>自分の場合これをFlaskアプリ内で使ってみた。</p>
+<p>SQLAlchemyでMySQLを使う場合、MySQLのAPIを使うことができるような。</p>
+<p><a class="reference external" href="http://docs.sqlalchemy.org/en/rel_0_8/dialects/mysql.html">MySQL — SQLAlchemy 0.9 Documentation</a></p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/mysql.html">MySQL</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/06/03/mysql_flask_sqlalchemy.html#disqus_thread" data-disqus-identifier="2013/06/03/mysql_flask_sqlalchemy">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 30, 2013</span>
+        </div>
+        <div class="section" id="ruby">
+<h1><a href="2013/05/30/my_first_ruby.html">はじめてのRuby</a></h1>
+<p>Rubyの勉強をするわけではない、Ruby環境を整える話。</p>
+<p>こんな願望からRuby環境について考えてみることにした。</p>
+<ul class="simple">
+<li>1.9系がいい</li>
+<li>古いRubyでgem使って痛い思いしたくない</li>
+<li>もしかしたら1.8系も使いたいんじゃ…</li>
+</ul>
+<p>rubyワカンネ。</p>
+<div class="section" id="rvm-rbenv">
+<h2>rvm?rbenv?なにそれ</h2>
+<div class="highlight-bash"><div class="highlight"><pre>:open google rvm rvenv
+</pre></div>
+</div>
+<p>bとvを間違えてもGoogle先生は丁寧に間違えたことを教えてくれる。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://d.hatena.ne.jp/sandmark/20121122/1353625485">今更だけどrvmからrbenvに乗り換えるときの個人用メモ - === SANDmark 19106 === beginning stress test</a></li>
+<li><a class="reference external" href="http://spring-mt.tumblr.com/post/18486237491/rvm-rbenv">rvmやめてrbenvにしました - CubicLouve</a></li>
+</ul>
+<p>rvmがすごくディスられてるのがわかった。</p>
+<p>違い -&gt; <a class="reference external" href="http://passingloop.tumblr.com/post/10512902196/difference-between-rbenv-and-rvm">passingloop • rbenv と RVM との違い</a></p>
+<p>なんとなくわかったが、Bundlerってなんだ？</p>
+<p>調べて分かったことを書いておく。</p>
+<div class="section" id="rvm">
+<h3>rvm</h3>
+<p>= Ruby Version Manager</p>
+<p>古い、重い、すごい。</p>
+</div>
+<div class="section" id="rbenv">
+<h3>rbenv</h3>
+<p>新しい、軽い、イケてる、必要最小限機能。</p>
+</div>
+<div class="section" id="gem">
+<h3>gem</h3>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/RubyGems">RubyGems - Wikipedia</a></p>
+<p>Rubyのパッケージ管理システム。</p>
+<p>1.9からは標準のライブラリになった。</p>
+<p>Centos5.3にも入ってた。1.8.5だけど。</p>
+</div>
+<div class="section" id="bundler">
+<h3>Bundler</h3>
+<p>gemのラッパー。以下の様な悩みを抱えている方に役に立つのだとか。</p>
+<ul class="simple">
+<li>本番環境に必要なアノgemが入っていない...だと...</li>
+<li>gem入れまくってたら、どのgemがこのアプリに必要なのかわからなくなっちゃった。テヘ☆</li>
+</ul>
+<p>アプリ環境ごとにgem listがもてるようになるスグレモノらしい。</p>
+<p>導入してみたいのであれば、以下のエントリを参考にするといいのかも。</p>
+<p><a class="reference external" href="http://blog.mirakui.com/entry/20100703/1278165723">gem管理の新標準ツール”Bundler”のTips - 昼メシ物語</a></p>
+<p>Rails3では標準搭載しているみたい。</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>rbenv入れてみよう</h2>
+<p>あんまりRubyわかんないので、軽いほうを使う。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/sstephenson/rbenv ~/.rbenv
+<span class="nv">$ </span>vim ~/.zshrc
+<span class="c"># rbenv setting</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.rbenv/bin:<span class="nv">$PATH</span>
+<span class="nb">eval</span> <span class="s2">&quot;$(rbenv init - zsh)&quot;</span>
+<span class="nv">$ </span>mkdir ~/.rbenv/plugins
+<span class="nv">$ </span><span class="nb">cd</span> ~/.rbenv/plugins
+<span class="nv">$ </span>git clone https://github.com/sstephenson/ruby-build
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+<p>MacだとHomeBrewから入れれるみたい。</p>
+<ul class="simple">
+<li>libyaml</li>
+<li>openssl</li>
+<li>autoconf, readline</li>
+</ul>
+<p>このへんのツールが必要なようだ。Macには今度入れてみよう。</p>
+<p>上の例ではCentos5.3に入れているが最新のautomakeとかautoconfじゃないとあとあと困るのかもしれない。</p>
+<p><a class="reference external" href="http://blog.tk84.net/PgqD">RVMをさくらVPS（CentOS-5.6）にインストール - CMS専門 Web開発者ブログ</a></p>
+<p>どうでもいいがrvmを削除するときの</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gem explode
+<span class="nv">$ </span>gem seppuku
+</pre></div>
+</div>
+<p>とか面白い。</p>
+</div>
+<div class="section" id="id2">
+<h2>rbenv使ってみよう</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rbenv install 1.9.3-p429 --verbose
+</pre></div>
+</div>
+<p>Rubyワカンネので、1.9.3系の一番新しいパッチを選択。</p>
+<p>通常1.9.3を使いたいのでその設定をする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rbenv global 1.9.3-p429
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+<span class="nv">$ </span>ruby -v
+ruby 1.9.3p429 <span class="o">(</span>2013-05-15 revision 40747<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+<span class="nv">$ </span>gem -v
+1.8.23
+</pre></div>
+</div>
+<p>キタコレ。</p>
+<p>proxylocalが欲しかったのでgemる。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gem install proxylocal
+<span class="nv">$ </span>gem list
+</pre></div>
+</div>
+<p>proxylocalが入ってる。ok。</p>
+</div>
+<div class="section" id="python">
+<h2>ちょっとPythonいじったことある人感想。</h2>
+<p>あってるかわかんないけどRuby環境っぽいものができた。</p>
+<p>自分視点だが、RubyとPythonの環境構築(2013年での)ではこんな感じに対応しているのかもしれない。</p>
+<p>なんか違う気がするけど。</p>
+<ul class="simple">
+<li>gem - pip (easy_install)</li>
+<li>rbenv/rvm - pythonbrew/pythonz</li>
+<li>bundler - virtualenv (venv -&gt; python3)</li>
+</ul>
+<p>個人的にはvirtualenvが調子いい。仮想環境を作るという発想が良い感じ。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/ruby.html">ruby</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/30/my_first_ruby.html#disqus_thread" data-disqus-identifier="2013/05/30/my_first_ruby">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 28, 2013</span>
+        </div>
+        <div class="section" id="asakusasatellite-on-heroku">
+<h1><a href="2013/05/28/as_rst.html">AsakusaSatellite on heroku</a></h1>
+<p>最近会社でAsakusaSatelliteにお世話になっているので色々いじって見ようかなって思ったり。</p>
+<div class="section" id="as">
+<h2>自分用AS</h2>
+<p>Rubyって何？自分でも爆速でherokuにASを立てる事ができた。スバラシイ！</p>
+<p><a class="reference external" href="http://docs.asakusa-satellite.org/en/latest/heroku.html">Heroku へのデプロイ — AsakusaSatellite 0.8.1 documentation</a></p>
+<p>動いてる。</p>
+<p><a class="reference external" href="http://fierce-savannah-1084.herokuapp.com">AsakusaSatellite</a></p>
+</div>
+<div class="section" id="bot">
+<h2>Botがほしい</h2>
+<p><a class="reference external" href="http://docs.asakusa-satellite.org/en/latest/api.html">API — AsakusaSatellite 0.8.1 documentation</a></p>
+<p>何やらDockWatcherといふのもがあるらしい。</p>
+<p><a class="reference external" href="https://github.com/codefirst/duck-watcher">codefirst/duck-watcher · GitHub</a></p>
+<p>ソースコードも短いのでいじれるかも。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/heroku.html">heroku</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/28/as_rst.html#disqus_thread" data-disqus-identifier="2013/05/28/as_rst">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 28, 2013</span>
+        </div>
+        <div class="section" id="pyqt4-install-for-cygwin">
+<h1><a href="2013/05/28/pyqt4.html">PyQt4 install for Cygwin</a></h1>
+<p>きっとCygwinユーザーがCygwinでmakeするのはもう嫌と感じるのはもう運命だと思う。</p>
+<p>というわけで、PyQt4は欲しくなったのでインストールする。</p>
+<p>欲しくなった原因はMkdPreview.vim。</p>
+<p>先に書いておくが、全部自前makeしないといけない。</p>
+<div class="section" id="qt4">
+<h2>1. Qt4入ってる？</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ls /usr/lib | grep qt
+</pre></div>
+</div>
+<p>qt4があれば入ってる。自分は入ってた。フルインストールしたら多分入ってるっぽい。</p>
+</div>
+<div class="section" id="sip">
+<h2>2. sip</h2>
+<p>PyQt4を入れる前に、sipなるものを入れる必要がある。</p>
+<p><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/sip/intro">Riverbank | Software | SIP | What is SIP?</a></p>
+<p>読んでみると、C/C++のライブラリ、ここではQtとPythonのバインディングをするツールであることがわかる。</p>
+<p>tarファイルをダウンロード(<a class="reference external" href="http://www.riverbankcomputing.co.uk/software/sip/download">Riverbank | Software | SIP | SIP Download</a>)してmakeする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tar -zxvf sip-4.14.6.tar.bz
+<span class="nv">$ </span><span class="nb">cd </span>sip-4.14.6
+<span class="nv">$ </span>python configure.py
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make install
+</pre></div>
+</div>
+<p>意外とすんなり。</p>
+</div>
+<div class="section" id="pyqt4">
+<h2>3. PyQt4</h2>
+<p>後は、PyQt4をダウンロードしてmakeするだけ。</p>
+<p><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/download">Riverbank | Software | PyQt | PyQt4 Download</a></p>
+<p>Linux, UNIX sourceを選択。</p>
+<p>その前に、qmakeのパスが通っているか確認。通ってなければPATHに追加。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>qmake
+<span class="nb">command </span>not found.
+<span class="nv">$ </span>vim ~/.zshrc
+<span class="nv">PATH</span><span class="o">=(</span>自分の設定<span class="o">)</span>:<span class="nv">$PATH</span>:/usr/lib/qt4/bin
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+<p>使ってるシェルは人によって違う。自分はzsh。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tar -zxvf PyQt-x11-gpl-4.10.1.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>PyQt-x11-gpl-4.10.1
+<span class="nv">$ </span>python configure.py -g
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make install
+</pre></div>
+</div>
+<p>ここでの注意点は２つあって</p>
+<ol class="arabic">
+<li><div class="first line-block">
+<div class="line">python configure.py に-gオプションをつける。</div>
+<div class="line">オプションなして実行すると-gか-kのどちらかつけろといわれるので、-gをつける。</div>
+</div>
+</li>
+<li><p class="first">めっっっっっっっっっちゃ時間かかる。ちょっと焦るくらい終わらないので、時間のあるときにやる。</p>
+</li>
+</ol>
+<p>というわけで１時間後。</p>
+<div class="highlight-bash"><div class="highlight"><pre>recipe for target `_qt.dll' failed
+</pre></div>
+</div>
+<p>ん？</p>
+<div class="highlight-bash"><div class="highlight"><pre>recipe for target `_qt.dll' failed
+</pre></div>
+</div>
+<p>ん？</p>
+<p>見たくない現実が。１時間返せ。返してくれCygwin。</p>
+<p>-g / -kオプションを適当に選択してしまったのが悪いっぽい。と言うかなんだこのオプション。</p>
+<p>-g / -k -&gt; なんかGNOMEかKDEっぽいな。(調べてないので本当にどうかは知りません)</p>
+<p>CygwinのQtってGNOME？KDE？setup.exeを見てみよう。</p>
+<img alt="../../../_images/cygkde.png" src="_images/cygkde.png"/>
+<p>QtはKDEの中にしかありません。</p>
+<p>オプションを-kにして再度チャレンジ。</p>
+<p>小一時間後うまいことmakeできたのでmake install。</p>
+</div>
+<div class="section" id="import-pyqt4">
+<h2>4. import PyQt4</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python
+&gt;&gt;&gt; import PyQt4
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>キマシタワー。</p>
+</div>
+<div class="section" id="cygwin">
+<h2>5. Cygwin以外 &amp; 雑記</h2>
+<p>Ubuntuではapt-getでインストール出来るみたい。</p>
+<p><a class="reference external" href="http://squalo22-diary.blogspot.jp/2011/09/pyqt4ubuntu.html">Wind And Tide: PyQt4をubuntuにインストールする</a></p>
+<p>pip search pyqtしたところPyPiにあるみたいだった。。。</p>
+<p>まさかとは思うが、自前makeしなくても良かったの。。。ってなった。今度試してみよう。</p>
+<p>PySideをpipでインストールしようとしたらhogehogeという記事があったので何かしら参考になるかもしれない。</p>
+<p><a class="reference external" href="http://kk6.hateblo.jp/entry/20110815/1313405197">Pythonbrew環境下にPySideをインストールしようとしたらはまった - kk6のメモ帳*</a></p>
+<p>個人的に使うならPySide使ってみたかったから今度やってみよう。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/python.html">python</a>, <a href="tags/qt.html">Qt</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/28/pyqt4.html#disqus_thread" data-disqus-identifier="2013/05/28/pyqt4">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 27, 2013</span>
+        </div>
+        <div class="section" id="maclean1-mac-clean-install">
+<h1><a href="2013/05/27/maclean1.html">Maclean1 - Mac clean install</a></h1>
+<p>２年前に購入した。Mac Book Pro Early 2011 - Mac OS X 10.6。</p>
+<p>当時筋金入りの情弱(使ったことのあるOS:Windows Vista)の自分が購入して素の状態でそのまま使っていたが、最近なんか調子悪いのでクリーンインストールしてみた。</p>
+<p>Macを手にしてから１年目くらいに、クリーンインストールしたい衝動にかられていたのでちょうど良かった。</p>
+<ul class="simple">
+<li>Pythonista志望、Vimmer見習いなので偏った設定になります。</li>
+<li>Mountain Lionにはしません。Snow Leopardです。</li>
+</ul>
+<div class="section" id="os-install">
+<h2>OS Install</h2>
+<p>付属のインストールDVD(Mac OS X Install DVD)よりインストールする。</p>
+<p>今回は以前まで使っていたパーティションをすべてぶちこわして再構成する感じでいく。</p>
+<ol class="arabic simple">
+<li>DVD入れる</li>
+<li>“c”または”option”を押しながら起動するとDVDからブートされる</li>
+<li>インストールウィザードが出てくるがスルーして、上部のステータスバーにあるディスクユーティリティーを起動</li>
+<li>使用するディスクを選択して、パーティションタブを選択</li>
+<li>オプションで「GUID」を選択</li>
+<li>ボリュームの方式で「1パーティション」を選択</li>
+<li>フォーマットは「Mac OS 拡張(ジャーナリング)」を選択</li>
+<li>「適用」で今までのパーティションとお別れ</li>
+<li>インストールウィザードに戻り、インストール(質問は簡単なので省略)</li>
+<li>無事に起動</li>
+</ol>
+<div class="section" id="os-update">
+<h3>OS Update</h3>
+<p>DVDからインストールしたOSのバージョンは10.6.6と古いのでアップデートする。</p>
+<p>右上のりんごから「ソフトウェアアップデート」</p>
+<p>再起動をしてバージョンを確認すると、10.6.8になっている。</p>
+</div>
+<div class="section" id="application-install-dvd">
+<h3>Application Install DVD</h3>
+<p>っていう名前の付属DVDを入れて、インストール。</p>
+<p>iLifeアプリケーションが入りいます(iPhotoとかiMovieとか、Garagebandも入ってる)</p>
+</div>
+<div class="section" id="mac-setting">
+<h3>Mac Setting</h3>
+<p>何となく自分のこだわり。</p>
+<ol class="arabic simple">
+<li>トラックパッドの「タップでクリック」にチェック。</li>
+<li>壁紙はこちら(<a class="reference external" href="http://tokuna.blog40.fc2.com/blog-entry-2068.html">http://tokuna.blog40.fc2.com/blog-entry-2068.html</a>)</li>
+<li>Dockを画面の左 + サイズを最小</li>
+<li>「ExposeとSpaces」のSpaces。Spacesを有効にして、操作スペースの切り替えをCommand+矢印キーにする。個人的に1行4列。</li>
+</ol>
+</div>
+</div>
+<div class="section" id="neeeeed-app">
+<h2>Neeeeed App</h2>
+<p>これを入れないと始まらないものたち。</p>
+<div class="section" id="firefox">
+<h3>Firefox</h3>
+<p>safariをゴミ箱に入れる前に、Firefoxと検索する。</p>
+<p>むしろ、Safariを起動するのはFirefoxを検索するためだけにあるんじゃないか？</p>
+<p>一緒にAdobe Flash Playerも入れるといい。</p>
+<p>あと、safariは捨てません。すみませんでした。</p>
+</div>
+<div class="section" id="alfred">
+<h3>Alfred</h3>
+<p>QuickSilverじゃないランチャー。ないと作業効率が著しく低下するので早い段階でインストール。</p>
+</div>
+<div class="section" id="iterm2">
+<h3>iTerm2</h3>
+<p>TerminalよりiTerm2。</p>
+</div>
+<div class="section" id="mozc">
+<h3>Mozc</h3>
+<p>Google日本語入力(<a class="reference external" href="http://www.google.co.jp/ime">http://www.google.co.jp/ime/</a>)</p>
+<p>インストーラーからインストール。</p>
+<p>システム環境設定の「言語とテキスト」でGoogle日本語入力にチェックが入っていることを確認、ことえりをOFFにする。</p>
+</div>
+<div class="section" id="xcode">
+<h3>Xcode</h3>
+<p>Macにはデフォルトでgcc入ってない。めっちゃ不便。</p>
+<p>DeveloperサイトからXcodeを入手できる(<a class="reference external" href="https://developer.apple.com/downloads/index">https://developer.apple.com/downloads/index</a>.action#)</p>
+<p>Snow Leopardでは多分「Xcode 3.2.6 and iOS SDK 4.3 for Snow Leopard」を選択すればいい。</p>
+<p>4Gくらいあるのでダウンロードに時間がかかる。</p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/mac.html">mac</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/27/maclean1.html#disqus_thread" data-disqus-identifier="2013/05/27/maclean1">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 13, 2013</span>
+        </div>
+        <div class="section" id="rake">
+<h1><a href="2013/05/13/rake.html">rake</a></h1>
+<p><a class="reference external" href="http://www.oreilly.co.jp/books/9784873116143">O’Reilly Japan - テスト駆動開発による組み込みプログラミング</a> で紹介されているテストフレームワークUnityはrakeでビルドできるということなので使ってみよう。</p>
+<div class="section" id="install-for-cygwin">
+<h2>Install for Cygwin</h2>
+<p>Windowsで作業するときはもっぱらCygwinなのでめんどくさいがCygwinに入れてみる。</p>
+<p>デフォルトのCygwinにはgemが入っていないので</p>
+<ol class="arabic simple">
+<li>wget gem &amp; tar</li>
+<li>gemのインストール</li>
+<li>gemでrakeインストール</li>
+</ol>
+<p>の流れでインストールする。</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ wget http://rubyforge.org/frs/download.php/76729/rubygems-1.8.25.tgz
+$ cd rubygems-1.8.25
+$ ruby --version
+ruby 1.9.3p327 (2012-11-10 revision 37606) [i386-cygwin]
+$ ruby setup.rb
+
+RubyGems 1.8.25 installed
+unable to convert U+0160 from UTF-8 to Windows-31J for History.txt, skipping
+unable to convert U+0160 from UTF-8 to Windows-31J for History.txt, skipping
+
+== 1.8.25/ 2013-01-24
+
+* 6 bug fixes:
+
+  * Added 11627 to setup bin_file location to protect against errors. Fixes #328 by ConradIrwin
+  * Specification#ruby_code didn't handle Requirement with multiple
+  * Fix error on creating a Version object with a frozen string.
+  * Fix incremental index updates
+  * Fix missing load_yaml in YAML-related requirement.rb code.
+  * Manually backport encoding-aware YAML gemspec
+
+
+------------------------------------------------------------------------------
+
+RubyGems installed the following executables:
+        /usr/bin/gem
+
+$ gem --version
+1.8.25
+$ gem install rake
+
+Fetching: rake-10.0.4.gem (100%)
+Successfully installed rake-10.0.4
+1 gem installed
+Installing ri documentation for rake-10.0.4...
+Installing RDoc documentation for rake-10.0.4...
+
+$ rake --version
+rake, version 10.0.4
+</pre></div>
+</div>
+<p>ok!</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/ruby.html">ruby</a>, <a href="tags/rake.html">rake</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/13/rake.html#disqus_thread" data-disqus-identifier="2013/05/13/rake">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>May 08, 2013</span>
+        </div>
+        <div class="section" id="centos-5-3">
+<h1><a href="2013/05/08/centos_continue.html">centos 5.3 使えるようにする</a></h1>
+<p>Vim, Zsh, Screen, Pythonの設定。</p>
+<div class="section" id="vim">
+<h2>Vim</h2>
+<p>.vimrcはGist -&gt;</p>
+<p>使ってるプラグイン達</p>
+<div class="highlight-vim"><div class="highlight"><pre>NeoBundle <span class="s1">'/Shougo/neocomplcache.git'</span>
+NeoBundle <span class="s1">'/Shougo/neosnippet.git'</span>
+NeoBundle <span class="s1">'/Shougo/vimshell.git'</span>
+NeoBundle <span class="s1">'/Shougo/vimproc.git'</span>
+NeoBundle <span class="s1">'/Shougo/vimfiler.git'</span>
+NeoBundle <span class="s1">'/Shougo/unite.vim.git'</span>
+NeoBundle <span class="s1">'/thinca/vim-quickrun.git'</span>
+NeoBundle <span class="s1">'/mattn/multi-vim.git'</span>
+NeoBundle <span class="s1">'/mattn/zencoding-vim.git'</span>
+NeoBundle <span class="s1">'/scrooloose/nerdcommenter.git'</span>
+NeoBundle <span class="s1">'/scrooloose/nerdtree.git'</span>
+NeoBundle <span class="s1">'/scrooloose/syntastic.git'</span>
+NeoBundle <span class="s1">'/vim-scripts/YankRing.vim.git'</span>
+NeoBundle <span class="s1">'/rstacruz/sparkup.git'</span>
+NeoBundle <span class="s1">'/Lokaltog/vim-easymotion.git'</span>
+</pre></div>
+</div>
+<p>今後の増殖に期待。</p>
+<p>今回導入したプラグインについてコメント。</p>
+<div class="section" id="sparkup">
+<h3>Sparkup</h3>
+<p><a class="reference external" href="https://github.com/rstacruz/sparkup">rstacruz/sparkup · GitHub</a></p>
+<p>zencodingバリにhtmlをさくっと書けるプラグイン。</p>
+<p>使い方はREADME &amp; ここ参照 -&gt; <a class="reference external" href="http://www.serendip.ws/archives/4353">Vim の Sparkup プラグインで HTML タグを Zen Coding 風に簡単入力 : Serendip - Webデザイン・プログラミング</a></p>
+</div>
+<div class="section" id="syntastic">
+<h3>Syntastic</h3>
+<p><a class="reference external" href="https://github.com/scrooloose/syntastic">scrooloose/syntastic · GitHub</a></p>
+<p>導入すると:w時になんとSyntastic!</p>
+</div>
+<div class="section" id="easy-motion">
+<h3>Easy-Motion</h3>
+<p><a class="reference external" href="https://github.com/Lokaltog/vim-easymotion">Lokaltog/vim-easymotion · GitHub</a></p>
+<p>いきたいところ簡単にいけるeasy-motion!</p>
+<p>vimrcと使い方は以下の記事で勉強。</p>
+<p><a class="reference external" href="http://blog.remora.cx/2012/08/vim-easymotion.html">【Vim】目的の行に素早く移動する（相対行番号と easymotion プラグイン） | blog.remora.cx</a></p>
+</div>
+<div class="section" id="neosnippet">
+<h3>NeoSnippet</h3>
+<p>ちょっと前にneocomをupdateした後に突然補間にめっちゃ時間が掛かる現象に遭遇して以来、分離前のネオコンを使っていたのだが今回使ってみる。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Shougo/neocomplcache">Shougo/neocomplcache · GitHub</a></li>
+<li><a class="reference external" href="https://github.com/Shougo/neosnippet">Shougo/neosnippet · GitHub</a></li>
+</ul>
+<p>vimrcはそのまま使わせてもらってます。良い感じに動いているようだ。</p>
+</div>
+<div class="section" id="id1">
+<h3>修正, その他</h3>
+<div class="section" id="popup-color">
+<h4>1. popup color</h4>
+<p><a class="reference external" href="http://vim-users.jp/2009/05/hack9">Vim-users.jp - Hack #9: Insert mode補完　設定編</a></p>
+<p>ネオコンのポップアップが何も見えなかったのでポップアップの色を変更。変える方法を初めて知る。</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="k">hi</span> Pmenu ctermbg<span class="p">=</span><span class="m">8</span>
+<span class="k">hi</span> PmenuSel ctermbg<span class="p">=</span><span class="m">4</span>
+<span class="k">hi</span> PmenuSbar ctermbg<span class="p">=</span><span class="m">0</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://h2plus.biz/hiromitsu/entry/674">VimLで色指定する数値の一覧 | Inhale n’ Exhale</a></p>
+</div>
+<div class="section" id="nerdtree">
+<h4>2. nerdtree</h4>
+<p><a class="reference external" href="http://stackoverflow.com/questions/9927217/vim-nerdtree-suddenly-broke">vim - nerdtree suddenly broke - Stack Overflow</a></p>
+<p>?~V?みたいなのが表示されたときはvimrcに以下を設定。</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="k">let</span> <span class="k">g</span>:NERDTreeDirArrows<span class="p">=</span><span class="m">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ctrl-v">
+<h3>3. ctrl+v</h3>
+<p>ctrl + vで矩形選択モードになる。チョー使えそう！</p>
+<p>何で知らなかったのorz</p>
+</div>
+<div class="section" id="multiple-cursors">
+<h3>4. multiple-cursors</h3>
+<p><a class="reference external" href="https://github.com/terryma/vim-multiple-cursors">terryma/vim-multiple-cursors · GitHub</a></p>
+<p>これ使ってみたい。</p>
+</div>
+</div>
+<div class="section" id="zsh">
+<h2>Zsh</h2>
+<p><a class="reference external" href="http://ama-ch.hatenablog.com/entry/20090109/1231526834">zsh入門してみたら便利すぎて鼻息が抑えられない - はてブロ@ama-ch</a></p>
+<p>Zshrcの設定ファイルは良い感じのをコピーして勝手に使っていただけなのでまじめに考えてみる。</p>
+<p>その結果こうなった。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span><span class="s2">&quot;ja_JP.UTF-8&quot;</span>
+<span class="c"># The following lines were added by compinstall</span>
+zstyle <span class="s1">':completion:*'</span> completer _expand _complete _ignored _correct _approximate
+zstyle <span class="s1">':completion:*'</span> list-colors <span class="s1">''</span>
+zstyle <span class="s1">':completion:*'</span> list-prompt %SAt %p: Hit TAB <span class="k">for </span>more, or the character to insert%s
+zstyle <span class="s1">':completion:*'</span> menu <span class="k">select</span><span class="o">=</span>2
+zstyle <span class="s1">':completion:*'</span> <span class="k">select</span>-prompt %SScrolling active: current selection at %p%s
+zstyle <span class="s1">':completion:*'</span> verbose <span class="nb">true</span>
+autoload -Uz compinit
+compinit
+<span class="c"># End of lines added by compinstall</span>
+<span class="c"># Lines configured by zsh-newuser-install</span>
+<span class="nv">HISTFILE</span><span class="o">=</span>~/.zsh_history
+<span class="nv">HISTSIZE</span><span class="o">=</span>5000
+<span class="nv">SAVEHIST</span><span class="o">=</span>5000
+setopt appendhistory extendedglob notify
+setopt hist_ignore_dups     <span class="c"># ignore duplication command history list</span>
+setopt share_history        <span class="c"># share command history data</span>
+<span class="c"># history search Ctrl+s or Ctrl+S</span>
+autoload <span class="nb">history</span>-search-end
+zle -N <span class="nb">history</span>-beginning-search-backward-end <span class="nb">history</span>-search-end
+zle -N <span class="nb">history</span>-beginning-search-forward-end <span class="nb">history</span>-search-end
+bindkey <span class="s2">&quot;^P&quot;</span> <span class="nb">history</span>-beginning-search-backward-end
+bindkey <span class="s2">&quot;^N&quot;</span> <span class="nb">history</span>-beginning-search-forward-end
+<span class="c"># End of lines configured by zsh-newuser-install</span>
+autoload colors
+colors
+<span class="c">#Prompt</span>
+<span class="nb">export </span><span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;[%F{magenta}%B%n%b%f%F{cyan}@%M%f]{%~}%# &quot;</span>
+<span class="nb">export </span><span class="nv">RPROMPT</span><span class="o">=</span><span class="s2">&quot;[%F{yellow}%*%f]&quot;</span>
+<span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls -G'</span>
+<span class="c"># PATH</span>
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/sbin:/bin:<span class="nv">$PATH</span>
+<span class="c"># no beep</span>
+setopt nolistbeep
+<span class="c"># useful functions</span>
+setopt auto_cd
+setopt auto_pushd
+setopt correct
+setopt list_packed
+<span class="c"># virtualenv setting</span>
+<span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python26
+<span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.pythonenvs
+<span class="nb">source</span> /usr/bin/virtualenvwrapper.sh
+</pre></div>
+</div>
+<p>注意したいのは先頭に追加したLANG変数の設定。</p>
+<p>/etc/sysconfig/i18nに設定されているのにzshで読み込まれていなかったようだ。</p>
+<p>このせいで文字化けに時間を取られてしまったのが残念。。。</p>
+<p>nerdtreeの表示がおかしくなるのもこれが原因。</p>
+</div>
+<div class="section" id="python">
+<h2>Python</h2>
+<p><a class="reference external" href="http://yymm6.hatenablog.com/entry/2013/01/05/182750">Python Version Manage - memomemo</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install virtualenv virtualenvwrapper
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/utahta/pythonbrew">utahta/pythonbrew · GitHub</a></p>
+<p>pythonbrewも入れよう。</p>
+<p>python3のvenvを使ってみようかと思ったりもするが、virtualenvがまだ便利なのでそのまま。</p>
+</div>
+<div class="section" id="other">
+<h2>Other</h2>
+<p><a class="reference external" href="http://d.hatena.ne.jp/Loups-garous/20120917/1347900472">CentOS6でポート開放をする - 見果てぬ夢</a></p>
+<p>特定のポートを開放したいときは/etc/sysconfig/iptablesを編集する。</p>
+<div class="highlight-bash"><div class="highlight"><pre>-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+</pre></div>
+</div>
+<p>80番ポートを開いている例。</p>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/linux.html">Linux</a>, <a href="tags/centos.html">Centos</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/05/08/centos_continue.html#disqus_thread" data-disqus-identifier="2013/05/08/centos_continue">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 30, 2013</span>
+        </div>
+        <div class="section" id="centos">
+<h1><a href="2013/04/30/centos_setup.html">centosはじめました</a></h1>
+<p>CentOS 5.3を使うことになったので自分好みのCentOSになるように設定してみた。</p>
+<p>sakuraもデフォルトCentOSなのでそのまま同じ設定でいけるかも。</p>
+<div class="section" id="install">
+<h2>Install</h2>
+<p>下記の記事を参考にインストール。</p>
+<p>※ net-install版ではない。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20090403/327762/?ST=oss&amp;P=1">インストール完全ガイド - CentOS 5.3：ITpro</a></li>
+<li><a class="reference external" href="http://policy.jugem.cc/?eid=285">CentOS 5.3 のインストール (グラフィカル モード) | POLICY.JUGEM.CC</a></li>
+</ul>
+<p>設定した項目は以下。</p>
+<ol class="arabic simple">
+<li>ネットワーク : DHCP IPv4 IPv6 (デフォルト変更なし)</li>
+<li>用途 : Server - GUI (Server用パッケージとGNOME)</li>
+<li>ファイアウォール : 有効、sshを許可</li>
+</ol>
+<p># ネットワーク</p>
+<p>起動した段階でLANケーブルに繋がっていなかったりすると、eth0が停止状態になっているので下記の方法で起動する。</p>
+<ul class="simple">
+<li>システム -&gt; 管理 -&gt; ネットワーク</li>
+<li>ネットワーク管理画面でeth0が停止中になっている</li>
+<li>起動ボタンをクリック</li>
+<li>再起動を要求される場合があるので、必要に応じて再起動する</li>
+</ul>
+</div>
+<div class="section" id="packages-setting">
+<h2>Packages Setting</h2>
+<p>何はともあれ下記のコマンドを始めに実行する。CentOS始めました感が出てくる。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ yum update
+</pre></div>
+</div>
+<p>yumとrpmがあるが基本的にはyumを使用する。</p>
+<p># すぐさま入れたいものリスト</p>
+<ul class="simple">
+<li>vim7.3</li>
+<li>hg(mercurial)</li>
+<li>git</li>
+<li>screen</li>
+<li>zsh</li>
+<li>python</li>
+<li>gcc</li>
+<li>g++</li>
+<li>make</li>
+<li>automake</li>
+</ul>
+<div class="section" id="gcc">
+<h3>1. gcc</h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install gcc</span>
+<span class="o">...</span>
+<span class="c"># rpm -qa | grep gcc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="g">
+<h3>2. g++</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/plasticscafe/20080930/1222778825">CentOSへのg++の追加方法 - Reinvention of the Wheel</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install gcc-c++</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="screen">
+<h3>3. screen</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/kuchida123/20110710/p2">screen入れてみる - CentOS＠さくらVPSで構築するサーバ管理・運用メモ</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install screen</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mercurial">
+<h3>3. mercurial</h3>
+<p><a class="reference external" href="http://blog.santalinux.net/?p=341">Logwatch for santa » CentOS 5.4 に mercurial をインストール</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install python-devel</span>
+<span class="c"># yum install python-setuptools</span>
+<span class="c"># easy_install mercurial</span>
+<span class="c"># hg --version</span>
+<span class="o">...</span> <span class="mf">2.6</span><span class="o">-</span><span class="n">rc</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>versionが2.6.rc。最新は2.5.4とかじゃなかったっけ？</p>
+<p><a class="reference external" href="http://troter.hatenablog.jp/entry/20130421/1366543906">Mercurial-2.6-rcの並列になったupdateを試す - 放牧日記</a></p>
+<p>まさかの最新版である。rc版について知らなかったので↓</p>
+<p><a class="reference external" href="http://www.sophia-it.com/content/RC%E7%89%88">RC版とは (Release Candidate version) アールシーばん： - IT用語辞典バイナリ</a></p>
+</div>
+<div class="section" id="zsh">
+<h3>4. zsh</h3>
+<div class="highlight-python"><div class="highlight"><pre># yum install zsh
+# zsh --version
+zsh 4.2.6
+</pre></div>
+</div>
+<p>必要に応じてバージョンアップする。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://please-sleep.cou929.nu/build-zsh-on-centos5.html">CentOS 5.6 で zsh をバージョンアップ - Please Sleep</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/amari3/20110817/1313595431">さくらのVPSの CentOS5.6 に最新版の zsh を入れてみた - amari3のはてなダイアリー</a></li>
+</ul>
+</div>
+<div class="section" id="zlib">
+<h3>5. zlib</h3>
+<p>自前でmakeするときなどなどで時々なくて失敗ということがあるので先に入れる。</p>
+<div class="highlight-python"><div class="highlight"><pre># rpm -qa | grep zlib
+なかったら
+# yum install zlib
+# rpm -qa | grep zlib-devel
+なかったら
+# yum install zlib-devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="make">
+<h3>6. make</h3>
+<div class="highlight-python"><div class="highlight"><pre># rpm -qa | grep make
+なかったら
+# yum install make
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h3>6. python</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/cu39/20120110/1326209060">CentOS 5.7 に Python 2.6 を入れて pip で MoinMoin をインストール - キュウリのように落ち着いて</a></p>
+<div class="highlight-python"><div class="highlight"><pre># python
+Python 2.4.3...
+...
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>古すぐる。</p>
+<div class="highlight-python"><div class="highlight"><pre># easy_install pip
+TrackBackの文字が。。。
+# pip
+失敗＼(^o^)／ｵﾜﾀ
+</pre></div>
+</div>
+<p>由々しき事態である。これはなんとしても回避する。(pipが使えない環境では呼吸ができないのと同然、生きていけない。。。)</p>
+<p>そう、そして外部リポジトリに手を出すのである。EPELはfedoraのリポジトリ。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tooyama.org/yum-addrepo-epel.html">CentOS 外部レポジトリの追加(EPEL)</a></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre># wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+# rpm -ivh epel-release-5-4.noarch.rpm
+# yum --enablerepos=epel search python26
+# yum --enablerepos=epel install python26
+# python26
+Python 2.6.8...
+...
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>次は2.6のeasy_installを使えるようにする。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum --enablerepos=epel install python26-distribute
+# which easy_install-2.6
+/usr/bin/easy_install-2.6
+# easy_install-2.6 pip
+# pip-2.6 --version
+pip 1.3.1 .......
+# pip --version
+pip 1.3.1 .......(同じバージョンなのでpipのみでも2.6のpipコマンドが実行可能)
+</pre></div>
+</div>
+<p>ok!</p>
+</div>
+<div class="section" id="git">
+<h3>7. git</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/mrgoofy33/20110206/1296952248">CentOS5.5にgitをインストールする(yumを使用) - hogehoge foobar Blog Style5</a></p>
+<p># yum install gitができない。easy_install mercurialでインストールできるhgは素晴らしい。</p>
+<p>上記記事にはyum.repos.dにgit.reposを追加してhogehogeと書いてあるが、先ほどpythonでepelリポジトリを追加してしまったのでそこにgitがある。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum list | grep git
+gitがあるのを確認
+# yum install git
+</pre></div>
+</div>
+<p>今はデフォルトで–enablerepo=epelになっているが、この状態はあまり良くないかもしれないのでデフォルトでは見つからないように設定する。</p>
+</div>
+<div class="section" id="automake">
+<h3>8. automake</h3>
+<p><a class="reference external" href="http://blog.tk84.net/PgqD">RVMをさくらVPS（CentOS-5.6）にインストール - CMS専門 Web開発者ブログ</a></p>
+<p>yumで入れられるautomakeはバージョンが古いらしくruby環境を構築する際にえらい面倒なことになるようなので自前makeした方がいい。</p>
+</div>
+<div class="section" id="vim7-3">
+<h3>9. vim7.3</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/hosikiti/20100910/1284079341">CentOS 5.5 にVim7.3をソースからインストール - ITコンサルタント成長録</a></p>
+<p>2013/04現在の最新版は7.3.3。以下のコマンドを実行していけばインストール完了。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum install ncurses-devel -y
+# wget http://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
+# tar jxfv vim-7.3.tar.bz2
+# mkdir vim73/patches
+# cd vim73/patches
+# seq -f http://ftp.vim.org/pub/vim/patches/7.3/7.3.%03g 3 | xargs wget
+# cd ..
+# cat patches/7.3.* | patch -p0
+# ./configure --prefix=/usr --enable-multibyte --with-features=huge --disable-selinux
+# make
+# make install
+# vim
+vim 7.3.3
+</pre></div>
+</div>
+<p>ok!</p>
+</div>
+</div>
+<div class="section" id="security">
+<h2>Security</h2>
+<div class="section" id="wheel">
+<h3>wheelユーザー</h3>
+<p>CentOSではwheelユーザーはデフォルトでonになっていないので下記の設定を行う。</p>
+<p>/etc/login.defsの末尾に以下の行を追加</p>
+<div class="highlight-python"><div class="highlight"><pre># Login is whell only
+#
+SU_WHEEL_ONLY yes
+</pre></div>
+</div>
+<p>/etc/pam.d/suを編集</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Uncomment the following line to require a user to be in the &quot;wheel&quot; group.</span>
+<span class="c">#auth       required     /lib/security/$ISA/pam_wheel.so use_uid</span>
+</pre></div>
+</div>
+<p>2行目のauth...のコメントアウトを外す。</p>
+<p>/etc/groupでsuが使えるユーザーを設定。</p>
+<div class="highlight-python"><div class="highlight"><pre># vim /etc/group
+下記の行に
+old : wheel:x:10:root
+ユーザーhogeを追加
+new : wheel:x:10:root,hoge
+</pre></div>
+</div>
+</div>
+<div class="section" id="root">
+<h3>rootへのログイン</h3>
+<p><a class="reference external" href="http://wdsdx.com/book/export/html/71">CentOS 設定編</a></p>
+<p>CentOSに限らずかもしれないが、/etc/ssh/sshd_configで</p>
+<div class="highlight-python"><div class="highlight"><pre>PermitRootLogin yes
+</pre></div>
+</div>
+<p>となっているのはセキュリティ上問題がある。(Linuxに**必ず**存在するrootユーザーは格好の的になってしまう)</p>
+<p>なので、rootはパスワード認証でログイン出来ないようにする。公開鍵認証はログイン可。</p>
+<p>rootへの公開鍵認証を行いたいホスト(localhost)で鍵生成、鍵コピー。</p>
+<div class="highlight-python"><div class="highlight"><pre>(localhost)$ ssh-keygen
+(localhost)$ ssh-copy-id root@XXX.XXX.XXX.XXX
+パスワードを要求される(まだパスワード認証は出来る状態)
+(localhost)$ ssh root@XXX.XXX.XXX.XXX
+[root@xxxxx ~]#
+ssh公開鍵認証でrootにログイン出来るのを確認
+</pre></div>
+</div>
+<p>rootでログインして/etc/ssh/sshd_configを書き換える。</p>
+<div class="highlight-python"><div class="highlight"><pre># PermitRootLoginを以下に書き換える
+PermitRootLogin without-password
+</pre></div>
+</div>
+<p>もはやsshではログインできなくするという少しワイルドな方法もある。</p>
+<p><a class="reference external" href="http://kazmax.zpp.jp/linux/lin_ssh.html">sshのrootログインを禁止する</a></p>
+<p>設定は簡単で、/etc/ssh/sshd_configのPermitRootLoginをnoにする</p>
+<div class="highlight-python"><div class="highlight"><pre>PermitRootLogin no
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips</h2>
+<div class="section" id="id2">
+<h3>覚えておきたいシステムコマンド</h3>
+<p><a class="reference external" href="http://linux.kororo.jp/cont/intro/abso_com_sys.php">覚えておきたい必須コマンド[ システム編 ]</a></p>
+<ul class="simple">
+<li>uname -a</li>
+<li>df -h</li>
+<li>who (“w” でも可)</li>
+<li>last</li>
+<li>free -tm</li>
+<li>ps aux | grep sshd</li>
+<li>pstree</li>
+<li>lsof -i:ssh (-i:hoge hogeはポート番号又はプロセス名)</li>
+</ul>
+</div>
+<div class="section" id="usr-usr-local">
+<h3>/usrと/usr/local</h3>
+<p><a class="reference external" href="http://mylinux.g.hatena.ne.jp/teraco/20081114/1226637835">/usr/binと/usr/local/binの違いについて - 今日も元気にlinux - mylinuxグループ</a></p>
+</div>
+<div class="section" id="centos-version">
+<h3>CentOS –version</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/yokococon/20070206">CentOSのバージョン確認 - yokococonの日記</a></p>
+</div>
+<div class="section" id="rpmyum">
+<h3>rpmとyumの違い</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/inouetakuya/20111006/1317900802">初心者の頃に知っておきたかった rpm と yum の違いと使い分け - 彼女からは、おいちゃんと呼ばれています</a></p>
+</div>
+<div class="section" id="yum">
+<h3>yumのオプション</h3>
+<p><a class="reference external" href="http://kajuhome.com/gossip_thread/200.shtml">yum -y の -y は必要ですか?</a></p>
+<p>-yオプションは(y/N)を聞かないですぐにインストールしちゃうようになるオプション。</p>
+<p>困ったときはman先輩に聞こう。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># man yum</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scp">
+<h3>scp</h3>
+<p><a class="reference external" href="http://cns-guide.sfc.keio.ac.jp/2004/2/6/2.html">6.2 scpコマンドを使ったファイルの転送</a></p>
+<p>ftpよりscp。</p>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/linux.html">Linux</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/04/30/centos_setup.html#disqus_thread" data-disqus-identifier="2013/04/30/centos_setup">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 25, 2013</span>
+        </div>
+        <div class="section" id="c-testing-frameworks">
+<h1><a href="2013/04/25/c_testframeworks.html"><a class="toc-backref" href="#id29">C言語 - Testing Frameworks</a></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#c-testing-frameworks" id="id29">C言語 - Testing Frameworks</a><ul>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#servey" id="id30">Servey</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cunit" id="id31">CUnit</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cut-2-6" id="id32">CUT 2.6</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cutest" id="id33">CuTest</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cutter" id="id34">Cutter</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#mintest" id="id35">MinTest</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cmockery" id="id36">CMockery</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cspec" id="id37">CSpec</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#unity" id="id38">Unity</a></li>
+<li><a class="reference internal" href="2013/04/25/c_testframeworks.html#cpputest" id="id39">CppUTest</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>C言語で開発していく際にTDDまたはBDDを意識した開発を行っていこうと思う。</p>
+<p>TDD : <a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%86%E3%82%B9%E3%83%88%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">テスト駆動開発 - Wikipedia</a></p>
+<p>BDD : <a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%93%E3%83%98%E3%82%A4%E3%83%93%E3%82%A2%E9%A7%86%E5%8B%95%E9%96%8B%E7%99%BA">ビヘイビア駆動開発 - Wikipedia</a></p>
+<div class="section" id="servey">
+<h2><a class="toc-backref" href="#id30">Servey</a></h2>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/ユニットテスト・フレームワーク一覧#C">ユニットテスト・フレームワーク一覧 - Wikipedia</a></p>
+<p>C言語テストフレームワークについて扱っている日本人の記事</p>
+<ul class="simple">
+<li><a class="reference external" href="http://softest.cocolog-nifty.com/blog/2008/02/c_394e.html">C言語の単体テスト、いろいろ: ソフトウェアテストの勉強室</a></li>
+<li><a class="reference external" href="http://rui.processor.jp/2012/11/unit_test_03">ユニットテスト環境はどのようなものが存在するか | Rui Software</a></li>
+<li><a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/26/220501">C言語向けユニットテスティングフレームワーク CUT、CuTestについて - 千里霧中</a></li>
+</ul>
+<p>よく紹介されていて情報もありそうな、以下のフレームワークを試してみる。</p>
+<ul class="simple">
+<li>CUnit</li>
+<li>CUT</li>
+<li>Cutter</li>
+<li>CuTest</li>
+<li>MinUnit</li>
+<li>(CMockery)</li>
+<li>CSpec(BDD)</li>
+<li>Unity</li>
+<li>CppUTes</li>
+</ul>
+<p>※ ほとんどのフレームワームが2006~2008あたりで開発がストップしている。</p>
+</div>
+<div class="section" id="cunit">
+<h2><a class="toc-backref" href="#id31">CUnit</a></h2>
+<p>有名なテストフレームワーク。</p>
+<p>日本語のチュートリアルがあったので実践。</p>
+<p><a class="reference external" href="http://homepage3.nifty.com/kaku-chan/cunit/index.html">CUnit チュートリアル</a></p>
+<div class="section" id="install">
+<h3>1. Install</h3>
+<p>SOURCEFORGEに圧縮ファイルがあるのでダウンロード。( <a class="reference external" href="http://sourceforge.net/projects/cunit">C Unit Testing Framework | Free software downloads at SourceForge.net</a> )</p>
+<p>解凍コマンド( <a class="reference external" href="http://uguisu.skr.jp/Windows/tar.html">tarコマンドで解凍・圧縮するlinux一覧まとめ（tg、zgz、zipなど）</a> )</p>
+<div class="highlight-none"><div class="highlight"><pre>$ tar -jxf CUnit-2.1-2-src.tar.bz2
+$ cd CUnit-2.1-2
+$ ./configure --enable-curses
+$ make
+$ make install
+</pre></div>
+</div>
+<p>※例によって例のごとくCygwinではエラー</p>
+<p>※Linux環境ではsudo make installする必要があるかもしれない</p>
+</div>
+<div class="section" id="usage">
+<h3>2. Usage</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">include</span> <span class="o">&lt;</span><span class="n">CUnit</span><span class="o">/</span><span class="n">CUnit</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="cp">#include &lt;CUnit/Console.h&gt;</span>
+
+<span class="kt">int</span> <span class="n">say_two</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">test_say_two_01</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">CU_pSuite</span> <span class="n">sort_suite</span><span class="p">;</span>
+    <span class="n">CU_initialize_registry</span><span class="p">();</span>
+    <span class="n">sort_suite</span> <span class="o">=</span> <span class="n">CU_add_suite</span><span class="p">(</span><span class="s">&quot;Sort&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">CU_add_test</span><span class="p">(</span><span class="n">sort_suite</span><span class="p">,</span> <span class="s">&quot;test_001&quot;</span><span class="p">,</span> <span class="n">test_say_two_01</span><span class="p">);</span>
+    <span class="n">CU_console_run_tests</span><span class="p">();</span>
+    <span class="n">CU_cleanup_registry</span><span class="p">();</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">test_say_two_01</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">say_two</span><span class="p">();</span>
+    <span class="n">CU_ASSERT</span><span class="p">(</span><span class="n">word</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usability">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>古めかしい。</li>
+<li>main分を自分で書かないとダメ。しかも結構多い。</li>
+<li>色々とCUNIT用の設定を書かないといけないので、テスト書くの大変。</li>
+<li>makeしたりと導入コストが高い。しかもCygwinではmake失敗するとかいう環境によっては使えなかったりするのがかなり困る。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cut-2-6">
+<h2><a class="toc-backref" href="#id32">CUT 2.6</a></h2>
+<p><a class="reference external" href="http://www.falvotech.com/content/cut">CUT 2.6 – 10th Anniversary Version!</a></p>
+<p>Pythonを使っている <strong>軽量</strong> テストフレームワーク。</p>
+<p>CUT, Cutterについてはこの記事を参考にしています。 <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/26/220501">C言語向けユニットテスティングフレームワーク CUT、CuTestについて - 千里霧中</a></p>
+<div class="section" id="id5">
+<h3>1. Install</h3>
+<p>Linux環境では以下のコマンドでさくっとインストール</p>
+<div class="highlight-none"><div class="highlight"><pre>$ wget http://www.falvotech.com/content/cut/2.6/cut-2.6.tar.gz
+$ tar -zxvf cut-2.6.tar.gz
+$ cd cut-2.6
+$ sudo make install PREFIX=/usr/local
+cc -c -o cut.o cut.c
+ar r libcut.a cut.o
+ar: creating libcut.a
+rm -rf ./build
+mkdir -p ./build/bin
+mkdir -p ./build/lib
+mkdir -p ./build/include/cut/2.6
+cp \*.py ./build/bin
+cp cutgen ./build/bin
+chmod a+x ./build/bin/cutgen.py ./build/bin/cutgen
+cp libcut.a ./build/lib
+cp cut.h ./build/include/cut/2.6
+mkdir -p /usr/local
+cp -r ./build/* /usr/local
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>2. Usage</h3>
+<p>残念なことにドキュメントは見当たらない。しかし、使い方はとても簡単。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;cut/2.6/cut.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">hoge</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">__CUT__Hoge</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">ASSERT</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="n">hoge</span><span class="p">(),</span> <span class="s">&quot;Assert Message!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>テスト関数は__CUT__を接頭語としてつける。</p>
+<p>テスト関数を記載したファイルを読み込んだ後は、cutgenを実行する。</p>
+<p>テスト用のmain関数が書かれたファイルが出力されるのでコンパイル-&gt;実行。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ cutget hoge.c &gt; main.c
+$ gcc hoge.c main.c -L/usr/local/lib -lcut
+$ ./a.out
+cut.c:10:0: 2 == hoge(): error: Assert Message.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>簡単に使える。make installしているがmakeなくてもいけるんじゃないかというくらい。</li>
+<li>軽量。動作も軽快。</li>
+<li>テストフレームワークとして <strong>必要最小限</strong> の機能しかない。</li>
+<li>pythonが入っていないとcutgenコマンドが使えない。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cutest">
+<h2><a class="toc-backref" href="#id33">CuTest</a></h2>
+<p><a class="reference external" href="http://cutest.sourceforge.net">CuTest: The Cutest C Unit Testing Framework</a></p>
+<p>CUTのshell script版。ヘッダとソースファイルさえあればいい。</p>
+<p>ドキュメントはREADME.txtのみ！そのままやってみる。</p>
+<div class="section" id="id8">
+<h3>1. Install</h3>
+<p><a class="reference external" href="http://sourceforge.net/projects/cutest">CuTest: C Unit Testing Framework | Free Development software downloads at SourceForge.net</a></p>
+<p>上記のリンクにZIPファイルが落ちているので解凍するだけ。</p>
+</div>
+<div class="section" id="id9">
+<h3>2. Usage</h3>
+<p>カレントディレクトリに(/testとかディレクトリを作ってもいい)、CuTest.h, CuTest.c, make-tests.shを配置する。</p>
+<p># cutest_sample.c</p>
+<div class="highlight-c"><div class="highlight"><pre>#include &lt;stdio.h&gt;
+#include &quot;CuTest.h&quot;
+
+char* StrToUpper(char* str) {
+    return str;
+}
+
+void TestStrToUpper(CuTest \*tc) {
+    char* input = strdup(&quot;hello world&quot;);
+    char* actual = StrToUpper(input);
+    char* expected = &quot;HELLO WORLD&quot;;
+    CuAssertStrEquals(tc, expected, actual);
+}
+
+CuSuite* StrUtilGetSuite() {
+    CuSuite* suite = CuSuiteNew();
+    SUITE_ADD_TEST(suite, TestStrToUpper);
+    return suite;
+}
+</pre></div>
+</div>
+<p>もちろんアサートが出るコード。</p>
+<p><strong>注意</strong></p>
+<blockquote>
+<div><p>#include &lt;stdio.h&gt;しないと
+‘NULL’ undeclared (first use in this function)のエラーメッセージが出るので注意。</p>
+<p>(ここに書いてあった-&gt; <a class="reference external" href="http://snowycode.blogspot.jp/2010/05/cerror-c2065-null.html">Snowy Code: C++のエラー：error C2065: ‘NULL’ : 定義されていない識別子です。:C,C++,PHP,XCODE</a> )</p>
+</div></blockquote>
+<p>テストコードを作成したら次にshell script(make_test.sh)を実行して、コンパイル。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ sh make-tests.sh cutest_sample.c &gt; main.c
+$ gcc main.c CuTest.c cutest_sample.c
+$ ./a.out
+There was 1 failure:
+1) TestStrToUpper: cutest_sample.c:12: expected &lt;HELLO WORLD&gt; but was &lt;hello world&gt;
+
+!!!FAILURES!!!
+Runs: 1 Passes: 0 Fails: 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>CUTと同様に軽量で早い。</li>
+<li>ライブラリじゃないので、ヘッダとソースを読み込むだけの簡単導入。</li>
+<li>CUTよりテストフレームワークとして作りこまれている。(とりあえず、メッセージはCUTより丁寧)</li>
+<li>main書かなくていい。</li>
+<li>シェルスクリプトを実行するだけで簡単にテストが作れる。</li>
+<li>シェルスクリプトに不具合があるような気がする。出力ファイルの変な箇所に改行が入っていた。(自分で修正)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cutter">
+<h2><a class="toc-backref" href="#id34">Cutter</a></h2>
+<p><a class="reference external" href="http://cutter.sourceforge.net/index.html.ja">C言語・C++言語用テスティングフレームワーク - Cutter</a></p>
+<p>日本人が開発している。</p>
+<p>なんとドキュメントが非常に充実している。が、逆に丁寧に書かれすぎて複雑な感じになっているorz</p>
+<p>そんな不満を持ている人が他にもいた↓</p>
+<p><a class="reference external" href="http://samidarehetima.blog9.fc2.com/blog-entry-149.html">凡人プログラマーの独り言 Cutterのとても簡単な使い方</a></p>
+<p>簡単に使ってみよう。</p>
+<div class="section" id="id12">
+<h3>1. Install</h3>
+<p><a class="reference external" href="http://cutter.sourceforge.net/reference/ja/install.html">プラットフォーム毎のCutterのインストール方法 - Cutter</a></p>
+<p>ドキュメントがえらく丁寧なので、上記サイトの手法を使えばインストールできる(丸投げ)</p>
+<p>※ cygwinだとうまくコンパイルされない?!</p>
+<blockquote>
+<div>自分の環境だとmake installして入れた。cutterだがコンパイルは通るものの、cutterで実行するとうまくいかない。
+具体的には、テストが実行されない。空のテストが実行された事になってる。Ubuntuでは同じコードで正常に動作する。</div></blockquote>
+<p>Macにインストールする場合はportでもbrewでもインストールできる。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ brew install cutter
+$ sudo port install cutter
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>2. Usage</h3>
+<p>テストコード : cutter.c</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;cutter.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">test_add</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">test_sub</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test_add</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">cut_assert_equal_int</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">test_sub</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">cut_assert_equal_int</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">sub</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>実行してみる。Ubuntuでインストールしたところusr/localではなくusr直下にインストールされていた。インストール時にパス指定しないとなのか。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ gcc -shared cutter.c -o ./cutter/cutter.so -I/usr/include/cutter -L/usr/lib -lcutter
+$ cutter cutter/
+..
+
+Finished in 0.006999 seconds (total: 0.000427 seconds)
+
+2 test(s), 2 assertion(s), 0 failure(s), 0 error(s), 0 pending(s), 0 omission(s), 0 notification(s)
+100% passed
+.....(失敗するように編集)
+$ cutter cutter/
+F
+===============================================================================
+Failure: test_add
+&lt;4 == add(1,2)&gt;
+expected: &lt;4&gt;
+  actual: &lt;3&gt;
+cutter.c:12: test_add(): cut_assert_equal_int(4, add(1,2), )
+===============================================================================
+.
+
+Finished in 0.006359 seconds (total: 0.002195 seconds)
+
+2 test(s), 1 assertion(s), 1 failure(s), 0 error(s), 0 pending(s), 0 omission(s), 0 notification(s)
+50% passed
+</pre></div>
+</div>
+<p>cutterは.soファイルを作成-&gt;実行でテストという流れになっている。</p>
+<p>テストのためにわざわざmain書かなくていいのが調子いい。</p>
+</div>
+<div class="section" id="id14">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>情報が多い。日本人ユーザーも多い。</li>
+<li>Windowsに導入する方法がどこにも書かれていない。いい感じにdisってる。</li>
+<li>main書かなくていいので、本体のアプリケーションとの分離ができているのでテストの位置づけがわかりやすい。</li>
+<li>テストコードは完結に書けて良い感じ。</li>
+<li>残念なことに、本家チュートリアルが鬼。automakeとかの勉強しないと。</li>
+<li>テストフレームワークとして機能が充実している。</li>
+<li>本家ドキュメントが鬼なので簡単に使える方法を紹介している記事がいくつかある。<ul>
+<li><a class="reference external" href="http://samidarehetima.blog9.fc2.com/blog-entry-149.html">凡人プログラマーの独り言 Cutterのとても簡単な使い方</a></li>
+<li><a class="reference external" href="http://www.ne.jp/asahi/hishidama/home/tech/c/cutter.html">Cutterメモ(Hishidama’s C-lang Cutter Memo)</a> &lt;- CentOS</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mintest">
+<h2><a class="toc-backref" href="#id35">MinTest</a></h2>
+<p><a class="reference external" href="http://www.jera.com/techinfo/jtns/jtn002.html">JTN002 - MinUnit – a minimal unit testing framework for C</a></p>
+<div class="section" id="id16">
+<h3>1. Install</h3>
+<p>インストール？そんなのはいらない！？以下の3行がMinTest。</p>
+<div class="highlight-c"><div class="highlight"><pre>/\* file: minunit.h \*/
+#define mu_assert(message, test) do { if (!(test)) return message; } while (0)
+#define mu_run_test(test) do { char \*message = test(); tests_run++; if (message) return message; } while (0)
+extern int tests_run;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>2. Usage</h3>
+<p>本家ドキュメントにあるコード。読めばすぐわかるくらい簡単！</p>
+<div class="highlight-c"><div class="highlight"><pre>/\* file minunit_example.c \*/
+
+#include &lt;stdio.h&gt;
+#include &quot;minunit.h&quot;
+
+int tests_run = 0;
+
+int foo = 7;
+int bar = 4;
+
+static char * test_foo() {
+   mu_assert(&quot;error, foo != 7&quot;, foo == 7);
+   return 0;
+}
+
+static char * test_bar() {
+   mu_assert(&quot;error, bar != 5&quot;, bar == 5);
+   return 0;
+}
+
+static char * all_tests() {
+   mu_run_test(test_foo);
+   mu_run_test(test_bar);
+   return 0;
+}
+
+int main(int argc, char \*\*argv) {
+   char \*result = all_tests();
+   if (result != 0) {
+       printf(&quot;%s\n&quot;, result);
+   }
+   else {
+       printf(&quot;ALL TESTS PASSED\n&quot;);
+   }
+   printf(&quot;Tests run: %d\n&quot;, tests_run);
+
+   return result != 0;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>軽量どころか3行wwww</li>
+<li>導入コストがこれより低いフレームワークを探す方が難しい。</li>
+<li>そんなんなので話題性があり情報がたくさんある。</li>
+<li>MinTestをForkしてGithubにリポジトリ作った人がいる。中を見たが結構改良されている。 <a class="reference external" href="https://github.com/siu/minunit">siu/minunit · GitHub</a></li>
+<li>とても簡単なのでカスタマイズし放題、下記はカスタムしてある記事<ul>
+<li><a class="reference external" href="http://iyukki.blog56.fc2.com/blog-entry-94.html">MinUnitでテストしてみる CodingFirst</a></li>
+<li><a class="reference external" href="http://iyukki.blog56.fc2.com/blog-entry-104.html">MinUnitでテストしたその後 CodingFirst</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cmockery">
+<h2><a class="toc-backref" href="#id36">CMockery</a></h2>
+<p>google製軽量テストフレームワーク。</p>
+<p>なにやら、一組の.cファイルと.hファイルからなるフレームワークらしい。</p>
+<p>今回は、大人の事情で実際に使ってみたりはしないが、その名の通りMock機能(will_returnとか)等があり、他のフレームワークにはないような機能があるっぽい。</p>
+<p>詳しくは-&gt; <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/20/212242">C言語向けユニットテスティングフレームワーク Cmockeryについて - 千里霧中</a></p>
+</div>
+<div class="section" id="cspec">
+<h2><a class="toc-backref" href="#id37">CSpec</a></h2>
+<p><a class="reference external" href="https://github.com/arnaudbrejeon/cspec/wiki">CSpec : Behavior-driven development in C · arnaudbrejeon/cspec Wiki</a></p>
+<p>その名の通りRSpecリスペクトなBDDフレームワーク。開発は2年前くらいで止まってる(2013/04現在)。</p>
+<p>独自のDSLのようなものが実装してあって、C言語ではないかのように扱える。</p>
+<div class="section" id="id20">
+<h3>1. Install</h3>
+<p>Githubにリポジトリがある。</p>
+<div class="highlight-none"><div class="highlight"><pre>$ git clone https://github.com/toshi-kawanishi/cspec.git
+$ cd src
+$ make
+$ cp libcspec.a /usr/local/lib/
+$ cp -r ../inc/ /usr/local/include/
+</pre></div>
+</div>
+<p>本家のほうではなくtoshi-kawanishiさんのリポジトリからcloneした。</p>
+<p>本家のリポジトリにあるsrcには、Makefile.amのみが置いてあって自分でautomakeしろということですね、わかります。いやautomakeわかりません。なので、Makefileを用意してくれているこの方のリポジトリを使用する。</p>
+<ul class="simple">
+<li>repos : <a class="reference external" href="https://github.com/toshi-kawanishi/cspec">toshi-kawanishi/cspec · GitHub</a></li>
+<li><a class="reference external" href="http://toshiyukikawanishi.net/blog/2008/12/11">Toshiyuki Kawanishi &gt;&gt; Blog &gt;&gt; 燃え上がれC言語 その1 ― CSpec</a></li>
+<li><a class="reference external" href="http://toshiyukikawanishi.net/blog/2008/12/13">Toshiyuki Kawanishi &gt;&gt; Blog &gt;&gt; 燃え上がれC言語 その2 ― CSpec でのテストの書き方</a></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h3>2. Usage</h3>
+<div class="highlight-c"><div class="highlight"><pre>#include &lt;cspec.h&gt;
+#include &lt;cspec_output_verbose.h&gt;
+
+int under_test_function( int a, int b )
+{
+      return a + b;
+}
+
+DESCRIBE(xml_long, &quot;under_test_function()&quot;)
+{
+      IT( &quot;return sum arguments.&quot; ) {
+              SHOULD_EQUAL( under_test_function( 1, 2 ), 3 );
+      } END_IT;
+} END_DESCRIBE;
+
+int main( int argc, char \*\*argv )
+{
+      CSpec_Run( DESCRIPTION(xml_long), CSpec_NewOutputVerbose() );
+      return 0;
+}
+</pre></div>
+</div>
+<p>DESCRIBE ~ END_DESCRIBEまではcspecのコード。</p>
+<p>独自のDSLで書かれていて、Cのコードの中にあると違和感しかない。</p>
+<p>実行は先程のライブラリをリンクさせればコンパイル出来る。</p>
+<div class="highlight-c"><div class="highlight"><pre>$ gcc cspec.c -I/usr/local/include/cspec -L/usr/local/lib -lcspec
+$ ./a.out
+Describe:under_test_function()
+   - it return sum arguments.
+       OK: (under_test_function( 1, 2 )) == (3)
+</pre></div>
+</div>
+<p>ちなみに括弧とか;(セミコロン)とか付けなくてもちゃんと動作する。</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">DESCRIBE</span><span class="p">(</span><span class="n">xml_long</span><span class="p">,</span> <span class="s">&quot;under_test_function()&quot;</span><span class="p">)</span>
+
+      <span class="n">IT</span><span class="p">(</span> <span class="s">&quot;return sum arguments.&quot;</span> <span class="p">)</span>
+              <span class="n">SHOULD_EQUAL</span><span class="p">(</span> <span class="n">under_test_function</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="mi">3</span> <span class="p">)</span>
+      <span class="n">END_IT</span>
+
+<span class="n">END_DESCRIBE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>3. Usability</h3>
+<ul class="simple">
+<li>独自DSLとかかっこいい。</li>
+<li>比較的導入が簡単。</li>
+<li>テストフレームワークと比較して簡単に書けそう。(BDDなので当たり前か。。。)</li>
+<li>main文でCSpec_Run呼ばないといけないのが残念。</li>
+<li>C言語でもBDDを使えるというのが素晴らしい。</li>
+<li>仕様自体は小さいのですぐに使える。</li>
+<li>参考になる記事が割と多い。 -&gt; <a class="reference external" href="http://goyoki.hatenablog.com/entry/2012/07/24/202748">C言語向けBDDフレームワーク CSpecについて - 千里霧中</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="unity">
+<h2><a class="toc-backref" href="#id38">Unity</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ogis-ri.co.jp/otc/hiroba/OoBook/tdd4ec/index.html">[ 技術書籍紹介 ] Test Driven Development for Embedded C</a></li>
+<li><a class="reference external" href="http://www.ryuzee.com/contents/blog/6623">[書評]テスト駆動開発による組み込みプログラミング | Ryuzee.com</a></li>
+</ul>
+<p>最近(2013/04)邦訳本が出た、この書籍で紹介されているUnityとCppUTestを取り上げてみる。</p>
+<p>英語版の勉強会は盛んに行われていたようだ。</p>
+<p>がしかし、情報が少ない。UnityにはUbuntuのシェルインターフェース、ゲームエンジンと有名なプロダクトの情報ばかり出てくる。</p>
+<div class="section" id="id23">
+<h3>1. Install</h3>
+<p><a class="reference external" href="https://github.com/ThrowTheSwitch/Unity">ThrowTheSwitch/Unity · GitHub</a></p>
+</div>
+<div class="section" id="id24">
+<h3>2. Usage</h3>
+</div>
+<div class="section" id="id25">
+<h3>3. Usability</h3>
+</div>
+</div>
+<div class="section" id="cpputest">
+<h2><a class="toc-backref" href="#id39">CppUTest</a></h2>
+<div class="section" id="id26">
+<h3>1. Install</h3>
+</div>
+<div class="section" id="id27">
+<h3>2. Usage</h3>
+</div>
+<div class="section" id="id28">
+<h3>3. Usability</h3>
+</div>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/c.html">c</a>, <a href="tags/testingframework.html">TestingFramework</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/04/25/c_testframeworks.html#disqus_thread" data-disqus-identifier="2013/04/25/c_testframeworks">Leave a comment</a>
+        </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
+            <span>April 05, 2013</span>
+        </div>
+        <div class="section" id="think-about-news-site">
+<h1><a href="2013/04/05/news.html">Think about news site</a></h1>
+<p>自分はよくY CombinatorのHackerNewを眺めているが、</p>
+<p>飲み会で@ITとかITproとか見たほうがいいよ的なことを聞いたので、まずどんなニュースサイトがあるのか調べてみる。</p>
+<div class="section" id="open-google-it">
+<h2>:open google it情報 サイト</h2>
+<ul class="simple">
+<li>ITpro</li>
+<li>ITmedia</li>
+<li>ASCII.jp</li>
+<li>CNET Japan</li>
+<li>@IT</li>
+<li>IT Leaders</li>
+</ul>
+<p>などなど。</p>
+<p>他に自分が知ってるのは</p>
+<ul class="simple">
+<li>CodeZine</li>
+<li>Publickey</li>
+<li>GIGAZINE</li>
+</ul>
+<p>ざっと調べた限り見つかったサイトの特徴を独断と偏見で感想を述べてみる。</p>
+</div>
+<div class="section" id="it">
+<h2>@IT</h2>
+<p><a class="reference external" href="http://www.atmarkit.co.jp">ITエキスパートのための問題解決メディア - ＠IT</a></p>
+<p>ひとまずはてなに尋ねる。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/keyword/@IT">@ITとは - はてなキーワード</a></p>
+<ul class="simple">
+<li>IT系の会社に入った人が見てそう</li>
+</ul>
+</div>
+<div class="section" id="itmedia">
+<h2>ITmedia</h2>
+<p><a class="reference external" href="http://itpro.nikkeibp.co.jp/?rt=nocnt">Tpro - エンタープライズICTの総合情報</a></p>
+<p>ひとまずはてなに尋ねる。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/keyword/ITpro">ITproとは - はてなキーワード</a></p>
+<ul class="simple">
+<li>IT系の会社に務めている人が見てそう</li>
+</ul>
+</div>
+<div class="section" id="ascii-jp">
+<h2>ASCII.jp</h2>
+<p><a class="reference external" href="http://ascii.jp">ASCII.jp － トップ</a></p>
+<p>アキバ系IT情報サイト</p>
+<ul class="simple">
+<li>アキバ系の情報とハードの情報が多いような気がした。(ぱっと見)</li>
+</ul>
+</div>
+<div class="section" id="cnet-japan">
+<h2>CNET Japan</h2>
+<p><a class="reference external" href="http://japan.cnet.com">CNET Japan</a></p>
+<ul class="simple">
+<li>日本版CNET</li>
+<li>一般的な情報が多い</li>
+</ul>
+</div>
+<div class="section" id="it-leaders">
+<h2>IT Leaders</h2>
+<p><a class="reference external" href="http://it.impressbm.co.jp">IT Leaders | 企業情報システム担当者やITプロフェッショナルのための実践情報サイト</a></p>
+<ul class="simple">
+<li>マーケティングの情報を確認したい時とかはいいのかも</li>
+</ul>
+</div>
+<div class="section" id="codegine">
+<h2>CodeGine</h2>
+<p><a class="reference external" href="http://codezine.jp">CodeZine：プログラミングに役立つソースコードが満載な開発者のための実装系Webマガジン</a></p>
+<p>ひとまずはてなに尋ねる。</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/keyword/CodeZine">CodeZineとは - はてなキーワード</a></p>
+<ul class="simple">
+<li>実装系IT情報サイト</li>
+<li>実装系の幅広なトピックを扱ってる</li>
+<li>実装系なコードはフリーに使ってもいい</li>
+</ul>
+</div>
+<div class="section" id="publickey">
+<h2>PublicKey</h2>
+<p><a class="reference external" href="http://www.publickey1.jp">Publickey － Enterprise IT × Cloud Computing × Web Technology / Blog</a></p>
+<ul class="simple">
+<li>なんかおしゃれ</li>
+<li>Publickey Topicsというサイトも最近始まった( <a class="reference external" href="http://www.publickey2.jp">Publickey Topics</a> )</li>
+<li>Junichi Niinoさんが記事を更新しています。</li>
+<li>というか、これはブログ？</li>
+<li><a class="reference external" href="http://www.publickey1.jp/blog/12/_publickey2012.html">ブログでメシが食えるか？ Publickeyの2012年 － Publickey</a> 飯も食えてる。</li>
+</ul>
+</div>
+<div class="section" id="gigagine">
+<h2>GIGAGINE</h2>
+<p><a class="reference external" href="http://gigazine.net">GIGAZINE（ギガジン）</a></p>
+<p>Wikipediaさんが教えてくれる。</p>
+<p><a class="reference external" href="http://ja.wikipedia.org/wiki/GIGAZINE">GIGAZINE - Wikipedia</a></p>
+<ul class="simple">
+<li>面白ネタ満載</li>
+<li>上げた中では一番面白い</li>
+</ul>
+</div>
+</div>
+        <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="tags/life.html">life</a></span>
+        </div>
+        <div class="comments">
+            <a href="http://yymm.bitbucket.org/blog/html/2013/04/05/news.html#disqus_thread" data-disqus-identifier="2013/04/05/news">Leave a comment</a>
+        </div></div><div class="archive_link">
+        <a href="archive.html"> &mdash; Blog Archive &mdash; </a>
+    </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="page2.html">Newer</a></li>
+            <li class="right"><a href="page4.html">Older</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="2013/12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="2013/12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="2013/10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="2013/10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="2013/10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="2013/09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="2013/08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="2013/08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="2013/07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "yano";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

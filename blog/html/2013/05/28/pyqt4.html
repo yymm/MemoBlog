@@ -1,0 +1,283 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>PyQt4 install for Cygwin &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Maclean1 - Mac clean install" href="../27/maclean1.html" /><link rel="prev" title="AsakusaSatellite on heroku" href="as_rst.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>May 28, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/05/28/pyqt4.html" class="hatena-bookmark-button" data-hatena-bookmark-title="PyQt4 install for Cygwin - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="pyqt4-install-for-cygwin">
+<h1>PyQt4 install for Cygwin</h1>
+<p>きっとCygwinユーザーがCygwinでmakeするのはもう嫌と感じるのはもう運命だと思う。</p>
+<p>というわけで、PyQt4は欲しくなったのでインストールする。</p>
+<p>欲しくなった原因はMkdPreview.vim。</p>
+<p>先に書いておくが、全部自前makeしないといけない。</p>
+<div class="section" id="qt4">
+<h2>1. Qt4入ってる？</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ls /usr/lib | grep qt
+</pre></div>
+</div>
+<p>qt4があれば入ってる。自分は入ってた。フルインストールしたら多分入ってるっぽい。</p>
+</div>
+<div class="section" id="sip">
+<h2>2. sip</h2>
+<p>PyQt4を入れる前に、sipなるものを入れる必要がある。</p>
+<p><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/sip/intro">Riverbank | Software | SIP | What is SIP?</a></p>
+<p>読んでみると、C/C++のライブラリ、ここではQtとPythonのバインディングをするツールであることがわかる。</p>
+<p>tarファイルをダウンロード(<a class="reference external" href="http://www.riverbankcomputing.co.uk/software/sip/download">Riverbank | Software | SIP | SIP Download</a>)してmakeする。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tar -zxvf sip-4.14.6.tar.bz
+<span class="nv">$ </span><span class="nb">cd </span>sip-4.14.6
+<span class="nv">$ </span>python configure.py
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make install
+</pre></div>
+</div>
+<p>意外とすんなり。</p>
+</div>
+<div class="section" id="pyqt4">
+<h2>3. PyQt4</h2>
+<p>後は、PyQt4をダウンロードしてmakeするだけ。</p>
+<p><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/download">Riverbank | Software | PyQt | PyQt4 Download</a></p>
+<p>Linux, UNIX sourceを選択。</p>
+<p>その前に、qmakeのパスが通っているか確認。通ってなければPATHに追加。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>qmake
+<span class="nb">command </span>not found.
+<span class="nv">$ </span>vim ~/.zshrc
+<span class="nv">PATH</span><span class="o">=(</span>自分の設定<span class="o">)</span>:<span class="nv">$PATH</span>:/usr/lib/qt4/bin
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+<p>使ってるシェルは人によって違う。自分はzsh。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tar -zxvf PyQt-x11-gpl-4.10.1.tar.gz
+<span class="nv">$ </span><span class="nb">cd </span>PyQt-x11-gpl-4.10.1
+<span class="nv">$ </span>python configure.py -g
+<span class="nv">$ </span>make
+<span class="nv">$ </span>make install
+</pre></div>
+</div>
+<p>ここでの注意点は２つあって</p>
+<ol class="arabic">
+<li><div class="first line-block">
+<div class="line">python configure.py に-gオプションをつける。</div>
+<div class="line">オプションなして実行すると-gか-kのどちらかつけろといわれるので、-gをつける。</div>
+</div>
+</li>
+<li><p class="first">めっっっっっっっっっちゃ時間かかる。ちょっと焦るくらい終わらないので、時間のあるときにやる。</p>
+</li>
+</ol>
+<p>というわけで１時間後。</p>
+<div class="highlight-bash"><div class="highlight"><pre>recipe for target `_qt.dll&#39; failed
+</pre></div>
+</div>
+<p>ん？</p>
+<div class="highlight-bash"><div class="highlight"><pre>recipe for target `_qt.dll&#39; failed
+</pre></div>
+</div>
+<p>ん？</p>
+<p>見たくない現実が。１時間返せ。返してくれCygwin。</p>
+<p>-g / -kオプションを適当に選択してしまったのが悪いっぽい。と言うかなんだこのオプション。</p>
+<p>-g / -k -&gt; なんかGNOMEかKDEっぽいな。(調べてないので本当にどうかは知りません)</p>
+<p>CygwinのQtってGNOME？KDE？setup.exeを見てみよう。</p>
+<img alt="../../../_images/cygkde.png" src="../../../_images/cygkde.png" />
+<p>QtはKDEの中にしかありません。</p>
+<p>オプションを-kにして再度チャレンジ。</p>
+<p>小一時間後うまいことmakeできたのでmake install。</p>
+</div>
+<div class="section" id="import-pyqt4">
+<h2>4. import PyQt4</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python
+&gt;&gt;&gt; import PyQt4
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>キマシタワー。</p>
+</div>
+<div class="section" id="cygwin">
+<h2>5. Cygwin以外 &amp; 雑記</h2>
+<p>Ubuntuではapt-getでインストール出来るみたい。</p>
+<p><a class="reference external" href="http://squalo22-diary.blogspot.jp/2011/09/pyqt4ubuntu.html">Wind And Tide: PyQt4をubuntuにインストールする</a></p>
+<p>pip search pyqtしたところPyPiにあるみたいだった。。。</p>
+<p>まさかとは思うが、自前makeしなくても良かったの。。。ってなった。今度試してみよう。</p>
+<p>PySideをpipでインストールしようとしたらhogehogeという記事があったので何かしら参考になるかもしれない。</p>
+<p><a class="reference external" href="http://kk6.hateblo.jp/entry/20110815/1313405197">Pythonbrew環境下にPySideをインストールしようとしたらはまった - kk6のメモ帳*</a></p>
+<p>個人的に使うならPySide使ってみたかったから今度やってみよう。</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/python.html">python</a>, <a href="../../../tags/qt.html">Qt</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="as_rst.html">AsakusaSatellite on heroku</a></li>
+            <li class="right"><a href="../27/maclean1.html">Maclean1 - Mac clean install</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/05/28/pyqt4";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

@@ -1,0 +1,200 @@
+===================
+実践Python (初級編)
+===================
+
+.. image:: http://gate2play.com/upload/python.png
+
+目次
+----
+
+* はじめに
+* Sphinxに囲まれた生活
+* Pythonで便利する
+* リリースの自動化
+* グラフツールの使用
+
+実際の業務で使ったPythonの実践事例を紹介する。
+
+10～15分くらい。
+
+はじめに
+--------
+
+何故Python -> 気分。流行りそう系。google系。
+
+いつからPython -> 真面目にやり始めて1年くらい
+
+どこでPython -> Bitbucket, MoinMoin
+
+どうやってPython -> Unix系OS & Vim
+
+Bitbucket
+---------
+
+Python製(Django)
+
+.. image:: https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_admin.png
+   :align: left
+
+.. image:: https://bitbucket.org/spooning/iTee3.png
+   :scale: 100%
+
+Sphinxに囲まれた生活
+--------------------
+
+BitbucketのWiki -> ReStructuredText
+
+.. image:: https://dl.dropboxusercontent.com/u/63321613/practice_python/bitbucket_wiki.png
+
+Sphinxに囲まれた生活
+--------------------
+
+MemoMemo -> ReStructuredText
+
+.. image:: https://dl.dropboxusercontent.com/u/63321613/practice_python/memomemo.png
+   :scale: 50%
+   :align: right
+
+Sphinxに囲まれた生活
+--------------------
+
+このプレゼン -> ReStructuredText
+
+.. image:: http://www.oreilly.co.jp/books/images/picture_large978-4-87311-648-8.jpeg
+
+Pythonで便利する
+----------------
+
+今の仕事はC(C++)が多い -> データ(文字列)の操作やファイル操作が難しい -> Pythonでやればいい
+
+例: 差分ツール
+
+仕事の都合上、先方から頂いたデータとの一致を確認することが多い。
+
+C言語でデータ読み込んで比較するとか大変。。。
+
+こんなときはPython(さくっと作れる)
+
+* 出力データ読み込み(クラスオブジェクトに展開)
+* 比較
+* 結果出力
+
+リリースの自動化
+----------------
+
+リリース作業
+
+1. テスト実行
+2. パッケージ作成
+3. Doxygenのドキュメント生成
+
+複数のプロジェクトに対して行う。
+
+テスト実行 - リリースの自動化
+-----------------------------
+
+プロジェクトのフォルダ配置(今の仕事)
+
+.. code-block:: bash
+
+ /data
+ /library
+ /source
+   /test
+    *.cpp & *.h
+ README.txt
+
+test内のmain関数でテストを実行(make -> ./runtest)
+
+Pythonのcommandsモジュール(標準)で実行。
+
+.. code-block:: python
+
+  import commands
+  commands.getoutput("cd /path/to/ && make && ./runtest")
+
+パッケージ作成 - リリースの自動化
+---------------------------------
+
+Pythonのosモジュール(標準)でフォルダ操作が出来る。
+
+osモジュールで足りなかったらshutilモジュールを使う。
+
+.. code-block:: python
+
+  >>> import shutil
+  >>> shutil.copyfile('hoge/hoge.txt', 'hige/hige.txt')
+  >>> shutil.copystat('hoge/hoge.txt', 'hige/hige.txt')
+  >>> shutil.move('hoge/hoge.txt', 'hige/hige.txt')
+  >>> shutil.copytree('hoge/', 'hige/')
+  >>> shutil.rmtree('hige/')
+  >>> try:    shutil.copytree('hoge/', 'hige/')
+  >>> except: print('exception')
+
+Doxygenのドキュメント生成 - リリースの自動化 
+--------------------------------------------
+
+Doxygenとは
+
+doxygen -gでconfigファイルを生成し、その設定に応じてドキュメントを生成する。
+
+-> C言語の場合大体パターンは決まっているので使いまわさないともったいない。
+
+Doxygenのドキュメント生成 - リリースの自動化
+--------------------------------------------
+
+使いまわす -> テンプレート化 -> テンプレートエンジンの使用 -> PythonはJinja2
+
+Jinja2を使ってプロジェクトごとに別々に指定する部分を抽象化。
+
+.. code-block:: bash
+
+  $ pip install jinja2
+
+pipで簡単にパッケージ追加。
+
+.. image:: http://www.viur.is/static/images/jinja2.png
+
+Doxygenのドキュメント生成 - リリースの自動化
+--------------------------------------------
+
+テンプレートを指定された内容で書き換え一時ファイルに書き込み、doxygenで使用。
+
+.. code-block:: python
+
+  def make_doxy_files(self, name, output_dir, input_dir):
+    env = Environment(loader=FileSystemLoader('./'))
+    template = env.get_template('doxyfile.jinja2')
+    # Write to temporary file
+    with tempfile.NamedTemporaryFile() as f:
+        f.write(template.render({'name':name,
+                                 'output_dir':output_dir,
+                                 'input_dir':input_dir}))
+        print commands.getoutput("doxygen " + f.name)
+
+グラフツールの使用
+------------------
+
+最近知ったIPython Notebookの紹介。
+
+自分はずっとグラフにはgnuplot派だったのですが、IP notebookに乗り換え検討中。
+
+* ブラウザで操作
+* Pythonを使える
+* 足りないモジュールがあればすぐ増やせる
+
+グラフツールの使用 - Demo -
+---------------------------
+
+.. raw:: html
+
+  <object type="text/html" data="http://nbviewer.ipython.org/6805429" style="width: 100%; height: 80%;"></object>
+
+3D描画の時ドラッグで回転できたりするといいなー
+
+さいごに
+--------
+
+仕事で直接使うことはないが、Python(に限らずスクリプト言語全般)は便利できるのでどんどん使うといい。
+
+

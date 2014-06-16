@@ -1,0 +1,487 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>centosはじめました &mdash; MemoBlog</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="C言語 - Testing Frameworks" href="../25/c_testframeworks.html" /><link rel="prev" title="centos 5.3 使えるようにする" href="../../05/08/centos_continue.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
+
+	<!-- for hatena -->
+	<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+	<!-- for gogogle + -->
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'ja'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+
+	<!-- for kudos -->
+	<script src=http://yymm.bitbucket.org/blog/html/_static/kudosplease.js></script>
+	<link rel="stylesheet" href=http://yymm.bitbucket.org/blog/html/_static/mykudosplease.css>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">MemoBlog</a></h1><h2>_memo_memo_p(.. )</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+            <span>April 30, 2013</span>
+        </div>
+	
+	<!-- Twitter button -->
+	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">$B%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<!-- Hatena button -->
+	<a href="http://b.hatena.ne.jp/entry/http://yymm.bitbucket.org/2013/04/30/centos_setup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="centosはじめました - MemoBlog" data-hatena-bookmark-layout="standard-balloon" title="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="$B$3$N%(%s%H%j!<$r$O$F$J%V%C%/%^!<%/$KDI2C(B" width="20" height="20" style="border: none;" /></a>
+	<!-- Google+ button -->
+	<div class="g-plusone" data-size="medium"></div>
+	
+	
+	<div class="kudo">
+		<div class="kudos" data-amount="0" data-url="yymm.bitbucket.org/blog/persistent"></div>
+	</div>
+	
+    <div class="section" id="centos">
+<h1>centosはじめました</h1>
+<p>CentOS 5.3を使うことになったので自分好みのCentOSになるように設定してみた。</p>
+<p>sakuraもデフォルトCentOSなのでそのまま同じ設定でいけるかも。</p>
+<div class="section" id="install">
+<h2>Install</h2>
+<p>下記の記事を参考にインストール。</p>
+<p>※ net-install版ではない。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20090403/327762/?ST=oss&amp;P=1">インストール完全ガイド - CentOS 5.3：ITpro</a></li>
+<li><a class="reference external" href="http://policy.jugem.cc/?eid=285">CentOS 5.3 のインストール (グラフィカル モード) | POLICY.JUGEM.CC</a></li>
+</ul>
+<p>設定した項目は以下。</p>
+<ol class="arabic simple">
+<li>ネットワーク : DHCP IPv4 IPv6 (デフォルト変更なし)</li>
+<li>用途 : Server - GUI (Server用パッケージとGNOME)</li>
+<li>ファイアウォール : 有効、sshを許可</li>
+</ol>
+<p># ネットワーク</p>
+<p>起動した段階でLANケーブルに繋がっていなかったりすると、eth0が停止状態になっているので下記の方法で起動する。</p>
+<ul class="simple">
+<li>システム -&gt; 管理 -&gt; ネットワーク</li>
+<li>ネットワーク管理画面でeth0が停止中になっている</li>
+<li>起動ボタンをクリック</li>
+<li>再起動を要求される場合があるので、必要に応じて再起動する</li>
+</ul>
+</div>
+<div class="section" id="packages-setting">
+<h2>Packages Setting</h2>
+<p>何はともあれ下記のコマンドを始めに実行する。CentOS始めました感が出てくる。</p>
+<div class="highlight-python"><div class="highlight"><pre>$ yum update
+</pre></div>
+</div>
+<p>yumとrpmがあるが基本的にはyumを使用する。</p>
+<p># すぐさま入れたいものリスト</p>
+<ul class="simple">
+<li>vim7.3</li>
+<li>hg(mercurial)</li>
+<li>git</li>
+<li>screen</li>
+<li>zsh</li>
+<li>python</li>
+<li>gcc</li>
+<li>g++</li>
+<li>make</li>
+<li>automake</li>
+</ul>
+<div class="section" id="gcc">
+<h3>1. gcc</h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install gcc</span>
+<span class="o">...</span>
+<span class="c"># rpm -qa | grep gcc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="g">
+<h3>2. g++</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/plasticscafe/20080930/1222778825">CentOSへのg++の追加方法 - Reinvention of the Wheel</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install gcc-c++</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="screen">
+<h3>3. screen</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/kuchida123/20110710/p2">screen入れてみる - CentOS＠さくらVPSで構築するサーバ管理・運用メモ</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install screen</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mercurial">
+<h3>3. mercurial</h3>
+<p><a class="reference external" href="http://blog.santalinux.net/?p=341">Logwatch for santa » CentOS 5.4 に mercurial をインストール</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># yum install python-devel</span>
+<span class="c"># yum install python-setuptools</span>
+<span class="c"># easy_install mercurial</span>
+<span class="c"># hg --version</span>
+<span class="o">...</span> <span class="mf">2.6</span><span class="o">-</span><span class="n">rc</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>versionが2.6.rc。最新は2.5.4とかじゃなかったっけ？</p>
+<p><a class="reference external" href="http://troter.hatenablog.jp/entry/20130421/1366543906">Mercurial-2.6-rcの並列になったupdateを試す - 放牧日記</a></p>
+<p>まさかの最新版である。rc版について知らなかったので↓</p>
+<p><a class="reference external" href="http://www.sophia-it.com/content/RC%E7%89%88">RC版とは (Release Candidate version) アールシーばん： - IT用語辞典バイナリ</a></p>
+</div>
+<div class="section" id="zsh">
+<h3>4. zsh</h3>
+<div class="highlight-python"><div class="highlight"><pre># yum install zsh
+# zsh --version
+zsh 4.2.6
+</pre></div>
+</div>
+<p>必要に応じてバージョンアップする。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://please-sleep.cou929.nu/build-zsh-on-centos5.html">CentOS 5.6 で zsh をバージョンアップ - Please Sleep</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/amari3/20110817/1313595431">さくらのVPSの CentOS5.6 に最新版の zsh を入れてみた - amari3のはてなダイアリー</a></li>
+</ul>
+</div>
+<div class="section" id="zlib">
+<h3>5. zlib</h3>
+<p>自前でmakeするときなどなどで時々なくて失敗ということがあるので先に入れる。</p>
+<div class="highlight-python"><div class="highlight"><pre># rpm -qa | grep zlib
+なかったら
+# yum install zlib
+# rpm -qa | grep zlib-devel
+なかったら
+# yum install zlib-devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="make">
+<h3>6. make</h3>
+<div class="highlight-python"><div class="highlight"><pre># rpm -qa | grep make
+なかったら
+# yum install make
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h3>6. python</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/cu39/20120110/1326209060">CentOS 5.7 に Python 2.6 を入れて pip で MoinMoin をインストール - キュウリのように落ち着いて</a></p>
+<div class="highlight-python"><div class="highlight"><pre># python
+Python 2.4.3...
+...
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>古すぐる。</p>
+<div class="highlight-python"><div class="highlight"><pre># easy_install pip
+TrackBackの文字が。。。
+# pip
+失敗＼(^o^)／ｵﾜﾀ
+</pre></div>
+</div>
+<p>由々しき事態である。これはなんとしても回避する。(pipが使えない環境では呼吸ができないのと同然、生きていけない。。。)</p>
+<p>そう、そして外部リポジトリに手を出すのである。EPELはfedoraのリポジトリ。</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tooyama.org/yum-addrepo-epel.html">CentOS 外部レポジトリの追加(EPEL)</a></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre># wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+# rpm -ivh epel-release-5-4.noarch.rpm
+# yum --enablerepos=epel search python26
+# yum --enablerepos=epel install python26
+# python26
+Python 2.6.8...
+...
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>次は2.6のeasy_installを使えるようにする。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum --enablerepos=epel install python26-distribute
+# which easy_install-2.6
+/usr/bin/easy_install-2.6
+# easy_install-2.6 pip
+# pip-2.6 --version
+pip 1.3.1 .......
+# pip --version
+pip 1.3.1 .......(同じバージョンなのでpipのみでも2.6のpipコマンドが実行可能)
+</pre></div>
+</div>
+<p>ok!</p>
+</div>
+<div class="section" id="git">
+<h3>7. git</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/mrgoofy33/20110206/1296952248">CentOS5.5にgitをインストールする(yumを使用) - hogehoge foobar Blog Style5</a></p>
+<p># yum install gitができない。easy_install mercurialでインストールできるhgは素晴らしい。</p>
+<p>上記記事にはyum.repos.dにgit.reposを追加してhogehogeと書いてあるが、先ほどpythonでepelリポジトリを追加してしまったのでそこにgitがある。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum list | grep git
+gitがあるのを確認
+# yum install git
+</pre></div>
+</div>
+<p>今はデフォルトで&#8211;enablerepo=epelになっているが、この状態はあまり良くないかもしれないのでデフォルトでは見つからないように設定する。</p>
+</div>
+<div class="section" id="automake">
+<h3>8. automake</h3>
+<p><a class="reference external" href="http://blog.tk84.net/PgqD">RVMをさくらVPS（CentOS-5.6）にインストール - CMS専門 Web開発者ブログ</a></p>
+<p>yumで入れられるautomakeはバージョンが古いらしくruby環境を構築する際にえらい面倒なことになるようなので自前makeした方がいい。</p>
+</div>
+<div class="section" id="vim7-3">
+<h3>9. vim7.3</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/hosikiti/20100910/1284079341">CentOS 5.5 にVim7.3をソースからインストール - ITコンサルタント成長録</a></p>
+<p>2013/04現在の最新版は7.3.3。以下のコマンドを実行していけばインストール完了。</p>
+<div class="highlight-python"><div class="highlight"><pre># yum install ncurses-devel -y
+# wget http://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
+# tar jxfv vim-7.3.tar.bz2
+# mkdir vim73/patches
+# cd vim73/patches
+# seq -f http://ftp.vim.org/pub/vim/patches/7.3/7.3.%03g 3 | xargs wget
+# cd ..
+# cat patches/7.3.* | patch -p0
+# ./configure --prefix=/usr --enable-multibyte --with-features=huge --disable-selinux
+# make
+# make install
+# vim
+vim 7.3.3
+</pre></div>
+</div>
+<p>ok!</p>
+</div>
+</div>
+<div class="section" id="security">
+<h2>Security</h2>
+<div class="section" id="wheel">
+<h3>wheelユーザー</h3>
+<p>CentOSではwheelユーザーはデフォルトでonになっていないので下記の設定を行う。</p>
+<p>/etc/login.defsの末尾に以下の行を追加</p>
+<div class="highlight-python"><div class="highlight"><pre># Login is whell only
+#
+SU_WHEEL_ONLY yes
+</pre></div>
+</div>
+<p>/etc/pam.d/suを編集</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Uncomment the following line to require a user to be in the &quot;wheel&quot; group.</span>
+<span class="c">#auth       required     /lib/security/$ISA/pam_wheel.so use_uid</span>
+</pre></div>
+</div>
+<p>2行目のauth...のコメントアウトを外す。</p>
+<p>/etc/groupでsuが使えるユーザーを設定。</p>
+<div class="highlight-python"><div class="highlight"><pre># vim /etc/group
+下記の行に
+old : wheel:x:10:root
+ユーザーhogeを追加
+new : wheel:x:10:root,hoge
+</pre></div>
+</div>
+</div>
+<div class="section" id="root">
+<h3>rootへのログイン</h3>
+<p><a class="reference external" href="http://wdsdx.com/book/export/html/71">CentOS 設定編</a></p>
+<p>CentOSに限らずかもしれないが、/etc/ssh/sshd_configで</p>
+<div class="highlight-python"><div class="highlight"><pre>PermitRootLogin yes
+</pre></div>
+</div>
+<p>となっているのはセキュリティ上問題がある。(Linuxに**必ず**存在するrootユーザーは格好の的になってしまう)</p>
+<p>なので、rootはパスワード認証でログイン出来ないようにする。公開鍵認証はログイン可。</p>
+<p>rootへの公開鍵認証を行いたいホスト(localhost)で鍵生成、鍵コピー。</p>
+<div class="highlight-python"><div class="highlight"><pre>(localhost)$ ssh-keygen
+(localhost)$ ssh-copy-id root@XXX.XXX.XXX.XXX
+パスワードを要求される(まだパスワード認証は出来る状態)
+(localhost)$ ssh root@XXX.XXX.XXX.XXX
+[root@xxxxx ~]#
+ssh公開鍵認証でrootにログイン出来るのを確認
+</pre></div>
+</div>
+<p>rootでログインして/etc/ssh/sshd_configを書き換える。</p>
+<div class="highlight-python"><div class="highlight"><pre># PermitRootLoginを以下に書き換える
+PermitRootLogin without-password
+</pre></div>
+</div>
+<p>もはやsshではログインできなくするという少しワイルドな方法もある。</p>
+<p><a class="reference external" href="http://kazmax.zpp.jp/linux/lin_ssh.html">sshのrootログインを禁止する</a></p>
+<p>設定は簡単で、/etc/ssh/sshd_configのPermitRootLoginをnoにする</p>
+<div class="highlight-python"><div class="highlight"><pre>PermitRootLogin no
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips</h2>
+<div class="section" id="id2">
+<h3>覚えておきたいシステムコマンド</h3>
+<p><a class="reference external" href="http://linux.kororo.jp/cont/intro/abso_com_sys.php">覚えておきたい必須コマンド[ システム編 ]</a></p>
+<ul class="simple">
+<li>uname -a</li>
+<li>df -h</li>
+<li>who (&#8220;w&#8221; でも可)</li>
+<li>last</li>
+<li>free -tm</li>
+<li>ps aux | grep sshd</li>
+<li>pstree</li>
+<li>lsof -i:ssh (-i:hoge hogeはポート番号又はプロセス名)</li>
+</ul>
+</div>
+<div class="section" id="usr-usr-local">
+<h3>/usrと/usr/local</h3>
+<p><a class="reference external" href="http://mylinux.g.hatena.ne.jp/teraco/20081114/1226637835">/usr/binと/usr/local/binの違いについて - 今日も元気にlinux - mylinuxグループ</a></p>
+</div>
+<div class="section" id="centos-version">
+<h3>CentOS &#8211;version</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/yokococon/20070206">CentOSのバージョン確認 - yokococonの日記</a></p>
+</div>
+<div class="section" id="rpmyum">
+<h3>rpmとyumの違い</h3>
+<p><a class="reference external" href="http://d.hatena.ne.jp/inouetakuya/20111006/1317900802">初心者の頃に知っておきたかった rpm と yum の違いと使い分け - 彼女からは、おいちゃんと呼ばれています</a></p>
+</div>
+<div class="section" id="yum">
+<h3>yumのオプション</h3>
+<p><a class="reference external" href="http://kajuhome.com/gossip_thread/200.shtml">yum -y の -y は必要ですか?</a></p>
+<p>-yオプションは(y/N)を聞かないですぐにインストールしちゃうようになるオプション。</p>
+<p>困ったときはman先輩に聞こう。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># man yum</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scp">
+<h3>scp</h3>
+<p><a class="reference external" href="http://cns-guide.sfc.keio.ac.jp/2004/2/6/2.html">6.2 scpコマンドを使ったファイルの転送</a></p>
+<p>ftpよりscp。</p>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>Posted by Yuya Yano</span>
+        </div>
+        
+        <div class="tags">
+            <span>
+                Tags:
+                <a href="../../../tags/linux.html">Linux</a></span>
+        </div>
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../05/08/centos_continue.html">centos 5.3 使えるようにする</a></li>
+            <li class="right"><a href="../25/c_testframeworks.html">C言語 - Testing Frameworks</a> &raquo; </li>
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "yano";    var disqus_identifier = "2013/04/30/centos_setup";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><!--<div class="twitter-widget">-->
+	<a class="twitter-timeline" href="https://twitter.com/yymm6666"  data-widget-id="379832101496844288">@yymm6666 $B$+$i$N%D%$!<%H(B</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--</div>--></section><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../../2014/03/19/unity.html">UbuntuでUnityを使えるようになるまで with Wine</a>
+        </li><li>
+            <a href="../../12/26/pusher_flask.html">FlaskでPusherを使う</a>
+        </li><li>
+            <a href="../../12/13/c_proj_template.html">C言語プロジェクトテンプレート作ってみた for Linux</a>
+        </li><li>
+            <a href="../../10/18/ci.html">CI Tools for Python</a>
+        </li><li>
+            <a href="../../10/03/ipython_entrance.html">IPython Notebookでかっこいいグラフを書く</a>
+        </li><li>
+            <a href="../../10/02/hg_git.html">gitが手になじまない人へhg-gitのススメ</a>
+        </li><li>
+            <a href="../../09/12/django_v15_tutorial.html">Django 1.5 チュートリアル まとめ</a>
+        </li><li>
+            <a href="../../08/18/pyenv.html">pyenvな夏 in 2013</a>
+        </li><li>
+            <a href="../../08/08/timewatcher_c.html">C言語で実時間を測定する Windows && Linux</a>
+        </li><li>
+            <a href="../../07/14/more_emacs.html">Emacsパッケージ管理</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+    <h1>Tags Cloud</h1>
+      <a href="../../../tags/c.html" style="font-size: 10pt">c</a>&nbsp;&nbsp;
+      <a href="../../../tags/c.html" style="font-size: 8pt">c++</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/centos.html" style="font-size: 8pt">Centos</a>&nbsp;&nbsp;
+      <a href="../../../tags/ci.html" style="font-size: 8pt">CI</a>&nbsp;&nbsp;
+      <a href="../../../tags/design.html" style="font-size: 8pt">design</a>&nbsp;&nbsp;
+      <a href="../../../tags/django.html" style="font-size: 8pt">Django</a>&nbsp;&nbsp;
+      <a href="../../../tags/emacs.html" style="font-size: 12pt">emacs</a>&nbsp;&nbsp;
+      <a href="../../../tags/fortran.html" style="font-size: 8pt">fortran</a>&nbsp;&nbsp;
+      <a href="../../../tags/heroku.html" style="font-size: 8pt">heroku</a>&nbsp;&nbsp;
+      <a href="../../../tags/hg.html" style="font-size: 8pt">hg</a>&nbsp;&nbsp;
+      <a href="../../../tags/life.html" style="font-size: 8pt">life</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 8pt">linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/linux.html" style="font-size: 9pt">Linux</a>&nbsp;&nbsp;
+      <a href="../../../tags/mac.html" style="font-size: 12pt">mac</a>&nbsp;&nbsp;
+      <a href="../../../tags/mercurial.html" style="font-size: 8pt">mercurial</a>&nbsp;&nbsp;
+      <a href="../../../tags/mysql.html" style="font-size: 8pt">MySQL</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 8pt">Python</a>&nbsp;&nbsp;
+      <a href="../../../tags/python.html" style="font-size: 20pt">python</a>&nbsp;&nbsp;
+      <a href="../../../tags/qt.html" style="font-size: 8pt">Qt</a>&nbsp;&nbsp;
+      <a href="../../../tags/rake.html" style="font-size: 8pt">rake</a>&nbsp;&nbsp;
+      <a href="../../../tags/ruby.html" style="font-size: 9pt">ruby</a>&nbsp;&nbsp;
+      <a href="../../../tags/screen.html" style="font-size: 8pt">screen</a>&nbsp;&nbsp;
+      <a href="../../../tags/sphinx.html" style="font-size: 9pt">sphinx</a>&nbsp;&nbsp;
+      <a href="../../../tags/tdd.html" style="font-size: 8pt">TDD</a>&nbsp;&nbsp;
+      <a href="../../../tags/testingframework.html" style="font-size: 8pt">TestingFramework</a>&nbsp;&nbsp;
+      <a href="../../../tags/tinkerer.html" style="font-size: 8pt">tinkerer</a>&nbsp;&nbsp;
+      <a href="../../../tags/ubuntu.html" style="font-size: 8pt">Ubuntu</a>&nbsp;&nbsp;
+      <a href="../../../tags/unity.html" style="font-size: 8pt">Unity</a>&nbsp;&nbsp;
+      <a href="../../../tags/vim.html" style="font-size: 8pt">vim</a>&nbsp;&nbsp;
+      <a href="../../../tags/vps.html" style="font-size: 8pt">vps</a>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2013, Yuya Yano. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>
